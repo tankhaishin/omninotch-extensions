@@ -13,7 +13,8 @@
   "network": false,
   "needs": [
     "BusyCal",
-    "Busycal app"
+    "Busycal app",
+    "BusyCal app"
   ],
   "commands": [
     {

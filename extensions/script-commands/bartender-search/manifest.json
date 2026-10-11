@@ -12,7 +12,8 @@
   "license": "MIT",
   "network": false,
   "needs": [
-    "Bartender app"
+    "Bartender app",
+    "Bartender 4 app"
   ],
   "commands": [
     {

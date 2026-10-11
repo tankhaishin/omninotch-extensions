@@ -12,7 +12,8 @@
   "license": "MIT",
   "network": false,
   "needs": [
-    "wezterm"
+    "wezterm",
+    "WezTerm app"
   ],
   "commands": [
     {

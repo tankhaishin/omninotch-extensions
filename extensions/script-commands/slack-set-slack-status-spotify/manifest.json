@@ -12,6 +12,7 @@
   "license": "MIT",
   "network": true,
   "needs": [
+    "Spotify app",
     "Your API key or account (edit the script)"
   ],
   "commands": [

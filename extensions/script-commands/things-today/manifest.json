@@ -12,7 +12,8 @@
   "license": "MIT",
   "network": false,
   "needs": [
-    "Things app"
+    "Things app",
+    "Things3 app"
   ],
   "commands": [
     {

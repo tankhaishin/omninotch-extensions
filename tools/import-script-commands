@@ -30,6 +30,13 @@ APP_NAMES = {"cleanshot": "CleanShot X", "iterm": "iTerm", "devutils": "DevUtils
              "deepl": "DeepL", "goodlinks": "GoodLinks", "menubarx": "MenubarX", "hazeover": "HazeOver",
              "meetingbar": "MeetingBar", "phpstorm": "PhpStorm", "webstorm": "WebStorm", "openvpn": "OpenVPN",
              "expressvpn": "ExpressVPN", "y-pomodoro": "Y Pomodoro", "dnd-me": "DND Me", "translate-shell": "translate-shell"}
+BUILT_IN_NAMES = {"Finder", "System Events", "Safari", "Music", "Mail", "Notes", "Messages", "Reminders", "Calendar",
+                  "Terminal", "Photos", "Preview", "QuickTime Player", "System Preferences", "System Settings",
+                  "Shortcuts", "Maps", "FaceTime", "Contacts", "Dictionary", "Stickies", "Script Editor", "Books",
+                  "Podcasts", "TV", "App Store", "Activity Monitor", "Console", "Screenshot", "Font Book", "Home",
+                  "Weather", "Clock", "News", "Stocks", "Find My", "Voice Memos", "Image Capture", "Keychain Access",
+                  "Disk Utility", "Automator", "TextEdit", "Calculator", "Chess", "Siri", "Control Center",
+                  "Notification Center", "Dock", "SystemUIServer", "Spotlight", "Image Events", "Bluetooth File Exchange"}
 SKIP_APPS = {"raycast"}                     # scripts that drive Raycast itself mean nothing in OmniNotch
 MODE = {"fullOutput": "view", "compact": "run", "silent": "run", "inline": "live"}
 STOCK = {"bash", "sh", "zsh", "osascript", "perl", "swift-not", "env"}
@@ -67,6 +74,10 @@ def needs_of(path, text, top, sub):
             if tool not in needs and len(tool) < 30: needs.append(tool)
     if top == "apps" and sub and sub not in BUILT_IN:
         needs.append(APP_NAMES.get(sub, sub.replace("-", " ").title()) + " app")
+    for app in re.findall(r'(?:tell application|open -a|application id of|tell app)\s+"([^"]+)"', text) + \
+               re.findall(r'open -a\s+([A-Z][A-Za-z0-9.]+)', text):
+        app = app.removesuffix(".app")
+        if app not in BUILT_IN_NAMES and not app.startswith("com.") and f"{app} app" not in needs: needs.append(f"{app} app")
     if SECRET.search(text): needs.append("Your API key or account (edit the script)")
     return list(dict.fromkeys(needs))
 

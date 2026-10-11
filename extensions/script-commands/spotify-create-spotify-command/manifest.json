@@ -12,7 +12,8 @@
   "license": "MIT",
   "network": false,
   "needs": [
-    "Node.js"
+    "Node.js",
+    "Spotify app"
   ],
   "commands": [
     {

@@ -12,7 +12,8 @@
   "license": "MIT",
   "network": false,
   "needs": [
-    "Sidenotes app"
+    "Sidenotes app",
+    "SideNotes app"
   ],
   "commands": [
     {
