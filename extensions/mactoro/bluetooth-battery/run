@@ -1,0 +1,18 @@
+#!/bin/zsh
+# Bluetooth Battery: connected accessories under your limit (Magic devices via ioreg, AirPods via system_profiler).
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+limit=${OMNINOTCH_SETTING_PERCENT:-20}
+{
+  ioreg -r -l -k BatteryPercent 2>/dev/null | awk -F' = ' '/"Product" =/ {gsub(/"/,"",$2); p=$2} /"BatteryPercent" =/ {print $2 "\t" p}'
+  system_profiler SPBluetoothDataType 2>/dev/null | awk '
+    /^ {10}[^ ].*:$/ { d=$0; sub(/^ +/,"",d); sub(/:$/,"",d) }
+    /Battery Level:/ { v=$NF; sub(/%/,"",v); if (!(d in m) || v+0 < m[d]) m[d]=v+0 }
+    END { for (k in m) print m[k] "\t" k }'
+} | sort -n | awk -F'\t' '!seen[$2]++' > "$OMNINOTCH_DATA/now"
+out=() 
+while IFS=$'\t' read pct name; do
+  (( pct >= limit )) && continue
+  id=${${name:l}//[^a-z0-9]/-}
+  out+=("{\"v\":1,\"id\":\"bt-$id\",\"title\":$(js "$name"),\"subtitle\":\"Battery low · charge it soon\",\"value\":\"$pct%\",\"icon\":\"sf:battery.25percent\",\"tint\":\"rising\"}")
+done < "$OMNINOTCH_DATA/now"
+print -r -- "[${(j:,:)out}]"

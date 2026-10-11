@@ -1,0 +1,14 @@
+#!/bin/zsh
+# Daily Reminder: counts down the last 15 minutes, then needs you until you press Done (or 30 minutes pass).
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+[[ ${OMNINOTCH_SETTING_WEEKDAYS:-yes} == y* ]] && (( $(date +%u) > 5 )) && { print -r -- '[]'; exit 0 }
+at=${OMNINOTCH_SETTING_TIME:-09:30}; label=$(js "${OMNINOTCH_SETTING_LABEL:-Standup}")
+done_f="$OMNINOTCH_DATA/$(date +%F)"
+[[ $OMNINOTCH_ACTION == done ]] && touch $done_f
+[[ -f $done_f ]] && { print -r -- '[]'; exit 0 }
+left=$(( 10#${at%%:*} * 60 + 10#${at##*:} - 10#$(date +%H) * 60 - 10#$(date +%M) ))
+if (( left > 0 && left <= 15 )); then
+  print -r -- "{\"activities\":[{\"v\":1,\"id\":\"daily\",\"title\":$label,\"subtitle\":\"At $at\",\"value\":\"${left}m\",\"icon\":\"sf:alarm\",\"tint\":\"rising\"}],\"next\":\"20s\"}"
+elif (( left <= 0 && left > -30 )); then
+  print -r -- "[{\"v\":1,\"id\":\"daily\",\"title\":$label,\"subtitle\":\"Now · $at\",\"value\":\"now\",\"icon\":\"sf:alarm.fill\",\"state\":\"needsYou\",\"tint\":\"rising\",\"expires\":\"2m\",\"actions\":[{\"title\":\"Done\",\"run\":\"done\"}]}]"
+else print -r -- '[]'; fi

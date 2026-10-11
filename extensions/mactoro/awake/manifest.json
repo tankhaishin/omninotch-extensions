@@ -1,0 +1,26 @@
+{
+  "v": 1,
+  "id": "com.mactoro.awake",
+  "name": "Awake",
+  "description": "Keeps your Mac awake for an hour or two.",
+  "about": "Keep your Mac and its display awake for an hour or two, then let it sleep again.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": false,
+  "actions": {
+    "hour": "1 hour",
+    "two": "2 hours",
+    "more": "+1 hour",
+    "stop": "Stop"
+  },
+  "example": {
+    "title": "Awake",
+    "subtitle": "Until 16:40",
+    "value": "1h 20m",
+    "icon": "sf:cup.and.saucer.fill",
+    "tint": "live"
+  }
+}

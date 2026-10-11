@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "id": "com.mactoro.uptime",
+  "name": "Restart Reminder",
+  "description": "A nudge after weeks without a restart.",
+  "about": "A quiet nudge when your Mac hasn't restarted in a couple of weeks.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "1h",
+  "network": false,
+  "on": true,
+  "settings": [
+    {
+      "key": "days",
+      "title": "Remind after (days)",
+      "type": "text",
+      "default": "14"
+    }
+  ],
+  "example": {
+    "title": "Restart soon",
+    "subtitle": "Up 16 days",
+    "value": "16d",
+    "icon": "sf:arrow.clockwise"
+  }
+}

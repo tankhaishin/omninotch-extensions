@@ -1,0 +1,23 @@
+{
+  "v": 1,
+  "id": "com.mactoro.downloads",
+  "name": "Downloads",
+  "description": "A pop-up when a download finishes.",
+  "about": "A pop-up when a download finishes, with Show and Open.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "15s",
+  "network": false,
+  "on": false,
+  "actions": {
+    "show": "Show",
+    "open": "Open"
+  },
+  "example": {
+    "title": "Downloaded",
+    "subtitle": "Invoice-October.pdf",
+    "icon": "sf:arrow.down.circle",
+    "tint": "live"
+  }
+}

@@ -1,0 +1,34 @@
+#!/bin/zsh
+# Sunset: NOAA's sunrise equation. The place comes from your setting, else your time zone's city (zone.tab).
+loc=${OMNINOTCH_SETTING_LOCATION// /}; ahead=${OMNINOTCH_SETTING_MINUTES:-60}
+if [[ -z $loc ]]; then
+  tz=${$(readlink /etc/localtime)#*zoneinfo/}
+  c=$(awk -v tz=$tz '$3==tz {print $2}' /usr/share/zoneinfo/zone.tab)
+  [[ -z $c ]] && { print -r -- '[]'; exit 0 }
+  loc=$(print $c | awk '{ s=$0; match(s, /^[+-][0-9]+/); a=substr(s,1,RLENGTH); b=substr(s,RLENGTH+1)
+    f=function_dms; split("",x); n=length(a)-1; da=substr(a,2,2)+substr(a,4,2)/60+(n>4?substr(a,6,2)/3600:0); if (substr(a,1,1)=="-") da=-da
+    m=length(b)-1; db=substr(b,2,3)+substr(b,5,2)/60+(m>5?substr(b,7,2)/3600:0); if (substr(b,1,1)=="-") db=-db
+    printf "%.4f,%.4f", da, db }')
+fi
+lat=${loc%%,*}; lon=${loc#*,}
+z=$(date +%z); off=$(( ${z[1]}1 * (10#${z[2,3]} * 60 + 10#${z[4,5]}) ))
+read rise set <<< "$(awk -v lat=$lat -v lon=$lon -v N=$(( 10#$(date +%j) )) -v off=$off 'function rad(d){return d*3.14159265/180} function deg(r){return r*180/3.14159265}
+  function ev(rising,  t,M,L,RA,sd,cd,ch,H,T){ t=N+((rising?6:18)-lon/15)/24; M=0.9856*t-3.289
+    L=M+1.916*sin(rad(M))+0.020*sin(rad(2*M))+282.634; L=L-360*int(L/360); if(L<0)L+=360
+    RA=deg(atan2(0.91764*sin(rad(L)),cos(rad(L)))); if(RA<0)RA+=360; RA=(RA+(int(L/90)*90-int(RA/90)*90))/15
+    sd=0.39782*sin(rad(L)); cd=cos(atan2(sd,sqrt(1-sd*sd)))
+    ch=(cos(rad(90.833))-sd*sin(rad(lat)))/(cd*cos(rad(lat))); if(ch>1||ch<-1) return -1
+    H=deg(atan2(sqrt(1-ch*ch),ch)); if(rising)H=360-H; H/=15
+    T=H+RA-0.06571*t-6.622-lon/15+off/60; T=T-24*int(T/24); if(T<0)T+=24; return int(T*60+0.5) }
+  BEGIN { print ev(1), ev(0) }')"
+(( rise < 0 )) && { print -r -- '[]'; exit 0 }
+now=$(( 10#$(date +%H) * 60 + 10#$(date +%M) ))
+for what at icon in Sunrise $rise sunrise.fill Sunset $set sunset.fill; do
+  left=$(( at - now ))
+  if (( left > 0 && left <= ahead )); then
+    h=$(( at / 60 )); m=$(( at % 60 ))
+    print -r -- '{"activities":[{"v":1,"id":"sun","title":"'"$what"' in '"$left"' min","subtitle":"'"$what at $(printf %02d:%02d $h $m)"'","value":"'"${left}m"'","icon":"sf:'"$icon"'","tint":"rising","expires":"10m"}],"next":"60s"}'
+    exit 0
+  fi
+done
+print -r -- '[]'

@@ -1,0 +1,11 @@
+#!/bin/zsh
+# GitHub Reviews: open pull requests where your review is requested (gh search prs --review-requested=@me).
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+command -v gh >/dev/null || { print -u2 "Install GitHub's gh command (brew install gh) and run gh auth login."; exit 1 }
+j=$(gh search prs --review-requested=@me --state=open --sort=updated --limit 20 \
+  --json title,url,repository --jq '[length, (.[0].title // ""), (.[0].url // ""), (.[0].repository.nameWithOwner // "")] | @tsv' 2>&1) \
+  || { print -u2 -- "${j:0:200}"; exit 1 }
+IFS=$'\t' read n title url repo <<< "$j"
+(( n == 0 )) && { print -r -- '[]'; exit 0 }
+sub=$repo; (( n > 1 )) && sub+=" · $(( n - 1 )) more"
+print -r -- "[{\"v\":1,\"id\":\"reviews\",\"title\":$(js "$title"),\"subtitle\":$(js "Review requested · $sub"),\"value\":\"$n\",\"icon\":\"sf:arrow.triangle.pull\",\"tint\":\"rising\",\"actions\":[{\"title\":\"Open\",\"url\":$(js "$url")}]}]"

@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "id": "com.mactoro.network",
+  "name": "Internet",
+  "description": "Internet drops and Wi-Fi sign-in pages.",
+  "about": "Tells you the moment the internet drops, and when a Wi-Fi network wants you to sign in.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": true,
+  "on": false,
+  "example": {
+    "title": "No internet",
+    "subtitle": "Checking again every minute",
+    "icon": "sf:wifi.slash",
+    "state": "failed"
+  }
+}

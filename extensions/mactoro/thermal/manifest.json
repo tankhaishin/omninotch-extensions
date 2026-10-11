@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "id": "com.mactoro.thermal",
+  "name": "Running Hot",
+  "description": "When macOS slows your Mac to cool it.",
+  "about": "Tells you when macOS slows your Mac down to cool it.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "2m",
+  "network": false,
+  "on": true,
+  "example": {
+    "title": "Mac is running hot",
+    "subtitle": "macOS is slowing it down to cool it",
+    "value": "70%",
+    "icon": "sf:thermometer.high"
+  }
+}

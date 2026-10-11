@@ -1,0 +1,24 @@
+{
+  "v": 1,
+  "id": "com.mactoro.dev-servers",
+  "name": "Dev Servers",
+  "description": "Local servers running, with Open and Stop.",
+  "about": "The local servers you have running, with Open and Stop. Never lists macOS's own services.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": false,
+  "actions": {
+    "stop1": "Stop",
+    "stop2": "Stop",
+    "stop3": "Stop"
+  },
+  "example": {
+    "title": "localhost:5173",
+    "subtitle": "node \u00b7 my-site",
+    "icon": "sf:server.rack",
+    "tint": "live"
+  }
+}

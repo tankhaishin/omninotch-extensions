@@ -1,0 +1,7 @@
+#!/bin/zsh
+# Moon: phase from a known new moon (6 Jan 2000 18:14 UTC) and the 29.53-day cycle. Shows on the night itself only.
+read age lit <<< "$(awk -v now=$(date +%s) 'BEGIN { s=29.530588853; a=((now-947182440)/86400)%s; if(a<0)a+=s
+  printf "%.2f %d", a, (1-cos(2*3.14159265*a/s))/2*100 }')"
+if (( age > 13.77 && age < 15.77 )); then t="Full moon tonight"; i="moon.fill"
+elif (( age < 1 || age > 28.53 )); then t="New moon tonight"; i="moon"; else print -r -- '[]'; exit 0; fi
+print -r -- '[{"v":1,"id":"moon","title":"'"$t"'","subtitle":"'"$lit"'% lit","value":"'"$lit"'%","icon":"sf:'"$i"'","priority":"low","expires":"2h"}]'

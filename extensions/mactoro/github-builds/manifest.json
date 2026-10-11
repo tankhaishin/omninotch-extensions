@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "id": "com.mactoro.github-builds",
+  "name": "GitHub builds",
+  "description": "Your latest GitHub Actions runs.",
+  "about": "The latest GitHub Actions run of your repositories: running, passed or failed. Uses GitHub's own gh command and your gh login.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": true,
+  "on": false,
+  "settings": [
+    {
+      "key": "repos",
+      "title": "Repositories (owner/name, comma-separated; empty = your 3 most recent)",
+      "type": "text",
+      "default": ""
+    }
+  ],
+  "example": {
+    "title": "web \u00b7 main",
+    "subtitle": "Deploy is running",
+    "progress": "indeterminate",
+    "icon": "sf:hammer"
+  }
+}

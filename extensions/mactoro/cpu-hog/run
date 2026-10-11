@@ -1,0 +1,28 @@
+#!/bin/zsh
+# Busy App: an app that has kept the processor busy for two checks in a row (100% = one core), with Quit.
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+
+# Adds up every process per app (Chrome's helpers count as Chrome): "<amount>\t<app>\t<is an app>\t<.app path>".
+per_app() {
+  ps -Aeo $1=,comm= | awk '{ amt=$1; $1=""; sub(/^ +/, ""); p=$0; app=0; path=""
+    if (match(p, /\/[^\/]+\.app\//)) { n=substr(p, RSTART+1, RLENGTH-6); app=1; path=substr(p, 1, RSTART+RLENGTH-2) }
+    else { n=p; sub(/.*\//, "", n) }
+    t[n]+=amt; a[n]=app; if (!(n in w)) w[n]=path } END { for (k in t) printf "%d\t%s\t%d\t%s\n", t[k], k, a[k], w[k] }' | sort -rn | head -1
+}
+icon_for() {   # the app's own icon ("app:<bundle id>"), else the extension's symbol
+  local id; [[ -n $1 ]] && id=$(/usr/libexec/PlistBuddy -c "Print CFBundleIdentifier" "$1/Contents/Info.plist" 2>/dev/null)
+  [[ -n $id ]] && print -r -- "app:$id" || print -r -- "sf:$2"
+}
+quit_app() {   # politely, like Quit in the Dock; never Finder or OmniNotch
+  [[ $1 == (Finder|OmniNotch|loginwindow|WindowServer) ]] && return
+  /usr/bin/osascript -e "quit app \"$1\"" >/dev/null 2>&1
+}
+
+limit=${OMNINOTCH_SETTING_PERCENT:-150}
+IFS=$'\t' read pct app isapp path <<< "$(per_app pcpu)"
+last="$OMNINOTCH_DATA/last"
+if [[ $OMNINOTCH_ACTION == quit && $isapp == 1 ]]; then quit_app "$app"; rm -f $last; print -r -- '[]'; exit 0; fi
+if (( pct < limit )); then rm -f $last; print -r -- '[]'; exit 0; fi
+[[ -f $last && $(<$last) == $app ]] || { print -r -- $app > $last; print -r -- '[]'; exit 0 }   # wait for a second check
+btn=''; (( isapp )) && btn=',"actions":[{"title":"Quit","run":"quit","confirm":true}]'
+print -r -- "[{\"v\":1,\"id\":\"cpu\",\"title\":$(js "$app"),\"subtitle\":\"Keeping the processor busy\",\"value\":\"$pct%\",\"icon\":$(js "$(icon_for "$path" cpu)")$btn}]"

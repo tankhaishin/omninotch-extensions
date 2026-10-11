@@ -1,0 +1,7 @@
+#!/bin/zsh
+# Disk Space: shows only when free space on the Mac's disk drops under your limit; red under 5 GB.
+limit=${OMNINOTCH_SETTING_GB:-20}
+free=$(( $(df -k /System/Volumes/Data | awk 'NR==2 {print $4}') / 1048576 ))
+(( free >= limit )) && { print -r -- '[]'; exit 0 }
+if (( free < 5 )); then extra=',"tint":"alert","priority":"high"'; title="Disk almost full"; else extra=''; title="Disk filling up"; fi
+print -r -- '[{"v":1,"id":"disk","title":"'"$title"'","subtitle":"'"$free"' GB free on this Mac","value":"'"$free"' GB","icon":"sf:internaldrive"'"$extra"'}]'

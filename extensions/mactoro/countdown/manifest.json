@@ -1,0 +1,33 @@
+{
+  "v": 1,
+  "id": "com.mactoro.countdown",
+  "name": "Countdown",
+  "description": "Days, hours and minutes to a date.",
+  "about": "Days, hours and minutes to a date that matters.",
+  "category": "Time",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "settings": [
+    {
+      "key": "label",
+      "title": "What",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "key": "date",
+      "title": "When",
+      "type": "date",
+      "default": ""
+    }
+  ],
+  "example": {
+    "title": "Launch",
+    "subtitle": "Sat 24 Oct \u00b7 09:00",
+    "value": "12d 4h",
+    "icon": "sf:calendar",
+    "tint": "rising"
+  }
+}

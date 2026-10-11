@@ -1,0 +1,18 @@
+#!/bin/zsh
+# Docker: quiet while everything's fine. A container that exited with an error in the last 10 minutes, or is unhealthy.
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+export PATH="$PATH:$HOME/.orbstack/bin:/Applications/Docker.app/Contents/Resources/bin"
+command -v docker >/dev/null || { print -u2 "Docker isn't installed."; exit 1 }
+ps_out=$(docker ps -a --format '{{.Names}}	{{.Status}}' 2>/dev/null) || { print -r -- '[]'; exit 0 }   # not running: nothing to say
+out=()
+while IFS=$'\t' read name st; do
+  [[ -z $name ]] && continue
+  id=${${name:l}//[^a-z0-9._-]/-}
+  if [[ $st == *"(unhealthy)"* ]]; then
+    out+=("{\"v\":1,\"id\":\"c-$id\",\"title\":$(js "$name"),\"subtitle\":\"Unhealthy\",\"icon\":\"sf:shippingbox\",\"state\":\"failed\",\"expires\":\"3m\"}")
+  elif [[ $st == Exited\ \([1-9]* && $st == *(second|minute)s#\ ago* && ! $st == *([1-9][0-9]|[1-9][0-9][0-9])\ minutes\ ago* ]]; then
+    code=${${st#Exited \(}%%\)*}
+    out+=("{\"v\":1,\"id\":\"c-$id\",\"title\":$(js "$name"),\"subtitle\":\"Stopped with exit code $code\",\"icon\":\"sf:shippingbox\",\"state\":\"failed\",\"expires\":\"10m\"}")
+  fi
+done <<< "$ps_out"
+print -r -- "[${(j:,:)out[1,5]}]"

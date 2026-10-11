@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "id": "com.mactoro.world-clock",
+  "name": "World Clock",
+  "description": "The time in the cities you work with.",
+  "about": "The time in the cities you work with.",
+  "category": "Time",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "cities",
+      "title": "Cities",
+      "type": "text",
+      "default": "New York=America/New_York, London=Europe/London, Tokyo=Asia/Tokyo"
+    }
+  ],
+  "example": {
+    "title": "London",
+    "subtitle": "Mon \u00b7 7h behind",
+    "value": "09:20",
+    "icon": "sf:globe"
+  }
+}

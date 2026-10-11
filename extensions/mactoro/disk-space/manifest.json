@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "id": "com.mactoro.disk-space",
+  "name": "Disk Space",
+  "description": "A heads-up when your disk is nearly full.",
+  "about": "A heads-up when your Mac's disk is nearly full.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "10m",
+  "network": false,
+  "on": true,
+  "settings": [
+    {
+      "key": "gb",
+      "title": "Warn below (GB)",
+      "type": "text",
+      "default": "20"
+    }
+  ],
+  "example": {
+    "title": "Disk filling up",
+    "subtitle": "14 GB free on this Mac",
+    "value": "14 GB",
+    "icon": "sf:internaldrive"
+  }
+}

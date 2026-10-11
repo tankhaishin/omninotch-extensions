@@ -1,0 +1,32 @@
+{
+  "v": 1,
+  "id": "com.mactoro.break-reminder",
+  "name": "Stand Up",
+  "description": "A nudge to stand up after a long stretch.",
+  "about": "After a long stretch at the keyboard, a nudge to get up. Resets by itself when you step away.",
+  "category": "Time",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "minutes",
+      "title": "After (minutes)",
+      "type": "text",
+      "default": "50"
+    }
+  ],
+  "actions": {
+    "done": "Done",
+    "snooze": "10 more minutes"
+  },
+  "example": {
+    "title": "Time to stand up",
+    "subtitle": "52 minutes at your Mac",
+    "icon": "sf:figure.walk",
+    "state": "needsYou",
+    "tint": "rising"
+  }
+}

@@ -1,0 +1,15 @@
+#!/bin/zsh
+# Certificate Expiry: reads each site's certificate end date (openssl, 5 s each). Amber when close, red under 3 days.
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+warn=${OMNINOTCH_SETTING_DAYS:-14}; now=$(date +%s); out=()
+for d in ${(s:,:)OMNINOTCH_SETTING_DOMAINS// /}; do
+  d=${${d#*://}%%/*}
+  end=$( { print | openssl s_client -connect $d:443 -servername $d 2>/dev/null & p=$!; ( sleep 5; kill $p 2>/dev/null ) >/dev/null 2>&1 &; k=$!; wait $p; kill $k 2>/dev/null } \
+        | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+  [[ -z $end ]] && { print -u2 "Couldn't read the certificate for $d"; continue }
+  left=$(( ($(LC_ALL=C date -j -f "%b %e %T %Y %Z" "$end" +%s) - now) / 86400 ))
+  (( left > warn )) && continue
+  extra=$( (( left < 3 )) && print ',"tint":"alert","priority":"high"' || print ',"tint":"rising"' )
+  out+=("{\"v\":1,\"id\":$(js "ssl-${d//[^A-Za-z0-9.-]/-}"),\"title\":$(js "$d certificate"),\"subtitle\":\"Expires in $left days\",\"value\":\"${left}d\",\"icon\":\"sf:lock.shield\"$extra,\"expires\":\"13h\"}")
+done
+print -r -- "[${(j:,:)out[1,5]}]"

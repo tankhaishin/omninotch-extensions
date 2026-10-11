@@ -1,0 +1,18 @@
+#!/bin/zsh
+# Streak: days done are files named by date in $OMNINOTCH_DATA. The streak counts back from today (or yesterday).
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+habit=${OMNINOTCH_SETTING_HABIT:-Exercise}; remind=${OMNINOTCH_SETTING_REMIND:-19:00}
+today=$(date +%F)
+[[ $OMNINOTCH_ACTION == done ]] && touch "$OMNINOTCH_DATA/$today"
+streak=0; d=0
+[[ -f "$OMNINOTCH_DATA/$today" ]] || d=1                       # not done yet today: count from yesterday
+while [[ -f "$OMNINOTCH_DATA/$(date -v-${d}d +%F)" ]]; do streak=$(( streak + 1 )); d=$(( d + 1 )); done
+title=$(js "$habit")
+if [[ -f "$OMNINOTCH_DATA/$today" ]]; then
+  print -r -- "[{\"v\":1,\"id\":\"streak\",\"title\":$title,\"subtitle\":\"Done today · $streak-day streak\",\"value\":\"${streak}d\",\"icon\":\"sf:flame.fill\",\"priority\":\"low\"}]"
+elif [[ $(date +%H:%M) > $remind || $(date +%H:%M) == $remind ]]; then
+  sub=$( (( streak )) && print "Keep your $streak-day streak" || print "Start a streak today" )
+  print -r -- "[{\"v\":1,\"id\":\"streak\",\"title\":$title,\"subtitle\":\"$sub\",\"value\":\"${streak}d\",\"icon\":\"sf:flame\",\"tint\":\"rising\",\"actions\":[{\"title\":\"Done today\",\"run\":\"done\"}]}]"
+else
+  print -r -- "[{\"v\":1,\"id\":\"streak\",\"title\":$title,\"subtitle\":\"$streak-day streak\",\"value\":\"${streak}d\",\"icon\":\"sf:flame\",\"priority\":\"low\",\"actions\":[{\"title\":\"Done today\",\"run\":\"done\"}]}]"
+fi

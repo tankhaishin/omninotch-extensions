@@ -1,0 +1,34 @@
+{
+  "v": 1,
+  "id": "com.mactoro.git-unpushed",
+  "name": "Unpushed Work",
+  "description": "Projects with work you haven't pushed.",
+  "about": "Projects with changes you haven't committed or pushed. Rises at the end of the day.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "15m",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "folder",
+      "title": "Projects folder",
+      "type": "text",
+      "default": "~/Developer"
+    },
+    {
+      "key": "remind",
+      "title": "Remind from",
+      "type": "text",
+      "default": "18:00"
+    }
+  ],
+  "example": {
+    "title": "Unpushed work",
+    "subtitle": "web, api, docs",
+    "value": "3",
+    "icon": "sf:arrow.up.circle",
+    "tint": "rising"
+  }
+}

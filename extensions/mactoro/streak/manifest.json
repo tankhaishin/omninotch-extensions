@@ -1,0 +1,37 @@
+{
+  "v": 1,
+  "id": "com.mactoro.streak",
+  "name": "Streak",
+  "description": "One daily habit and your streak.",
+  "about": "One daily habit and your streak. Reminds you in the evening if today isn't done yet.",
+  "category": "Work",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "15m",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "habit",
+      "title": "Habit",
+      "type": "text",
+      "default": "Exercise"
+    },
+    {
+      "key": "remind",
+      "title": "Remind from",
+      "type": "text",
+      "default": "19:00"
+    }
+  ],
+  "actions": {
+    "done": "Done today"
+  },
+  "example": {
+    "title": "Exercise",
+    "subtitle": "Keep your 5-day streak",
+    "value": "5d",
+    "icon": "sf:flame",
+    "tint": "rising"
+  }
+}

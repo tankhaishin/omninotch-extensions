@@ -1,0 +1,7 @@
+#!/bin/zsh
+# Restart Reminder: low priority, so it waits in Live and never takes the notch.
+limit=${OMNINOTCH_SETTING_DAYS:-14}
+boot=$(sysctl -n kern.boottime | sed -E 's/^\{ sec = ([0-9]+).*/\1/')
+days=$(( ($(date +%s) - boot) / 86400 ))
+(( days < limit )) && { print -r -- '[]'; exit 0 }
+print -r -- '[{"v":1,"id":"uptime","title":"Restart when you can","subtitle":"Up '"$days"' days · a restart clears memory and finishes updates","value":"'"$days"'d","icon":"sf:arrow.clockwise","priority":"low","expires":"2h"}]'

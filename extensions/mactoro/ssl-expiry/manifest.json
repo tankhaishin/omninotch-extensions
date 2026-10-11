@@ -1,0 +1,34 @@
+{
+  "v": 1,
+  "id": "com.mactoro.ssl-expiry",
+  "name": "Certificate Expiry",
+  "description": "Before a site's certificate expires.",
+  "about": "Warns you before a website's HTTPS certificate expires.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "12h",
+  "network": true,
+  "on": false,
+  "settings": [
+    {
+      "key": "domains",
+      "title": "Domains (comma-separated)",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "key": "days",
+      "title": "Warn within (days)",
+      "type": "text",
+      "default": "14"
+    }
+  ],
+  "example": {
+    "title": "Cert expiring",
+    "subtitle": "Expires in 9 days",
+    "value": "9d",
+    "icon": "sf:lock.shield",
+    "tint": "rising"
+  }
+}

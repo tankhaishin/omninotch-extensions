@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "id": "com.mactoro.moon",
+  "name": "Moon",
+  "description": "Full moon and new moon nights.",
+  "about": "Full moon and new moon nights, for photographers and night owls.",
+  "category": "Time",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "1h",
+  "network": false,
+  "on": false,
+  "example": {
+    "title": "Full moon tonight",
+    "subtitle": "99% lit",
+    "value": "99%",
+    "icon": "sf:moon.fill"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "id": "com.mactoro.mail",
+  "name": "Mail",
+  "description": "Unread mail while Mail is open.",
+  "about": "Unread mail in your inbox, while the Mail app is open.",
+  "category": "Work",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "2m",
+  "network": false,
+  "on": false,
+  "example": {
+    "title": "Unread mail",
+    "subtitle": "6 in your inbox",
+    "value": "6",
+    "icon": "sf:envelope.badge"
+  }
+}

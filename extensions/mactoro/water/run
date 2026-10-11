@@ -1,0 +1,15 @@
+#!/bin/zsh
+# Water: a counter that resets each day. Waits quietly in Live; rises when it's been a while (9:00–21:00).
+goal=${OMNINOTCH_SETTING_GOAL:-8}; gap=$(( ${OMNINOTCH_SETTING_HOURS:-2} * 3600 ))
+f="$OMNINOTCH_DATA/$(date +%F)"; now=$(date +%s); hour=$(( 10#$(date +%H) ))
+n=0; last=0; [[ -f $f ]] && read n last < $f
+[[ $OMNINOTCH_ACTION == add ]] && { n=$(( n + 1 )); last=$now; print "$n $last" > $f }
+p=$(( n >= goal ? 100 : n * 100 / goal )); prog=$( (( p >= 100 )) && print 1 || printf '0.%02d' $p )
+btn='"actions":[{"title":"+1 glass","run":"add"}]'
+if (( n >= goal )); then
+  print -r -- '[{"v":1,"id":"water","title":"Water","subtitle":"Goal reached","value":"'"$n/$goal"'","progress":1,"icon":"sf:drop.fill","priority":"low",'"$btn"'}]'
+elif (( hour >= 9 && hour < 21 && now - ${last:-0} > gap && now - $(stat -f %B "$OMNINOTCH_DATA" 2>/dev/null || print $now) > gap )); then
+  print -r -- '[{"v":1,"id":"water","title":"Drink some water","subtitle":"'"$n of $goal"' glasses today","value":"'"$n/$goal"'","progress":'"$prog"',"icon":"sf:drop","tint":"rising",'"$btn"'}]'
+else
+  print -r -- '[{"v":1,"id":"water","title":"Water","subtitle":"'"$n of $goal"' glasses today","value":"'"$n/$goal"'","progress":'"$prog"',"icon":"sf:drop","priority":"low",'"$btn"'}]'
+fi

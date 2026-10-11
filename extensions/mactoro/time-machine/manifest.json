@@ -1,0 +1,21 @@
+{
+  "v": 1,
+  "id": "com.mactoro.time-machine",
+  "name": "Time Machine",
+  "description": "Backup progress while Time Machine runs.",
+  "about": "Backup progress while Time Machine runs, and a note when it's done.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": true,
+  "example": {
+    "title": "Backing up",
+    "subtitle": "Time Machine \u00b7 Copying",
+    "value": "42%",
+    "progress": 0.42,
+    "icon": "sf:clock.arrow.circlepath",
+    "tint": "live"
+  }
+}

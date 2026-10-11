@@ -1,0 +1,23 @@
+#!/bin/zsh
+# Homebrew: `brew outdated` (no network). Upgrade runs `brew upgrade --formula` in the background and reports back.
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+command -v brew >/dev/null || { print -u2 "Homebrew isn't installed."; exit 1 }
+pid_f="$OMNINOTCH_DATA/pid"; st_f="$OMNINOTCH_DATA/status"
+if [[ $OMNINOTCH_ACTION == upgrade ]] && ! { [[ -f $pid_f ]] && kill -0 $(<$pid_f) 2>/dev/null }; then
+  rm -f $st_f
+  zsh -c "HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade --formula >'$OMNINOTCH_DATA/log' 2>&1; print \$? > '$st_f'" </dev/null >/dev/null 2>&1 &!
+  print $! > $pid_f
+fi
+if [[ -f $pid_f ]] && kill -0 $(<$pid_f) 2>/dev/null; then
+  print -r -- '{"activities":[{"v":1,"id":"brew","title":"Upgrading Homebrew","subtitle":"Running brew upgrade","progress":"indeterminate","icon":"sf:mug","tint":"live"}],"next":"15s"}'
+  exit 0
+fi
+if [[ -f $pid_f && -f $st_f ]]; then
+  rm -f $pid_f
+  if [[ $(<$st_f) == 0 ]]; then print -r -- '[{"v":1,"id":"brew","title":"Homebrew upgraded","icon":"sf:mug","state":"done"}]'
+  else print -r -- '[{"v":1,"id":"brew","title":"Homebrew upgrade failed","subtitle":"See brew upgrade in Terminal","icon":"sf:mug","state":"failed","expires":"1h"}]'; fi
+  exit 0
+fi
+names=(${(f)"$(HOMEBREW_NO_AUTO_UPDATE=1 brew outdated --formula --quiet 2>/dev/null)"})
+(( ${#names} == 0 )) && { print -r -- '[]'; exit 0 }
+print -r -- "[{\"v\":1,\"id\":\"brew\",\"title\":\"${#names} Homebrew updates\",\"subtitle\":$(js "${(j:, :)names[1,4]}${names[5]:+ …}"),\"value\":\"${#names}\",\"icon\":\"sf:mug\",\"priority\":\"low\",\"actions\":[{\"title\":\"Upgrade\",\"run\":\"upgrade\"}]}]"

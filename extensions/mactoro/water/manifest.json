@@ -1,0 +1,37 @@
+{
+  "v": 1,
+  "id": "com.mactoro.water",
+  "name": "Water",
+  "description": "Glasses of water, with a nudge.",
+  "about": "Count glasses of water through the day, with a nudge if it's been a while.",
+  "category": "Work",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "5m",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "goal",
+      "title": "Glasses a day",
+      "type": "text",
+      "default": "8"
+    },
+    {
+      "key": "hours",
+      "title": "Nudge after (hours)",
+      "type": "text",
+      "default": "2"
+    }
+  ],
+  "actions": {
+    "add": "+1 glass"
+  },
+  "example": {
+    "title": "Water",
+    "subtitle": "3 of 8 glasses today",
+    "value": "3/8",
+    "progress": 0.375,
+    "icon": "sf:drop"
+  }
+}

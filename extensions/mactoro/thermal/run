@@ -1,0 +1,8 @@
+#!/bin/zsh
+# Running Hot: `pmset -g therm` reports a speed limit or thermal warning only while the Mac is throttling.
+t=$(pmset -g therm 2>/dev/null)
+limit=$(print -r -- $t | awk -F'= ' '/CPU_Speed_Limit/ {print $2+0; exit}')
+if [[ -n $limit && $limit -lt 100 ]]; then value="$limit%"
+elif print -r -- $t | grep -qiE '(thermal|performance) warning level' && ! print -r -- $t | grep -qiE 'no (thermal|performance) warning'; then value="hot"
+else print -r -- '[]'; exit 0; fi
+print -r -- '[{"v":1,"id":"therm","title":"Mac is running hot","subtitle":"macOS is slowing it down to cool it","value":"'"$value"'","icon":"sf:thermometer.high","expires":"5m"}]'

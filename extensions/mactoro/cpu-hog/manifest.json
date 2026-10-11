@@ -1,0 +1,30 @@
+{
+  "v": 1,
+  "id": "com.mactoro.cpu-hog",
+  "name": "Busy App",
+  "description": "An app keeping your Mac busy, with Quit.",
+  "about": "Tells you when one app keeps your processor busy for minutes, with a button to quit it.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": true,
+  "settings": [
+    {
+      "key": "percent",
+      "title": "Warn above (%)",
+      "type": "text",
+      "default": "150"
+    }
+  ],
+  "actions": {
+    "quit": "Quit"
+  },
+  "example": {
+    "title": "Photos",
+    "subtitle": "Keeping the processor busy",
+    "value": "180%",
+    "icon": "app:com.apple.Photos"
+  }
+}

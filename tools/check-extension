@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+"""Run OmniNotch extensions the way the app does and check what they print (EXTENSIONS.md, format v1).
+
+    tools/check-extension <folder> [<folder>…] [--action <name>] [--set KEY=value …]
+
+Exit 0 when every extension passes. Used for our own extensions and to review community submissions.
+"""
+import json, os, re, subprocess, sys, tempfile, time
+
+TINTS = {"calm", "live", "rising", "alert"}
+STATES = {"active", "needsYou", "done", "failed"}
+PRIORITIES = {"low", "normal", "high"}
+DURATION = re.compile(r"^\d+(\.\d+)?[smhd]$")
+
+
+def symbols_exist(names):
+    """Which SF Symbol names macOS has (one swift call for all of them)."""
+    if not names:
+        return set()
+    code = "import AppKit\nfor n in CommandLine.arguments.dropFirst() where NSImage(systemSymbolName: n, accessibilityDescription: nil) != nil { print(n) }"
+    with tempfile.NamedTemporaryFile("w", suffix=".swift", delete=False) as f:
+        f.write(code)
+    out = subprocess.run(["swift", f.name, *names], capture_output=True, text=True).stdout
+    os.unlink(f.name)
+    return set(out.split())
+
+
+def check_activity(a, actions, problems, warnings, icons):
+    if a.get("v") != 1: problems.append('"v" must be 1')
+    i = a.get("id")
+    if not isinstance(i, str) or not re.fullmatch(r"[A-Za-z0-9._-]{1,64}", i): problems.append(f"bad id {i!r}")
+    if a.get("end") is True: return
+    if not isinstance(a.get("title"), str) or not a["title"].strip(): problems.append(f"{i}: title is required")
+    for field, n in (("title", 40), ("subtitle", 60), ("value", 8)):
+        v = a.get(field)
+        if v is not None and not isinstance(v, str): problems.append(f"{i}: {field} must be text")
+        elif v and len(v) > n: warnings.append(f"{i}: {field} {v!r} is cut to {n} characters")
+    p = a.get("progress")
+    if p is not None and p != "indeterminate" and not (isinstance(p, (int, float)) and 0 <= p <= 1):
+        problems.append(f"{i}: progress must be 0…1 or \"indeterminate\"")
+    for field, allowed in (("tint", TINTS), ("state", STATES), ("priority", PRIORITIES)):
+        if field in a and a[field] not in allowed: problems.append(f"{i}: {field} {a[field]!r} isn't one of {sorted(allowed)}")
+    if a.get("tint") == "alert" and a.get("state") not in ("failed", None) and a.get("priority") != "high":
+        warnings.append(f"{i}: alert (red) is for something broken")
+    icon = a.get("icon")
+    if isinstance(icon, str) and icon.startswith("sf:"): icons.add(icon[3:])
+    e = a.get("expires")
+    if e is not None and not (isinstance(e, str) and (DURATION.match(e) or re.match(r"^\d{4}-\d\d-\d\dT", e))):
+        problems.append(f"{i}: expires {e!r} should be like 30s, 10m, 2h, 1d or an ISO date")
+    btns = a.get("actions", [])
+    if len(btns) > 2: warnings.append(f"{i}: only the first 2 buttons show")
+    for b in btns:
+        if not b.get("title"): problems.append(f"{i}: a button needs a title")
+        if "run" in b and b["run"] not in actions: problems.append(f"{i}: button runs {b['run']!r}, not in the manifest's actions")
+        if "url" in b and not str(b["url"]).startswith(("https://", "http://")): problems.append(f"{i}: button url must be http(s)")
+        if "run" not in b and "url" not in b: problems.append(f"{i}: a button needs run or url")
+
+
+def check(folder, action=None, overrides=None):
+    problems, warnings, icons = [], [], set()
+    try:
+        m = json.load(open(os.path.join(folder, "manifest.json")))
+    except Exception as e:
+        return [f"manifest.json: {e}"], [], set(), None
+    for k in ("v", "id", "name", "run"):
+        if k not in m: problems.append(f"manifest: {k} is required")
+    if m.get("v") != 1: problems.append("manifest: v must be 1")
+    parts = folder.rstrip("/").split("/")
+    if len(parts) >= 3 and parts[-3] == "extensions":          # the gallery repo: extensions/<author>/<name>
+        author, name = parts[-2], parts[-1]
+        want = f"com.mactoro.{name}" if author == "mactoro" else f"{author}.{name}"
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,40}", name): problems.append("folder name: lowercase letters, digits and -")
+        if m.get("id") != want: problems.append(f'manifest id must be "{want}" for extensions/{author}/{name}')
+        for k in ("description", "category", "example"):
+            if not m.get(k): problems.append(f"manifest: {k} is required in the gallery")
+        if m.get("category") and m["category"] not in ("Mac", "Time", "Work", "Developer"):
+            problems.append("category must be Mac, Time, Work or Developer")
+        if len(m.get("description", "")) > 50: warnings.append("description is cut to one line after about 45 characters")
+    elif os.path.basename(folder.rstrip("/")) != m.get("id"): warnings.append("folder name should be the id")
+    exe = os.path.join(folder, m.get("run", "run"))
+    if not os.access(exe, os.X_OK): return problems + ["run isn't executable (chmod +x run)"], warnings, icons, None
+    data = tempfile.mkdtemp(prefix="omn-check-")
+    env = {"PATH": "/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin", "HOME": os.environ["HOME"],
+           "LANG": "en_US.UTF-8", "OMNINOTCH_VERSION": "1", "OMNINOTCH_DATA": data}
+    for s in m.get("settings", []):
+        env["OMNINOTCH_SETTING_" + s["key"].upper()] = (overrides or {}).get(s["key"].upper(), s.get("default", ""))
+    if action: env["OMNINOTCH_ACTION"] = action
+    t = time.time()
+    try:
+        r = subprocess.run([exe], cwd=folder, env=env, capture_output=True, timeout=10)
+    except subprocess.TimeoutExpired:
+        return problems + ["took longer than 10 s"], warnings, icons, None
+    took = time.time() - t
+    if took > 3: warnings.append(f"took {took:.1f} s (keep it under a few seconds)")
+    if r.returncode != 0: return problems + [f"exit {r.returncode}: {r.stderr.decode()[:300].strip()}"], warnings, icons, None
+    if len(r.stdout) > 65536: problems.append("printed more than 64 KB")
+    try:
+        out = json.loads(r.stdout)
+    except Exception:
+        return problems + [f"output isn't JSON: {r.stdout[:120]!r}"], warnings, icons, None
+    acts = out if isinstance(out, list) else out.get("activities") if isinstance(out, dict) else None
+    if acts is None: return problems + ["expected a list, or {activities, next}"], warnings, icons, None
+    if isinstance(out, dict) and "next" in out and not DURATION.match(str(out["next"])): problems.append("next should be like 15s")
+    if len(acts) > 5: warnings.append("only 5 activities show")
+    for a in acts: check_activity(a, m.get("actions", {}) or {}, problems, warnings, icons)
+    return problems, warnings, icons, acts
+
+
+def main():
+    args, folders, action, overrides = sys.argv[1:], [], None, {}
+    while args:
+        a = args.pop(0)
+        if a == "--action": action = args.pop(0)
+        elif a == "--set": k, v = args.pop(0).split("=", 1); overrides[k.upper()] = v
+        else: folders.append(a)
+    results, all_icons = [], set()
+    for f in folders:
+        p, w, icons, acts = check(os.path.abspath(f), action, overrides)
+        results.append((f, p, w, icons, acts)); all_icons |= icons
+    have = symbols_exist(sorted(all_icons))
+    failed = 0
+    for f, p, w, icons, acts in results:
+        p = p + [f"no SF Symbol named {n!r}" for n in sorted(icons - have)]
+        name = os.path.basename(f.rstrip("/"))
+        shown = "; ".join(f"{a.get('title')}" + (f" [{a['value']}]" if a.get("value") else "") for a in (acts or [])) or "(nothing)"
+        print(f"{'FAIL' if p else 'ok  '} {name}: {shown}")
+        for x in p: print(f"     ✗ {x}")
+        for x in w: print(f"     · {x}")
+        failed += bool(p)
+    sys.exit(1 if failed else 0)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,35 @@
+{
+  "v": 1,
+  "id": "com.mactoro.workday",
+  "name": "Workday",
+  "description": "What's left of your working day.",
+  "about": "How much of your working day is left, with a nudge to wrap up near the end.",
+  "category": "Time",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "5m",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "start",
+      "title": "Starts",
+      "type": "text",
+      "default": "09:00"
+    },
+    {
+      "key": "end",
+      "title": "Ends",
+      "type": "text",
+      "default": "18:00"
+    }
+  ],
+  "example": {
+    "title": "Wrap up",
+    "subtitle": "Your day ends at 18:00",
+    "value": "25m",
+    "progress": 0.95,
+    "icon": "sf:sun.haze",
+    "tint": "rising"
+  }
+}

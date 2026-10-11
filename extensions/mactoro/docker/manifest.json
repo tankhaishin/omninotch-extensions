@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "id": "com.mactoro.docker",
+  "name": "Docker",
+  "description": "Containers that crashed or turned unhealthy.",
+  "about": "Containers that crashed or turned unhealthy, from Docker Desktop, OrbStack or Colima.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": false,
+  "example": {
+    "title": "postgres",
+    "subtitle": "Stopped with exit code 1",
+    "icon": "sf:shippingbox",
+    "state": "failed"
+  }
+}

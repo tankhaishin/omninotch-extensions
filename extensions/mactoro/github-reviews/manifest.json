@@ -1,0 +1,20 @@
+{
+  "v": 1,
+  "id": "com.mactoro.github-reviews",
+  "name": "GitHub Reviews",
+  "description": "Pull requests waiting for your review.",
+  "about": "Pull requests waiting for your review. Uses GitHub's own gh command and your gh login.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "5m",
+  "network": true,
+  "on": false,
+  "example": {
+    "title": "Fix login redirect",
+    "subtitle": "Review requested \u00b7 acme/web",
+    "value": "2",
+    "icon": "sf:arrow.triangle.pull",
+    "tint": "rising"
+  }
+}

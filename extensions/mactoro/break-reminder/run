@@ -1,0 +1,14 @@
+#!/bin/zsh
+# Stand Up: counts time since you last stepped away (5 idle minutes counts as a break; macOS's own idle timer).
+limit=${OMNINOTCH_SETTING_MINUTES:-50}
+since="$OMNINOTCH_DATA/since"; now=$(date +%s)
+idle=$(( $(ioreg -c IOHIDSystem | awk '/HIDIdleTime/ {print int($NF/1000000000); exit}') ))
+case $OMNINOTCH_ACTION in
+  done)   print $now > $since ;;
+  snooze) print $(( now - limit * 60 + 600 )) > $since ;;
+esac
+[[ -f $since ]] || print $now > $since
+(( idle >= 300 )) && print $now > $since
+used=$(( (now - $(<$since)) / 60 ))
+(( used < limit )) && { print -r -- '[]'; exit 0 }
+print -r -- '[{"v":1,"id":"stand","title":"Time to stand up","subtitle":"'"$used"' minutes at your Mac","icon":"sf:figure.walk","state":"needsYou","tint":"rising","expires":"5m","actions":[{"title":"Done","run":"done"},{"title":"10 more minutes","run":"snooze"}]}]'

@@ -1,0 +1,15 @@
+#!/bin/zsh
+# Time Machine: reads `tmutil status`; progress while it runs (checked every 15 s), done when it finishes.
+was="$OMNINOTCH_DATA/running"
+st=$(tmutil status 2>/dev/null)
+if [[ $st == *"Running = 1"* ]]; then
+  print 1 > $was
+  pct=$(print -r -- $st | awk -F'"' '/Percent =/ {print $2; exit}')
+  phase=$(print -r -- $st | awk -F' = ' '/BackupPhase/ {gsub(/;/,"",$2); print $2; exit}')
+  if [[ -n $pct && $pct != -1 ]]; then p=$(printf '%.2f' $pct); v="$(printf '%.0f' $(( pct * 100 )))%"; prog="\"progress\":$p,\"value\":\"$v\""
+  else prog='"progress":"indeterminate"'; fi
+  print -r -- '{"activities":[{"v":1,"id":"tm","title":"Backing up","subtitle":"Time Machine · '"${phase:-working}"'",'"$prog"',"icon":"sf:clock.arrow.circlepath","tint":"live"}],"next":"15s"}'
+elif [[ -f $was ]]; then
+  rm -f $was
+  print -r -- '[{"v":1,"id":"tm","title":"Backup finished","subtitle":"Time Machine","icon":"sf:clock.arrow.circlepath","state":"done"}]'
+else print -r -- '[]'; fi

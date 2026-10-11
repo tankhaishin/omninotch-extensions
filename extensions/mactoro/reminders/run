@@ -1,0 +1,28 @@
+#!/bin/zsh
+# Reminders: asks the Reminders app (macOS asks you once to allow it). Shows the earliest incomplete one that's due.
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+hours=${OMNINOTCH_SETTING_HOURS:-1}
+r=$(/usr/bin/osascript -l JavaScript - "$hours" "$OMNINOTCH_ACTION" "$OMNINOTCH_DATA" <<'JS' 2>&1
+function run(argv) {
+  const app = Application("Reminders"), limit = new Date(Date.now() + Number(argv[0]) * 3600e3)
+  const fs = $.NSString, path = argv[2] + "/id"
+  if (argv[1] === "done") {
+    const id = fs.stringWithContentsOfFileEncodingError(path, $.NSUTF8StringEncoding, null)
+    if (id && !id.isNil()) { const m = app.reminders.whose({ id: id.js }); if (m.length) m[0].completed = true }
+  }
+  const due = app.reminders.whose({ completed: false, dueDate: { _lessThan: limit } })
+  const n = due.length; if (!n) return "[]"
+  let best = null, bestDate = null
+  const names = due.name(), dates = due.dueDate(), ids = due.id()
+  for (let i = 0; i < n; i++) if (!bestDate || dates[i] < bestDate) { best = i; bestDate = dates[i] }
+  $(ids[best]).writeToFileAtomicallyEncodingError(path, true, $.NSUTF8StringEncoding, null)
+  const mins = Math.round((bestDate - Date.now()) / 60000)
+  const when = mins < 0 ? "Overdue" : mins < 60 ? `Due in ${mins} min` : `Due at ${bestDate.toTimeString().slice(0, 5)}`
+  const more = n > 1 ? ` · ${n - 1} more` : ""
+  return JSON.stringify([{ v: 1, id: "rem", title: names[best], subtitle: when + more, value: n > 1 ? String(n) : undefined,
+    icon: mins < 0 ? "sf:checklist.unchecked" : "sf:checklist", tint: "rising", state: mins <= 0 ? "needsYou" : "active",
+    actions: [{ title: "Done", run: "done" }] }])
+}
+JS
+) || { print -u2 -- "${r:0:200}"; exit 1 }
+print -r -- $r

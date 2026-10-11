@@ -1,0 +1,21 @@
+#!/bin/zsh
+# Is It Up: a site is down after two failed checks in a row (timeout, no answer, or a 5xx/4xx status).
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+out=()
+for u in ${(s:,:)OMNINOTCH_SETTING_URLS// /}; do
+  [[ $u == http* ]] || u="https://$u"
+  host=${${u#*://}%%/*}; id=${host//[^A-Za-z0-9.-]/-}; f="$OMNINOTCH_DATA/$id"
+  prev=''; [[ -f $f ]] && prev=$(<$f)
+  code=$(curl -s -o /dev/null -w '%{http_code}' -m 8 -L "$u" 2>/dev/null)
+  if [[ $code == [23]?? ]]; then
+    if [[ $prev == down ]]; then out+=("{\"v\":1,\"id\":$(js "$id"),\"title\":$(js "$host is back up"),\"icon\":\"sf:checkmark.icloud\",\"state\":\"done\"}"); fi
+    rm -f $f
+  else
+    if [[ $prev == down || $prev == once ]]; then
+      print down > $f
+      why=$( [[ $code == 000 ]] && print "No answer" || print "Status $code" )
+      out+=("{\"v\":1,\"id\":$(js "$id"),\"title\":$(js "$host is down"),\"subtitle\":\"$why · checking every minute\",\"icon\":\"sf:exclamationmark.icloud\",\"state\":\"failed\",\"priority\":\"high\",\"expires\":\"3m\",\"actions\":[{\"title\":\"Open\",\"url\":$(js "$u")}]}")
+    else print once > $f; fi
+  fi
+done
+print -r -- "[${(j:,:)out[1,5]}]"

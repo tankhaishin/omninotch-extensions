@@ -1,0 +1,30 @@
+#!/bin/zsh
+# GitHub builds, an OmniNotch extension (format v1, see EXTENSIONS.md): the latest GitHub Actions run of each
+# repository, using GitHub's own `gh` command and the login you already have. Running → a calm "running";
+# passed → green for 15 minutes; failed → a high-priority "failed" for 2 hours, with Open to the run.
+command -v gh >/dev/null || { print -u2 "Needs GitHub's gh command: brew install gh, then gh auth login."; exit 1 }
+gh auth status >/dev/null 2>&1 || { print -u2 "gh isn't signed in: run gh auth login in Terminal."; exit 1 }
+
+repos=(${(s:,:)${OMNINOTCH_SETTING_REPOS// /}})
+(( ${#repos} )) || repos=(${(f)"$(gh repo list --limit 3 --json nameWithOwner --jq '.[].nameWithOwner' 2>/dev/null)"})
+
+items=()
+for r in $repos; do
+  [[ $r == */* ]] || continue
+  item=$(REPO=$r gh run list --repo "$r" --limit 1 \
+    --json status,conclusion,updatedAt,headBranch,workflowName,url \
+    --jq '.[0] // empty | (now - (.updatedAt | fromdate)) as $age
+      | {v: 1, id: ($ENV.REPO | gsub("[^A-Za-z0-9._-]"; "-")), title: ($ENV.REPO | split("/")[1]),
+         subtitle: (.workflowName + " · " + .headBranch), icon: "sf:hammer",
+         actions: [{title: "Open", url: .url}]}
+      + ( if .status != "completed" then {value: "running", progress: "indeterminate", expires: "2h"}
+          elif .conclusion == "success" then (if $age < 900 then {value: "passed", state: "done", tint: "live", expires: "15m"} else empty end)
+          elif (.conclusion == "failure" or .conclusion == "timed_out") then
+               (if $age < 86400 then {value: "failed", state: "failed", priority: "high", expires: "2h"} else empty end)
+          else empty end )' \
+    2>/dev/null)
+  [[ -n $item ]] && items+=("$item")
+done
+
+next=60; for i in $items; do [[ $i == *'"running"'* ]] && next=20; done
+print -r -- "{\"activities\":[${(j:,:)items}],\"next\":\"${next}s\"}"

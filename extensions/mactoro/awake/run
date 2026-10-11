@@ -1,0 +1,21 @@
+#!/bin/zsh
+# Awake: keeps the Mac and display from sleeping for a while (macOS's own caffeinate), then lets it sleep.
+until_f="$OMNINOTCH_DATA/until"; pid_f="$OMNINOTCH_DATA/pid"; now=$(date +%s)
+alive() { [[ -f $pid_f ]] && [[ $(ps -p $(<$pid_f) -o comm= 2>/dev/null) == *caffeinate ]] }
+stop() { alive && kill $(<$pid_f); rm -f $pid_f $until_f }
+start() { stop; /usr/bin/caffeinate -di -t $1 </dev/null >/dev/null 2>&1 &!; print $! > $pid_f; print $(( now + $1 )) > $until_f; sleep 0.2 }
+case $OMNINOTCH_ACTION in
+  hour) start 3600 ;;
+  two)  start 7200 ;;
+  more) alive && start $(( $(<$until_f) - now + 3600 )) || start 3600 ;;
+  stop) stop ;;
+esac
+if ! alive || (( $(<$until_f) <= now )); then
+  rm -f $pid_f $until_f
+  print -r -- '[{"v":1,"id":"awake","title":"Keep awake","subtitle":"Stop your Mac sleeping for a while","icon":"sf:cup.and.saucer","priority":"low","actions":[{"title":"1 hour","run":"hour"},{"title":"2 hours","run":"two"}]}]'
+  exit 0
+fi
+left=$(( $(<$until_f) - now )); h=$(( left / 3600 )); m=$(( (left % 3600 + 59) / 60 ))
+(( m == 60 )) && { h=$(( h + 1 )); m=0 }
+(( h > 0 )) && value="${h}h ${m}m" || value="${m}m"
+print -r -- '[{"v":1,"id":"awake","title":"Awake","subtitle":"Until '"$(date -r $(<$until_f) +%H:%M)"'","value":"'"$value"'","icon":"sf:cup.and.saucer.fill","tint":"live","actions":[{"title":"Stop","run":"stop"},{"title":"+1 hour","run":"more"}]}]'

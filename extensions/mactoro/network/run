@@ -1,0 +1,15 @@
+#!/bin/zsh
+# Internet: checks Apple's captive-portal page (what macOS itself uses). Offline, sign-in needed, or back online.
+was="$OMNINOTCH_DATA/was"
+page=$(curl -s -m 4 http://captive.apple.com/hotspot-detect.html 2>/dev/null)
+if [[ $page == *Success* ]]; then
+  if [[ -f $was ]]; then rm -f $was
+    print -r -- '[{"v":1,"id":"net","title":"Back online","icon":"sf:wifi","state":"done"}]'
+  else print -r -- '[]'; fi
+elif [[ -n $page ]]; then
+  print offline > $was
+  print -r -- '[{"v":1,"id":"net","title":"Wi-Fi wants you to sign in","subtitle":"This network has a sign-in page","icon":"sf:wifi.exclamationmark","state":"needsYou","expires":"3m","actions":[{"title":"Sign in","url":"http://captive.apple.com"}]}]'
+else
+  print offline > $was
+  print -r -- '[{"v":1,"id":"net","title":"No internet","subtitle":"Checking again every minute","icon":"sf:wifi.slash","state":"failed","priority":"high","expires":"3m"}]'
+fi

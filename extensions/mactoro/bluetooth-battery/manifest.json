@@ -1,0 +1,28 @@
+{
+  "v": 1,
+  "id": "com.mactoro.bluetooth-battery",
+  "name": "Bluetooth Battery",
+  "description": "AirPods, mouse or keyboard running low.",
+  "about": "Low battery on your AirPods, mouse, keyboard or trackpad, before they die.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "5m",
+  "network": false,
+  "on": true,
+  "settings": [
+    {
+      "key": "percent",
+      "title": "Warn below (%)",
+      "type": "text",
+      "default": "20"
+    }
+  ],
+  "example": {
+    "title": "AirPods Pro",
+    "subtitle": "Battery low \u00b7 charge it soon",
+    "value": "12%",
+    "icon": "sf:battery.25percent",
+    "tint": "rising"
+  }
+}

@@ -1,0 +1,17 @@
+#!/bin/zsh
+# World Clock: "Name=Area/City" pairs (any name in /usr/share/zoneinfo), up to five. Low priority: never takes the notch.
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+here=$(date +%s); local_off=$(date +%z)
+out=()
+for pair in ${(s:,:)OMNINOTCH_SETTING_CITIES}; do
+  name=${${pair%%=*}## }; tz=${${pair#*=}// /}
+  [[ -f /usr/share/zoneinfo/$tz ]] || { print -u2 "Unknown time zone: $tz"; continue }
+  t=$(TZ=$tz date -r $here +%H:%M); day=$(TZ=$tz date -r $here +%a); off=$(TZ=$tz date -r $here +%z)
+  diff=$(( (${off[1]}1 * (10#${off[2,3]} * 60 + 10#${off[4,5]}) - ${local_off[1]}1 * (10#${local_off[2,3]} * 60 + 10#${local_off[4,5]})) ))
+  if (( diff == 0 )); then rel="same time"; else
+    h=$(( (diff < 0 ? -diff : diff) / 60 )); m=$(( (diff < 0 ? -diff : diff) % 60 ))
+    rel="${h}h"; (( m )) && rel+=" ${m}m"; (( diff > 0 )) && rel+=" ahead" || rel+=" behind"; fi
+  id=${${name:l}//[^a-z0-9]/-}
+  out+=("{\"v\":1,\"id\":\"wc-$id\",\"title\":$(js "$name"),\"subtitle\":\"$day · $rel\",\"value\":\"$t\",\"icon\":\"sf:globe\",\"priority\":\"low\",\"expires\":\"3m\"}")
+done
+print -r -- "[${(j:,:)out[1,5]}]"

@@ -1,0 +1,14 @@
+#!/bin/zsh
+# Workday: weekdays only. Low priority all day (waits in Live); in the last 30 minutes it rises with "Wrap up".
+(( $(date +%u) > 5 )) && { print -r -- '[]'; exit 0 }
+mins() { print $(( 10#${1%%:*} * 60 + 10#${1##*:} )) }
+s=$(mins ${OMNINOTCH_SETTING_START:-09:00}); e=$(mins ${OMNINOTCH_SETTING_END:-18:00}); now=$(mins $(date +%H:%M))
+(( now < s || now >= e || e <= s )) && { print -r -- '[]'; exit 0 }
+left=$(( e - now )); h=$(( left / 60 )); m=$(( left % 60 ))
+(( h )) && value="${h}h ${m}m" || value="${m}m"
+p=$(( (now - s) * 100 / (e - s) )); p=$(printf '0.%02d' $(( p > 99 ? 99 : p )))
+if (( left <= 30 )); then
+  print -r -- '[{"v":1,"id":"day","title":"Wrap up","subtitle":"Your day ends at '"${OMNINOTCH_SETTING_END:-18:00}"'","value":"'"$value"'","progress":'"$p"',"icon":"sf:sun.haze","tint":"rising"}]'
+else
+  print -r -- '[{"v":1,"id":"day","title":"Workday","subtitle":"'"$value"' left","value":"'"$value"'","progress":'"$p"',"icon":"sf:sun.max","priority":"low","expires":"10m"}]'
+fi

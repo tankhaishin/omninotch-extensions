@@ -1,0 +1,27 @@
+#!/bin/zsh
+# Countdown, an OmniNotch extension (format v1, see EXTENSIONS.md): days, hours and minutes to a date.
+# Settings arrive as OMNINOTCH_SETTING_LABEL and OMNINOTCH_SETTING_DATE ("2026-10-24T09:00", local time).
+label=${OMNINOTCH_SETTING_LABEL:-Countdown}
+when=${OMNINOTCH_SETTING_DATE:-}
+[[ -z $when ]] && { print -r -- '[]'; exit 0 }                 # nothing set yet: nothing to show
+
+target=$(date -j -f "%Y-%m-%dT%H:%M" "$when" +%s 2>/dev/null) || { print -u2 "The date should look like 2026-10-24T09:00."; exit 1 }
+now=$(date +%s)
+left=$(( target - now ))
+(( left < -3600 )) && { print -r -- '[]'; exit 0 }             # an hour after it's passed, it goes away
+
+label=${label//\\/\\\\}                                         # safe inside JSON: backslashes, then quotes
+label=${label//\"/\\\"}
+when_text=$(date -r $target "+%a %e %b · %H:%M" | tr -s ' ')
+
+if (( left <= 0 )); then
+  print -r -- "[{\"v\":1,\"id\":\"countdown\",\"title\":\"$label\",\"subtitle\":\"$when_text\",\"value\":\"now\",\"icon\":\"sf:calendar\",\"tint\":\"rising\",\"state\":\"done\",\"expires\":\"1h\"}]"
+  exit 0
+fi
+
+d=$(( left / 86400 )); h=$(( left % 86400 / 3600 )); m=$(( left % 3600 / 60 ))
+if (( d > 0 )); then value="${d}d"; (( h > 0 )) && value+=" ${h}h"
+elif (( h > 0 )); then value="${h}h ${m}m"
+else value="$(( m < 1 ? 1 : m ))m"; fi
+next=$(( left < 3600 ? 20 : 60 ))
+print -r -- "{\"activities\":[{\"v\":1,\"id\":\"countdown\",\"title\":\"$label\",\"subtitle\":\"$when_text\",\"value\":\"$value\",\"icon\":\"sf:calendar\",\"tint\":\"rising\"}],\"next\":\"${next}s\"}"

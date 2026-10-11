@@ -1,0 +1,43 @@
+{
+  "v": 1,
+  "id": "com.mactoro.daily-reminder",
+  "name": "Daily Reminder",
+  "description": "The same time every day, like a standup.",
+  "about": "Something that happens at the same time every day, like a standup, with a countdown before it.",
+  "category": "Work",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "label",
+      "title": "What",
+      "type": "text",
+      "default": "Standup"
+    },
+    {
+      "key": "time",
+      "title": "At",
+      "type": "text",
+      "default": "09:30"
+    },
+    {
+      "key": "weekdays",
+      "title": "Weekdays only (yes/no)",
+      "type": "text",
+      "default": "yes"
+    }
+  ],
+  "actions": {
+    "done": "Done"
+  },
+  "example": {
+    "title": "Standup",
+    "subtitle": "At 09:30",
+    "value": "10m",
+    "icon": "sf:alarm",
+    "tint": "rising"
+  }
+}

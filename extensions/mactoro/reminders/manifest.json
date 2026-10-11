@@ -1,0 +1,30 @@
+{
+  "v": 1,
+  "id": "com.mactoro.reminders",
+  "name": "Reminders",
+  "description": "Your next Apple Reminder that's due.",
+  "about": "Your next Apple Reminder that's due or overdue, with a Done button.",
+  "category": "Work",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "2m",
+  "network": false,
+  "on": false,
+  "settings": [
+    {
+      "key": "hours",
+      "title": "Due within (hours)",
+      "type": "text",
+      "default": "1"
+    }
+  ],
+  "actions": {
+    "done": "Done"
+  },
+  "example": {
+    "title": "Send the invoice",
+    "subtitle": "Due in 20 min",
+    "icon": "sf:checklist",
+    "tint": "rising"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "v": 1,
+  "id": "com.mactoro.homebrew",
+  "name": "Homebrew",
+  "description": "Homebrew updates, with one-click upgrade.",
+  "about": "Homebrew updates waiting, and an Upgrade button that runs them in the background.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "6h",
+  "network": true,
+  "on": false,
+  "actions": {
+    "upgrade": "Upgrade"
+  },
+  "example": {
+    "title": "7 updates",
+    "subtitle": "node, git, ffmpeg, python \u2026",
+    "value": "7",
+    "icon": "sf:mug"
+  }
+}

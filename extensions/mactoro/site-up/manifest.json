@@ -1,0 +1,27 @@
+{
+  "v": 1,
+  "id": "com.mactoro.site-up",
+  "name": "Is It Up",
+  "description": "When one of your websites goes down.",
+  "about": "Watches your websites and tells you the moment one goes down, and when it's back.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": true,
+  "on": false,
+  "settings": [
+    {
+      "key": "urls",
+      "title": "Websites (comma-separated)",
+      "type": "text",
+      "default": ""
+    }
+  ],
+  "example": {
+    "title": "mysite.com down",
+    "subtitle": "Status 503 \u00b7 checking every minute",
+    "icon": "sf:exclamationmark.icloud",
+    "state": "failed"
+  }
+}

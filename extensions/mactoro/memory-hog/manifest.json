@@ -1,0 +1,30 @@
+{
+  "v": 1,
+  "id": "com.mactoro.memory-hog",
+  "name": "Memory Hog",
+  "description": "An app using too much memory, with Quit.",
+  "about": "Tells you when one app is using a lot of memory, with a button to quit it.",
+  "category": "Mac",
+  "author": "Mactoro",
+  "run": "run",
+  "every": "60s",
+  "network": false,
+  "on": true,
+  "settings": [
+    {
+      "key": "gb",
+      "title": "Warn above (GB)",
+      "type": "text",
+      "default": "4"
+    }
+  ],
+  "actions": {
+    "quit": "Quit"
+  },
+  "example": {
+    "title": "Safari",
+    "subtitle": "Using 4.2 GB of memory",
+    "value": "4.2 GB",
+    "icon": "app:com.apple.Safari"
+  }
+}
