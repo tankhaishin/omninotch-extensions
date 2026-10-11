@@ -23,5 +23,6 @@
       "mode": "live"
     }
   ],
+  "updated": "2022-03-30",
   "every": "10m"
 }

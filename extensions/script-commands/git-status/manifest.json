@@ -20,6 +20,7 @@
       "mode": "live"
     }
   ],
+  "updated": "2021-07-19",
   "every": "5m",
   "cwd": "~/Developer/script-commands"
 }

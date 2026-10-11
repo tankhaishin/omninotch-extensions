@@ -130,6 +130,8 @@ def main(src):
                 "license": "MIT", "network": bool(NETWORK.search("\n".join(l for l in text.splitlines() if "@raycast." not in l))), "needs": needs_of(path, text, top, sub),
                 "commands": [command],
             }
+            manifest["updated"] = subprocess.run(["git", "-C", src, "log", "-1", "--format=%cs", "--", os.path.relpath(path, src)],
+                                                 capture_output=True, text=True).stdout.strip() or None
             if mode == "live" and m.get("refreshTime"): manifest["every"] = m["refreshTime"].replace(" ", "")
             if m.get("currentDirectoryPath"): manifest["cwd"] = m["currentDirectoryPath"]
             d = os.path.join(DEST, n); os.makedirs(d)

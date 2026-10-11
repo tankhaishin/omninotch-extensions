@@ -49,7 +49,7 @@ def build(out):
                 "commands": commands, "needs": m.get("needs", []),
                 "by": m.get("author") or author, "byURL": m.get("authorURL", ""), "license": m.get("license", "MIT"),
                 "bundled": author == "mactoro" and m.get("v", 1) == 1, "featured": f"{author}/{name}" in featured,
-                "updated": updated(folder), "sha256": hashlib.sha256(data).hexdigest(), "size": len(data),
+                "updated": m.get("updated") or updated(folder), "sha256": hashlib.sha256(data).hexdigest(), "size": len(data),
                 "source": m.get("source") or f"https://github.com/tankhaishin/omninotch-extensions/tree/main/extensions/{author}/{name}",
             })
     json.dump({"v": 1, "extensions": items}, open(os.path.join(out, "catalog.json"), "w"), indent=1)

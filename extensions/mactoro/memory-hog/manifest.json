@@ -2,7 +2,7 @@
   "v": 1,
   "id": "com.mactoro.memory-hog",
   "name": "Memory Hog",
-  "description": "An app using too much memory, with Quit.",
+  "description": "Warns when an app hogs memory, with Quit.",
   "about": "Tells you when one app is using a lot of memory, with a button to quit it.",
   "category": "Mac",
   "author": "Mactoro",
