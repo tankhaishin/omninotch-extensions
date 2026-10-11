@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.qrcode-generate",
+  "name": "QR Code Generation",
+  "description": "QR Code Generation",
+  "category": "Conversions",
+  "author": "wyhaya",
+  "authorURL": "https://github.com/wyhaya",
+  "format": "raycast-script",
+  "script": "qrcode-generate.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/qrcode-generate.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "QR Code Generation",
+      "subtitle": "Conversions",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Content",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

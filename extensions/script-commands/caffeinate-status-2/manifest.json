@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.caffeinate-status-2",
+  "name": "Caffeinate",
+  "description": "Shows caffeinate status and time left if it's running",
+  "category": "System",
+  "author": "Yan Smaliak",
+  "authorURL": "https://github.com/ysmaliak",
+  "format": "raycast-script",
+  "script": "caffeinate-status.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/caffeinate-status.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Caffeinate",
+      "subtitle": "System",
+      "mode": "live"
+    }
+  ],
+  "every": "30s"
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.wayback-machine-save",
+  "name": "Save URL to Wayback Machine",
+  "description": "Save URL to [Wayback Machine](https://web.archive.org/).",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "wayback-machine-save.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/wayback-machine-save.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Save URL to Wayback Machine",
+      "subtitle": "Internet",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.open-weather-weather-forecast-template",
+  "name": "Weather Forecast",
+  "description": "Get weather forecast from OpenWeather",
+  "category": "Dashboard",
+  "author": "Marek Mašek",
+  "authorURL": "https://github.com/marekmasek",
+  "format": "raycast-script",
+  "script": "weather-forecast.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/open-weather/weather-forecast.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Weather Forecast",
+      "subtitle": "OpenWeather",
+      "mode": "live"
+    }
+  ],
+  "every": "30m"
+}

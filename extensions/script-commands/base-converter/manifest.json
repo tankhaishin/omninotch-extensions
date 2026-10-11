@@ -1,0 +1,43 @@
+{
+  "v": 2,
+  "id": "script-commands.base-converter",
+  "name": "Base Converter",
+  "description": "Utility to convert numbers between bases. Can be one number or a list of string-delimited ",
+  "category": "Developer",
+  "author": "Saimir S.",
+  "authorURL": "https://www.saimirsulaj.com",
+  "format": "raycast-script",
+  "script": "base-converter.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/base-converter.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Base Converter",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "from base",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "to base",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "value",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.pub-search",
+  "name": "Pub.dev Search",
+  "description": "Search [pub.dev](https://pub.dev/) for packages to build Dart and Flutter apps.",
+  "category": "Web search",
+  "author": "Wade Garrett",
+  "authorURL": "https://wadegarrett.com",
+  "format": "raycast-script",
+  "script": "pub-search.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/pub-search.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Pub.dev Search",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "search",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

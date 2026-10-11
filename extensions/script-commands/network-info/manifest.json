@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.network-info",
+  "name": "Network Info",
+  "description": "Network Info",
+  "category": "System",
+  "author": "Kailash Yellareddy",
+  "authorURL": "https://github.com/kyellareddy",
+  "format": "raycast-script",
+  "script": "Network Info.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/Network Info.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Network Info",
+      "subtitle": "",
+      "mode": "view"
+    }
+  ]
+}

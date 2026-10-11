@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.sentry-unresolved-issues-template",
+  "name": "Unresolved Issues",
+  "description": "Show unresolved issues of the last 24 hours from Sentry.",
+  "category": "Developer",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "sentry-unresolved-issues.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/sentry/sentry-unresolved-issues.template.py",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Unresolved Issues",
+      "subtitle": "Sentry",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

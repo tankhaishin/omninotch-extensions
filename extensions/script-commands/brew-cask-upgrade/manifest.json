@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.brew-cask-upgrade",
+  "name": "Cask Upgrade",
+  "description": "Updates brew and upgrades every outdated app",
+  "category": "Developer",
+  "author": "LanikSJ",
+  "authorURL": "https://github.com/LanikSJ",
+  "format": "raycast-script",
+  "script": "brew-cask-upgrade.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/brew/brew-cask-upgrade.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Cask Upgrade",
+      "subtitle": "Brew",
+      "mode": "view"
+    }
+  ]
+}

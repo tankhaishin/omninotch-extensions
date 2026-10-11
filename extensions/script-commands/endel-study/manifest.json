@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.endel-study",
+  "name": "Study",
+  "description": "Set study mode at Endel",
+  "category": "Media",
+  "author": "Sergey Korobyin",
+  "authorURL": "https://github.com/huangsemao",
+  "format": "raycast-script",
+  "script": "endel-study.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/endel/endel-study.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Study",
+      "subtitle": "Endel",
+      "mode": "run"
+    }
+  ]
+}

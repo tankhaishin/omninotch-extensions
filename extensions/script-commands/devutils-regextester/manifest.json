@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-regextester",
+  "name": "RegExp Tester",
+  "description": "Test your regular expression with a string and inspect matches, groups, etc.",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "regextester.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/regextester.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "RegExp Tester",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

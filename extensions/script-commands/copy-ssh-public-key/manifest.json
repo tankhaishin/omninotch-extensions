@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.copy-ssh-public-key",
+  "name": "Copy SSH Public Key",
+  "description": "Copying the default SSH public key to the clipboard",
+  "category": "Developer",
+  "author": "Angelos Michalopoulos",
+  "authorURL": "https://github.com/miagg",
+  "format": "raycast-script",
+  "script": "copy-ssh-public-key.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/copy-ssh-public-key.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy SSH Public Key",
+      "subtitle": "Developer Utils",
+      "mode": "run"
+    }
+  ]
+}

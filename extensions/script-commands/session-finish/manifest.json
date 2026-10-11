@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.session-finish",
+  "name": "Finish Session",
+  "description": "Finishes a focus session in Session app",
+  "category": "Apps",
+  "author": "James Lyons",
+  "authorURL": "https://github.com/jamesjlyons",
+  "format": "raycast-script",
+  "script": "session-finish.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/session/session-finish.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Session app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Finish Session",
+      "subtitle": "Session",
+      "mode": "run"
+    }
+  ]
+}

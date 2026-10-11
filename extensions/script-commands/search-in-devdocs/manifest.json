@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.search-in-devdocs",
+  "name": "Search in Devdocs",
+  "description": "Navigation",
+  "category": "Navigation",
+  "author": "Jax0rz",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "search-in-devdocs.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/navigation/search-in-devdocs.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Devdocs",
+      "subtitle": "Navigation",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "doc",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "term",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

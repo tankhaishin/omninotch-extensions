@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-wpengine-installs",
+  "name": "Search WP Engine Installs",
+  "description": "Search [WP Engine](https://wpengine.com) installs.",
+  "category": "Web search",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "search-wpengine-installs.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-wpengine-installs.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search WP Engine Installs",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

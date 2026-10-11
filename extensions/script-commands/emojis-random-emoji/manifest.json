@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.emojis-random-emoji",
+  "name": "Random Emoji",
+  "description": "Copy a random emoji to the clipboard.",
+  "category": "Communication",
+  "author": "Tomohiro Nishimura",
+  "authorURL": "https://github.com/Sixeight",
+  "format": "raycast-script",
+  "script": "random-emoji.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/emojis/random-emoji.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Random Emoji",
+      "subtitle": "Emojis",
+      "mode": "run"
+    }
+  ]
+}

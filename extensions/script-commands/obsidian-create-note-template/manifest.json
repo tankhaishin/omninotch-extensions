@@ -1,0 +1,40 @@
+{
+  "v": 2,
+  "id": "script-commands.obsidian-create-note-template",
+  "name": "Create Note",
+  "description": "Create a new note",
+  "category": "Apps",
+  "author": "Yiyao Wei",
+  "authorURL": "https://github.com/HotThoughts",
+  "format": "raycast-script",
+  "script": "obsidian-create-note.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/obsidian/obsidian-create-note.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "obsidian",
+    "Obsidian app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Note",
+      "subtitle": "Obsidian",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Name",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Content",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.github-repository-stars-all-repos-templat",
+  "name": "Repository Statistics",
+  "description": "Show statistics of your GitHub repositories.",
+  "category": "Developer",
+  "author": "Valdir Junior",
+  "authorURL": "https://github.com/valdirjunior011",
+  "format": "raycast-script",
+  "script": "github-repository-stars_all_repos_template.rb",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/github/github-repository-stars_all_repos_template.rb",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Ruby"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Repository Statistics",
+      "subtitle": "GitHub",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.tunnelblick-connect",
+  "name": "Tunnelblick: Connect",
+  "description": "Connect a VPN configuration.",
+  "category": "Apps",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "tunnelblick-connect.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/tunnelblick/tunnelblick-connect.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Tunnelblick app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Tunnelblick: Connect",
+      "subtitle": "Tunnelblick",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Configuration",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

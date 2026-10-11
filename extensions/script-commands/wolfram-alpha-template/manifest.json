@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.wolfram-alpha-template",
+  "name": "Wolfram Alpha",
+  "description": "Use Wolfram Alpha to answer your query",
+  "category": "Math",
+  "author": "es183923",
+  "authorURL": "https://github.com/es183923",
+  "format": "raycast-script",
+  "script": "wolfram-alpha.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/math/wolfram-alpha.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Wolfram Alpha",
+      "subtitle": "Math",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

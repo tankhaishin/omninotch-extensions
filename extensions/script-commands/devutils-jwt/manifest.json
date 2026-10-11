@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-jwt",
+  "name": "JWT Debugger",
+  "description": "Decode and verify the current JWT token in your clipboard",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "jwt.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/jwt.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "JWT Debugger",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

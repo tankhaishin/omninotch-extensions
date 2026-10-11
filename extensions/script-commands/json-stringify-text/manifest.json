@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.json-stringify-text",
+  "name": "Json Stringify Text",
+  "description": "Get JSON-formatted text",
+  "category": "Developer",
+  "author": "Senthil Prabhu",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "json-stringify-text.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/json-stringify-text.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Json Stringify Text",
+      "subtitle": "Developer Utilities",
+      "mode": "view"
+    }
+  ]
+}

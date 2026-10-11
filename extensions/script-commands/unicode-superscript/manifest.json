@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.unicode-superscript",
+  "name": "Unicode Superscript",
+  "description": "Convert clipboards text to fake unicode superscript",
+  "category": "Conversions",
+  "author": "Adam Zethraeus",
+  "authorURL": "https://github.com/adam-zethraeus",
+  "format": "raycast-script",
+  "script": "unicode-superscript.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/unicode-superscript.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Unicode Superscript",
+      "subtitle": "Conversion",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Text to superscript",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

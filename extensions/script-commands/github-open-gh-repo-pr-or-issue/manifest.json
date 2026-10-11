@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.github-open-gh-repo-pr-or-issue",
+  "name": "Visit a Repository, Pull Request, or Iss",
+  "description": "Open a repository, pull request, or issue on GitHub",
+  "category": "Developer",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "open-gh-repo-pr-or-issue.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/github/open-gh-repo-pr-or-issue.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Visit a Repository, Pull Request, or Issue",
+      "subtitle": "GitHub",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Organization/Repository",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Pull Request or Issue #",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

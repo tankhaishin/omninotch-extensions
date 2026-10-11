@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-change-input",
+  "name": "Change Input",
+  "description": "Change the input by its ID.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "change-input.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/change-input.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Change Input",
+      "subtitle": "LG TV",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Input ID",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

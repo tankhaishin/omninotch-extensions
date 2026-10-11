@@ -1,0 +1,153 @@
+{
+  "v": 2,
+  "id": "com.mactoro.social",
+  "name": "Social",
+  "description": "Search the social networks and forums.",
+  "category": "Communication",
+  "author": "Mactoro",
+  "icon": "sf:bubble.left.and.bubble.right",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-reddit",
+      "title": "Search Reddit",
+      "mode": "run",
+      "url": "https://www.reddit.com/search/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "open-a-subreddit",
+      "title": "Open a Subreddit",
+      "mode": "run",
+      "url": "https://www.reddit.com/r/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-x",
+      "title": "Search X",
+      "mode": "run",
+      "url": "https://x.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-bluesky",
+      "title": "Search Bluesky",
+      "mode": "run",
+      "url": "https://bsky.app/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-threads",
+      "title": "Search Threads",
+      "mode": "run",
+      "url": "https://www.threads.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-linkedin",
+      "title": "Search LinkedIn",
+      "mode": "run",
+      "url": "https://www.linkedin.com/search/results/all/?keywords={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-mastodon",
+      "title": "Search Mastodon",
+      "mode": "run",
+      "url": "https://mastodon.social/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-pinterest",
+      "title": "Search Pinterest",
+      "mode": "run",
+      "url": "https://www.pinterest.com/search/pins/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-tiktok",
+      "title": "Search TikTok",
+      "mode": "run",
+      "url": "https://www.tiktok.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-instagram-tags",
+      "title": "Search Instagram Tags",
+      "mode": "run",
+      "url": "https://www.instagram.com/explore/tags/{query}/",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.mail-copy-captcha-from-mail",
+  "name": "CaptchaFromMail",
+  "description": "Copy the captcha from the emlx file.",
+  "category": "Apps",
+  "author": "RealTong",
+  "authorURL": "https://raycast.com/RealTong",
+  "format": "raycast-script",
+  "script": "copy-captcha-from-mail.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/mail/copy-captcha-from-mail.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "emlx"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "CaptchaFromMail",
+      "subtitle": "Mail",
+      "mode": "run"
+    }
+  ]
+}

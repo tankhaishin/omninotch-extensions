@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.tesseract-ocr",
+  "name": "OCR Screenshot",
+  "description": "Tesseract OCR",
+  "category": "Productivity",
+  "author": "Diego Lopes",
+  "authorURL": "https://github.com/Dihgg",
+  "format": "raycast-script",
+  "script": "tesseract-ocr.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/tesseract/tesseract-ocr.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "tesseract"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "OCR Screenshot",
+      "subtitle": "tesseract",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Language",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.time-calculator",
+  "name": "Time Calculator",
+  "description": "Add or Subtract specified amount of time from given date.",
+  "category": "Developer",
+  "author": "Federico Miraglia",
+  "authorURL": "https://github.com/Mitra98t",
+  "format": "raycast-script",
+  "script": "time-calculator.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/time-calculator.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Time Calculator",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Starting Date (Default: now)",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Time to Add/Subtract (eg: -44, 44, +44)",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "s, m, h, d, w, y (Default: h)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

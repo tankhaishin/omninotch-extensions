@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.viscosity-disconnect",
+  "name": "Viscosity: Disconnect",
+  "description": "Disconnect a VPN configuration.",
+  "category": "Apps",
+  "author": "Luigi Cardito (credits Achille Lacoin https://github.com/pomdtr)",
+  "authorURL": "https://github.com/lcardito",
+  "format": "raycast-script",
+  "script": "viscosity-disconnect.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/viscosity/viscosity-disconnect.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Viscosity app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Viscosity: Disconnect",
+      "subtitle": "Viscosity",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Configuration",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.session-start-new",
+  "name": "Start Session",
+  "description": "Starts a focus session in Session app",
+  "category": "Apps",
+  "author": "James Lyons",
+  "authorURL": "https://github.com/jamesjlyons",
+  "format": "raycast-script",
+  "script": "session-start-new.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/session/session-start-new.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Session app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Session",
+      "subtitle": "Session",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Intent",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Minutes duration",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

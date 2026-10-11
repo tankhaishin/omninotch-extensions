@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.viscosity-connect-all",
+  "name": "Viscosity: Connect All",
+  "description": "Connect all unconnected VPN configurations.",
+  "category": "Apps",
+  "author": "Luigi Cardito (credits Achille Lacoin https://github.com/pomdtr)",
+  "authorURL": "https://github.com/lcardito",
+  "format": "raycast-script",
+  "script": "viscosity-connect-all.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/viscosity/viscosity-connect-all.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Viscosity app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Viscosity: Connect All",
+      "subtitle": "Viscosity",
+      "mode": "run"
+    }
+  ]
+}

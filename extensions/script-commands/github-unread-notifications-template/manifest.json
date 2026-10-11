@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.github-unread-notifications-template",
+  "name": "Unread Notifications",
+  "description": "Display (detailed) number of unread GitHub notifications.",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "github-unread-notifications.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/github/github-unread-notifications.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Unread Notifications",
+      "subtitle": "GitHub",
+      "mode": "live"
+    }
+  ],
+  "every": "5m"
+}

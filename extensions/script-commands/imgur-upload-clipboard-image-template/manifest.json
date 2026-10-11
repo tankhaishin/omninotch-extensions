@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.imgur-upload-clipboard-image-template",
+  "name": "Clipboard to Imgur",
+  "description": "Upload Image from your Clipboard and copy the image link to clipboard",
+  "category": "Productivity",
+  "author": "Fahim Faisal",
+  "authorURL": "https://github.com/i3p9",
+  "format": "raycast-script",
+  "script": "imgur-upload-clipboard-image.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/imgur/imgur-upload-clipboard-image.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "pngpaste"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clipboard to Imgur",
+      "subtitle": "Uploads Copied Image or Image from Clipboard",
+      "mode": "run"
+    }
+  ]
+}

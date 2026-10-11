@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.paste-as-plain-text",
+  "name": "Paste and Match Style",
+  "description": "A script to click the \"Paste and Match Style\" menu item, even if it's disabled",
+  "category": "Conversions",
+  "author": "Michael Bianco",
+  "authorURL": "https://github.com/iloveitaly",
+  "format": "raycast-script",
+  "script": "paste-as-plain-text.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/paste-as-plain-text.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Paste and Match Style",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.agenda-new-note",
+  "name": "Create New On the Agenda Note",
+  "description": "Creates New Note and adds it to On the Agenda",
+  "category": "Apps",
+  "author": "Michael Ellis",
+  "authorURL": "https://github.com/mtellis2",
+  "format": "raycast-script",
+  "script": "agenda-new-note.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/agenda/agenda-new-note.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Agenda app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create New On the Agenda Note",
+      "subtitle": "Agenda",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Project Title",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg3",
+          "placeholder": "Note Text",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

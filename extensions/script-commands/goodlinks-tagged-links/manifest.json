@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.goodlinks-tagged-links",
+  "name": "Show Tag",
+  "description": "Show links tagged with the specified tag in the GoodLinks app",
+  "category": "Apps",
+  "author": "Filip Chabik",
+  "authorURL": "https://github.com/hadret",
+  "format": "raycast-script",
+  "script": "goodlinks-tagged-links.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/goodlinks/goodlinks-tagged-links.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "GoodLinks app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Show Tag",
+      "subtitle": "GoodLinks",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "name",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

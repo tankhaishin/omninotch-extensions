@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.create-new-file-in-finder",
+  "name": "Create New File in Finder",
+  "description": "Create New File in Finder is a script to make your Finder better.You can use this script t",
+  "category": "System",
+  "author": "Jax0rz",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "create-new-file-in-finder.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/create-new-file-in-finder.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create New File in Finder",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

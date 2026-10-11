@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.format-swift",
+  "name": "Format Swift",
+  "description": "Use [swiftformat](https://github.com/nicklockwood/SwiftFormat) to format clipboard content",
+  "category": "Developer",
+  "author": "Dean Moore",
+  "authorURL": "https://github.com/moored",
+  "format": "raycast-script",
+  "script": "format-swift.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/format-swift.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "swiftformat"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Format Swift",
+      "subtitle": "Developer Utilities",
+      "mode": "run"
+    }
+  ]
+}

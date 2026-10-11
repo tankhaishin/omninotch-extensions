@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-in-zhihu",
+  "name": "Search in Zhihu",
+  "description": "Web Searches",
+  "category": "Web search",
+  "author": "Jax0rz",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "search-in-zhihu.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-in-zhihu.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Zhihu",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "关键词...",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

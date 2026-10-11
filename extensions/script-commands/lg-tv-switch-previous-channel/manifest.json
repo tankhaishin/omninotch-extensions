@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-switch-previous-channel",
+  "name": "Switch To Previous Channel",
+  "description": "Switch to the previous TV channel.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "switch-previous-channel.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/switch-previous-channel.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Switch To Previous Channel",
+      "subtitle": "LG TV",
+      "mode": "run"
+    }
+  ]
+}

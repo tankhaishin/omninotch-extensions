@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.safari-close-tabs-right",
+  "name": "Close Tabs to the Right",
+  "description": "Close all tabs to the right side of the currently active tab.",
+  "category": "Apps",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "safari-close-tabs-right.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/safari/safari-close-tabs-right.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Close Tabs to the Right",
+      "subtitle": "Safari",
+      "mode": "run"
+    }
+  ]
+}

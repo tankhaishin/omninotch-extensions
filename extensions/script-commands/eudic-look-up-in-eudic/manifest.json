@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.eudic-look-up-in-eudic",
+  "name": "Look up Word",
+  "description": "look up in eudic",
+  "category": "Apps",
+  "author": "jingyi",
+  "authorURL": "https://jingyi.blog",
+  "format": "raycast-script",
+  "script": "look-up-in-eudic.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/eudic/look-up-in-eudic.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Eudic app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Look up Word",
+      "subtitle": "Eudic",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "word",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

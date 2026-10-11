@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.mood-meter-display-mood-year",
+  "name": "Display Mood Year",
+  "description": "Displays year mood table",
+  "category": "Dashboard",
+  "author": "Federico Miraglia",
+  "authorURL": "https://github.com/Mitra98t",
+  "format": "raycast-script",
+  "script": "display-mood-year.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/mood-meter/display-mood-year.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Display Mood Year",
+      "subtitle": "Dashboard",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Year",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

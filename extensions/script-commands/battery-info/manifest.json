@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.battery-info",
+  "name": "Battery Info",
+  "description": "Get Battery percentage, time remaining, charge status, charger wattage, total cycles etc.",
+  "category": "System",
+  "author": "Fahim Faisal",
+  "authorURL": "https://github.com/i3p9",
+  "format": "raycast-script",
+  "script": "battery-info.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/battery-info.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Battery Info",
+      "subtitle": "System",
+      "mode": "live",
+      "confirm": true
+    }
+  ],
+  "every": "3m"
+}

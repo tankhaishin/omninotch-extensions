@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-capture-fullscreen",
+  "name": "Capture Fullscreen",
+  "description": "Take a screenshot of your screen.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-capture-fullscreen.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-capture-fullscreen.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Capture Fullscreen",
+      "subtitle": "CleanShot X",
+      "mode": "run"
+    }
+  ]
+}

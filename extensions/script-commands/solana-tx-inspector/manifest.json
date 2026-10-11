@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.solana-tx-inspector",
+  "name": "Open in Solana Inspector",
+  "description": "Extracts the message from a signed Solana transaction and opens Explorer's Inspector with ",
+  "category": "Developer",
+  "author": "bjoerndotsol",
+  "authorURL": "https://github.com/bjoerndotsol",
+  "format": "raycast-script",
+  "script": "solana-tx-inspector.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/solana/solana-tx-inspector.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open in Solana Inspector",
+      "subtitle": "Solana",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Signed transaction (base64)",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

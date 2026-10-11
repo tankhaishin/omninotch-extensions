@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.plash-random-website",
+  "name": "Switch to Random Website",
+  "description": "Switch to a random website from the list of websites in Plash.",
+  "category": "Apps",
+  "author": "Plash",
+  "authorURL": "https://github.com/sindresorhus/Plash",
+  "format": "raycast-script",
+  "script": "plash-random-website.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/plash/plash-random-website.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Plash app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Switch to Random Website",
+      "subtitle": "Plash",
+      "mode": "run"
+    }
+  ]
+}

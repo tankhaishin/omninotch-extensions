@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-copy-first-matching-totp",
+  "name": "Copy First Matching TOTP",
+  "description": "Search all items in a Bitwarden vault, and copy the TOTP of the first search result to the",
+  "category": "Productivity",
+  "author": "Adrian Reyes",
+  "authorURL": "https://github.com/int3rrupt",
+  "format": "raycast-script",
+  "script": "copy-first-matching-totp.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/copy-first-matching-totp.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy First Matching TOTP",
+      "subtitle": "Bitwarden",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

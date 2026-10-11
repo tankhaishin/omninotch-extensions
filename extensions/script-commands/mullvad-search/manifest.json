@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.mullvad-search",
+  "name": "Search Countries, Cities, and Hostnames",
+  "description": "Search the list of available entities to which a Mullvad VPN tunnel connection can be made",
+  "category": "Apps",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "search.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/mullvad/search.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Mullvad app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Countries, Cities, and Hostnames",
+      "subtitle": "Mullvad",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Show Hostnames? (y/n)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.spotify-now-playing-url",
+  "name": "Copy Current Playing Song URL",
+  "description": "Get link to current Spotify playing song",
+  "category": "Media",
+  "author": "Jack LaFond",
+  "authorURL": "https://github.com/jacc",
+  "format": "raycast-script",
+  "script": "spotify-now-playing-url.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/spotify/spotify-now-playing-url.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Current Playing Song URL",
+      "subtitle": "Spotify",
+      "mode": "run"
+    }
+  ]
+}

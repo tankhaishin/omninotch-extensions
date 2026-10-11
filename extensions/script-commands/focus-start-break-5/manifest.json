@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.focus-start-break-5",
+  "name": "Take 5 Minutes Break",
+  "description": "Take 5 minutes break.",
+  "category": "Apps",
+  "author": "Ernest Ojeh",
+  "authorURL": "https://github.com/namzo",
+  "format": "raycast-script",
+  "script": "focus-start-break-5.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/focus/focus-start-break-5.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Focus app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Take 5 Minutes Break",
+      "subtitle": "Focus",
+      "mode": "run"
+    }
+  ]
+}

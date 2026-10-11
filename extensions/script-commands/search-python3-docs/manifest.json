@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-python3-docs",
+  "name": "Search Python 3 Documentation",
+  "description": "Search Python 3 Documentation",
+  "category": "Web search",
+  "author": "Lucas Costa",
+  "authorURL": "https://github.com/lucasrcosta",
+  "format": "raycast-script",
+  "script": "search-python3-docs.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-python3-docs.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Python 3 Documentation",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

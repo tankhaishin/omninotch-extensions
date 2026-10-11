@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.tomighty-start-pomodoro",
+  "name": "Start Pomodoro",
+  "description": "Start Pomodoro via Tomighty's default hotkey",
+  "category": "Apps",
+  "author": "Marc Ignacio",
+  "authorURL": "https://github.com/padi",
+  "format": "raycast-script",
+  "script": "tomighty-start-pomodoro.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/tomighty/tomighty-start-pomodoro.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Tomighty app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Pomodoro",
+      "subtitle": "Tomighty",
+      "mode": "run"
+    }
+  ]
+}

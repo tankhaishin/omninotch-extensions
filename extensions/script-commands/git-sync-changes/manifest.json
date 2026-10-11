@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.git-sync-changes",
+  "name": "Sync Changes",
+  "description": "Pulls, rebases and pushes your changes.",
+  "category": "Developer",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "git-sync-changes.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/git/git-sync-changes.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Sync Changes",
+      "subtitle": "Git",
+      "mode": "run"
+    }
+  ],
+  "cwd": "~/Developer/script-commands"
+}

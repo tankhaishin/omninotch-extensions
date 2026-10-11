@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.find-my-fmp",
+  "name": "Find My Phone (Auto Sound)",
+  "description": "FindMy",
+  "category": "Apps",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "fmp.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/find-my/fmp.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Find My Phone (Auto Sound)",
+      "subtitle": "FindMy",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bear-open-tag",
+  "name": "Open Tag",
+  "description": "Open the specified tag in Bear.",
+  "category": "Apps",
+  "author": "Tanay Nistala",
+  "authorURL": "https://github.com/tanaynistala",
+  "format": "raycast-script",
+  "script": "bear-open-tag.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bear/bear-open-tag.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bear app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Tag",
+      "subtitle": "Bear",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Tag",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

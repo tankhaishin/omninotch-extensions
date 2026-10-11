@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.clipboard-to-17track",
+  "name": "Clipboard to 17TRACK",
+  "description": "Open 17TRACK with the tracking code found in the clipboard",
+  "category": "Web search",
+  "author": "Alessandra Pereyra",
+  "authorURL": "https://github.com/alessandrapereyra",
+  "format": "raycast-script",
+  "script": "clipboard-to-17track.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/clipboard-to-17track.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clipboard to 17TRACK",
+      "subtitle": "Web Searches",
+      "mode": "run"
+    }
+  ]
+}

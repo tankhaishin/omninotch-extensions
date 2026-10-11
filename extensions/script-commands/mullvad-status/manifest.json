@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.mullvad-status",
+  "name": "Mullvad Status",
+  "description": "Display the current status of the Mullvad VPN tunnel connection.",
+  "category": "Apps",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/mullvad/status.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Mullvad app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Mullvad Status",
+      "subtitle": "Mullvad",
+      "mode": "live"
+    }
+  ],
+  "every": "5m"
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.zoom-toggle-mic",
+  "name": "Toggle Microphone",
+  "description": "Mute/Unmute your microphone in the current meeting",
+  "category": "Communication",
+  "author": "Luigi Cardito",
+  "authorURL": "https://github.com/lcardito",
+  "format": "raycast-script",
+  "script": "toggle-mic.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/zoom/toggle-mic.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Microphone",
+      "subtitle": "Zoom",
+      "mode": "run"
+    }
+  ]
+}

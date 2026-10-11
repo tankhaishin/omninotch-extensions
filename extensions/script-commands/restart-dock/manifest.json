@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.restart-dock",
+  "name": "Restart the Dock",
+  "description": "Restart the Dock",
+  "category": "System",
+  "author": "Jordi Clement",
+  "authorURL": "https://github.com/jordicl",
+  "format": "raycast-script",
+  "script": "restart-dock.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/restart-dock.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Restart the Dock",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

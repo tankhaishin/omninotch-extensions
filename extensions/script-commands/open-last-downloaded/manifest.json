@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.open-last-downloaded",
+  "name": "Open Last Downloaded",
+  "description": "Opens the last file that was downloaded",
+  "category": "Navigation",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "open-last-downloaded.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/navigation/open-last-downloaded.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Last Downloaded",
+      "subtitle": "Navigation",
+      "mode": "run"
+    }
+  ]
+}

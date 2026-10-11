@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.reset-launchpad",
+  "name": "Reset Launchpad",
+  "description": "Resets the macOS Launchpad to its default state",
+  "category": "System",
+  "author": "Zach Dawson",
+  "authorURL": "https://raycast.com/zdawz",
+  "format": "raycast-script",
+  "script": "reset-launchpad.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/reset-launchpad.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Reset Launchpad",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "v": 2,
+  "id": "script-commands.create-gif-from-video",
+  "name": "Create GIF from video",
+  "description": "Create a GIF from video, by default it takes the last screen record video",
+  "category": "Conversions",
+  "author": "Quentin Eude",
+  "authorURL": "https://github.com/qeude",
+  "format": "raycast-script",
+  "script": "create-gif-from-video.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/create-gif-from-video.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "gifski"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create GIF from video",
+      "subtitle": "Conversions",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Source File Path",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "FPS (Default: 20)",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "Width (Default 600)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

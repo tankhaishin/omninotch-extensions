@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-add-quick-access-overlay",
+  "name": "Add Quick Access Overlay",
+  "description": "Opens a new Quick Access Overlay with the specified image or video.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-add-quick-access-overlay.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-add-quick-access-overlay.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add Quick Access Overlay",
+      "subtitle": "CleanShot X",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Filepath",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

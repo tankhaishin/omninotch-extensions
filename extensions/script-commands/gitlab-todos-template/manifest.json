@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.gitlab-todos-template",
+  "name": "To-Dos",
+  "description": "Show todos from GitLab",
+  "category": "Developer",
+  "author": "Michael Aigner",
+  "authorURL": "https://github.com/tonka3000",
+  "format": "raycast-script",
+  "script": "gitlab-todos.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/gitlab/gitlab-todos.template.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "To-Dos",
+      "subtitle": "GitLab",
+      "mode": "view"
+    }
+  ]
+}

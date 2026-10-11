@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.session-start-previous",
+  "name": "Start Previous Session",
+  "description": "Starts a focus session in Session app with the previous intent and duration",
+  "category": "Apps",
+  "author": "James Lyons",
+  "authorURL": "https://github.com/jamesjlyons",
+  "format": "raycast-script",
+  "script": "session-start-previous.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/session/session-start-previous.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Session app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Previous Session",
+      "subtitle": "Session",
+      "mode": "run"
+    }
+  ]
+}

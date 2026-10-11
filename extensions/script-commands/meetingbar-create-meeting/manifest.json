@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.meetingbar-create-meeting",
+  "name": "Create Meeting",
+  "description": "Create a new meeting.",
+  "category": "Apps",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "meetingbar-create-meeting.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/meetingbar/meetingbar-create-meeting.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "meetingbar",
+    "MeetingBar app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Meeting",
+      "subtitle": "MeetingBar",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

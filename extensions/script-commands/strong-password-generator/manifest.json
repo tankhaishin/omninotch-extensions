@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.strong-password-generator",
+  "name": "Strong Password Generator",
+  "description": "Generate a strong password of requested character length",
+  "category": "Developer",
+  "author": "Nitin Gupta",
+  "authorURL": "https://twitter.com/gniting",
+  "format": "raycast-script",
+  "script": "strong-password-generator.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/strong-password-generator.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Strong Password Generator",
+      "subtitle": "Developer Utils",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Length",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.docker-system-prune",
+  "name": "System Prune",
+  "description": "Remove unused data (system prune)",
+  "category": "Developer",
+  "author": "Sebastian Kroll",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "docker-system-prune.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/docker/docker-system-prune.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "System Prune",
+      "subtitle": "Docker",
+      "mode": "run"
+    }
+  ]
+}

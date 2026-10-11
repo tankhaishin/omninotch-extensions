@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.uninstall-with-appcleaner",
+  "name": "Uninstall with AppCleaner",
+  "description": "Uninstall applications with AppCleaner",
+  "category": "System",
+  "author": "Felipe Turcheti",
+  "authorURL": "https://felipeturcheti.com",
+  "format": "raycast-script",
+  "script": "uninstall-with-appcleaner.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/uninstall-with-appcleaner.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Uninstall with AppCleaner",
+      "subtitle": "System",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Application",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

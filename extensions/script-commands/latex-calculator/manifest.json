@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.latex-calculator",
+  "name": "LaTeX Calculator",
+  "description": "Evaluate LaTeX expressions and get the product copied to your clipboard",
+  "category": "Math",
+  "author": "Matt Gleich",
+  "authorURL": "https://mattglei.ch",
+  "format": "raycast-script",
+  "script": "latex-calculator.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/math/latex-calculator.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "LaTeX Calculator",
+      "subtitle": "Math",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "\\frac{4}{2}}",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

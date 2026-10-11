@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.imgur-upload-latest-screenshot-template",
+  "name": "Upload Latest Screenshot to Imgur",
+  "description": "Upload your last screenshot to Imgur and copy the image link to clipboard",
+  "category": "Productivity",
+  "author": "Fahim Faisal",
+  "authorURL": "https://github.com/i3p9",
+  "format": "raycast-script",
+  "script": "imgur-upload-latest-screenshot.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/imgur/imgur-upload-latest-screenshot.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Upload Latest Screenshot to Imgur",
+      "subtitle": "Upload to Imgur",
+      "mode": "run"
+    }
+  ]
+}

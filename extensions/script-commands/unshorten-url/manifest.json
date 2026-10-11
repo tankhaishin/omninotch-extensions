@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.unshorten-url",
+  "name": "Unshorten URL",
+  "description": "Unshortens clipboard content url and copies the result again.",
+  "category": "Developer",
+  "author": "Nikita Galaiko",
+  "authorURL": "https://github.com/ngalaiko",
+  "format": "raycast-script",
+  "script": "unshorten-url.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/unshorten-url.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Unshorten URL",
+      "subtitle": "Developer Utilities",
+      "mode": "run"
+    }
+  ]
+}

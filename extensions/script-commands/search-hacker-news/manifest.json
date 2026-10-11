@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-hacker-news",
+  "name": "Search Hacker News",
+  "description": "Search Hacker News",
+  "category": "Web search",
+  "author": "Shannon Matthews",
+  "authorURL": "https://github.com/s-oram",
+  "format": "raycast-script",
+  "script": "search-hacker-news.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-hacker-news.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Hacker News",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.apple-music-search",
+  "name": "Search",
+  "description": "Search using the native UI",
+  "category": "Media",
+  "author": "StevenRCE0",
+  "authorURL": "https://github.com/StevenRCE0",
+  "format": "raycast-script",
+  "script": "apple-music-search.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/apple-music/apple-music-search.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search",
+      "subtitle": "Apple Music",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Artist or Music",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

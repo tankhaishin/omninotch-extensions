@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-edit-send",
+  "name": "Edit a Send",
+  "description": "Edit an existing Bitwarden Send.",
+  "category": "Productivity",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "edit-send.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/edit-send.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Edit a Send",
+      "subtitle": "Bitwarden",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Send ID",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Attribute",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "New Value",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

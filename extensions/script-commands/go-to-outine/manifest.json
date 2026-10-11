@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.go-to-outine",
+  "name": "Go to Outline",
+  "description": "Open the website at Outline",
+  "category": "Browsing",
+  "author": "Ronan Rodrigo Nunes",
+  "authorURL": "https://ronanrodrigo.dev",
+  "format": "raycast-script",
+  "script": "go-to-outine.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/go-to-outine.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Go to Outline",
+      "subtitle": "Browsing",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

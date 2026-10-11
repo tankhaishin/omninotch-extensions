@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.magic-keyboard-switcher-template",
+  "name": "Magic Keyboard switcher",
+  "description": "Switch a single magic keyboard between computers",
+  "category": "System",
+  "author": "blastik",
+  "authorURL": "https://github.com/blastik",
+  "format": "raycast-script",
+  "script": "magic-keyboard-switcher.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/magic-keyboard-switcher/magic-keyboard-switcher.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "blueutil"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Magic Keyboard switcher",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

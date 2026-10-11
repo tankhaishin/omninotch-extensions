@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.github-open-pull-requests-page",
+  "name": "Open Pull Requests page",
+  "description": "Open your GitHub pull requests page",
+  "category": "Developer",
+  "author": "Faye Sipiano",
+  "authorURL": "https://github.com/FSipiano",
+  "format": "raycast-script",
+  "script": "github-open-pull-requests-page.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/github/github-open-pull-requests-page.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Pull Requests page",
+      "subtitle": "GitHub",
+      "mode": "run"
+    }
+  ]
+}

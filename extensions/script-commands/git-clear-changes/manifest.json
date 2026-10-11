@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.git-clear-changes",
+  "name": "Clear Changes",
+  "description": "Clear all changes",
+  "category": "Developer",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "git-clear-changes.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/git/git-clear-changes.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clear Changes",
+      "subtitle": "Git",
+      "mode": "run",
+      "confirm": true
+    }
+  ],
+  "cwd": "~/Developer/script-commands"
+}

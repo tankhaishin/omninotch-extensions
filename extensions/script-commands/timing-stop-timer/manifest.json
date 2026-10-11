@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.timing-stop-timer",
+  "name": "Stop Timer",
+  "description": "Stop the active timer",
+  "category": "Apps",
+  "author": "Landen Danyluk",
+  "authorURL": "https://github.com/landendanyluk",
+  "format": "raycast-script",
+  "script": "timing-stop-timer.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/timing/timing-stop-timer.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Timing app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop Timer",
+      "subtitle": "Timing",
+      "mode": "run"
+    }
+  ]
+}

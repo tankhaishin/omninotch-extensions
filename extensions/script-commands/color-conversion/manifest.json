@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.color-conversion",
+  "name": "Color Conversion",
+  "description": "Convert color formats (e.g. #FFEEFF -> rgba(255,238,255,1)",
+  "category": "Conversions",
+  "author": "quelhasu",
+  "authorURL": "https://github.com/quelhasu",
+  "format": "raycast-script",
+  "script": "color-conversion.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/color-conversion.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Color Conversion",
+      "subtitle": "Conversions",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Color (e.g. #FFEEFF | RGB(..) | RGBA(..))",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "New format (e.g. RGB | RGBA | HEX)",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

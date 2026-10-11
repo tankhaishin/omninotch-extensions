@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.aws-whatismyregion",
+  "name": "Find AWS Region by IP",
+  "description": "Copies the AWS IPv4 to the clipboard.",
+  "category": "Developer",
+  "author": "Oğuzhan Yılmaz",
+  "authorURL": "https://github.com/c1982",
+  "format": "raycast-script",
+  "script": "whatismyregion.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/aws/whatismyregion.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "curl",
+    "jq",
+    "grepcidr"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Find AWS Region by IP",
+      "subtitle": "Developer Utilities",
+      "mode": "view"
+    }
+  ]
+}

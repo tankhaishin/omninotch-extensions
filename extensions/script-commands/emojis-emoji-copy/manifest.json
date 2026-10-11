@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.emojis-emoji-copy",
+  "name": "Search and Copy First Related Emoji",
+  "description": "Copy first emoji related to input.",
+  "category": "Communication",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "emoji-copy.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/emojis/emoji-copy.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search and Copy First Related Emoji",
+      "subtitle": "Communication",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search for...",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

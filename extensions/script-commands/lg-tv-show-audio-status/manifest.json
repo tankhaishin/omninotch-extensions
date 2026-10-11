@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-show-audio-status",
+  "name": "Show Audio Status",
+  "description": "Show the audio status.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "show-audio-status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/show-audio-status.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Show Audio Status",
+      "subtitle": "LG TV",
+      "mode": "view"
+    }
+  ]
+}

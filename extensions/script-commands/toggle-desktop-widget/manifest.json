@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.toggle-desktop-widget",
+  "name": "Toggle Desktop Widgets",
+  "description": "Toggle Desktop Widgets",
+  "category": "System",
+  "author": "Federico Zivolo",
+  "authorURL": "https://github.com/FezVrasta",
+  "format": "raycast-script",
+  "script": "toggle-desktop-widget.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/toggle-desktop-widget.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Desktop Widgets",
+      "subtitle": "",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

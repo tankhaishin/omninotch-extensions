@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.sonos-play-favorite",
+  "name": "Play Favorite",
+  "description": "Play from Sonos favorites.",
+  "category": "Media",
+  "author": "David Blackman",
+  "authorURL": "https://github.com/whizziwig",
+  "format": "raycast-script",
+  "script": "sonos-play-favorite.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/sonos/sonos-play-favorite.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "soco"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Play Favorite",
+      "subtitle": "Sonos",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Favorite Search",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

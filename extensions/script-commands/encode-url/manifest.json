@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.encode-url",
+  "name": "Encode URL",
+  "description": "Encodes clipboard content url and copies it again.",
+  "category": "Developer",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "encode-url.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/encode-url.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Encode URL",
+      "subtitle": "Developer Utilities",
+      "mode": "run"
+    }
+  ]
+}

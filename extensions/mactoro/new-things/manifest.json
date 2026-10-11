@@ -1,0 +1,73 @@
+{
+  "v": 2,
+  "id": "com.mactoro.new-things",
+  "name": "Create New",
+  "description": "Start a new doc, board, repo or meeting in one step.",
+  "category": "Productivity",
+  "author": "Mactoro",
+  "icon": "sf:plus.square",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "new-github-repository",
+      "title": "New GitHub Repository",
+      "mode": "run",
+      "url": "https://github.com/new"
+    },
+    {
+      "id": "new-github-gist",
+      "title": "New GitHub Gist",
+      "mode": "run",
+      "url": "https://gist.github.com/"
+    },
+    {
+      "id": "new-notion-page",
+      "title": "New Notion Page",
+      "mode": "run",
+      "url": "https://www.notion.so/new"
+    },
+    {
+      "id": "new-figma-file",
+      "title": "New Figma File",
+      "mode": "run",
+      "url": "https://www.figma.com/files/drafts?fuid=&new=1"
+    },
+    {
+      "id": "new-canva-design",
+      "title": "New Canva Design",
+      "mode": "run",
+      "url": "https://www.canva.com/create/"
+    },
+    {
+      "id": "new-excalidraw-drawing",
+      "title": "New Excalidraw Drawing",
+      "mode": "run",
+      "url": "https://excalidraw.com/"
+    },
+    {
+      "id": "new-miro-board",
+      "title": "New Miro Board",
+      "mode": "run",
+      "url": "https://miro.new"
+    },
+    {
+      "id": "new-codepen",
+      "title": "New CodePen",
+      "mode": "run",
+      "url": "https://codepen.io/pen/"
+    },
+    {
+      "id": "new-linear-issue",
+      "title": "New Linear Issue",
+      "mode": "run",
+      "url": "https://linear.app/new"
+    },
+    {
+      "id": "new-calendly-link",
+      "title": "New Calendly Link",
+      "mode": "run",
+      "url": "https://calendly.com/event_types/new"
+    }
+  ]
+}

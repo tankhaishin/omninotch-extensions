@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.open-terminal-from-finder",
+  "name": "Open Current Finder Directory in Termina",
+  "description": "Open current Finder directory in Terminal",
+  "category": "Navigation",
+  "author": "Kirill Gorbachyonok",
+  "authorURL": "https://github.com/japanese-goblinn",
+  "format": "raycast-script",
+  "script": "open-terminal-from-finder.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/navigation/open-terminal-from-finder.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Current Finder Directory in Terminal",
+      "subtitle": "Navigation",
+      "mode": "run"
+    }
+  ]
+}

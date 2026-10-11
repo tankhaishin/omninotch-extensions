@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-record-screen",
+  "name": "Record Screen",
+  "description": "Start a screen recording and save it as a video or an optimized GIF file.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-record-screen.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-record-screen.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Record Screen",
+      "subtitle": "CleanShot X",
+      "mode": "run"
+    }
+  ]
+}

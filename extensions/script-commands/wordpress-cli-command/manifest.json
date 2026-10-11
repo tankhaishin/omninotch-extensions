@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.wordpress-cli-command",
+  "name": "WordPress CLI Command",
+  "description": "Open [WordPress CLI command reference](https://developer.wordpress.org/cli/commands/) for ",
+  "category": "Web search",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "wordpress-cli-command.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/wordpress/wordpress-cli-command.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "WordPress CLI Command",
+      "subtitle": "WordPress",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Command",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

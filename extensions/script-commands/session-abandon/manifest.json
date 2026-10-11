@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.session-abandon",
+  "name": "Abandon Session",
+  "description": "Starts a focus session in Session app",
+  "category": "Apps",
+  "author": "James Lyons",
+  "authorURL": "https://github.com/jamesjlyons",
+  "format": "raycast-script",
+  "script": "session-abandon.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/session/session-abandon.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Session app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Abandon Session",
+      "subtitle": "Session",
+      "mode": "run"
+    }
+  ]
+}

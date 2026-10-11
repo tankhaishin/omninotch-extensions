@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.denon-avr-power-on",
+  "name": "Power On",
+  "description": "Powers on a modern Denon AVR if it is currently powered off",
+  "category": "Remote control",
+  "author": "Rediwed",
+  "authorURL": "github.com/Rediwed",
+  "format": "raycast-script",
+  "script": "power-on.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/denon-avr/power-on.applescript",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Power On",
+      "subtitle": "Denon AVR",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.move-downloads-to-trash",
+  "name": "Move Downloads to Trash",
+  "description": "System",
+  "category": "System",
+  "author": "Jax0rz",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "move-downloads-to-trash.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/move-downloads-to-trash.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Move Downloads to Trash",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.mozilla-developer-network",
+  "name": "Search MDN (Mozilla Developer Network)",
+  "description": "Web Searches",
+  "category": "Web search",
+  "author": "Jon Callahan",
+  "authorURL": "https://www.joncallahan.com",
+  "format": "raycast-script",
+  "script": "mozilla-developer-network.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/mozilla-developer-network.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search MDN (Mozilla Developer Network)",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.warp-start",
+  "name": "Connect",
+  "description": "Create a connection to WARP",
+  "category": "Apps",
+  "author": "Sergey Fuksman",
+  "authorURL": "https://github.com/fuksman",
+  "format": "raycast-script",
+  "script": "warp-start.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/warp/warp-start.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Warp app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Connect",
+      "subtitle": "WARP",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.lowfi",
+  "name": "Lowfi",
+  "description": "Music",
+  "category": "Media",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "lowfi.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/lowfi/lowfi.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "wezterm"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Lowfi",
+      "subtitle": "Music",
+      "mode": "run"
+    }
+  ]
+}

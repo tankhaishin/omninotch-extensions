@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.minimize-all-windows",
+  "name": "Minimize All Windows",
+  "description": "This script minimizes all windows of currently running apps",
+  "category": "System",
+  "author": "Ernest Ojeh",
+  "authorURL": "https://github.com/namzo",
+  "format": "raycast-script",
+  "script": "minimize-all-windows.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/minimize-all-windows.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Minimize All Windows",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

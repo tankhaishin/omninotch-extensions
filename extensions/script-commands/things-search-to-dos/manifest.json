@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.things-search-to-dos",
+  "name": "Search To-Dos",
+  "description": "Search To-Dos with a query.",
+  "category": "Apps",
+  "author": "Things",
+  "authorURL": "https://twitter.com/culturedcode/",
+  "format": "raycast-script",
+  "script": "things-search-to-dos.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/things/things-search-to-dos.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Things app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search To-Dos",
+      "subtitle": "Things",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

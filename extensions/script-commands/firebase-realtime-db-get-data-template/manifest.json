@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.firebase-realtime-db-get-data-template",
+  "name": "Get data from Firebase",
+  "description": "Get values from Firebase Realtime Database",
+  "category": "Dashboard",
+  "author": "Marek Mašek",
+  "authorURL": "https://github.com/marekmasek",
+  "format": "raycast-script",
+  "script": "firebase-realtime-db-get-data.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/firebase/firebase-realtime-db-get-data.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Get data from Firebase",
+      "subtitle": "Firebase",
+      "mode": "live"
+    }
+  ],
+  "every": "10m"
+}

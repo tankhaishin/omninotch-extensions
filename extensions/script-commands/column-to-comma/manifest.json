@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.column-to-comma",
+  "name": "Column to Comma",
+  "description": "Converts column to comma separated list.",
+  "category": "Conversions",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "column-to-comma.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/column-to-comma.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "gnu-sed"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Column to Comma",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

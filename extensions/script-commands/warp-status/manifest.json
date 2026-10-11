@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.warp-status",
+  "name": "WARP Status",
+  "description": "Check WARP connection",
+  "category": "Apps",
+  "author": "Sergey Fuksman",
+  "authorURL": "https://github.com/fuksman",
+  "format": "raycast-script",
+  "script": "warp-status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/warp/warp-status.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Warp app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "WARP Status",
+      "subtitle": "WARP",
+      "mode": "live"
+    }
+  ],
+  "every": "30s"
+}

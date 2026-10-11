@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-open-youtube-url",
+  "name": "Open Youtube (URL)",
+  "description": "Open Youtube with the given video URL. The URL has to start with \"http://\" or \"https://\" p",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "open-youtube-url.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/open-youtube-url.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Youtube (URL)",
+      "subtitle": "LG TV",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Video URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

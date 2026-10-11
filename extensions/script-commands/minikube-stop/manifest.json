@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.minikube-stop",
+  "name": "Stop",
+  "description": "Stops a running Minikube cluster",
+  "category": "Developer",
+  "author": "Daniils Petrovs",
+  "authorURL": "https://danpetrov.xyz",
+  "format": "raycast-script",
+  "script": "minikube-stop.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/minikube/minikube-stop.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "minikube"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop",
+      "subtitle": "Minikube",
+      "mode": "run"
+    }
+  ]
+}

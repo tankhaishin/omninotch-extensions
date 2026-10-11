@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.things-current-todo",
+  "name": "Current To-Do",
+  "description": "Show your current To-Do to stay focused.",
+  "category": "Apps",
+  "author": "Things",
+  "authorURL": "https://twitter.com/culturedcode/",
+  "format": "raycast-script",
+  "script": "things-current-todo.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/things/things-current-todo.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Things app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Current To-Do",
+      "subtitle": "Things",
+      "mode": "live"
+    }
+  ],
+  "every": "1m"
+}

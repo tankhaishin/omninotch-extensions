@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.toggle-menubar-visibility",
+  "name": "Toggle Menu Bar Visibility",
+  "description": "Toggles the visibility of the menubar.",
+  "category": "System",
+  "author": "Connor Forsyth",
+  "authorURL": "https://raycast.com/connorforsyth",
+  "format": "raycast-script",
+  "script": "toggle-menubar-visibility.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/toggle-menubar-visibility.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Menu Bar Visibility",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

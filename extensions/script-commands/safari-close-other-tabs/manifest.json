@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.safari-close-other-tabs",
+  "name": "Close Other Tabs",
+  "description": "Close all tabs besides the currently active tab.",
+  "category": "Apps",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "safari-close-other-tabs.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/safari/safari-close-other-tabs.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Close Other Tabs",
+      "subtitle": "Safari",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.menubarx-open-in-menubarx",
+  "name": "Open in MenubarX",
+  "description": "Open Pasteboard link in MenubarX",
+  "category": "Apps",
+  "author": "Clu Soh",
+  "authorURL": "https://twitter.com/designedbyclu",
+  "format": "raycast-script",
+  "script": "open-in-menubarx.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/menubarx/open-in-menubarx.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "MenubarX app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open in MenubarX",
+      "subtitle": "MenubarX",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-close-app",
+  "name": "Close App",
+  "description": "Close the application by its ID.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "close-app.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/close-app.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Close App",
+      "subtitle": "LG TV",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "App ID",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.rich-text-clipboard-to-markdown",
+  "name": "Rich Text to Markdown",
+  "description": "Convert rich text clipboard data to GitHub Flavored Markdown using Pandoc",
+  "category": "Conversions",
+  "author": "Adam Zethraeus",
+  "authorURL": "https://github.com/adam-zethraeus",
+  "format": "raycast-script",
+  "script": "rich-text-clipboard-to-markdown.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/rich-text-clipboard-to-markdown.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "pandoc"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Rich Text to Markdown",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

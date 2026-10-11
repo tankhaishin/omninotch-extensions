@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.caffeinate-disable",
+  "name": "Disable Caffeinate",
+  "description": "Stops all caffeinate sessions",
+  "category": "System",
+  "author": "Yan Smaliak",
+  "authorURL": "https://github.com/ysmaliak",
+  "format": "raycast-script",
+  "script": "caffeinate-disable.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/caffeinate-disable.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Disable Caffeinate",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

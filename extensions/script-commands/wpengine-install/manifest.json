@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.wpengine-install",
+  "name": "Open WP Engine Install",
+  "description": "Open specified [WP Engine](https://wpengine.com) install.",
+  "category": "Web search",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "wpengine-install.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/wpengine-install.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open WP Engine Install",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Install",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.new-browser-window",
+  "name": "New Browser Window",
+  "description": "Open new window in default browser",
+  "category": "Browsing",
+  "author": "Levi Nelson",
+  "authorURL": "https://github.com/LeviticusNelson",
+  "format": "raycast-script",
+  "script": "new-browser-window.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/new-browser-window.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "New Browser Window",
+      "subtitle": "Browser Utils",
+      "mode": "run"
+    }
+  ]
+}

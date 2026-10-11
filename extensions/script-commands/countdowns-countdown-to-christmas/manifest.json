@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.countdowns-countdown-to-christmas",
+  "name": "Countdown to Christmas",
+  "description": "See how many days until Christmas.",
+  "category": "Dashboard",
+  "author": "Valentin Chrétien",
+  "authorURL": "https://github.com/valentinchrt",
+  "format": "raycast-script",
+  "script": "countdown-to-christmas.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/countdowns/countdown-to-christmas.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Countdown to Christmas",
+      "subtitle": "",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

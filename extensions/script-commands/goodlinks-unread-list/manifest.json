@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.goodlinks-unread-list",
+  "name": "Show Unread List",
+  "description": "Show Unread list in the GoodLinks app",
+  "category": "Apps",
+  "author": "Filip Chabik",
+  "authorURL": "https://github.com/hadret",
+  "format": "raycast-script",
+  "script": "goodlinks-unread-list.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/goodlinks/goodlinks-unread-list.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "GoodLinks app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Show Unread List",
+      "subtitle": "GoodLinks",
+      "mode": "run"
+    }
+  ]
+}

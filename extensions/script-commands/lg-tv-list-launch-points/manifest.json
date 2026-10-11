@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-list-launch-points",
+  "name": "List Launch Points",
+  "description": "Show the list of launch points.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "list-launch-points.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/list-launch-points.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "List Launch Points",
+      "subtitle": "LG TV",
+      "mode": "view"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.error-info",
+  "name": "Error Info",
+  "description": "Get info about Apple API errors",
+  "category": "Developer",
+  "author": "Ronan Rodrigo Nunes",
+  "authorURL": "https://ronanrodrigo.dev",
+  "format": "raycast-script",
+  "script": "error-info.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/error-info.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "mint"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Error Info",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Error term",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

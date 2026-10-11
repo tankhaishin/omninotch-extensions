@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.aws-sso-util",
+  "name": "Single Sign-On",
+  "description": "Login to AWS using aws-sso-util",
+  "category": "Developer",
+  "author": "David Molinero",
+  "authorURL": "https://github.com/doktor500",
+  "format": "raycast-script",
+  "script": "aws-sso-util.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/aws/aws-sso-util.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "aws-sso-util"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Single Sign-On",
+      "subtitle": "AWS",
+      "mode": "run"
+    }
+  ]
+}

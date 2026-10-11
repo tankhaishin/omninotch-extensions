@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.safari-duplicate-tab",
+  "name": "Duplicate Tab",
+  "description": "Duplicates and opens the currently active tab.",
+  "category": "Apps",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "safari-duplicate-tab.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/safari/safari-duplicate-tab.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Duplicate Tab",
+      "subtitle": "Safari",
+      "mode": "run"
+    }
+  ]
+}

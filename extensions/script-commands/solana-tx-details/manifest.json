@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.solana-tx-details",
+  "name": "View Solana Transaction",
+  "description": "Opens a Solana transaction in Solscan. Network: empty/mainnet, d/dev/devnet, t/test/testne",
+  "category": "Developer",
+  "author": "bjoerndotsol",
+  "authorURL": "https://github.com/bjoerndotsol",
+  "format": "raycast-script",
+  "script": "solana-tx-details.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/solana/solana-tx-details.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "View Solana Transaction",
+      "subtitle": "Solana",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Transaction Signature",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Network",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

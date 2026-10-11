@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.expressvpn-reconnect",
+  "name": "Reconnect",
+  "description": "ExpressVPN",
+  "category": "Apps",
+  "author": "Amir Hossein SamadiPour",
+  "authorURL": "https://github.com/SamadiPour",
+  "format": "raycast-script",
+  "script": "expressvpn-reconnect.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/expressvpn/expressvpn-reconnect.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "ExpressVPN app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Reconnect",
+      "subtitle": "ExpressVPN",
+      "mode": "run"
+    }
+  ]
+}

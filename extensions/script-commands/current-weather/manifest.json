@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.current-weather",
+  "name": "Current Weather",
+  "description": "Get current weather report from [wttr.in](https://wttr.in/).",
+  "category": "Dashboard",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "current-weather.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/current-weather.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Current Weather",
+      "subtitle": "Dashboard",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.space-fixer",
+  "name": "Space Fixer",
+  "description": "Add spaces between Chinese and English, number or symbols.",
+  "category": "Conversions",
+  "author": "RealTong",
+  "authorURL": "https://raycast.com/RealTong",
+  "format": "raycast-script",
+  "script": "space-fixer.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/space-fixer.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Space Fixer",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

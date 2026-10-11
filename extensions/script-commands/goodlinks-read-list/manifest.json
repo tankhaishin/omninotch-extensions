@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.goodlinks-read-list",
+  "name": "Show Read List",
+  "description": "Show Read list in the GoodLinks app",
+  "category": "Apps",
+  "author": "Filip Chabik",
+  "authorURL": "https://github.com/hadret",
+  "format": "raycast-script",
+  "script": "goodlinks-read-list.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/goodlinks/goodlinks-read-list.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "GoodLinks app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Show Read List",
+      "subtitle": "GoodLinks",
+      "mode": "run"
+    }
+  ]
+}

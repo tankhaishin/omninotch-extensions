@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.zoom-rename-profile",
+  "name": "Rename Profile",
+  "description": "Rename your profile in Zoom Meeting App (Mac Only) and cliclick.",
+  "category": "Communication",
+  "author": "Leo Voon",
+  "authorURL": "https://github.com/leovoon",
+  "format": "raycast-script",
+  "script": "rename-profile.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/zoom/rename-profile.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Rename Profile",
+      "subtitle": "Zoom",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "AFK for?",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

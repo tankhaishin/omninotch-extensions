@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.nextdns-status-check",
+  "name": "NextDNS Status",
+  "description": "Check if this machine is using NextDNS.",
+  "category": "Dashboard",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "nextdns-status-check.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/nextdns-status-check.py",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "NextDNS Status",
+      "subtitle": "Dashboard",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

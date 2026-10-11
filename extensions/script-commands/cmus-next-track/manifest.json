@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.cmus-next-track",
+  "name": "Next Track",
+  "description": "Goes forward a track if cmus is running",
+  "category": "Media",
+  "author": "mmerle",
+  "authorURL": "https://github.com/mmerle",
+  "format": "raycast-script",
+  "script": "next-track.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/cmus/next-track.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Next Track",
+      "subtitle": "Cmus",
+      "mode": "run"
+    }
+  ]
+}

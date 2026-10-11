@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.search-in-dash",
+  "name": "Search in Dash",
+  "description": "Navigation",
+  "category": "Navigation",
+  "author": "Jax0rz",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "search-in-dash.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/navigation/search-in-dash.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Dash",
+      "subtitle": "Navigation",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Doc(egs:javascript)",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Keyword",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

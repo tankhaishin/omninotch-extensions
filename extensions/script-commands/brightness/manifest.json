@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.brightness",
+  "name": "Brightness",
+  "description": "Set system brightness",
+  "category": "System",
+  "author": "Antonio Dal Sie",
+  "authorURL": "https://github.com/exodusanto",
+  "format": "raycast-script",
+  "script": "brightness.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/brightness.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "brightness"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Brightness",
+      "subtitle": "System brightness",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "brightness",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

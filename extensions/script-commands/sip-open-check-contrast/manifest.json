@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.sip-open-check-contrast",
+  "name": "Open Contrast Checker",
+  "description": "Open Sip Contrast Checker.",
+  "category": "Apps",
+  "author": "Sip",
+  "authorURL": "https://twitter.com/sip_app/",
+  "format": "raycast-script",
+  "script": "sip-open-check-contrast.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/sip/sip-open-check-contrast.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Sip app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Contrast Checker",
+      "subtitle": "Sip",
+      "mode": "run"
+    }
+  ]
+}

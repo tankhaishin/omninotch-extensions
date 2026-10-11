@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.pulse-secure-resume",
+  "name": "Resume",
+  "description": "Resume the suspended connection.",
+  "category": "Apps",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "pulse-secure-resume.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/pulse-secure/pulse-secure-resume.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Pulse Secure app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Resume",
+      "subtitle": "Pulse Secure",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

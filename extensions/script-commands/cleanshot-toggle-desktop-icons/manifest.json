@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-toggle-desktop-icons",
+  "name": "Toggle Desktop Icons",
+  "description": "Hide clutter on your Desktop.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-toggle-desktop-icons.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-toggle-desktop-icons.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Desktop Icons",
+      "subtitle": "CleanShot X",
+      "mode": "run"
+    }
+  ]
+}

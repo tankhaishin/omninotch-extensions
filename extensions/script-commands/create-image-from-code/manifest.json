@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.create-image-from-code",
+  "name": "Create Image from Code",
+  "description": "Create beautiful images of your code with https://ray.so",
+  "category": "Developer",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "create-image-from-code.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/create-image-from-code.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Image from Code",
+      "subtitle": "",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

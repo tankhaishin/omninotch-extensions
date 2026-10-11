@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.tailscale-disconnect",
+  "name": "Disconnect",
+  "description": "Disconnects from Tailscale",
+  "category": "Apps",
+  "author": "Ross Zurowski",
+  "authorURL": "https://github.com/rosszurowski",
+  "format": "raycast-script",
+  "script": "tailscale-disconnect.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/tailscale/tailscale-disconnect.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Tailscale app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Disconnect",
+      "subtitle": "Tailscale",
+      "mode": "run"
+    }
+  ]
+}

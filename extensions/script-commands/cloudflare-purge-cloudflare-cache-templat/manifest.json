@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.cloudflare-purge-cloudflare-cache-templat",
+  "name": "Purge Cloudflare cache",
+  "description": "Purge Cloudflare cache for zone.",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "purge-cloudflare-cache.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/cloudflare/purge-cloudflare-cache.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Purge Cloudflare cache",
+      "subtitle": "Developer Utilities",
+      "mode": "run"
+    }
+  ]
+}

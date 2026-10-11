@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.slack-dev-mode",
+  "name": "Launch Dev Mode",
+  "description": "Open Slack with the Developer Menu enabled. ⌘⌥I to access the Developer Menu. If you find ",
+  "category": "Communication",
+  "author": "Cody Carrell",
+  "authorURL": "https://raycast.com/sourcecody",
+  "format": "raycast-script",
+  "script": "slack-dev-mode.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/slack/slack-dev-mode.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Launch Dev Mode",
+      "subtitle": "Slack",
+      "mode": "run"
+    }
+  ]
+}

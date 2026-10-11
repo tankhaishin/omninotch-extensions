@@ -1,0 +1,153 @@
+{
+  "v": 2,
+  "id": "com.mactoro.maps-travel",
+  "name": "Maps & Travel",
+  "description": "Places, directions, flights and stays.",
+  "category": "Navigation",
+  "author": "Mactoro",
+  "icon": "sf:map",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-apple-maps",
+      "title": "Search Apple Maps",
+      "mode": "run",
+      "url": "maps://?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "directions-in-apple-maps",
+      "title": "Directions in Apple Maps",
+      "mode": "run",
+      "url": "maps://?daddr={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-maps",
+      "title": "Search Google Maps",
+      "mode": "run",
+      "url": "https://www.google.com/maps/search/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-flights",
+      "title": "Search Google Flights",
+      "mode": "run",
+      "url": "https://www.google.com/travel/flights?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-airbnb",
+      "title": "Search Airbnb",
+      "mode": "run",
+      "url": "https://www.airbnb.com/s/{query}/homes",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-booking-com",
+      "title": "Search Booking.com",
+      "mode": "run",
+      "url": "https://www.booking.com/searchresults.html?ss={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-tripadvisor",
+      "title": "Search Tripadvisor",
+      "mode": "run",
+      "url": "https://www.tripadvisor.com/Search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "weather-for-a-place",
+      "title": "Weather for a Place",
+      "mode": "run",
+      "url": "https://www.google.com/search?q=weather+{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "time-in-a-city",
+      "title": "Time in a City",
+      "mode": "run",
+      "url": "https://www.google.com/search?q=time+in+{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-wikivoyage",
+      "title": "Search Wikivoyage",
+      "mode": "run",
+      "url": "https://en.wikivoyage.org/w/index.php?search={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

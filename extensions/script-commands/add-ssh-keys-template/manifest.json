@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.add-ssh-keys-template",
+  "name": "Add SSH Keys (with Terminal)",
+  "description": "Add one or multiple SSH keys to your SSH agent (with Terminal).",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "add-ssh-keys.template.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/add-ssh-keys.template.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add SSH Keys (with Terminal)",
+      "subtitle": "Developer Utilities",
+      "mode": "run"
+    }
+  ]
+}

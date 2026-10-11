@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.genpasswd",
+  "name": "Generate Password",
+  "description": "Generates an iOS style password",
+  "category": "Developer",
+  "author": "everdrone",
+  "authorURL": "https://github.com/everdrone",
+  "format": "raycast-script",
+  "script": "genpasswd.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/genpasswd.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Generate Password",
+      "subtitle": "Security",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Sets (3)",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Length (6)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

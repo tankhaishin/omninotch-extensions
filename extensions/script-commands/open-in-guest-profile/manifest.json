@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.open-in-guest-profile",
+  "name": "Open in guest profile",
+  "description": "Open current website in guest profile/mode",
+  "category": "Browsing",
+  "author": "JD Solanki",
+  "authorURL": "https://github.com/jd-solanki",
+  "format": "raycast-script",
+  "script": "open-in-guest-profile.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/open-in-guest-profile.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open in guest profile",
+      "subtitle": "Browser",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.open-ai-usage",
+  "name": "Check Usage of OpenAI API",
+  "description": "Get total usage of OpenAI API",
+  "category": "Dashboard",
+  "author": "nagauta",
+  "authorURL": "https://github.com/nagauta",
+  "format": "raycast-script",
+  "script": "open-ai-usage.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/open-ai-usage.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Check Usage of OpenAI API",
+      "subtitle": "System",
+      "mode": "live"
+    }
+  ]
+}

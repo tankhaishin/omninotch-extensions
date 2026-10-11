@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.base64-encode-input",
+  "name": "Base64 Encode",
+  "description": "Encode any text data by using base64",
+  "category": "Developer",
+  "author": "Bin Hua",
+  "authorURL": "https://github.com/hzb",
+  "format": "raycast-script",
+  "script": "base64-encode-input.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/base64-encode-input.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Base64 Encode",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "text",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

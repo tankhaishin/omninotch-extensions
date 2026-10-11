@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.mullvad-connect",
+  "name": "Connect",
+  "description": "Connect the Mullvad VPN tunnel using the most recent configuration settings.",
+  "category": "Apps",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "connect.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/mullvad/connect.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Mullvad app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Connect",
+      "subtitle": "Mullvad",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "v": 2,
+  "id": "script-commands.busycal-new-busycal-event-or-task",
+  "name": "Create Event/Task",
+  "description": "Creates new events or tasks in BusyCal.",
+  "category": "Apps",
+  "author": "Annie Ma",
+  "authorURL": "www.anniema.co",
+  "format": "raycast-script",
+  "script": "new-busycal-event-or-task.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/busycal/new-busycal-event-or-task.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "BusyCal",
+    "Busycal app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Event/Task",
+      "subtitle": "BusyCal",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "type",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "entry",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

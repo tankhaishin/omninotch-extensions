@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.peekalink-template",
+  "name": "Peek a link",
+  "description": "Use [Peekalink.io](https://peekalink.io) API to peek specified URL.",
+  "category": "Browsing",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "peekalink.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/peekalink.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Peek a link",
+      "subtitle": "Internet",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

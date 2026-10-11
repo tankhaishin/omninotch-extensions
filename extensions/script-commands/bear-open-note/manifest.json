@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bear-open-note",
+  "name": "Open Note",
+  "description": "Open the specified note in Bear.",
+  "category": "Apps",
+  "author": "Tanay Nistala",
+  "authorURL": "https://github.com/tanaynistala",
+  "format": "raycast-script",
+  "script": "bear-open-note.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bear/bear-open-note.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bear app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Note",
+      "subtitle": "Bear",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

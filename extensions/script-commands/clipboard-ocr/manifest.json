@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.clipboard-ocr",
+  "name": "OCR Image",
+  "description": "OCR Image from Clipboard",
+  "category": "Conversions",
+  "author": "xxchan",
+  "authorURL": "https://github.com/xxchan",
+  "format": "raycast-script",
+  "script": "clipboard-ocr.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/clipboard-ocr.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "pngpaste"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "OCR Image",
+      "subtitle": "Clipboard",
+      "mode": "view"
+    }
+  ]
+}

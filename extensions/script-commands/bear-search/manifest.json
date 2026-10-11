@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.bear-search",
+  "name": "Search",
+  "description": "Search notes by keyword and/or tag in Bear.",
+  "category": "Apps",
+  "author": "Tanay Nistala",
+  "authorURL": "https://github.com/tanaynistala",
+  "format": "raycast-script",
+  "script": "bear-search.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bear/bear-search.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bear app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search",
+      "subtitle": "Bear",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Term",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Tag",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

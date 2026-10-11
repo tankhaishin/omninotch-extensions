@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.sleep-timer",
+  "name": "Sleep Timer",
+  "description": "Put your Mac to sleep (in X minutes).",
+  "category": "System",
+  "author": "AndriiBarabash",
+  "authorURL": "https://github.com/AndriiBarabash",
+  "format": "raycast-script",
+  "script": "sleep-timer.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/sleep-timer.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Sleep Timer",
+      "subtitle": "System",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "(in) minutes",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

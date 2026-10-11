@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.medo-float-small",
+  "name": "Medo Float Small",
+  "description": "Add a new task with priority",
+  "category": "Apps",
+  "author": "Aayush",
+  "authorURL": "https://github.com/Aayush9029",
+  "format": "raycast-script",
+  "script": "medo-float-small.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/medo/medo-float-small.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Medo app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Medo Float Small",
+      "subtitle": "Medo",
+      "mode": "run"
+    }
+  ]
+}

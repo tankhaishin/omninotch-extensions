@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.modify-extension",
+  "name": "Modify File Extension",
+  "description": "Batch modify the file in the current directory or the specified extension of the selected ",
+  "category": "System",
+  "author": "LokHsu",
+  "authorURL": "https://github.com/lokhsu",
+  "format": "raycast-script",
+  "script": "modify-extension.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/modify-extension.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Modify File Extension",
+      "subtitle": "",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Before",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "After",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

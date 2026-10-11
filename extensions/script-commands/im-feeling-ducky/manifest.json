@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.im-feeling-ducky",
+  "name": "I'm Feeling Ducky",
+  "description": "Open the first DuckDuckGo search result page for your query (also supports bang!)",
+  "category": "Web search",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "im-feeling-ducky.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/im-feeling-ducky.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "I'm Feeling Ducky",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

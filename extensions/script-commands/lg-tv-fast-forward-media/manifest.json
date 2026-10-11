@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-fast-forward-media",
+  "name": "Fast Forward Media",
+  "description": "Fast forward the media.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "fast-forward-media.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/fast-forward-media.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Fast Forward Media",
+      "subtitle": "LG TV",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.check-domain-template",
+  "name": "Check Domain",
+  "description": "Check the availability of a domain with the Vercel API.",
+  "category": "Developer",
+  "author": "Ted Spare",
+  "authorURL": "https://y.at/🤘🐊🗿🚀",
+  "format": "raycast-script",
+  "script": "check-domain.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/check-domain.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Check Domain",
+      "subtitle": "Developer Utils",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "example.com",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

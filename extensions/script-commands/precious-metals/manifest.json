@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.precious-metals",
+  "name": "Metals Price",
+  "description": "Retrieves the value of precious metals per 1 oz",
+  "category": "Dashboard",
+  "author": "Stefan de Graaf",
+  "authorURL": "https://github.com/DBZFYAM",
+  "format": "raycast-script",
+  "script": "precious-metals.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/precious-metals.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Metals Price",
+      "subtitle": "Dashboard",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

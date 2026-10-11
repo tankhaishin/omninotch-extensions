@@ -1,0 +1,46 @@
+{
+  "v": 2,
+  "id": "script-commands.pulse-secure-connect",
+  "name": "Connect / Reconnect",
+  "description": "Connect to the given / default connection with the given / default username.",
+  "category": "Apps",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "pulse-secure-connect.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/pulse-secure/pulse-secure-connect.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Pulse Secure app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Connect / Reconnect",
+      "subtitle": "Pulse Secure",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Connection",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Username",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "Password",
+          "required": false,
+          "percentEncoded": false
+        }
+      ],
+      "confirm": true
+    }
+  ]
+}

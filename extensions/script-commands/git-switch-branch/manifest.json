@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "script-commands.git-switch-branch",
+  "name": "Switch Branch",
+  "description": "Switch to a new branch. If not name was provided, it checks out the default branch.",
+  "category": "Developer",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "git-switch-branch.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/git/git-switch-branch.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Switch Branch",
+      "subtitle": "Git",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Name",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ],
+  "cwd": "~/Developer/script-commands"
+}

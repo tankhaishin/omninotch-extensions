@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.microlink",
+  "name": "Microlink API",
+  "description": "Microlink API integration",
+  "category": "Developer",
+  "author": "Kiko Beats",
+  "authorURL": "https://github.com/kikobeats",
+  "format": "raycast-script",
+  "script": "microlink.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/microlink.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "microlink"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Microlink API",
+      "subtitle": "",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "url",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

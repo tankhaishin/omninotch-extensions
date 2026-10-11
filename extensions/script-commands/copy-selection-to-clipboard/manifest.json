@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.copy-selection-to-clipboard",
+  "name": "Copy Finder Selection to Clipboard",
+  "description": "Copy contents of selected items in Finder to the clipboard. If there's more than one file ",
+  "category": "System",
+  "author": "Felipe Turcheti",
+  "authorURL": "https://felipeturcheti.com",
+  "format": "raycast-script",
+  "script": "copy-selection-to-clipboard.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/copy-selection-to-clipboard.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Finder Selection to Clipboard",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.youtube-statistics-template",
+  "name": "YouTube Statistics",
+  "description": "Shows YouTube Subscribers, Views and Videos",
+  "category": "Dashboard",
+  "author": "Astrit",
+  "authorURL": "https://github.com/astrit",
+  "format": "raycast-script",
+  "script": "youtube-statistics.template.rb",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/youtube-statistics.template.rb",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Ruby"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "YouTube Statistics",
+      "subtitle": "YouTube Statistics",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

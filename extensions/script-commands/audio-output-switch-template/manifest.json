@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.audio-output-switch-template",
+  "name": "Switch Audio to <Device Name>",
+  "description": "Switch audio output to desired device.",
+  "category": "System",
+  "author": "mmerle",
+  "authorURL": "https://github.com/mmerle",
+  "format": "raycast-script",
+  "script": "audio-output-switch.template.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/audio/audio-output-switch.template.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Switch Audio to <Device Name>",
+      "subtitle": "Audio",
+      "mode": "run"
+    }
+  ]
+}

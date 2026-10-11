@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.zalgo-text",
+  "name": "Zalgo Text",
+  "description": "Converts text to z̫̫̐a̳ͩl̓͂̀ͅg͔̚o̷̦̣͢ t̳͆ḛ̊͟ẍ̮̝́t̵̔ͯ͝",
+  "category": "Conversions",
+  "author": "Adam Zethraeus",
+  "authorURL": "https://github.com/adam-zethraeus",
+  "format": "raycast-script",
+  "script": "zalgo-text.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/zalgo-text.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Zalgo Text",
+      "subtitle": "Conversions",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Text to Z̶̶͚̯͗a̩̞͜͜l̫͕ͬͨ̿g͈̫͂ͤ͆͢o̠͚̞ͥ",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Intensity=5",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

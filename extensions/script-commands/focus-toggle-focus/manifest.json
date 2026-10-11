@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.focus-toggle-focus",
+  "name": "Toggle Focus Session",
+  "description": "Toggle between start session (untimed) and stop session.",
+  "category": "Apps",
+  "author": "Ernest Ojeh",
+  "authorURL": "https://github.com/namzo",
+  "format": "raycast-script",
+  "script": "focus-toggle-focus.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/focus/focus-toggle-focus.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Focus app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Focus Session",
+      "subtitle": "Focus",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-log-in-template",
+  "name": "Log In",
+  "description": "Log in to Bitwarden.",
+  "category": "Productivity",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "log-in.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/log-in.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Log In",
+      "subtitle": "Bitwarden",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Email",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Master Password",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "MFA Code",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

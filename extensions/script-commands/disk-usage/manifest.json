@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.disk-usage",
+  "name": "Disk Usage",
+  "description": "Show disk usage for / (root)",
+  "category": "System",
+  "author": "Jesse Claven",
+  "authorURL": "https://github.com/jesse-c",
+  "format": "raycast-script",
+  "script": "disk-usage.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/disk-usage.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Disk Usage",
+      "subtitle": "System",
+      "mode": "live"
+    }
+  ],
+  "every": "1m"
+}

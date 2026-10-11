@@ -8,7 +8,9 @@ JSON). OmniNotch runs it, draws it in the notch, and asks the person to allow it
 
 - **Make one:** read [GUIDE.md](GUIDE.md). Five minutes, any language.
 - **Share it:** read [CONTRIBUTING.md](CONTRIBUTING.md), then open a pull request.
-- **Browse:** `extensions/<author>/<name>/`. The ones in `extensions/mactoro/` come with OmniNotch.
+- **Browse:** `extensions/<author>/<name>/`. `extensions/mactoro/` is ours (Live extensions and quicklink packs);
+  `extensions/script-commands/` is the open-source script-command collection, credited to each author (FORMATS.md).
+- **Formats:** script extensions, quicklinks and Raycast-format script commands: [FORMATS.md](FORMATS.md).
 
 Extensions are fan-made unless they say otherwise. An extension that shows another company's data is not made or
 endorsed by that company.

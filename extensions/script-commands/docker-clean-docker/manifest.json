@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.docker-clean-docker",
+  "name": "Clean",
+  "description": "Script that cleans Docker images, volumes, and containers",
+  "category": "Developer",
+  "author": "Quentin Eude",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "clean-docker.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/docker/clean-docker.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clean",
+      "subtitle": "Docker",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

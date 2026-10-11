@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.unix-time-reader",
+  "name": "Unix Time Reader From Clipboard",
+  "description": "Display Human-Readable Date from Unix Time in Clipboard",
+  "category": "Conversions",
+  "author": "Francis Feng",
+  "authorURL": "https://github.com/francisfeng",
+  "format": "raycast-script",
+  "script": "unix-time-reader.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/unix-time-reader.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Unix Time Reader From Clipboard",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

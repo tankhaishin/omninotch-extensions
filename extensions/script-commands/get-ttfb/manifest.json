@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.get-ttfb",
+  "name": "Get TTFB (Time to First Byte)",
+  "description": "Get the TTFB (Time to First Byte) of a website",
+  "category": "Developer",
+  "author": "Angelos Michalopoulos",
+  "authorURL": "https://github.com/miagg",
+  "format": "raycast-script",
+  "script": "get-ttfb.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/get-ttfb.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Get TTFB (Time to First Byte)",
+      "subtitle": "Developer Utils",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

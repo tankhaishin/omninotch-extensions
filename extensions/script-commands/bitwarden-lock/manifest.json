@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-lock",
+  "name": "Lock Session",
+  "description": "Lock a Bitwarden session.",
+  "category": "Productivity",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "lock.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/lock.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Lock Session",
+      "subtitle": "Bitwarden",
+      "mode": "run"
+    }
+  ]
+}

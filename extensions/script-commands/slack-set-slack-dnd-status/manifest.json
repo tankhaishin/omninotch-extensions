@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.slack-set-slack-dnd-status",
+  "name": "Set DND Status",
+  "description": "Set your DND status in Slack",
+  "category": "Communication",
+  "author": "Sam Ching",
+  "authorURL": "https://github.com/samching",
+  "format": "raycast-script",
+  "script": "set-slack-DND-status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/slack/set-slack-DND-status.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set DND Status",
+      "subtitle": "Slack",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "number of minutes",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

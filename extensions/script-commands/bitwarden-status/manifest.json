@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-status",
+  "name": "Bitwarden Status",
+  "description": "Display the authentication and lock status of the user's Bitwarden session.",
+  "category": "Productivity",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/status.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Bitwarden Status",
+      "subtitle": "Bitwarden",
+      "mode": "live"
+    }
+  ],
+  "every": "5m"
+}

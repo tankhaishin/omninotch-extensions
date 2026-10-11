@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.audio-get-selected-audio-device",
+  "name": "Audio devices",
+  "description": "Shows the selected audio devices for input and output",
+  "category": "System",
+  "author": "Roland Leth",
+  "authorURL": "https://runtimesharks.com",
+  "format": "raycast-script",
+  "script": "get-selected-audio-device.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/audio/get-selected-audio-device.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Audio devices",
+      "subtitle": "Audio",
+      "mode": "live"
+    }
+  ],
+  "every": "10m"
+}

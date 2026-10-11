@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-lessformatter",
+  "name": "LESS Beautify/Minify",
+  "description": "Beautify or minify your current clipboard as LESS",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "lessformatter.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/lessformatter.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "LESS Beautify/Minify",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

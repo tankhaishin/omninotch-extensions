@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.toggle-menu-icons",
+  "name": "Toggle Menu Icons",
+  "description": "Show or hide Tahoe menu icons",
+  "category": "System",
+  "author": "chrismessina",
+  "authorURL": "https://raycast.com/chrismessina",
+  "format": "raycast-script",
+  "script": "toggle-menu-icons.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/toggle-menu-icons.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Menu Icons",
+      "subtitle": "System Utilities",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

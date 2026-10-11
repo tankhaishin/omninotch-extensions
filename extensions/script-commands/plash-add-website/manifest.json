@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.plash-add-website",
+  "name": "Add Website",
+  "description": "Add a website to Plash.",
+  "category": "Apps",
+  "author": "Plash",
+  "authorURL": "https://github.com/sindresorhus/Plash",
+  "format": "raycast-script",
+  "script": "plash-add-website.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/plash/plash-add-website.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Plash app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add Website",
+      "subtitle": "Plash",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "url",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "title",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.countdowns-countdown-to-date-template",
+  "name": "Countdown to Date",
+  "description": "See how many days/hours until a specific date.",
+  "category": "Dashboard",
+  "author": "Valentin Chrétien",
+  "authorURL": "https://github.com/valentinchrt",
+  "format": "raycast-script",
+  "script": "countdown-to-date.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/countdowns/countdown-to-date.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Countdown to Date",
+      "subtitle": "",
+      "mode": "live"
+    }
+  ],
+  "every": "10m"
+}

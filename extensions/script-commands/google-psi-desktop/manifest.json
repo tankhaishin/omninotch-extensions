@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.google-psi-desktop",
+  "name": "PageSpeed Insights - Desktop",
+  "description": "Run a [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) analys",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "google-psi-desktop.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/google/google-psi-desktop.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "PageSpeed Insights - Desktop",
+      "subtitle": "Google",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.ecosia",
+  "name": "Search in Ecosia",
+  "description": "Web Searches",
+  "category": "Web search",
+  "author": "Sasivarnan R",
+  "authorURL": "https://github.com/sasivarnan",
+  "format": "raycast-script",
+  "script": "ecosia.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/ecosia.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Ecosia",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

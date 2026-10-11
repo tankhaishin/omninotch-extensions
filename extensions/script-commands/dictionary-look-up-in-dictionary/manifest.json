@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.dictionary-look-up-in-dictionary",
+  "name": "Look up in Dictionary",
+  "description": "Look up selected text in Dictionary",
+  "category": "Apps",
+  "author": "yayiji",
+  "authorURL": "https://github.com/yayiji",
+  "format": "raycast-script",
+  "script": "look-up-in-dictionary.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/dictionary/look-up-in-dictionary.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Look up in Dictionary",
+      "subtitle": "Dictionary",
+      "mode": "run"
+    }
+  ]
+}

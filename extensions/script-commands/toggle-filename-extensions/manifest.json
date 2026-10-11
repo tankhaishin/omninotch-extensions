@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.toggle-filename-extensions",
+  "name": "Toggle Filename Extensions",
+  "description": "Show or hide all filename extensions (like .txt, .png)",
+  "category": "System",
+  "author": "Senthil Prabhu",
+  "authorURL": "https://github.com/senthilprabhut",
+  "format": "raycast-script",
+  "script": "toggle-filename-extensions.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/toggle-filename-extensions.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Filename Extensions",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

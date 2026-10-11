@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.downie-download-video",
+  "name": "Download Video",
+  "description": "Download video from Pasteboard link",
+  "category": "Apps",
+  "author": "Clu Soh",
+  "authorURL": "https://twitter.com/designedbyclu",
+  "format": "raycast-script",
+  "script": "download-video.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/downie/download-video.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Downie app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Download Video",
+      "subtitle": "Downie",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.brew-update",
+  "name": "Update",
+  "description": "Run Brew Update",
+  "category": "Developer",
+  "author": "chengzhiqi",
+  "authorURL": "https://twitter.com/1872Fate",
+  "format": "raycast-script",
+  "script": "brew-update.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/brew/brew-update.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Update",
+      "subtitle": "Brew",
+      "mode": "view"
+    }
+  ]
+}

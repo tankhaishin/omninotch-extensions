@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.ip-get-external-ip-v6",
+  "name": "External IPv6",
+  "description": "Copies the external IPv6 to the clipboard.",
+  "category": "Developer",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "get-external-ip-v6.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/ip/get-external-ip-v6.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "External IPv6",
+      "subtitle": "Internet",
+      "mode": "live"
+    }
+  ]
+}

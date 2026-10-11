@@ -1,0 +1,48 @@
+{
+  "v": 2,
+  "id": "script-commands.translate-shell-language-pair",
+  "name": "Translate Shell",
+  "description": "Translate text using translate-shell.",
+  "category": "Apps",
+  "author": "Marcel Bochtler",
+  "authorURL": "https://github.com/MarcelBochtler",
+  "format": "raycast-script",
+  "script": "translate-shell-language-pair.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/translate-shell/translate-shell-language-pair.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "translate-shell",
+    "translate-shell app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Translate Shell",
+      "subtitle": "",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "from",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "to",
+          "required": false,
+          "percentEncoded": false
+        }
+      ],
+      "confirm": true
+    }
+  ]
+}

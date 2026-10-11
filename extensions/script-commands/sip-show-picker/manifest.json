@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.sip-show-picker",
+  "name": "Show Color Picker",
+  "description": "Pick a color value from your screen.",
+  "category": "Apps",
+  "author": "Sip",
+  "authorURL": "https://twitter.com/sip_app/",
+  "format": "raycast-script",
+  "script": "sip-show-picker.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/sip/sip-show-picker.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Sip app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Show Color Picker",
+      "subtitle": "Sip",
+      "mode": "run"
+    }
+  ]
+}

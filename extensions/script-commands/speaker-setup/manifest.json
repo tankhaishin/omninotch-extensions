@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.speaker-setup",
+  "name": "Speaker Setup",
+  "description": "Speaker Setup",
+  "category": "Media",
+  "author": "Kailash Yellareddy",
+  "authorURL": "https://github.com/kyellareddy",
+  "format": "raycast-script",
+  "script": "speaker-setup.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/speaker-setup/speaker-setup.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Speaker Setup",
+      "subtitle": "",
+      "mode": "run"
+    }
+  ]
+}

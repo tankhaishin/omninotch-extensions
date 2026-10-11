@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.prayer-summary-template",
+  "name": "Prayer Summary",
+  "description": "Get the current and next prayer times for a specific city and country.",
+  "category": "Fun",
+  "author": "Muneeb Ajaz",
+  "authorURL": "https://github.com/mianmuneebajaz",
+  "format": "raycast-script",
+  "script": "prayer-summary.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/culture/prayer-summary.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Prayer Summary",
+      "subtitle": "Culture",
+      "mode": "live"
+    }
+  ],
+  "every": "2m"
+}

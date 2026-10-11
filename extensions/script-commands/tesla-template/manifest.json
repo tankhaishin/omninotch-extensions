@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.tesla-template",
+  "name": "Tesla",
+  "description": "Get the status of your Tesla vehicle",
+  "category": "Dashboard",
+  "author": "Mortada Sarheed",
+  "authorURL": "https://github.com/mSarheed",
+  "format": "raycast-script",
+  "script": "tesla.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/tesla.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Tesla",
+      "subtitle": "",
+      "mode": "view"
+    }
+  ]
+}

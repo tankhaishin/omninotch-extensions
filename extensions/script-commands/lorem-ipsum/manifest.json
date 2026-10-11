@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.lorem-ipsum",
+  "name": "Copy Lorem Ipsum",
+  "description": "Copy one paragraph of Lorem Ipsum to clipboard.",
+  "category": "Developer",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "lorem-ipsum.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/lorem-ipsum.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Lorem Ipsum",
+      "subtitle": "Developer Utilities",
+      "mode": "run"
+    }
+  ]
+}

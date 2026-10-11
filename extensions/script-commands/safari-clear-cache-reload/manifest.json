@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.safari-clear-cache-reload",
+  "name": "Clear Cache and Refresh Page",
+  "description": "This script clears cache and reloads the page of the frontmost Safari window.",
+  "category": "Apps",
+  "author": "Aaron Miller",
+  "authorURL": "https://github.com/aaronhmiller",
+  "format": "raycast-script",
+  "script": "safari-clear-cache-reload.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/safari/safari-clear-cache-reload.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clear Cache and Refresh Page",
+      "subtitle": "Safari",
+      "mode": "run"
+    }
+  ]
+}

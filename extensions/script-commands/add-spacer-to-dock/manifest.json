@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.add-spacer-to-dock",
+  "name": "Add Spacer to Dock",
+  "description": "Adds an invisible icon to the Dock as a separator.",
+  "category": "System",
+  "author": "Alexandru Turcanu",
+  "authorURL": "https://github.com/Pondorasti",
+  "format": "raycast-script",
+  "script": "add-spacer-to-dock.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/add-spacer-to-dock.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add Spacer to Dock",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "v": 2,
+  "id": "com.mactoro.developer-search",
+  "name": "Developer Search",
+  "description": "Docs, packages and code, one search away.",
+  "category": "Developer",
+  "author": "Mactoro",
+  "icon": "sf:chevron.left.forwardslash.chevron.right",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-github",
+      "title": "Search GitHub",
+      "mode": "run",
+      "url": "https://github.com/search?q={query}&type=repositories",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-github-code",
+      "title": "Search GitHub Code",
+      "mode": "run",
+      "url": "https://github.com/search?q={query}&type=code",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-stack-overflow",
+      "title": "Search Stack Overflow",
+      "mode": "run",
+      "url": "https://stackoverflow.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-mdn",
+      "title": "Search MDN",
+      "mode": "run",
+      "url": "https://developer.mozilla.org/en-US/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-npm",
+      "title": "Search npm",
+      "mode": "run",
+      "url": "https://www.npmjs.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-pypi",
+      "title": "Search PyPI",
+      "mode": "run",
+      "url": "https://pypi.org/search/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-crates-io",
+      "title": "Search crates.io",
+      "mode": "run",
+      "url": "https://crates.io/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-go-packages",
+      "title": "Search Go Packages",
+      "mode": "run",
+      "url": "https://pkg.go.dev/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-rubygems",
+      "title": "Search RubyGems",
+      "mode": "run",
+      "url": "https://rubygems.org/search?query={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-packagist",
+      "title": "Search Packagist",
+      "mode": "run",
+      "url": "https://packagist.org/?query={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-docker-hub",
+      "title": "Search Docker Hub",
+      "mode": "run",
+      "url": "https://hub.docker.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "open-homebrew-formula",
+      "title": "Open Homebrew Formula",
+      "mode": "run",
+      "url": "https://formulae.brew.sh/formula/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-swift-package-index",
+      "title": "Search Swift Package Index",
+      "mode": "run",
+      "url": "https://swiftpackageindex.com/search?query={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-apple-developer",
+      "title": "Search Apple Developer",
+      "mode": "run",
+      "url": "https://developer.apple.com/search/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-can-i-use",
+      "title": "Search Can I Use",
+      "mode": "run",
+      "url": "https://caniuse.com/?search={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-devdocs",
+      "title": "Search DevDocs",
+      "mode": "run",
+      "url": "https://devdocs.io/#q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-hacker-news",
+      "title": "Search Hacker News",
+      "mode": "run",
+      "url": "https://hn.algolia.com/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-product-hunt",
+      "title": "Search Product Hunt",
+      "mode": "run",
+      "url": "https://www.producthunt.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "explain-a-shell-command",
+      "title": "Explain a Shell Command",
+      "mode": "run",
+      "url": "https://explainshell.com/explain?cmd={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-regex101-library",
+      "title": "Search Regex101 Library",
+      "mode": "run",
+      "url": "https://regex101.com/library?search={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

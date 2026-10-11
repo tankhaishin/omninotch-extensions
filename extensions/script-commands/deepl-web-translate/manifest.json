@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.deepl-web-translate",
+  "name": "DeepL Web Translate",
+  "description": "Translate text on the DeepL website. Translates to a default language if no \"to\" argument ",
+  "category": "Apps",
+  "author": "Jono Hewitt",
+  "authorURL": "https://github.com/jonohewitt",
+  "format": "raycast-script",
+  "script": "deepl-web-translate.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/deepl/deepl-web-translate.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DeepL app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "DeepL Web Translate",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "text",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "to",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "from",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

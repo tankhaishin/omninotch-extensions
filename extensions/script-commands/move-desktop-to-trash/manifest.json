@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.move-desktop-to-trash",
+  "name": "Move Desktop to Trash",
+  "description": "Empty the desktop.",
+  "category": "System",
+  "author": "Seypopi",
+  "authorURL": "https://github.com/Seypopi",
+  "format": "raycast-script",
+  "script": "move-desktop-to-trash.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/move-desktop-to-trash.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Move Desktop to Trash",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

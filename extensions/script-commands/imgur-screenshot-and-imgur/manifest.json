@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.imgur-screenshot-and-imgur",
+  "name": "Screenshot and Imgur",
+  "description": "Opens default screenshot interface and immediately uploads and copies link to clipboard",
+  "category": "Productivity",
+  "author": "Fahim Faisal",
+  "authorURL": "https://github.com/i3p9",
+  "format": "raycast-script",
+  "script": "screenshot-and-imgur.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/imgur/screenshot-and-imgur.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Screenshot and Imgur",
+      "subtitle": "Opens Screenshot Interface and Uploads",
+      "mode": "run"
+    }
+  ]
+}

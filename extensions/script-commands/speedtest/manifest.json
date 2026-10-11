@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.speedtest",
+  "name": "Speedtest",
+  "description": "Test download and upload connection speed using [Speedtest](https://www.speedtest.net/apps",
+  "category": "Dashboard",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "speedtest.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/speedtest.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "speedtest"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Speedtest",
+      "subtitle": "Internet",
+      "mode": "live"
+    }
+  ],
+  "every": "20m"
+}

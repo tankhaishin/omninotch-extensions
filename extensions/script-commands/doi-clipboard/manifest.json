@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.doi-clipboard",
+  "name": "Find Paper",
+  "description": "Scans clipboard and opens DOI links in your browser",
+  "category": "Web search",
+  "author": "Razvan Azamfirei",
+  "authorURL": "https://github.com/razvanazamfirei",
+  "format": "raycast-script",
+  "script": "doi-clipboard.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/doi-clipboard.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Find Paper",
+      "subtitle": "DOI",
+      "mode": "run"
+    }
+  ]
+}

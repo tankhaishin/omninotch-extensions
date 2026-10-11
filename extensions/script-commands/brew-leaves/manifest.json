@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.brew-leaves",
+  "name": "Leaves",
+  "description": "Show list of installed brew formulae that are not dependencies of other installed formula.",
+  "category": "Developer",
+  "author": "owpac",
+  "authorURL": "https://github.com/Owpac",
+  "format": "raycast-script",
+  "script": "brew-leaves.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/brew/brew-leaves.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Leaves",
+      "subtitle": "Brew",
+      "mode": "view"
+    }
+  ]
+}

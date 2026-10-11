@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-log-out",
+  "name": "Log Out",
+  "description": "Log out of Bitwarden.",
+  "category": "Productivity",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "log-out.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/log-out.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Log Out",
+      "subtitle": "Bitwarden",
+      "mode": "run"
+    }
+  ]
+}

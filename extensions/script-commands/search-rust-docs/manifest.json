@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-rust-docs",
+  "name": "Search Rust Documentation",
+  "description": "Search Rust documentation",
+  "category": "Web search",
+  "author": "lemorage",
+  "authorURL": "https://raycast.com/lemorage",
+  "format": "raycast-script",
+  "script": "search-rust-docs.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-rust-docs.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Rust Documentation",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Name",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

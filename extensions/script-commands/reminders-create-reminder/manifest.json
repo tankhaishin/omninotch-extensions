@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.reminders-create-reminder",
+  "name": "Add Reminder",
+  "description": "Add a new reminder.",
+  "category": "Apps",
+  "author": "Andrei Nedelcu",
+  "authorURL": "https://dinosaurgame.net",
+  "format": "raycast-script",
+  "script": "reminders-create-reminder.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/reminders/reminders-create-reminder.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add Reminder",
+      "subtitle": "Create Reminder",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "What",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "When",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

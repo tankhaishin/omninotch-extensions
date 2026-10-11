@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.writing-dictionary-lookup",
+  "name": "Dictionary Lookup",
+  "description": "Directly use macOS Dictionary",
+  "category": "Productivity",
+  "author": "Alessandra Pereyra",
+  "authorURL": "https://github.com/alessandrapereyra",
+  "format": "raycast-script",
+  "script": "dictionary-lookup.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/writing/dictionary-lookup.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Dictionary Lookup",
+      "subtitle": "Writing",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "word or phrase",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.tidal-previous-track",
+  "name": "Previous Track",
+  "description": "Skip back to the previous track in Tidal.",
+  "category": "Media",
+  "author": "Charles Harries",
+  "authorURL": "https://github.com/charlesharries",
+  "format": "raycast-script",
+  "script": "tidal-previous-track.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/tidal/tidal-previous-track.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Previous Track",
+      "subtitle": "Tidal",
+      "mode": "run"
+    }
+  ]
+}

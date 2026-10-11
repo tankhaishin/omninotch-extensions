@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.noteplan3-noteplan-append-daily-note",
+  "name": "Append To Daily Note",
+  "description": "Append to daily note",
+  "category": "Apps",
+  "author": "Göran Damberg",
+  "authorURL": "https://github.com/gdamberg",
+  "format": "raycast-script",
+  "script": "noteplan-append-daily-note.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/noteplan3/noteplan-append-daily-note.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "NotePlan 3 app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Append To Daily Note",
+      "subtitle": "NotePlan3",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "- Quick note",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.share-secret-doppler",
+  "name": "Share Secret from Clipboard",
+  "description": "Share secret securely using https://share.doppler.com/.",
+  "category": "Communication",
+  "author": "Petr Nikolaev",
+  "authorURL": "https://github.com/PitNikola",
+  "format": "raycast-script",
+  "script": "share-secret-doppler.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/share-secret-doppler.py",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Share Secret from Clipboard",
+      "subtitle": "Doppler",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Expire Views (1)",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Expire Days (1)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.qr-code-screenshot-to-text",
+  "name": "Screenshot QR Code to Clipboard",
+  "description": "Decode QR Code from screenshot to clipboard using https://qrserver.com/",
+  "category": "Conversions",
+  "author": "Diego Lopes",
+  "authorURL": "https://github.com/Dihgg",
+  "format": "raycast-script",
+  "script": "qr-code-screenshot-to-text.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/qr-code-screenshot-to-text.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Screenshot QR Code to Clipboard",
+      "subtitle": "QR Code",
+      "mode": "run"
+    }
+  ],
+  "cwd": "~"
+}

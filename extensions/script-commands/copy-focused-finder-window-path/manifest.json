@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.copy-focused-finder-window-path",
+  "name": "Copy Focused Finder Window Path",
+  "description": "Copies full path of the currently focused Finder window",
+  "category": "Developer",
+  "author": "Vishal Telangre",
+  "authorURL": "https://github.com/vishaltelangre",
+  "format": "raycast-script",
+  "script": "copy-focused-finder-window-path.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/copy-focused-finder-window-path.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Focused Finder Window Path",
+      "subtitle": "Developer Utils",
+      "mode": "run"
+    }
+  ]
+}

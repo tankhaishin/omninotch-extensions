@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.toggle-flip-screen-template",
+  "name": "Toggle Flip Screen <display> to <degree>",
+  "description": "Toggle flip (rotate) or revert the <display> to <degree>°",
+  "category": "System",
+  "author": "Yohanes Bandung Bondowoso",
+  "authorURL": "https://github.com/ybbond",
+  "format": "raycast-script",
+  "script": "toggle-flip-screen.template.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/toggle-flip-screen.template.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Flip Screen <display> to <degree>°",
+      "subtitle": "",
+      "mode": "run"
+    }
+  ]
+}

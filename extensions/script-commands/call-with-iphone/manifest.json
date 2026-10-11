@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.call-with-iphone",
+  "name": "Call with iPhone",
+  "description": "Place a telephone call via your iPhone on Wi-Fi.",
+  "category": "Communication",
+  "author": "Alexander JH Steffen",
+  "authorURL": "https://github.com/alexjsteffen",
+  "format": "raycast-script",
+  "script": "call-with-iphone.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/call-with-iphone.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Call with iPhone",
+      "subtitle": "Communication",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "+1 514 555 1212",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

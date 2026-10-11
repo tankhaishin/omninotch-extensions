@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.apple-tv-play-movie",
+  "name": "Play Movie",
+  "description": "Play specified movie from library in TV.",
+  "category": "Media",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "apple-tv-play-movie.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/apple-tv/apple-tv-play-movie.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Play Movie",
+      "subtitle": "TV",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Movie",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

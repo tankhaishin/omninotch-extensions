@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-netflix",
+  "name": "Search Netflix",
+  "description": "Search Netflix.",
+  "category": "Web search",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "search-netflix.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-netflix.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Netflix",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

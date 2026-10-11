@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.docker-ps",
+  "name": "List Containers",
+  "description": "List containers in Docker",
+  "category": "Developer",
+  "author": "Sebastian Kroll",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "docker-ps.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/docker/docker-ps.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "List Containers",
+      "subtitle": "Docker",
+      "mode": "view"
+    }
+  ]
+}

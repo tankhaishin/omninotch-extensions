@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.emojis-search",
+  "name": "Search Emojis",
+  "description": "Search for emojis related to input.",
+  "category": "Communication",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "emojis-search.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/emojis/emojis-search.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Emojis",
+      "subtitle": "Communication",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search for...",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

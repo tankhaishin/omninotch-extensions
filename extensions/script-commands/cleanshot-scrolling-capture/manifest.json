@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-scrolling-capture",
+  "name": "Scrolling Capture",
+  "description": "Capture any scrollable content.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-scrolling-capture.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-scrolling-capture.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Scrolling Capture",
+      "subtitle": "CleanShot X",
+      "mode": "run"
+    }
+  ]
+}

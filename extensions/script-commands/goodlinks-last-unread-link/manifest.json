@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.goodlinks-last-unread-link",
+  "name": "Open Last Unread Link",
+  "description": "Open the last unread link in the GoodLinks app",
+  "category": "Apps",
+  "author": "Filip Chabik",
+  "authorURL": "https://github.com/hadret",
+  "format": "raycast-script",
+  "script": "goodlinks-last-unread-link.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/goodlinks/goodlinks-last-unread-link.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "GoodLinks app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Last Unread Link",
+      "subtitle": "GoodLinks",
+      "mode": "run"
+    }
+  ]
+}

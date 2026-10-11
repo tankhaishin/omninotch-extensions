@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.vpnutil-start",
+  "name": "Start VPN",
+  "description": "Start VPN connection.",
+  "category": "System",
+  "author": "Sergey Fuksman",
+  "authorURL": "https://github.com/fuksman",
+  "format": "raycast-script",
+  "script": "vpnutil-start.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/vpnutil/vpnutil-start.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start VPN",
+      "subtitle": "VPN",
+      "mode": "run"
+    }
+  ]
+}

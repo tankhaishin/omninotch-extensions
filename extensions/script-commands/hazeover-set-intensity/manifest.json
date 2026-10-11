@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.hazeover-set-intensity",
+  "name": "Set Intensity",
+  "description": "Set dimming intensity of background windows.",
+  "category": "Apps",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "hazeover-set-intensity.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/hazeover/hazeover-set-intensity.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "HazeOver app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set Intensity",
+      "subtitle": "HazeOver",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Intensity (0-100)",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

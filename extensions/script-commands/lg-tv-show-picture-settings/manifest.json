@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-show-picture-settings",
+  "name": "Show Picture Settings",
+  "description": "Show picture settings.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "show-picture-settings.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/show-picture-settings.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Show Picture Settings",
+      "subtitle": "LG TV",
+      "mode": "view"
+    }
+  ]
+}

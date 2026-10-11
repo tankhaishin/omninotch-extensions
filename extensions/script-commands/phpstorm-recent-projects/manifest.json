@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.phpstorm-recent-projects",
+  "name": "Update Recent Projects",
+  "description": "PhpStorm",
+  "category": "Apps",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "recent-projects.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/phpstorm/recent-projects.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "PhpStorm app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Update Recent Projects",
+      "subtitle": "PhpStorm",
+      "mode": "live"
+    }
+  ],
+  "every": "5m"
+}

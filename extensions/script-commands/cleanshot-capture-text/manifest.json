@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-capture-text",
+  "name": "Capture Text",
+  "description": "Opens Text Recognition (OCR) tool or extracts text from the specified file.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-capture-text.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-capture-text.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Capture Text",
+      "subtitle": "CleanShot X",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Filepath",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

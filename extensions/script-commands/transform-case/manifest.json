@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.transform-case",
+  "name": "Transform Case",
+  "description": "Transform the case of clipboard content. Defaults to lower case if no conversion type is s",
+  "category": "Developer",
+  "author": "Nitin Gupta",
+  "authorURL": "https://twitter.com/gniting",
+  "format": "raycast-script",
+  "script": "transform-case.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/transform-case.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Transform Case",
+      "subtitle": "Developer Utils",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "L)ower, U)pper or T)itle?",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.default-browser-safari",
+  "name": "Default to Safari",
+  "description": "Set Safari as the default browser.",
+  "category": "System",
+  "author": "Marcos Sánchez-Dehesa",
+  "authorURL": "https://github.com/dehesa",
+  "format": "raycast-script",
+  "script": "default-browser-safari.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/default-browser-safari.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "defaultbrowser"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Default to Safari",
+      "subtitle": "Browser",
+      "mode": "run"
+    }
+  ]
+}

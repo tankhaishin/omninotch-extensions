@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-pin",
+  "name": "Pin to the Screen",
+  "description": "Pin a screenshot to the screen.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-pin.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-pin.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Pin to the Screen",
+      "subtitle": "CleanShot X",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Filepath",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.ddc-screen-hdmi",
+  "name": "Switch to HDMI",
+  "description": "This script will switch the external display screen to HDMI.",
+  "category": "Remote control",
+  "author": "goodhyun",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "screen-hdmi.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/ddc/x86/screen-hdmi.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "ddcctl"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Switch to HDMI",
+      "subtitle": "External Display",
+      "mode": "run"
+    }
+  ]
+}

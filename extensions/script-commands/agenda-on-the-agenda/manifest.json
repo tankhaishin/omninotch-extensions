@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.agenda-on-the-agenda",
+  "name": "On the Agenda Overview",
+  "description": "Opens Agenda - On the Agenda Overview",
+  "category": "Apps",
+  "author": "Michael Ellis",
+  "authorURL": "https://github.com/mtellis2",
+  "format": "raycast-script",
+  "script": "agenda-on-the-agenda.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/agenda/agenda-on-the-agenda.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Agenda app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "On the Agenda Overview",
+      "subtitle": "Agenda",
+      "mode": "run"
+    }
+  ]
+}

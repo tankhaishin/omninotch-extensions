@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.clipboard-to-markdown",
+  "name": "Clipboard to Markdown",
+  "description": "Automatically take the content found in the clipboard and turn it into Markdown",
+  "category": "Conversions",
+  "author": "Alessandra Pereyra",
+  "authorURL": "https://github.com/alessandrapereyra",
+  "format": "raycast-script",
+  "script": "clipboard-to-markdown.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/clipboard-to-markdown.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clipboard to Markdown",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

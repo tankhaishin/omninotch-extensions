@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.stopwatch-stop",
+  "name": "Stop Stopwatch",
+  "description": "Stop active stopwatch, copy total time",
+  "category": "Productivity",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "stopwatch-stop.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/stopwatch/stopwatch-stop.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop Stopwatch",
+      "subtitle": "stopwatch",
+      "mode": "run"
+    }
+  ]
+}

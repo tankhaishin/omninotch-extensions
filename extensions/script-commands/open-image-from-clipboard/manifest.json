@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.open-image-from-clipboard",
+  "name": "Open Image",
+  "description": "Open Image from Clipboard in Preview for OCR or other purposes.",
+  "category": "System",
+  "author": "xxchan",
+  "authorURL": "https://github.com/xxchan",
+  "format": "raycast-script",
+  "script": "open-image-from-clipboard.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/open-image-from-clipboard.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "pngpaste"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Image",
+      "subtitle": "Clipboard",
+      "mode": "run"
+    }
+  ]
+}

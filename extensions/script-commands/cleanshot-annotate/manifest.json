@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-annotate",
+  "name": "Annotate",
+  "description": "Opens specified file in Annotate.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-annotate.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-annotate.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Annotate",
+      "subtitle": "CleanShot X",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Filepath",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

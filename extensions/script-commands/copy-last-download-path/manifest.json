@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.copy-last-download-path",
+  "name": "Copy Last Download Path",
+  "description": "Copies the path of the last downloaded file to the clipboard.",
+  "category": "System",
+  "author": "Michael Bianco",
+  "authorURL": "https://github.com/iloveitaly",
+  "format": "raycast-script",
+  "script": "copy-last-download-path.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/copy-last-download-path.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Last Download Path",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

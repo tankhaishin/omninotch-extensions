@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-loremipsum",
+  "name": "Lorem Ipsum Generator",
+  "description": "Get some randomly generated lorem ipsum strings",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "loremipsum.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/loremipsum.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Lorem Ipsum Generator",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

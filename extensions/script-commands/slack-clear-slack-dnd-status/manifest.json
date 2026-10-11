@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.slack-clear-slack-dnd-status",
+  "name": "Clear Slack DND",
+  "description": "Clear DND Status in Slack",
+  "category": "Communication",
+  "author": "Sam Ching",
+  "authorURL": "https://github.com/samching",
+  "format": "raycast-script",
+  "script": "clear-slack-DND-status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/slack/clear-slack-DND-status.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clear Slack DND",
+      "subtitle": "Slack",
+      "mode": "run"
+    }
+  ]
+}

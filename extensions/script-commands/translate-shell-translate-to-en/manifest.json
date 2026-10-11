@@ -1,0 +1,34 @@
+{
+  "v": 2,
+  "id": "script-commands.translate-shell-translate-to-en",
+  "name": "Translate to EN",
+  "description": "Translate and copy brief translation to clipboard.",
+  "category": "Apps",
+  "author": "tiancheng92",
+  "authorURL": "https://github.com/tiancheng92",
+  "format": "raycast-script",
+  "script": "translate-to-en.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/translate-shell/translate-to-en.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "translate-shell",
+    "translate-shell app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Translate to EN",
+      "subtitle": "Translate Shell",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Word or Sentence",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

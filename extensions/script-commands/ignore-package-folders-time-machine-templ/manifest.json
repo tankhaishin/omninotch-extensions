@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.ignore-package-folders-time-machine-templ",
+  "name": "Ignore Package Folders",
+  "description": "Ignore package folders (node_modules, Pods, etc) from Time Machine backups. They might not",
+  "category": "Developer",
+  "author": "Roland Leth",
+  "authorURL": "https://runtimesharks.com",
+  "format": "raycast-script",
+  "script": "ignore-package-folders-time-machine.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/ignore-package-folders-time-machine.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Ignore Package Folders",
+      "subtitle": "Developer Utilities",
+      "mode": "live"
+    }
+  ],
+  "every": "1d"
+}

@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.audio-airpodsbattery",
+  "name": "AirPods Battery Level",
+  "description": "Get the current battery status of your AirPods.",
+  "category": "System",
+  "author": "Quentin Eude",
+  "authorURL": "https://www.github.com/qeude",
+  "format": "raycast-script",
+  "script": "airpodsbattery.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/audio/airpodsbattery.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "AirPods Battery Level",
+      "subtitle": "Audio",
+      "mode": "live"
+    }
+  ],
+  "every": "10m"
+}

@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bear-today",
+  "name": "Open Today",
+  "description": "Open the Today section in Bear.",
+  "category": "Apps",
+  "author": "Tanay Nistala",
+  "authorURL": "https://github.com/tanaynistala",
+  "format": "raycast-script",
+  "script": "bear-today.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bear/bear-today.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bear app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Today",
+      "subtitle": "Bear",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search Query",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.delete-selected-files",
+  "name": "Delete Selected Files",
+  "description": "Move selected files in Finder to Trash",
+  "category": "System",
+  "author": "Vicent Gozalbes",
+  "authorURL": "https://github.com/vigosan",
+  "format": "raycast-script",
+  "script": "delete-selected-files.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/delete-selected-files.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Delete Selected Files",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

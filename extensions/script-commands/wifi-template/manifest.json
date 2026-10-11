@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.wifi-template",
+  "name": "Toggle Wi-Fi",
+  "description": "Toggle your Wi-Fi connection.",
+  "category": "System",
+  "author": "Vincent Dörig",
+  "authorURL": "https://github.com/vincentdoerig",
+  "format": "raycast-script",
+  "script": "wifi.template.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/wifi.template.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Wi-Fi",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

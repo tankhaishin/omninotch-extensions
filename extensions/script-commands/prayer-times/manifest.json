@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.prayer-times",
+  "name": "Prayer Times",
+  "description": "Prayer Times grabbed from the aladhan.com.",
+  "category": "Fun",
+  "author": "Emircan Erkul",
+  "authorURL": "https://emircanerkul.com",
+  "format": "raycast-script",
+  "script": "prayer-times.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/culture/prayer-times.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Prayer Times",
+      "subtitle": "Culture",
+      "mode": "live"
+    }
+  ]
+}

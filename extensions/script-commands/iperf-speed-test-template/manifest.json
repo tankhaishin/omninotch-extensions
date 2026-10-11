@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.iperf-speed-test-template",
+  "name": "Speed Test",
+  "description": "Runs an iPerf Speed Test.",
+  "category": "Dashboard",
+  "author": "Sam Wright",
+  "authorURL": "https://raycast.com/samywamy10",
+  "format": "raycast-script",
+  "script": "iperf-speed-test.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboards/iperf-speed-test.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "iperf",
+    "iPerf"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Speed Test",
+      "subtitle": "iPerf",
+      "mode": "live"
+    }
+  ],
+  "every": "1h"
+}

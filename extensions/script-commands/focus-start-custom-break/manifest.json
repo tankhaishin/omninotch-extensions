@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.focus-start-custom-break",
+  "name": "Start Custom Break",
+  "description": "Start a custom break. If you don't enter any values, it uses the last break duration.",
+  "category": "Apps",
+  "author": "Ernest Ojeh",
+  "authorURL": "https://github.com/namzo",
+  "format": "raycast-script",
+  "script": "focus-start-custom-break.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/focus/focus-start-custom-break.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Focus app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Custom Break",
+      "subtitle": "Focus",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Minutes",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

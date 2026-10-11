@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.lungo-activate",
+  "name": "Activate",
+  "description": "Deactivate Lungo.",
+  "category": "Apps",
+  "author": "Lungo",
+  "authorURL": "https://sindresorhus.com/lungo",
+  "format": "raycast-script",
+  "script": "lungo-activate.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/lungo/lungo-activate.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Lungo app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Activate",
+      "subtitle": "Lungo",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "hours",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "minutes",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

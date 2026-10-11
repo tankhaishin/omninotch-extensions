@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.vpnutil-stop",
+  "name": "Stop VPN",
+  "description": "Stop VPN connection",
+  "category": "System",
+  "author": "Sergey Fuksman",
+  "authorURL": "https://github.com/fuksman",
+  "format": "raycast-script",
+  "script": "vpnutil-stop.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/vpnutil/vpnutil-stop.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop VPN",
+      "subtitle": "VPN",
+      "mode": "run"
+    }
+  ]
+}

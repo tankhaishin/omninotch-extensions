@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.random-number",
+  "name": "Generate Random Number",
+  "description": "Generate a number between a given range (inclusive) and then copy the value",
+  "category": "Math",
+  "author": "Matt Gleich",
+  "authorURL": "https://mattglei.ch",
+  "format": "raycast-script",
+  "script": "random-number.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/math/random-number.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Generate Random Number",
+      "subtitle": "Math",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "From",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "To",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-hashing",
+  "name": "Hash Generator",
+  "description": "Calculate the hash of your current clipboard string",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "hashing.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/hashing.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Hash Generator",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

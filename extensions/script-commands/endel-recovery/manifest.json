@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.endel-recovery",
+  "name": "Recovery",
+  "description": "Set recovery mode at Endel",
+  "category": "Media",
+  "author": "Sergey Korobyin",
+  "authorURL": "https://github.com/huangsemao",
+  "format": "raycast-script",
+  "script": "endel-recovery.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/endel/endel-recovery.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Recovery",
+      "subtitle": "Endel",
+      "mode": "run"
+    }
+  ]
+}

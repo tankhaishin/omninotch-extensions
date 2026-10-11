@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.trim-git-commit-hash",
+  "name": "Trim Git Commit Hash",
+  "description": "Trim full git commit hash down to seven characters.",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "trim-git-commit-hash.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/trim-git-commit-hash.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Trim Git Commit Hash",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Full git commit hash",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

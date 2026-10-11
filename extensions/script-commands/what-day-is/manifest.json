@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.what-day-is",
+  "name": "What Day Is...",
+  "description": "Return the day of the week on which a particular date falls.",
+  "category": "Conversions",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "what-day-is.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/what-day-is.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "What Day Is...",
+      "subtitle": "Conversions",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Date (YYYY-MM-DD)",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

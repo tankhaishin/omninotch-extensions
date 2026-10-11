@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "script-commands.kill-a-process-on-port",
+  "name": "Kill a process on PORT",
+  "description": "Kill running processes on the given ports",
+  "category": "System",
+  "author": "aaqifshafi",
+  "authorURL": "https://github.com/aaqifshafi",
+  "format": "raycast-script",
+  "script": "kill-a-process-on-port.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/kill-a-process-on-port.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Kill a process on PORT",
+      "subtitle": "",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Ports (e.g. 3000 5000)",
+          "required": true,
+          "percentEncoded": false
+        }
+      ],
+      "confirm": true
+    }
+  ]
+}

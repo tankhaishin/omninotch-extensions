@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.lg-tv-open-app-with-payload",
+  "name": "Open App With Payload",
+  "description": "Open the application with the given payload.",
+  "category": "Remote control",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "open-app-with-payload.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/lg-tv/open-app-with-payload.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open App With Payload",
+      "subtitle": "LG TV",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Payload",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

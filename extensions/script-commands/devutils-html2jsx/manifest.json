@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-html2jsx",
+  "name": "HTML to JSX",
+  "description": "Convert the HTML string in clipboard to JSX",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "html2jsx.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/html2jsx.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "HTML to JSX",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

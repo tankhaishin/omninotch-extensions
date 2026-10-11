@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.expressvpn-connect",
+  "name": "Connect",
+  "description": "ExpressVPN",
+  "category": "Apps",
+  "author": "Amir Hossein SamadiPour",
+  "authorURL": "https://github.com/SamadiPour",
+  "format": "raycast-script",
+  "script": "expressvpn-connect.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/expressvpn/expressvpn-connect.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "ExpressVPN app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Connect",
+      "subtitle": "ExpressVPN",
+      "mode": "run"
+    }
+  ]
+}

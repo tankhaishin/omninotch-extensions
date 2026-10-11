@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.aws-amazon-s3-download",
+  "name": "S3 Download",
+  "description": "Download from Amazon S3 via URL",
+  "category": "Developer",
+  "author": "Chris Cook",
+  "authorURL": "https://github.com/zirkelc",
+  "format": "raycast-script",
+  "script": "amazon-s3-download.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/aws/amazon-s3-download.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "S3 Download",
+      "subtitle": "AWS",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "s3://bucket/key",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

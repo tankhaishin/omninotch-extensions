@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.arxiv",
+  "name": "Search in arXiv",
+  "description": "Web Searches",
+  "category": "Web search",
+  "author": "Marco Varisco",
+  "authorURL": "https://github.com/mava",
+  "format": "raycast-script",
+  "script": "arxiv.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/arxiv.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in arXiv",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Field (default: all)",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.elgato-key-light-increase-brightness-temp",
+  "name": "Increase Brightness",
+  "description": "Increase brightness of Elgato Key Light by 5%.",
+  "category": "Home",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "elgato-key-light-increase-brightness.template.rb",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/home/elgato/elgato-key-light-increase-brightness.template.rb",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Ruby"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Increase Brightness",
+      "subtitle": "Elgato Key Light",
+      "mode": "run"
+    }
+  ]
+}

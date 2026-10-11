@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.cheat",
+  "name": "Query cheat.sh",
+  "description": "Query the cheat.sh service (https://github.com/chubin/cheat.sh). You can change the color ",
+  "category": "Developer",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "cheat.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/cheat.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Query cheat.sh",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Language / Command",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Question",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

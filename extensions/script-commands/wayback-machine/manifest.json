@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.wayback-machine",
+  "name": "Wayback Machine Search",
+  "description": "Web Searches",
+  "category": "Web search",
+  "author": "Zander Martineau",
+  "authorURL": "https://zander.wtf",
+  "format": "raycast-script",
+  "script": "wayback-machine.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/wayback-machine.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Wayback Machine Search",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "url",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

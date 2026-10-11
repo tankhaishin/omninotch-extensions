@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.open-selection-with",
+  "name": "Open Selection With",
+  "description": "Open selected items in Finder with the given application.",
+  "category": "System",
+  "author": "Felipe Turcheti",
+  "authorURL": "https://felipeturcheti.com",
+  "format": "raycast-script",
+  "script": "open-selection-with.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/open-selection-with.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Selection With",
+      "subtitle": "System",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Application",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

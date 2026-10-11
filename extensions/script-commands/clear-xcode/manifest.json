@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.clear-xcode",
+  "name": "Clear All Related Junk",
+  "description": "This script clears all Xcode related junk.",
+  "category": "Developer",
+  "author": "Kirill Gorbachyonok",
+  "authorURL": "https://github.com/japanese-goblinn",
+  "format": "raycast-script",
+  "script": "clear_xcode.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/clear_xcode.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Clear All Related Junk",
+      "subtitle": "Xcode",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

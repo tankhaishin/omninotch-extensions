@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.nightshift",
+  "name": "Toggle Night Shift",
+  "description": "Toggle Night Shift mode (until tomorrow/sunrise). Required [nightlight](https://github.com",
+  "category": "System",
+  "author": "BhEaN",
+  "authorURL": "https://github.com/bhean",
+  "format": "raycast-script",
+  "script": "nightshift.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/nightshift.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "smudge",
+    "nightlight"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Night Shift",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

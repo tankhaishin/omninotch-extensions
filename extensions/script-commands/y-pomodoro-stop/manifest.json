@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.y-pomodoro-stop",
+  "name": "Stop",
+  "description": "Stop active pomodoro timer using [y-pomodoro](https://github.com/jesse-c/y-pomodoro)",
+  "category": "Apps",
+  "author": "Jesse Claven",
+  "authorURL": "https://github.com/jesse-c",
+  "format": "raycast-script",
+  "script": "stop.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/y-pomodoro/stop.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "y-pomodoro",
+    "Y Pomodoro app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop",
+      "subtitle": "y-pomodoro",
+      "mode": "run"
+    }
+  ]
+}

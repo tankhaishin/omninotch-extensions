@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.slack-set-slack-status-template",
+  "name": "Set Status to Coffee",
+  "description": "Set your status in Slack.",
+  "category": "Communication",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "set-slack-status.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/slack/set-slack-status.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set Status to Coffee",
+      "subtitle": "Slack",
+      "mode": "run"
+    }
+  ]
+}

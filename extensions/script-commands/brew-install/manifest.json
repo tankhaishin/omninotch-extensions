@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "script-commands.brew-install",
+  "name": "Install a package",
+  "description": "Installs specified brew package.",
+  "category": "Developer",
+  "author": "Alex Zotov",
+  "authorURL": "https://github.com/lex4hex",
+  "format": "raycast-script",
+  "script": "brew-install.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/brew/brew-install.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Install a package",
+      "subtitle": "Brew",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Package name",
+          "required": true,
+          "percentEncoded": false
+        }
+      ],
+      "confirm": true
+    }
+  ]
+}

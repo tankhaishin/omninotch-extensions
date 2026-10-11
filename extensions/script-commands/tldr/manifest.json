@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.tldr",
+  "name": "Print TLDR doc",
+  "description": "Print the tldr documentation for a command",
+  "category": "Developer",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "tldr.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/tldr.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Print TLDR doc",
+      "subtitle": "Developer Utils",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Command",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "OS [linux, osx, sunos, windows]",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

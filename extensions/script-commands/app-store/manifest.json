@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.app-store",
+  "name": "Search in App Store",
+  "description": "Search in App Store app",
+  "category": "Web search",
+  "author": "Andrei Borisov",
+  "authorURL": "https://github.com/andreiborisov",
+  "format": "raycast-script",
+  "script": "app-store.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/app-store.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in App Store",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

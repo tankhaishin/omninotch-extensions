@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.shorten-url-bitly-template",
+  "name": "Shorten URL with Bitly",
+  "description": "Transform the clipboard contents to a short Bitly URL",
+  "category": "Browsing",
+  "author": "Nitin Gupta",
+  "authorURL": "https://twitter.com/gniting",
+  "format": "raycast-script",
+  "script": "shorten-url-bitly.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/shorten-url-bitly.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Shorten URL with Bitly",
+      "subtitle": "Browsing",
+      "mode": "run"
+    }
+  ]
+}

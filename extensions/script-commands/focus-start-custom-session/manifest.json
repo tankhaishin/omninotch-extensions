@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.focus-start-custom-session",
+  "name": "Start Custom Focus Session",
+  "description": "Start a custom focus session. If you don't enter any values, it starts an untimed focus se",
+  "category": "Apps",
+  "author": "Ernest Ojeh",
+  "authorURL": "https://github.com/namzo",
+  "format": "raycast-script",
+  "script": "focus-start-custom-session.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/focus/focus-start-custom-session.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Focus app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Custom Focus Session",
+      "subtitle": "Focus",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Hours",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Minutes",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

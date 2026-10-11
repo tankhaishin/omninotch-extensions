@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.whois",
+  "name": "Whois",
+  "description": "Whois of URL.",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "whois.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/whois.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "whois"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Whois",
+      "subtitle": "Internet",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

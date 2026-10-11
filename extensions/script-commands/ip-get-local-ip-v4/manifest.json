@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.ip-get-local-ip-v4",
+  "name": "Local IPv4",
+  "description": "Copies the local IPv4 to the clipboard.",
+  "category": "Developer",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "get-local-ip-v4.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/ip/get-local-ip-v4.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Local IPv4",
+      "subtitle": "Internet",
+      "mode": "live"
+    }
+  ]
+}

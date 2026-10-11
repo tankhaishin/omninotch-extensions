@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.quip-set-up-quip-commands",
+  "name": "Set up Quip commands",
+  "description": "Create script commands for creating Quip documents, based on the configuration in quip_con",
+  "category": "Apps",
+  "author": "diego_zamboni",
+  "authorURL": "https://raycast.com/diego_zamboni",
+  "format": "raycast-script",
+  "script": "set-up-quip-commands.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/quip/set-up-quip-commands.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "Quip app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set up Quip commands",
+      "subtitle": "Quip utilities",
+      "mode": "view",
+      "confirm": true
+    }
+  ]
+}

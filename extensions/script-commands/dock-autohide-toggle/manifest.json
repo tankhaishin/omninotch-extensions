@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.dock-autohide-toggle",
+  "name": "Toggle Dock Autohide",
+  "description": "Toggle the Dock Autohide",
+  "category": "System",
+  "author": "Jelte Lagendijk",
+  "authorURL": "https://raycast.com/j3lte",
+  "format": "raycast-script",
+  "script": "dock-autohide-toggle.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/dock-autohide-toggle.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Dock Autohide",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

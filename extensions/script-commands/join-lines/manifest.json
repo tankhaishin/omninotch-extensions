@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.join-lines",
+  "name": "Join Clipboard Lines by Delimiter",
+  "description": "Join multiple lines of text from the clipboard into a single line, separated by a specifie",
+  "category": "Developer",
+  "author": "decaylala",
+  "authorURL": "https://github.com/decaylala",
+  "format": "raycast-script",
+  "script": "join-lines.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/join-lines.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Join Clipboard Lines by Delimiter",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "delimiter",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

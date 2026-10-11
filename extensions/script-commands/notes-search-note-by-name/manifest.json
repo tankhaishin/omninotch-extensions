@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.notes-search-note-by-name",
+  "name": "Search Note By Name",
+  "description": "This script searches for a note, given its exact name, or a substring, the search does not",
+  "category": "Apps",
+  "author": "Ayoub Gharbi",
+  "authorURL": "github.com/ayoub-g",
+  "format": "raycast-script",
+  "script": "search-note-by-name.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/notes/search-note-by-name.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Note By Name",
+      "subtitle": "Notes",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Exact Note Name or a Substring",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

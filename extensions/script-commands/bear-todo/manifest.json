@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bear-todo",
+  "name": "Open Todos",
+  "description": "Open the Todo section in Bear.",
+  "category": "Apps",
+  "author": "Tanay Nistala",
+  "authorURL": "https://github.com/tanaynistala",
+  "format": "raycast-script",
+  "script": "bear-todo.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bear/bear-todo.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bear app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Todos",
+      "subtitle": "Bear",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search Query",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

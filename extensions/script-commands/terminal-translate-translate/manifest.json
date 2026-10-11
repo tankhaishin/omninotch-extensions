@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.terminal-translate-translate",
+  "name": "Translate",
+  "description": "Translate word or sentence.",
+  "category": "Apps",
+  "author": "Fatpandac",
+  "authorURL": "https://github.com/Fatpandac",
+  "format": "raycast-script",
+  "script": "translate.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/terminal-translate/translate.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Terminal Translate app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Translate",
+      "subtitle": "Terminal Translate",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Word or Sentence",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

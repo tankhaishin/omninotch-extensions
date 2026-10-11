@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "script-commands.pa11y",
+  "name": "Run Pa11y",
+  "description": "Run [Pa11y](https://github.com/pa11y/pa11y) web accessibility tool on specified path or UR",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "pa11y.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/pa11y.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Run Pa11y",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Path or URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ],
+  "cwd": "~/Desktop"
+}

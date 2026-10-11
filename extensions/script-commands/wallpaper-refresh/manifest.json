@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.wallpaper-refresh",
+  "name": "Refresh Wallpaper",
+  "description": "Apply a random image from the [wallpaper directory](https://support.apple.com/guide/mac-he",
+  "category": "System",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "wallpaper-refresh.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/wallpaper-refresh.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Refresh Wallpaper",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

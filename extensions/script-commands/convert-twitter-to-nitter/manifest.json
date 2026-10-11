@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.convert-twitter-to-nitter",
+  "name": "Convert Twitter to Nitter",
+  "description": "Convert Twitter link to Nitter",
+  "category": "Browsing",
+  "author": "cSharp",
+  "authorURL": "https://github.com/noidwasavailable",
+  "format": "raycast-script",
+  "script": "convert-twitter-to-nitter.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/convert-twitter-to-nitter.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Convert Twitter to Nitter",
+      "subtitle": "",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "v": 2,
+  "id": "com.mactoro.web-search",
+  "name": "Web Search",
+  "description": "Search the web's big search engines and references.",
+  "category": "Web search",
+  "author": "Mactoro",
+  "icon": "sf:magnifyingglass",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-google",
+      "title": "Search Google",
+      "mode": "run",
+      "url": "https://www.google.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-duckduckgo",
+      "title": "Search DuckDuckGo",
+      "mode": "run",
+      "url": "https://duckduckgo.com/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-bing",
+      "title": "Search Bing",
+      "mode": "run",
+      "url": "https://www.bing.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-brave",
+      "title": "Search Brave",
+      "mode": "run",
+      "url": "https://search.brave.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-kagi",
+      "title": "Search Kagi",
+      "mode": "run",
+      "url": "https://kagi.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-ecosia",
+      "title": "Search Ecosia",
+      "mode": "run",
+      "url": "https://www.ecosia.org/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-wikipedia",
+      "title": "Search Wikipedia",
+      "mode": "run",
+      "url": "https://en.wikipedia.org/w/index.php?search={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-images",
+      "title": "Search Google Images",
+      "mode": "run",
+      "url": "https://www.google.com/search?tbm=isch&q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-news",
+      "title": "Search Google News",
+      "mode": "run",
+      "url": "https://news.google.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-scholar",
+      "title": "Search Google Scholar",
+      "mode": "run",
+      "url": "https://scholar.google.com/scholar?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-wolfram-alpha",
+      "title": "Search Wolfram Alpha",
+      "mode": "run",
+      "url": "https://www.wolframalpha.com/input?i={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-the-internet-archive",
+      "title": "Search the Internet Archive",
+      "mode": "run",
+      "url": "https://archive.org/search?query={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

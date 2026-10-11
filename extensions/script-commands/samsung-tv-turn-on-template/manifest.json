@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.samsung-tv-turn-on-template",
+  "name": "Turn On TV",
+  "description": "Turns on a Samsung TV.",
+  "category": "Remote control",
+  "author": "Darryl Brooks",
+  "authorURL": "https://github.com/DarrylBrooks97",
+  "format": "raycast-script",
+  "script": "turn-on.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/samsung-tv/turn-on.template.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "wakeonlan"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Turn On TV",
+      "subtitle": "Samsung TV",
+      "mode": "run"
+    }
+  ]
+}

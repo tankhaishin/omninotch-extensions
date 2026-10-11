@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.check-weather",
+  "name": "Check Weather",
+  "description": "wttr.in",
+  "category": "Web search",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "check-weather.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/check-weather.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Check Weather",
+      "subtitle": "wttr.in",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Location",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Options",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

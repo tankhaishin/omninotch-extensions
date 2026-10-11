@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.foobar2000-pause",
+  "name": "Pause foobar2000",
+  "description": "Shortcuts to pause foobar2000 for Mac v2.3.0",
+  "category": "Media",
+  "author": "Jing Li",
+  "authorURL": "https://github.com/lixeon",
+  "format": "raycast-script",
+  "script": "foobar2000-pause.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/foobar2000/foobar2000-pause.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Pause foobar2000",
+      "subtitle": "foobar2000",
+      "mode": "run"
+    }
+  ]
+}

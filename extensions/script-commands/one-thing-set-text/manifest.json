@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.one-thing-set-text",
+  "name": "Set Text",
+  "description": "Set the text shown in One Thing app.",
+  "category": "Apps",
+  "author": "One Thing",
+  "authorURL": "https://sindresorhus.com/one-thing",
+  "format": "raycast-script",
+  "script": "one-thing-set-text.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/one-thing/one-thing-set-text.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "One Thing app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set Text",
+      "subtitle": "One Thing",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "text",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

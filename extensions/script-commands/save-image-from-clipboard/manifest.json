@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.save-image-from-clipboard",
+  "name": "Save Image From Clipboard",
+  "description": "Save Image From Clipboard",
+  "category": "System",
+  "author": "Yufei Kang",
+  "authorURL": "kangyufei.net",
+  "format": "raycast-script",
+  "script": "save-image-from-clipboard.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/save-image-from-clipboard.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Save Image From Clipboard",
+      "subtitle": "Clipboard",
+      "mode": "run"
+    }
+  ]
+}

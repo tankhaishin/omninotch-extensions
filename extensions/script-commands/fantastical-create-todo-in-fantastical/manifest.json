@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.fantastical-create-todo-in-fantastical",
+  "name": "Create Task",
+  "description": "Speed up setting reminders for Fantastical by invoking this script.",
+  "category": "Apps",
+  "author": "Vardan Sawhney",
+  "authorURL": "https://github.com/commai",
+  "format": "raycast-script",
+  "script": "create-todo-in-fantastical.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/fantastical/create-todo-in-fantastical.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Fantastical app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Task",
+      "subtitle": "Fantastical",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Task to complete",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

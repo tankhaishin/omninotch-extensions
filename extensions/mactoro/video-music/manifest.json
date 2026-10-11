@@ -1,0 +1,209 @@
+{
+  "v": 2,
+  "id": "com.mactoro.video-music",
+  "name": "Video & Music",
+  "description": "Find something to watch or listen to.",
+  "category": "Media",
+  "author": "Mactoro",
+  "icon": "sf:play.rectangle",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-youtube",
+      "title": "Search YouTube",
+      "mode": "run",
+      "url": "https://www.youtube.com/results?search_query={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-youtube-music",
+      "title": "Search YouTube Music",
+      "mode": "run",
+      "url": "https://music.youtube.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-spotify",
+      "title": "Search Spotify",
+      "mode": "run",
+      "url": "spotify:search:{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-apple-music",
+      "title": "Search Apple Music",
+      "mode": "run",
+      "url": "https://music.apple.com/search?term={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-soundcloud",
+      "title": "Search SoundCloud",
+      "mode": "run",
+      "url": "https://soundcloud.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-bandcamp",
+      "title": "Search Bandcamp",
+      "mode": "run",
+      "url": "https://bandcamp.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-genius-lyrics",
+      "title": "Search Genius Lyrics",
+      "mode": "run",
+      "url": "https://genius.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-twitch",
+      "title": "Search Twitch",
+      "mode": "run",
+      "url": "https://www.twitch.tv/search?term={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-vimeo",
+      "title": "Search Vimeo",
+      "mode": "run",
+      "url": "https://vimeo.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-imdb",
+      "title": "Search IMDb",
+      "mode": "run",
+      "url": "https://www.imdb.com/find/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-letterboxd",
+      "title": "Search Letterboxd",
+      "mode": "run",
+      "url": "https://letterboxd.com/search/{query}/",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-rotten-tomatoes",
+      "title": "Search Rotten Tomatoes",
+      "mode": "run",
+      "url": "https://www.rottentomatoes.com/search?search={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "where-to-watch-justwatch",
+      "title": "Where to Watch (JustWatch)",
+      "mode": "run",
+      "url": "https://www.justwatch.com/us/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-podcasts",
+      "title": "Search Podcasts",
+      "mode": "run",
+      "url": "https://podcasts.apple.com/search?term={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

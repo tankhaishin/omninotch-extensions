@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.vpnutil-toggle",
+  "name": "Toggle VPN",
+  "description": "Toggle VPN connection",
+  "category": "System",
+  "author": "Sergey Fuksman",
+  "authorURL": "https://github.com/fuksman",
+  "format": "raycast-script",
+  "script": "vpnutil-toggle.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/vpnutil/vpnutil-toggle.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle VPN",
+      "subtitle": "VPN",
+      "mode": "run"
+    }
+  ]
+}

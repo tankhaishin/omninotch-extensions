@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.plash-toggle-browser-mode",
+  "name": "Toggle Browsing Mode",
+  "description": "Toggle browsing mode in Plash.",
+  "category": "Apps",
+  "author": "Plash",
+  "authorURL": "https://github.com/sindresorhus/Plash",
+  "format": "raycast-script",
+  "script": "plash-toggle-browser-mode.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/plash/plash-toggle-browser-mode.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Plash app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Browsing Mode",
+      "subtitle": "Plash",
+      "mode": "run"
+    }
+  ]
+}

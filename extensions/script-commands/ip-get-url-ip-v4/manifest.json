@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.ip-get-url-ip-v4",
+  "name": "URL IPv4",
+  "description": "Get IPv4 address of URL.",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "get-url-ip-v4.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/ip/get-url-ip-v4.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "URL IPv4",
+      "subtitle": "Internet",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

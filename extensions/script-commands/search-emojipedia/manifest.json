@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-emojipedia",
+  "name": "Search in Emojipedia",
+  "description": "Search for emojis at emojipedia.",
+  "category": "Web search",
+  "author": "Benedict Neo",
+  "authorURL": "https://github.com/benthecoder",
+  "format": "raycast-script",
+  "script": "search-emojipedia.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-emojipedia.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Emojipedia",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

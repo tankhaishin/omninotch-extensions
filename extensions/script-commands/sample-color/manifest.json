@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.sample-color",
+  "name": "Sample Color",
+  "description": "Sample a color from anywhere on your screen.",
+  "category": "System",
+  "author": "Jesse Claven",
+  "authorURL": "https://github.com/jesse-c",
+  "format": "raycast-script",
+  "script": "sample-color.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/sample-color.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Sample Color",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

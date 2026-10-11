@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.openvpn-connect-openvpn",
+  "name": "Connect OpenVPN",
+  "description": "Prepares OpenVPN Connect client to connect or reconnect.",
+  "category": "Apps",
+  "author": "Aaron Miller",
+  "authorURL": "https://github.com/aaronhmiller",
+  "format": "raycast-script",
+  "script": "connect-openvpn.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/openvpn/connect-openvpn.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "OpenVPN app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Connect OpenVPN",
+      "subtitle": "OpenVPN",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

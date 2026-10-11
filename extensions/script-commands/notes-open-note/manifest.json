@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.notes-open-note",
+  "name": "Open Note",
+  "description": "Open Note via its Title",
+  "category": "Apps",
+  "author": "Vardan Sawhney",
+  "authorURL": "https://github.com/commai",
+  "format": "raycast-script",
+  "script": "open-note.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/notes/open-note.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Note",
+      "subtitle": "Notes",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Note Title",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

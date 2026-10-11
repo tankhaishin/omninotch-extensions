@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.copy-availability",
+  "name": "Copy Availability",
+  "description": "Copies the calendar availability of today.",
+  "category": "System",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "copy-availability.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/copy-availability.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Availability",
+      "subtitle": "System",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "9:00",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "17:00",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.quit-app",
+  "name": "Quit app",
+  "description": "Quits an app, by name or process id.",
+  "category": "System",
+  "author": "Roland Leth",
+  "authorURL": "https://runtimesharks.com",
+  "format": "raycast-script",
+  "script": "quit-app.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/quit-app.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Quit app",
+      "subtitle": "System",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Name or pid",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

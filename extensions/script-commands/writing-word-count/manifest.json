@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.writing-word-count",
+  "name": "Word Count",
+  "description": "Counts the number of words of the text in the clipboard",
+  "category": "Productivity",
+  "author": "Benny Wong",
+  "authorURL": "https://bwong.net",
+  "format": "raycast-script",
+  "script": "word-count.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/writing/word-count.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Word Count",
+      "subtitle": "Writing",
+      "mode": "live"
+    }
+  ],
+  "every": "15s"
+}

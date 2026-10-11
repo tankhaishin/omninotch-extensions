@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.swift-package-index",
+  "name": "Swift Package Index",
+  "description": "Search for Swift packages in the Swift Package Index.",
+  "category": "Web search",
+  "author": "The Swift Package Index",
+  "authorURL": "https://swiftpackageindex.com",
+  "format": "raycast-script",
+  "script": "swift-package-index.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/swift-package-index.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Swift Package Index",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "query",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

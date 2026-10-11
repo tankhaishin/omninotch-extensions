@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.change-case-titlecase",
+  "name": "Title Case",
+  "description": "Change to clipboard text to title case",
+  "category": "Conversions",
+  "author": "Robert Cooper",
+  "authorURL": "https://github.com/robertcoopercode",
+  "format": "raycast-script",
+  "script": "titlecase.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/change-case/titlecase.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Title Case",
+      "subtitle": "Change Case",
+      "mode": "live"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.github-create-github-gist-template",
+  "name": "Create GitHub Gist from Clipboard",
+  "description": "Create a GitHub Gist from clipboard contents and copy Gist URL.",
+  "category": "Developer",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "create-github-gist.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/github/create-github-gist.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create GitHub Gist from Clipboard",
+      "subtitle": "GitHub",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

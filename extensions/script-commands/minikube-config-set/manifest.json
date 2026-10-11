@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.minikube-config-set",
+  "name": "Config Set",
+  "description": "Pause Minikube cluster",
+  "category": "Developer",
+  "author": "Daniils Petrovs",
+  "authorURL": "https://danpetrov.xyz",
+  "format": "raycast-script",
+  "script": "minikube-config-set.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/minikube/minikube-config-set.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "minikube"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Config Set",
+      "subtitle": "Minikube",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "property name",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "property value",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

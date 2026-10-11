@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.tunnelblick-connect-all",
+  "name": "Tunnelblick: Connect All",
+  "description": "Connect all unconnected VPN configurations.",
+  "category": "Apps",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "tunnelblick-connect-all.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/tunnelblick/tunnelblick-connect-all.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Tunnelblick app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Tunnelblick: Connect All",
+      "subtitle": "TunnelBlick",
+      "mode": "run"
+    }
+  ]
+}

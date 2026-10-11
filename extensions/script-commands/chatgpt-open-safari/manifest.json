@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.chatgpt-open-safari",
+  "name": "chatgpt",
+  "description": "Open chatgpt in safari",
+  "category": "Apps",
+  "author": "gintonyc",
+  "authorURL": "https://raycast.com/gintonyc",
+  "format": "raycast-script",
+  "script": "chatgpt-open-safari.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/chatgpt/chatgpt-open-safari.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Chatgpt app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "chatgpt",
+      "subtitle": "Chatgpt Util",
+      "mode": "run"
+    }
+  ]
+}

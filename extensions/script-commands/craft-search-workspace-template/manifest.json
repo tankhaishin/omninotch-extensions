@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.craft-search-workspace-template",
+  "name": "Search in Workspace",
+  "description": "Searches in Workspace in Craft",
+  "category": "Apps",
+  "author": "James Lyons",
+  "authorURL": "https://github.com/jamesjlyons",
+  "format": "raycast-script",
+  "script": "craft-search-workspace.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/craft/craft-search-workspace.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Craft app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Workspace",
+      "subtitle": "Craft",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -56,27 +56,72 @@ def check_activity(a, actions, problems, warnings, icons):
         if "run" not in b and "url" not in b: problems.append(f"{i}: a button needs run or url")
 
 
+CATEGORIES = ("Mac", "Time", "Work", "Developer", "AI", "Apps", "Browsing", "Communication", "Conversions", "Dashboard",
+              "Fun", "Home", "Images", "Math", "Media", "Navigation", "Productivity", "Remote control", "System", "Web search")
+MODES = ("view", "run", "live")
+
+
+def check_v2(folder, m, problems, warnings, icons):
+    """FORMATS.md v2: commands (and quicklinks, and Raycast-format scripts), checked from the files alone."""
+    cmds = m.get("commands") or []
+    if not cmds: problems.append("v2: commands is required")
+    seen = set()
+    for c in cmds:
+        cid = c.get("id", "")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,60}", cid): problems.append(f"command id {cid!r}: lowercase letters, digits and -")
+        if cid in seen: problems.append(f"command id {cid!r} is used twice")
+        seen.add(cid)
+        if not c.get("title"): problems.append(f"command {cid}: title is required")
+        if c.get("mode") not in MODES: problems.append(f"command {cid}: mode must be one of {MODES}")
+        args = c.get("arguments", [])
+        if len(args) > 3: problems.append(f"command {cid}: at most 3 arguments")
+        url = c.get("url")
+        if url is not None:
+            if not re.match(r"^[a-z][a-z0-9+.-]*:", url): problems.append(f"command {cid}: url needs a scheme")
+            names = set(re.findall(r"\{([a-z0-9_]+)\}", url))
+            missing = names - {a.get("name") for a in args}
+            if missing: problems.append(f"command {cid}: url uses {sorted(missing)} but has no such argument")
+            if url.startswith(("file:", "javascript:")): problems.append(f"command {cid}: {url.split(':')[0]} links aren't allowed")
+        icon = c.get("icon") or ""
+        if icon.startswith("sf:"): icons.add(icon[3:])
+    icon = m.get("icon") or ""
+    if icon.startswith("sf:"): icons.add(icon[3:])
+    if m.get("format") == "raycast-script":
+        script = os.path.join(folder, m.get("script", ""))
+        if not os.path.isfile(script): problems.append("raycast-script: the script file is missing")
+        elif not os.access(script, os.X_OK): problems.append("raycast-script: the script isn't executable")
+        elif "@raycast.title" not in open(script, errors="replace").read(): problems.append("raycast-script: no @raycast.title in the script")
+        for k in ("source", "license", "author"):
+            if not m.get(k): problems.append(f"raycast-script: {k} is required (credit and licence)")
+    elif "run" not in m and any(c.get("mode") != "run" or "url" not in c for c in cmds):
+        problems.append("v2: commands without a url need a run script")
+
+
 def check(folder, action=None, overrides=None):
     problems, warnings, icons = [], [], set()
     try:
         m = json.load(open(os.path.join(folder, "manifest.json")))
     except Exception as e:
         return [f"manifest.json: {e}"], [], set(), None
-    for k in ("v", "id", "name", "run"):
+    v2 = m.get("v") == 2
+    for k in ("v", "id", "name") + (() if v2 else ("run",)):
         if k not in m: problems.append(f"manifest: {k} is required")
-    if m.get("v") != 1: problems.append("manifest: v must be 1")
+    if m.get("v") not in (1, 2): problems.append("manifest: v must be 1 or 2")
     parts = folder.rstrip("/").split("/")
     if len(parts) >= 3 and parts[-3] == "extensions":          # the gallery repo: extensions/<author>/<name>
         author, name = parts[-2], parts[-1]
         want = f"com.mactoro.{name}" if author == "mactoro" else f"{author}.{name}"
         if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,40}", name): problems.append("folder name: lowercase letters, digits and -")
         if m.get("id") != want: problems.append(f'manifest id must be "{want}" for extensions/{author}/{name}')
-        for k in ("description", "category", "example"):
+        for k in ("description", "category") + (() if v2 else ("example",)):
             if not m.get(k): problems.append(f"manifest: {k} is required in the gallery")
-        if m.get("category") and m["category"] not in ("Mac", "Time", "Work", "Developer"):
-            problems.append("category must be Mac, Time, Work or Developer")
-        if len(m.get("description", "")) > 50: warnings.append("description is cut to one line after about 45 characters")
+        if m.get("category") and m["category"] not in CATEGORIES:
+            problems.append(f"category must be one of: {', '.join(CATEGORIES)}")
+        if not v2 and len(m.get("description", "")) > 50: warnings.append("description is cut to one line after about 45 characters")
     elif os.path.basename(folder.rstrip("/")) != m.get("id"): warnings.append("folder name should be the id")
+    if v2:
+        check_v2(folder, m, problems, warnings, icons)
+        if "run" not in m: return problems, warnings, icons, None      # commands only: nothing to run here
     exe = os.path.join(folder, m.get("run", "run"))
     if not os.access(exe, os.X_OK): return problems + ["run isn't executable (chmod +x run)"], warnings, icons, None
     data = tempfile.mkdtemp(prefix="omn-check-")

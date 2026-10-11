@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.to-private-browsing",
+  "name": "Current Website to Private Browser",
+  "description": "Open the current site in a private browser",
+  "category": "Browsing",
+  "author": "raulanatol",
+  "authorURL": "https://github.com/raulanatol",
+  "format": "raycast-script",
+  "script": "to-private-browsing.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/to-private-browsing.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Current Website to Private Browser",
+      "subtitle": "Browser",
+      "mode": "run"
+    }
+  ]
+}

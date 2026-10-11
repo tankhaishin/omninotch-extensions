@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "script-commands.website-screenshots",
+  "name": "Screenshot Website",
+  "description": "Takes screenshots of the entered URL using [`pageres`](https://github.com/sindresorhus/pag",
+  "category": "Browsing",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "website-screenshots.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/website-screenshots.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Screenshot Website",
+      "subtitle": "Internet",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ],
+  "cwd": "~/Desktop"
+}

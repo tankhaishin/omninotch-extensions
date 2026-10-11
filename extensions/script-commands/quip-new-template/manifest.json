@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.quip-new-template",
+  "name": "{{commandtitle}}",
+  "description": "Configure your Quip API token and other defaults in quip_config.ini",
+  "category": "Apps",
+  "author": "zzamboni",
+  "authorURL": "https://raycast.com/zzamboni",
+  "format": "raycast-script",
+  "script": "quip-new.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/quip/quip-new.template.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "Quip app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "{{commandtitle}}",
+      "subtitle": "Quip utilities",
+      "mode": "run"
+    }
+  ]
+}

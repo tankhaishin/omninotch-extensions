@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.google-docs-to-markdown",
+  "name": "Convert Google Docs Rich Text HTML to Ma",
+  "description": "A script to take the HTML pastboard type filled by google docs and convert it to nicely fo",
+  "category": "Conversions",
+  "author": "Michael Bianco",
+  "authorURL": "https://github.com/iloveitaly",
+  "format": "raycast-script",
+  "script": "google-docs-to-markdown.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/google-docs-to-markdown.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Convert Google Docs Rich Text HTML to Markdown",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

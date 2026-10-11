@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.sonos-volume-down",
+  "name": "Volume Down",
+  "description": "Raises volume of Sonos.",
+  "category": "Media",
+  "author": "David Blackman",
+  "authorURL": "https://github.com/whizziwig",
+  "format": "raycast-script",
+  "script": "sonos-volume-down.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/sonos/sonos-volume-down.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "soco"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Volume Down",
+      "subtitle": "Sonos",
+      "mode": "run"
+    }
+  ]
+}

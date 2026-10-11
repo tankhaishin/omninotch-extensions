@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.samsung-tv-turn-off-template",
+  "name": "Turn Off TV",
+  "description": "Turns off a Samsung TV.",
+  "category": "Remote control",
+  "author": "Darryl Brooks",
+  "authorURL": "https://github.com/DarrylBrooks97",
+  "format": "raycast-script",
+  "script": "turn-off.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/remote-control/samsung-tv/turn-off.template.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Turn Off TV",
+      "subtitle": "Samsung TV",
+      "mode": "run"
+    }
+  ]
+}

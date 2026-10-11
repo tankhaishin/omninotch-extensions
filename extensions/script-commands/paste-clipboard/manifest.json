@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.paste-clipboard",
+  "name": "Type Clipboard",
+  "description": "Takes your clipboard then types each character in the clipboard",
+  "category": "System",
+  "author": "AlexGadd",
+  "authorURL": "https://raycast.com/AlexGadd",
+  "format": "raycast-script",
+  "script": "paste-clipboard.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/paste-clipboard.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Type Clipboard",
+      "subtitle": "Type Clipboard in Search",
+      "mode": "run"
+    }
+  ]
+}

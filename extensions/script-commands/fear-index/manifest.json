@@ -1,0 +1,24 @@
+{
+  "v": 2,
+  "id": "script-commands.fear-index",
+  "name": "Fear Index",
+  "description": "Fear & Greed Index from CNN",
+  "category": "Dashboard",
+  "author": "Astrit",
+  "authorURL": "https://github.com/astrit",
+  "format": "raycast-script",
+  "script": "fear-index.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/fear-index.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Fear Index",
+      "subtitle": "Fear & Greed Index",
+      "mode": "live"
+    }
+  ],
+  "every": "12h"
+}

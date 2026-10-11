@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-base64image",
+  "name": "Base64 Image Encode/Decode",
+  "description": "Decode the Base64 string in clipboard to an image (if it’s decodable)",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "base64image.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/base64image.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Base64 Image Encode/Decode",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

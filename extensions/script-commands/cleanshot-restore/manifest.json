@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-restore",
+  "name": "Restore Recently Closed File",
+  "description": "Restore the recently closed file.",
+  "category": "Apps",
+  "author": "CleanShot X",
+  "authorURL": "https://twitter.com/CleanShot_app",
+  "format": "raycast-script",
+  "script": "cleanshot-restore.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-restore.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Restore Recently Closed File",
+      "subtitle": "CleanShot X",
+      "mode": "run"
+    }
+  ]
+}

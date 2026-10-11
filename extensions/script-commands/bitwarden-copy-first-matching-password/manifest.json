@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bitwarden-copy-first-matching-password",
+  "name": "Copy First Matching Password",
+  "description": "Search all items in a Bitwarden vault, and copy the password of the first search result to",
+  "category": "Productivity",
+  "author": "Phil Salant",
+  "authorURL": "https://github.com/PSalant726",
+  "format": "raycast-script",
+  "script": "copy-first-matching-password.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/bitwarden/copy-first-matching-password.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "bitwarden-cli"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy First Matching Password",
+      "subtitle": "Bitwarden",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

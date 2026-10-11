@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.slack-set-slack-status-spotify",
+  "name": "Set Status in Slack to Spotify Song",
+  "description": "Set your status in Slack to a song currently playing in Spotify.",
+  "category": "Communication",
+  "author": "alongat",
+  "authorURL": "https://github.com/alongat",
+  "format": "raycast-script",
+  "script": "set-slack-status-spotify.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/slack/set-slack-status-spotify.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set Status in Slack to Spotify Song",
+      "subtitle": "Slack",
+      "mode": "live"
+    }
+  ],
+  "every": "30s"
+}

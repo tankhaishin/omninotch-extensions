@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.mood-meter-add-mood",
+  "name": "Add Mood",
+  "description": "Add mood value to current or specified date",
+  "category": "Dashboard",
+  "author": "Federico Miraglia",
+  "authorURL": "https://github.com/Mitra98t",
+  "format": "raycast-script",
+  "script": "add-mood.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/mood-meter/add-mood.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add Mood",
+      "subtitle": "Dashboard",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Day number",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

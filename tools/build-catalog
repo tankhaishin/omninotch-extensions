@@ -37,18 +37,24 @@ def build(out):
             data = buf.getvalue()
             os.makedirs(os.path.join(out, author), exist_ok=True)
             open(os.path.join(out, author, f"{name}.zip"), "wb").write(data)
+            commands = [{k: c[k] for k in ("id", "title", "mode", "url") if k in c} | ({"arguments": len(c["arguments"])} if c.get("arguments") else {})
+                        for c in m.get("commands", [])]
             items.append({
-                "author": author, "name": name, "id": m["id"], "title": m["name"],
+                "author": author, "name": name, "id": m["id"], "title": m["name"], "v": m.get("v", 1),
+                "kind": m.get("kind") or ("script" if m.get("format") == "raycast-script" else "extension"),
                 "description": m.get("description", ""), "about": m.get("about", m.get("description", "")),
-                "category": m.get("category"), "example": m.get("example"),
+                "category": m.get("category"), "example": m.get("example"), "icon": m.get("icon"),
                 "network": bool(m.get("network")), "every": m.get("every", "60s"),
                 "settings": [s["title"] for s in m.get("settings", [])],
-                "bundled": author == "mactoro", "featured": f"{author}/{name}" in featured,
+                "commands": commands, "needs": m.get("needs", []),
+                "by": m.get("author") or author, "byURL": m.get("authorURL", ""), "license": m.get("license", "MIT"),
+                "bundled": author == "mactoro" and m.get("v", 1) == 1, "featured": f"{author}/{name}" in featured,
                 "updated": updated(folder), "sha256": hashlib.sha256(data).hexdigest(), "size": len(data),
-                "source": f"https://github.com/tankhaishin/omninotch-extensions/tree/main/extensions/{author}/{name}",
+                "source": m.get("source") or f"https://github.com/tankhaishin/omninotch-extensions/tree/main/extensions/{author}/{name}",
             })
     json.dump({"v": 1, "extensions": items}, open(os.path.join(out, "catalog.json"), "w"), indent=1)
-    print(f"{len(items)} extensions → {out}")
+    n_cmds = sum(max(1, len(x["commands"])) for x in items)
+    print(f"{len(items)} extensions, {n_cmds} commands → {out}")
 
 
 if __name__ == "__main__":

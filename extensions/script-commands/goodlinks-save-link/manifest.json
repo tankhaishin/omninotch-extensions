@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.goodlinks-save-link",
+  "name": "Save Link",
+  "description": "Saves a new link to GoodLinks",
+  "category": "Apps",
+  "author": "Filip Chabik",
+  "authorURL": "https://github.com/hadret",
+  "format": "raycast-script",
+  "script": "goodlinks-save-link.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/goodlinks/goodlinks-save-link.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "GoodLinks app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Save Link",
+      "subtitle": "GoodLinks",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "URL",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Tags",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg3",
+          "placeholder": "Title",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

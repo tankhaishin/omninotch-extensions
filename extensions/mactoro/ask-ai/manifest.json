@@ -1,0 +1,87 @@
+{
+  "v": 2,
+  "id": "com.mactoro.ask-ai",
+  "name": "Ask AI",
+  "description": "Ask ChatGPT, Claude, Perplexity and others from the notch.",
+  "category": "AI",
+  "author": "Mactoro",
+  "icon": "sf:sparkles",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "ask-chatgpt",
+      "title": "Ask ChatGPT",
+      "mode": "run",
+      "url": "https://chatgpt.com/?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "ask-claude",
+      "title": "Ask Claude",
+      "mode": "run",
+      "url": "https://claude.ai/new?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "ask-perplexity",
+      "title": "Ask Perplexity",
+      "mode": "run",
+      "url": "https://www.perplexity.ai/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "ask-google-ai-mode",
+      "title": "Ask Google AI Mode",
+      "mode": "run",
+      "url": "https://www.google.com/search?udm=50&q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "open-chatgpt",
+      "title": "Open ChatGPT",
+      "mode": "run",
+      "url": "https://chatgpt.com/"
+    },
+    {
+      "id": "open-claude",
+      "title": "Open Claude",
+      "mode": "run",
+      "url": "https://claude.ai/new"
+    },
+    {
+      "id": "open-gemini",
+      "title": "Open Gemini",
+      "mode": "run",
+      "url": "https://gemini.google.com/app"
+    }
+  ]
+}

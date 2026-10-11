@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.viscosity-disconnect-all",
+  "name": "Viscosity: Disconnect All",
+  "description": "Disconnect all connected VPN configurations.",
+  "category": "Apps",
+  "author": "Luigi Cardito (credits Achille Lacoin https://github.com/pomdtr)",
+  "authorURL": "https://github.com/lcardito",
+  "format": "raycast-script",
+  "script": "viscosity-disconnect-all.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/viscosity/viscosity-disconnect-all.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Viscosity app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Viscosity: Disconnect All",
+      "subtitle": "Viscosity",
+      "mode": "run"
+    }
+  ]
+}

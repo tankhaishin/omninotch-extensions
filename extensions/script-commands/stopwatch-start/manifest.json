@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.stopwatch-start",
+  "name": "Start Stopwatch",
+  "description": "Start a stopwatch",
+  "category": "Productivity",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "stopwatch-start.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/stopwatch/stopwatch-start.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Stopwatch",
+      "subtitle": "stopwatch",
+      "mode": "run"
+    }
+  ]
+}

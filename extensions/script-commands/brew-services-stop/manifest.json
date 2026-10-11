@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.brew-services-stop",
+  "name": "Stop Service",
+  "description": "Stop Service in Brew",
+  "category": "Developer",
+  "author": "Thiago Holanda",
+  "authorURL": "https://twitter.com/tholanda",
+  "format": "raycast-script",
+  "script": "brew-services-stop.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/brew/brew-services-stop.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop Service",
+      "subtitle": "Brew",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Service Name",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

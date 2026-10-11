@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.plash-previous-website",
+  "name": "Previous Website",
+  "description": "Switch to the previous website in the list in Plash.",
+  "category": "Apps",
+  "author": "Plash",
+  "authorURL": "https://github.com/sindresorhus/Plash",
+  "format": "raycast-script",
+  "script": "plash-previous-website.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/plash/plash-previous-website.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Plash app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Previous Website",
+      "subtitle": "Plash",
+      "mode": "run"
+    }
+  ]
+}

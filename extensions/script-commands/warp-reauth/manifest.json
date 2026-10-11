@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.warp-reauth",
+  "name": "Reauthenticate",
+  "description": "Force WARP reauthentication",
+  "category": "Apps",
+  "author": "Daniils Petrovs",
+  "authorURL": "https://github.com/danirukun",
+  "format": "raycast-script",
+  "script": "warp-reauth.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/warp/warp-reauth.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Warp app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Reauthenticate",
+      "subtitle": "WARP",
+      "mode": "run"
+    }
+  ]
+}

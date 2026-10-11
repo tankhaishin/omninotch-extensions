@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.json-to-go-struct",
+  "name": "JSON to Go Struct",
+  "description": "Convert the copied JSON into a golang structure.",
+  "category": "Developer",
+  "author": "tiancheng92",
+  "authorURL": "https://github.com/tiancheng92",
+  "format": "raycast-script",
+  "script": "json-to-go-struct.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/json-to-go-struct.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "jq"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "JSON to Go Struct",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "inline",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

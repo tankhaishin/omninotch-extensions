@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.bear-add-note",
+  "name": "Add Note",
+  "description": "Add a new note to Bear.",
+  "category": "Apps",
+  "author": "Tanay Nistala",
+  "authorURL": "https://github.com/tanaynistala",
+  "format": "raycast-script",
+  "script": "bear-add-note.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bear/bear-add-note.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bear app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Add Note",
+      "subtitle": "Bear",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Content",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg3",
+          "placeholder": "Use Clipboard?",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

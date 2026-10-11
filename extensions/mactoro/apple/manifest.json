@@ -1,0 +1,93 @@
+{
+  "v": 2,
+  "id": "com.mactoro.apple",
+  "name": "Apple & Mac",
+  "description": "Apple's own sites and Mac support.",
+  "category": "System",
+  "author": "Mactoro",
+  "icon": "sf:desktopcomputer",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-apple-support",
+      "title": "Search Apple Support",
+      "mode": "run",
+      "url": "https://support.apple.com/kb/index?page=search&q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-apple-community",
+      "title": "Search Apple Community",
+      "mode": "run",
+      "url": "https://discussions.apple.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-the-mac-app-store",
+      "title": "Search the Mac App Store",
+      "mode": "run",
+      "url": "macappstore://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-apple-developer-forums",
+      "title": "Search Apple Developer Forums",
+      "mode": "run",
+      "url": "https://developer.apple.com/forums/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "check-apple-system-status",
+      "title": "Check Apple System Status",
+      "mode": "run",
+      "url": "https://www.apple.com/support/systemstatus/"
+    },
+    {
+      "id": "find-my-icloud",
+      "title": "Find My (iCloud)",
+      "mode": "run",
+      "url": "https://www.icloud.com/find/"
+    },
+    {
+      "id": "open-icloud-drive",
+      "title": "Open iCloud Drive",
+      "mode": "run",
+      "url": "https://www.icloud.com/iclouddrive/"
+    },
+    {
+      "id": "mac-keyboard-shortcuts",
+      "title": "Mac Keyboard Shortcuts",
+      "mode": "run",
+      "url": "https://support.apple.com/en-us/102650"
+    }
+  ]
+}

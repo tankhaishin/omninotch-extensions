@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.cleanshot-record-screen-with-keystroke-pr",
+  "name": "Record Screen With Keystroke Pro",
+  "description": "Start a screen recording with keystrokes using the Keystroke Pro app and save it as a vide",
+  "category": "Apps",
+  "author": "Danylo Zalizchuk",
+  "authorURL": "https://raycast.com/danulqua",
+  "format": "raycast-script",
+  "script": "cleanshot-record-screen-with-keystroke-pro.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/cleanshot/cleanshot-record-screen-with-keystroke-pro.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "CleanShot X app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Record Screen With Keystroke Pro",
+      "subtitle": "CleanShot X",
+      "mode": "run"
+    }
+  ]
+}

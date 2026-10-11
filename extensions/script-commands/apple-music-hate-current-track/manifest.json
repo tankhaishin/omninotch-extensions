@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.apple-music-hate-current-track",
+  "name": "Hate Current Track",
+  "description": "Let the algorithm know how you feel about the currently playing track.",
+  "category": "Media",
+  "author": "Bryan Schuetz",
+  "authorURL": "https://github.com/bryanschuetz",
+  "format": "raycast-script",
+  "script": "apple-music-hate-current-track.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/apple-music/apple-music-hate-current-track.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Hate Current Track",
+      "subtitle": "Apple Music",
+      "mode": "run"
+    }
+  ]
+}

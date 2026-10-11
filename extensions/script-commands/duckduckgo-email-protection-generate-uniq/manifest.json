@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.duckduckgo-email-protection-generate-uniq",
+  "name": "Generate Unique Address",
+  "description": "This script command generates a unique private @duck.com email address.",
+  "category": "Communication",
+  "author": "Rediwed",
+  "authorURL": "github.com/Rediwed",
+  "format": "raycast-script",
+  "script": "generate-unique-email-address.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/duckduckgo-email-protection/generate-unique-email-address.applescript",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Generate Unique Address",
+      "subtitle": "DuckDuckGo Email Protection",
+      "mode": "run"
+    }
+  ]
+}

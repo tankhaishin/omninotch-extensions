@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.ocr",
+  "name": "OCR",
+  "description": "Use macOS Vision API Identification pictures, if it contain a QR code, Copy the QR code co",
+  "category": "System",
+  "author": "zhe",
+  "authorURL": "https://github.com/wmszhe",
+  "format": "raycast-script",
+  "script": "ocr.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/ocr.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "OCR",
+      "subtitle": "Productivity",
+      "mode": "run"
+    }
+  ]
+}

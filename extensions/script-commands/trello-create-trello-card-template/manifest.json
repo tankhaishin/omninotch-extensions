@@ -1,0 +1,43 @@
+{
+  "v": 2,
+  "id": "script-commands.trello-create-trello-card-template",
+  "name": "Create Card",
+  "description": "Create a new Trello card",
+  "category": "Apps",
+  "author": "Michael Francis",
+  "authorURL": "https://github.com/mikefrancis",
+  "format": "raycast-script",
+  "script": "create-trello-card.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/trello/create-trello-card.template.py",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "dateparser",
+    "requests",
+    "Trello app",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Card",
+      "subtitle": "Trello",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Card title",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Due date (e.g. today)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

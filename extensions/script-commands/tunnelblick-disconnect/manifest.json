@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.tunnelblick-disconnect",
+  "name": "Tunnelblick: Disconnect",
+  "description": "Disconnect a VPN configuration.",
+  "category": "Apps",
+  "author": "Achille Lacoin",
+  "authorURL": "https://github.com/pomdtr",
+  "format": "raycast-script",
+  "script": "tunnelblick-disconnect.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/tunnelblick/tunnelblick-disconnect.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Tunnelblick app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Tunnelblick: Disconnect",
+      "subtitle": "Tunnelblick",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Configuration",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

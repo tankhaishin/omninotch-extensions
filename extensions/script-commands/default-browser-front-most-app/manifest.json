@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.default-browser-front-most-app",
+  "name": "Set Frontmost App as Default Browser",
+  "description": "Set Frontmost Web Browser as Default Browser.",
+  "category": "System",
+  "author": "Yohanes Bandung Bondowoso",
+  "authorURL": "https://github.com/ybbond",
+  "format": "raycast-script",
+  "script": "default-browser-front-most-app.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/default-browser-front-most-app.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "defaultbrowser"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set Frontmost App as Default Browser",
+      "subtitle": "Browsing",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Browser (chrome, dev, safari, firefox)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

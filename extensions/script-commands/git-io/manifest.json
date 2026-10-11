@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.git-io",
+  "name": "Shorten URL from GitHub",
+  "description": "Shorten any github.com URL",
+  "category": "Browsing",
+  "author": "Astrit",
+  "authorURL": "https://github.com/astrit",
+  "format": "raycast-script",
+  "script": "git-io.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/git-io.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Shorten URL from GitHub",
+      "subtitle": "Browsing",
+      "mode": "run"
+    }
+  ]
+}

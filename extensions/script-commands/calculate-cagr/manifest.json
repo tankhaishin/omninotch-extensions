@@ -1,0 +1,43 @@
+{
+  "v": 2,
+  "id": "script-commands.calculate-cagr",
+  "name": "Calculate CAGR Percentage",
+  "description": "Calculate the CAGR between \"from\" and \"to\" values over given \"years,\" then copy the result",
+  "category": "Math",
+  "author": "Samuel Barton",
+  "authorURL": "https://github.com/samueldbarton",
+  "format": "raycast-script",
+  "script": "calculate-CAGR.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/math/calculate-CAGR.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Calculate CAGR Percentage",
+      "subtitle": "Math",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "From",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "To",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "Years",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

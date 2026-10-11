@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.noteplan3-noteplan-new-note-from-clipboar",
+  "name": "New Note From Clipboard",
+  "description": "Create a new note from clipboard",
+  "category": "Apps",
+  "author": "Göran Damberg",
+  "authorURL": "https://github.com/gdamberg",
+  "format": "raycast-script",
+  "script": "noteplan-new-note-from-clipboard.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/noteplan3/noteplan-new-note-from-clipboard.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "NotePlan 3 app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "New Note From Clipboard",
+      "subtitle": "NotePlan3",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

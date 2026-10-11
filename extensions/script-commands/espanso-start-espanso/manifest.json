@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.espanso-start-espanso",
+  "name": "Start Espanso",
+  "description": "Espanso",
+  "category": "Apps",
+  "author": "es183923",
+  "authorURL": "https://github.com/es183923",
+  "format": "raycast-script",
+  "script": "start-espanso.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/espanso/start-espanso.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "espanso",
+    "Espanso app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Espanso",
+      "subtitle": "Espanso",
+      "mode": "run"
+    }
+  ]
+}

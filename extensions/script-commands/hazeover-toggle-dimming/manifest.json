@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.hazeover-toggle-dimming",
+  "name": "Toggle Dimming",
+  "description": "Toggle dimming of all background windows.",
+  "category": "Apps",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "hazeover-toggle-dimming.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/hazeover/hazeover-toggle-dimming.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "HazeOver app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle Dimming",
+      "subtitle": "HazeOver",
+      "mode": "run"
+    }
+  ]
+}

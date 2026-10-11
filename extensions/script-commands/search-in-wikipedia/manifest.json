@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-in-wikipedia",
+  "name": "Search in Wikipedia",
+  "description": "Web Searches",
+  "category": "Web search",
+  "author": "Jax0rz",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "search-in-wikipedia.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-in-wikipedia.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search in Wikipedia",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search term...",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

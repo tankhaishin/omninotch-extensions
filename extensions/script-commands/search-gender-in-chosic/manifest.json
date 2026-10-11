@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.search-gender-in-chosic",
+  "name": "Search Genre in Chosic",
+  "description": "Find the current Spotify track's gender in Chosic",
+  "category": "Web search",
+  "author": "quelhasu",
+  "authorURL": "https://github.com/quelhasu",
+  "format": "raycast-script",
+  "script": "search-gender-in-chosic.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-gender-in-chosic.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Genre in Chosic",
+      "subtitle": "Web Searches",
+      "mode": "live"
+    }
+  ]
+}

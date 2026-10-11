@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.things-create-todo",
+  "name": "Create To-Do",
+  "description": "Create a new To-Do with title and optional deadline.",
+  "category": "Apps",
+  "author": "Things",
+  "authorURL": "https://twitter.com/culturedcode/",
+  "format": "raycast-script",
+  "script": "things-create-todo.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/things/things-create-todo.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Things app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create To-Do",
+      "subtitle": "Things",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Title",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Notes",
+          "required": false,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg3",
+          "placeholder": "When (e.g. \"today\")",
+          "required": false,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

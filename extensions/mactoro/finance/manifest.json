@@ -1,0 +1,125 @@
+{
+  "v": 2,
+  "id": "com.mactoro.finance",
+  "name": "Markets",
+  "description": "Look up a stock, a coin or a currency.",
+  "category": "Productivity",
+  "author": "Mactoro",
+  "icon": "sf:chart.line.uptrend.xyaxis",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "quote-on-yahoo-finance",
+      "title": "Quote on Yahoo Finance",
+      "mode": "run",
+      "url": "https://finance.yahoo.com/quote/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "chart-on-tradingview",
+      "title": "Chart on TradingView",
+      "mode": "run",
+      "url": "https://www.tradingview.com/chart/?symbol={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-finance",
+      "title": "Search Google Finance",
+      "mode": "run",
+      "url": "https://www.google.com/finance?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-coingecko",
+      "title": "Search CoinGecko",
+      "mode": "run",
+      "url": "https://www.coingecko.com/en/search?query={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "convert-a-currency",
+      "title": "Convert a Currency",
+      "mode": "run",
+      "url": "https://www.google.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-sec-filings",
+      "title": "Search SEC Filings",
+      "mode": "run",
+      "url": "https://efts.sec.gov/LATEST/search-index?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-finviz",
+      "title": "Search Finviz",
+      "mode": "run",
+      "url": "https://finviz.com/quote.ashx?t={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-investopedia",
+      "title": "Search Investopedia",
+      "mode": "run",
+      "url": "https://www.investopedia.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

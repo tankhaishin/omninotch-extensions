@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.disk-free",
+  "name": "Disk Free",
+  "description": "Show free space in your mounted disks",
+  "category": "System",
+  "author": "Juan Luis Romero",
+  "authorURL": "https://github.com/JuanluR8",
+  "format": "raycast-script",
+  "script": "disk-free.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/disk-free.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Disk Free",
+      "subtitle": "Utils",
+      "mode": "view"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.pomodoro-start-timer",
+  "name": "Start Timer",
+  "description": "Start a Pomodoro timer",
+  "category": "Productivity",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "pomodoro-start-timer.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/pomodoro/pomodoro-start-timer.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Start Timer",
+      "subtitle": "Pomodoro",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Duration",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.markdown-to-telegram",
+  "name": "Convert Markdown to Telegram Format",
+  "description": "Convert Markdown formatting to Telegram format, excluding processing inside code blocks or",
+  "category": "Conversions",
+  "author": "Maxim Borzov",
+  "authorURL": "https://github.com/borzov",
+  "format": "raycast-script",
+  "script": "markdown-to-telegram.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/markdown-to-telegram.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Convert Markdown to Telegram Format",
+      "subtitle": "Conversions",
+      "mode": "run"
+    }
+  ]
+}

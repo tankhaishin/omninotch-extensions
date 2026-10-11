@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.human-date-to-epoch",
+  "name": "Convert Human-Readable Date To Epoch",
+  "description": "Convert human-readable date to timestamp epoch.",
+  "category": "Conversions",
+  "author": "Siyuan Zhang",
+  "authorURL": "https://github.com/kastnerorz",
+  "format": "raycast-script",
+  "script": "human-date-to-epoch.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/conversions/human-date-to-epoch.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Convert Human-Readable Date To Epoch",
+      "subtitle": "Conversions",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Date",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

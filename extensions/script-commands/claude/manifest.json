@@ -1,0 +1,35 @@
+{
+  "v": 2,
+  "id": "script-commands.claude",
+  "name": "Ask Claude",
+  "description": "Open Claude in Chrome browser and submit a prompt",
+  "category": "Apps",
+  "author": "Nimo Beeren",
+  "authorURL": "https://github.com/nimobeeren",
+  "format": "raycast-script",
+  "script": "claude.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/claude/claude.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js",
+    "node",
+    "Claude app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Ask Claude",
+      "subtitle": "Claude",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Prompt",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

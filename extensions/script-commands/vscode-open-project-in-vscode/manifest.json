@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.vscode-open-project-in-vscode",
+  "name": "Open Project",
+  "description": "Finds path to the given directory which must be a VS Code or Git project and opens it with",
+  "category": "Developer",
+  "author": "Maksim Zemlyanikin",
+  "authorURL": "https://github.com/Maksimka101",
+  "format": "raycast-script",
+  "script": "open-project-in-vscode.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/vscode/open-project-in-vscode.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Project",
+      "subtitle": "VS Code",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Directory Name",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

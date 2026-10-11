@@ -1,0 +1,89 @@
+{
+  "v": 2,
+  "id": "com.mactoro.google-apps",
+  "name": "Google Workspace",
+  "description": "Open and search Gmail, Drive, Calendar and Docs.",
+  "category": "Productivity",
+  "author": "Mactoro",
+  "icon": "sf:square.grid.2x2",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "search-gmail",
+      "title": "Search Gmail",
+      "mode": "run",
+      "url": "https://mail.google.com/mail/u/0/#search/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-google-drive",
+      "title": "Search Google Drive",
+      "mode": "run",
+      "url": "https://drive.google.com/drive/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "open-gmail",
+      "title": "Open Gmail",
+      "mode": "run",
+      "url": "https://mail.google.com/"
+    },
+    {
+      "id": "open-google-calendar",
+      "title": "Open Google Calendar",
+      "mode": "run",
+      "url": "https://calendar.google.com/"
+    },
+    {
+      "id": "open-google-drive",
+      "title": "Open Google Drive",
+      "mode": "run",
+      "url": "https://drive.google.com/"
+    },
+    {
+      "id": "new-google-doc",
+      "title": "New Google Doc",
+      "mode": "run",
+      "url": "https://docs.new"
+    },
+    {
+      "id": "new-google-sheet",
+      "title": "New Google Sheet",
+      "mode": "run",
+      "url": "https://sheets.new"
+    },
+    {
+      "id": "new-google-slides",
+      "title": "New Google Slides",
+      "mode": "run",
+      "url": "https://slides.new"
+    },
+    {
+      "id": "new-google-form",
+      "title": "New Google Form",
+      "mode": "run",
+      "url": "https://forms.new"
+    },
+    {
+      "id": "new-google-meet",
+      "title": "New Google Meet",
+      "mode": "run",
+      "url": "https://meet.new"
+    }
+  ]
+}

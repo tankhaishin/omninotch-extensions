@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.agenda-today",
+  "name": "Agenda Today Overview",
+  "description": "Opens Agenda - Today Overview",
+  "category": "Apps",
+  "author": "Michael Ellis",
+  "authorURL": "https://github.com/mtellis2",
+  "format": "raycast-script",
+  "script": "agenda-today.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/agenda/agenda-today.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Agenda app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Agenda Today Overview",
+      "subtitle": "Agenda",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.devutils-numberbase",
+  "name": "Number Base Converter",
+  "description": "Convert numbers between bases (oct, hex, binary, etc.)",
+  "category": "Apps",
+  "author": "DevUtils.app",
+  "authorURL": "https://devutils.app",
+  "format": "raycast-script",
+  "script": "numberbase.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/devutils/numberbase.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DevUtils app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Number Base Converter",
+      "subtitle": "DevUtils.app",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.quit-all-apps",
+  "name": "Quit All Applications",
+  "description": "Quits all running applications except Finder and Raycast.",
+  "category": "System",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "quit-all-apps.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/quit-all-apps.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Quit All Applications",
+      "subtitle": "System",
+      "mode": "run",
+      "confirm": true
+    }
+  ]
+}

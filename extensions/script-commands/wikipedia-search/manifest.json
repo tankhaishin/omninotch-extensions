@@ -1,0 +1,34 @@
+{
+  "v": 2,
+  "id": "script-commands.wikipedia-search",
+  "name": "Wikipedia Search",
+  "description": "Search Wikipedia and display the result in Raycast",
+  "category": "Apps",
+  "author": "Juan I. Serra",
+  "authorURL": "https://twitter.com/jiserra",
+  "format": "raycast-script",
+  "script": "wikipedia-search.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/wikipedia/wikipedia-search.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)",
+    "Wikipedia app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Wikipedia Search",
+      "subtitle": "Wikipedia",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search Term",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

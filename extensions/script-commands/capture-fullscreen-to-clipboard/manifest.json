@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.capture-fullscreen-to-clipboard",
+  "name": "Capture Fullscreen to Clipboard",
+  "description": "This script screenshots the entire screen and saves it to the clipboard.",
+  "category": "System",
+  "author": "Aaron Miller",
+  "authorURL": "https://github.com/aaronhmiller",
+  "format": "raycast-script",
+  "script": "capture-fullscreen-to-clipboard.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/capture-fullscreen-to-clipboard.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Capture Fullscreen to Clipboard",
+      "subtitle": "System",
+      "mode": "run"
+    }
+  ]
+}

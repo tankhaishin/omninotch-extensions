@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.safari-close-duplicated-tabs",
+  "name": "Close Duplicated Tabs",
+  "description": "Close tabs with the same URL.",
+  "category": "Apps",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "safari-close-duplicated-tabs.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/safari/safari-close-duplicated-tabs.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Close Duplicated Tabs",
+      "subtitle": "Safari",
+      "mode": "run"
+    }
+  ]
+}

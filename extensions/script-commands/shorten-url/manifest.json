@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.shorten-url",
+  "name": "Shorten URL From Clipboard",
+  "description": "Shorten the URL in your Clipboard with Tiny URL.",
+  "category": "Browsing",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "shorten-url.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/shorten-url.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Shorten URL From Clipboard",
+      "subtitle": "Browsing",
+      "mode": "run"
+    }
+  ]
+}

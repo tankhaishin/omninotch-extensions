@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.endel-scenarios-meditate",
+  "name": "Meditate",
+  "description": "Run Meditate scenario at Endel",
+  "category": "Media",
+  "author": "Sergey Korobyin",
+  "authorURL": "https://github.com/huangsemao",
+  "format": "raycast-script",
+  "script": "endel-scenarios-meditate.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/endel/endel-scenarios-meditate.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Meditate",
+      "subtitle": "Endel",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Minutes",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

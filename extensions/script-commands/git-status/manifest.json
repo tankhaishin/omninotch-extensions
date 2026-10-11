@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.git-status",
+  "name": "Status",
+  "description": "Shows the status of your Git repository.",
+  "category": "Developer",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "git-status.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/git/git-status.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Status",
+      "subtitle": "Git",
+      "mode": "live"
+    }
+  ],
+  "every": "5m",
+  "cwd": "~/Developer/script-commands"
+}

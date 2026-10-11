@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.open-home",
+  "name": "Open Home",
+  "description": "Opens the Home folder in the Finder.",
+  "category": "Navigation",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "open-home.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/navigation/open-home.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Home",
+      "subtitle": "Navigation",
+      "mode": "run"
+    }
+  ]
+}

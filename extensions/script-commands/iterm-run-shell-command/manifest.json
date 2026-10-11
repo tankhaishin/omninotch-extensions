@@ -1,0 +1,34 @@
+{
+  "v": 2,
+  "id": "script-commands.iterm-run-shell-command",
+  "name": "Run Shell Command",
+  "description": "iTerm",
+  "category": "Apps",
+  "author": "Andrei Borisov",
+  "authorURL": "https://github.com/andreiborisov",
+  "format": "raycast-script",
+  "script": "iterm-run-shell-command.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/iterm/iterm-run-shell-command.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "iterm2",
+    "iTerm app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Run Shell Command",
+      "subtitle": "iTerm",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "shell command",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

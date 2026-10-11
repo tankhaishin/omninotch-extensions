@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.spotify-create-spotify-command",
+  "name": "Create Spotify Command",
+  "description": "Create Spotify Shortcut Command from the Spotify URL that's in your clipboard",
+  "category": "Media",
+  "author": "Nichlas Wærnes Andersen",
+  "authorURL": "https://twitter.com/nichlaswa",
+  "format": "raycast-script",
+  "script": "create-spotify-command.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/spotify/create-spotify-command.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Spotify Command",
+      "subtitle": "Spotify",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Discover Weekly",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

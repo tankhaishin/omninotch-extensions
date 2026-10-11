@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "script-commands.todoist-get-tasks-template",
+  "name": "Get Tasks",
+  "description": "Gets All Todoist tasks",
+  "category": "Apps",
+  "author": "Faris Aziz",
+  "authorURL": "https://github.com/farisaziz12",
+  "format": "raycast-script",
+  "script": "get-tasks.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/todoist/get-tasks.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq",
+    "Todoist app",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Get Tasks",
+      "subtitle": "Todoist",
+      "mode": "view"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.things-today",
+  "name": "Today",
+  "description": "Get an overview of your completed tasks for today.",
+  "category": "Apps",
+  "author": "Things",
+  "authorURL": "https://twitter.com/culturedcode/",
+  "format": "raycast-script",
+  "script": "things-today.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/things/things-today.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Things app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Today",
+      "subtitle": "Things",
+      "mode": "live"
+    }
+  ],
+  "every": "1m"
+}

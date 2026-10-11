@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "script-commands.docker-stop-docker",
+  "name": "Stop",
+  "description": "Stops a Docker container",
+  "category": "Developer",
+  "author": "Fabián Delgado",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "stop-docker.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/docker/stop-docker.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Stop",
+      "subtitle": "Docker",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Image",
+          "required": true,
+          "percentEncoded": true
+        }
+      ],
+      "confirm": true
+    }
+  ]
+}

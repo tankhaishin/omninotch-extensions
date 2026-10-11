@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.solana-tx-blink-extract",
+  "name": "Extract Transaction from Blink Response",
+  "description": "Extract transaction from Blink endpoint in clipboard and replaces with the transaction",
+  "category": "Developer",
+  "author": "bjoerndotsol",
+  "authorURL": "https://github.com/bjoerndotsol",
+  "format": "raycast-script",
+  "script": "solana-tx-blink-extract.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/solana/solana-tx-blink-extract.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Extract Transaction from Blink Response",
+      "subtitle": "Solana",
+      "mode": "run"
+    }
+  ]
+}

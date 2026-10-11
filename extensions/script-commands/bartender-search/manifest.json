@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.bartender-search",
+  "name": "Search Bartender",
+  "description": "Perform a quick search of Menu Bar Items, in Bartender 4",
+  "category": "Apps",
+  "author": "a Script Commands contributor",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "bartender-search.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/bartender/bartender-search.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Bartender app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search Bartender",
+      "subtitle": "Bartender.app",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Menu Bar Item Name",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

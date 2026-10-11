@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.calculate-combinations",
+  "name": "nCr: Calculate Combinations",
+  "description": "nCr: Calculate combinations",
+  "category": "Math",
+  "author": "cSharp",
+  "authorURL": "https://github.com/noidwasavailable",
+  "format": "raycast-script",
+  "script": "calculate-combinations.js",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/math/calculate-combinations.js",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Node.js"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "nCr: Calculate Combinations",
+      "subtitle": "",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "n",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "r",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

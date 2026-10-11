@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.amphetamine-off",
+  "name": "End Session",
+  "description": "Stop Current Amphetamine Session",
+  "category": "Apps",
+  "author": "James Lyons",
+  "authorURL": "https://github.com/jamesjlyons",
+  "format": "raycast-script",
+  "script": "amphetamine-off.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/amphetamine/amphetamine-off.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Amphetamine app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "End Session",
+      "subtitle": "Amphetamine",
+      "mode": "run"
+    }
+  ]
+}

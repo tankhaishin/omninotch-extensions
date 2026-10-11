@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.qpdf-compress-pdf-qpdf",
+  "name": "Compress PDF",
+  "description": "Compress selected PDF files. Note: This script requires 'qpdf' to be installed via Homebre",
+  "category": "Productivity",
+  "author": "Nicklas Jakobsen",
+  "authorURL": "https://github.com/nicklasjm",
+  "format": "raycast-script",
+  "script": "compress-pdf-qpdf.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/productivity/qpdf/compress-pdf-qpdf.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "qpdf"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Compress PDF",
+      "subtitle": "QPDF",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Quality (0-100, default: 50)",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

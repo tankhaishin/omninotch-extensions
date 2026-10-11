@@ -1,0 +1,41 @@
+{
+  "v": 2,
+  "id": "script-commands.otp",
+  "name": "One-Time Password",
+  "description": "Get One-Time Password (OTP) from Apple Password Manager",
+  "category": "System",
+  "author": "Angelos Michalopoulos",
+  "authorURL": "",
+  "format": "raycast-script",
+  "script": "otp.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/otp.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "apw",
+    "jq",
+    "awk"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "One-Time Password",
+      "subtitle": "System",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Domain",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Username Index",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

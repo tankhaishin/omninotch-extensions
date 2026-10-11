@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.open-multiple-websites-on-safari-template",
+  "name": "Open Multiple Websites on Safari",
+  "description": "Open multiple websites on Safari using list of URLs",
+  "category": "Browsing",
+  "author": "Yasutaka Nishii",
+  "authorURL": "https://github.com/ystknsh",
+  "format": "raycast-script",
+  "script": "open-multiple-websites-on-safari.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/browsing/open-multiple-websites-on-safari.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Multiple Websites on Safari",
+      "subtitle": "Browsing",
+      "mode": "run"
+    }
+  ]
+}

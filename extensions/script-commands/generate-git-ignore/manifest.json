@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.generate-git-ignore",
+  "name": "Create .gitignore",
+  "description": "Generates a .gitignore file via https://gitignore.io",
+  "category": "Developer",
+  "author": "Roland Leth",
+  "authorURL": "https://runtimesharks.com",
+  "format": "raycast-script",
+  "script": "generate-git-ignore.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/generate-git-ignore.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create .gitignore",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Types (react,node,vscode)",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

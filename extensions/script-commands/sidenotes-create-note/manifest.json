@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "script-commands.sidenotes-create-note",
+  "name": "SideNotes create",
+  "description": "Create a new note within the selected or the first SideNotes folder.",
+  "category": "Apps",
+  "author": "Marcel Bochtler",
+  "authorURL": "https://github.com/MarcelBochtler",
+  "format": "raycast-script",
+  "script": "sidenotes-create-note.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/sidenotes/sidenotes-create-note.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Sidenotes app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "SideNotes create",
+      "subtitle": "SideNotes",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Note",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Folder",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

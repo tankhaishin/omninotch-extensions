@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.update-scripts-command-template",
+  "name": "Update Community Scripts",
+  "description": "Updates community Script Commands to their last available version from the GitHub reposito",
+  "category": "System",
+  "author": "Quentin Eude",
+  "authorURL": "https://www.github.com/qeude",
+  "format": "raycast-script",
+  "script": "update-scripts-command.template.py",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/update-scripts-command.template.py",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Python 3 (Xcode Command Line Tools)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Update Community Scripts",
+      "subtitle": "Utilities",
+      "mode": "run"
+    }
+  ]
+}

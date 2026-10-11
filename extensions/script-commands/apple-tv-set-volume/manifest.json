@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.apple-tv-set-volume",
+  "name": "Set Volume",
+  "description": "Set volume in TV.",
+  "category": "Media",
+  "author": "Caleb Stauffer",
+  "authorURL": "https://github.com/crstauf",
+  "format": "raycast-script",
+  "script": "apple-tv-set-volume.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/media/apple-tv/apple-tv-set-volume.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Set Volume",
+      "subtitle": "TV",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Level",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "v": 2,
+  "id": "script-commands.deepl-app-translate",
+  "name": "DeepL App Translate",
+  "description": "Translate text in DeepL for Mac. Features options to input from the clipboard as well as a",
+  "category": "Apps",
+  "author": "Jono Hewitt",
+  "authorURL": "https://github.com/jonohewitt",
+  "format": "raycast-script",
+  "script": "deepl-app-translate.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/deepl/deepl-app-translate.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "DeepL app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "DeepL App Translate",
+      "subtitle": "Apps",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "text",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

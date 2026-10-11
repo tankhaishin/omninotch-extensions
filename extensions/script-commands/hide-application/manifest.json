@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.hide-application",
+  "name": "Hide Current Application",
+  "description": "Easily hide your foremost application",
+  "category": "Navigation",
+  "author": "Chris Bailey",
+  "authorURL": "https://raycast.com/that70schris",
+  "format": "raycast-script",
+  "script": "hide-application.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/navigation/hide-application.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Hide Current Application",
+      "subtitle": "Navigation",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.search-linkedin",
+  "name": "Search LinkedIn",
+  "description": "Search LinkedIn",
+  "category": "Web search",
+  "author": "Nitin Gupta",
+  "authorURL": "https://twitter.com/gniting",
+  "format": "raycast-script",
+  "script": "search-linkedin.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/search-linkedin.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Search LinkedIn",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Search for?",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

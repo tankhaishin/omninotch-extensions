@@ -1,0 +1,45 @@
+{
+  "v": 2,
+  "id": "script-commands.google-translate",
+  "name": "Google Translate",
+  "description": "Translates via Google Translate",
+  "category": "Web search",
+  "author": "Roland Leth",
+  "authorURL": "https://runtimesharks.com",
+  "format": "raycast-script",
+  "script": "google-translate.rb",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/web-searches/google-translate.rb",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Ruby"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Google Translate",
+      "subtitle": "Web Searches",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Query",
+          "required": true,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg2",
+          "placeholder": "From",
+          "required": false,
+          "percentEncoded": false
+        },
+        {
+          "name": "arg3",
+          "placeholder": "To",
+          "required": false,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

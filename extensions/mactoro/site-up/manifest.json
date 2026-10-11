@@ -19,7 +19,7 @@
     }
   ],
   "example": {
-    "title": "mysite.com down",
+    "title": "mysite.com",
     "subtitle": "Status 503 \u00b7 checking every minute",
     "icon": "sf:exclamationmark.icloud",
     "state": "failed"

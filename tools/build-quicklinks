@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""Turn tools/quicklinks.json into extension packs: extensions/mactoro/<pack>/manifest.json (FORMATS.md, v2).
+
+    tools/build-quicklinks
+
+Each link becomes a command. "{query}" in a link becomes the command's one argument (percent-encoded); links
+without it just open. No script: OmniNotch opens the link itself.
+"""
+import json, os, re
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+packs = json.load(open(os.path.join(ROOT, "tools", "quicklinks.json")))
+for key, p in packs.items():
+    commands = []
+    for title, url in p["links"]:
+        c = {"id": re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-"), "title": title, "mode": "run", "url": url}
+        if "{query}" in url:
+            c["arguments"] = [{"name": "query", "placeholder": "Search…" if title.startswith(("Search", "Ask", "Look")) else "…",
+                               "required": True, "percentEncoded": True}]
+        commands.append(c)
+    d = os.path.join(ROOT, "extensions", "mactoro", key)
+    os.makedirs(d, exist_ok=True)
+    m = {"v": 2, "id": f"com.mactoro.{key}", "name": p["name"], "description": p["description"], "category": p["category"],
+         "author": "Mactoro", "icon": p["icon"], "network": True, "kind": "quicklinks", "commands": commands}
+    json.dump(m, open(os.path.join(d, "manifest.json"), "w"), indent=2, ensure_ascii=False)
+    open(os.path.join(d, "manifest.json"), "a").write("\n")
+print(len(packs), "packs,", sum(len(p["links"]) for p in packs.values()), "quicklinks")

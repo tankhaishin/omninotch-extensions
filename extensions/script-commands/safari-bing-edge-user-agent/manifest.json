@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.safari-bing-edge-user-agent",
+  "name": "Open Bing with Edge User-Agent",
+  "description": "Open Bing in Safari with Edge User-Agent",
+  "category": "Apps",
+  "author": "smxl",
+  "authorURL": "https://github.com/smxl",
+  "format": "raycast-script",
+  "script": "safari-bing-edge-user-agent.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/safari/safari-bing-edge-user-agent.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Open Bing with Edge User-Agent",
+      "subtitle": "Safari",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "v": 2,
+  "id": "com.mactoro.words",
+  "name": "Words & Translation",
+  "description": "Define, translate and find the right word.",
+  "category": "Productivity",
+  "author": "Mactoro",
+  "icon": "sf:character.book.closed",
+  "network": true,
+  "kind": "quicklinks",
+  "commands": [
+    {
+      "id": "look-up-in-dictionary",
+      "title": "Look Up in Dictionary",
+      "mode": "run",
+      "url": "dict://{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "translate-with-google",
+      "title": "Translate with Google",
+      "mode": "run",
+      "url": "https://translate.google.com/?sl=auto&tl=en&text={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "translate-with-deepl",
+      "title": "Translate with DeepL",
+      "mode": "run",
+      "url": "https://www.deepl.com/translator#auto/en/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-merriam-webster",
+      "title": "Search Merriam-Webster",
+      "mode": "run",
+      "url": "https://www.merriam-webster.com/dictionary/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-thesaurus",
+      "title": "Search Thesaurus",
+      "mode": "run",
+      "url": "https://www.thesaurus.com/browse/{query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-urban-dictionary",
+      "title": "Search Urban Dictionary",
+      "mode": "run",
+      "url": "https://www.urbandictionary.com/define.php?term={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-wiktionary",
+      "title": "Search Wiktionary",
+      "mode": "run",
+      "url": "https://en.wiktionary.org/w/index.php?search={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-cambridge-dictionary",
+      "title": "Search Cambridge Dictionary",
+      "mode": "run",
+      "url": "https://dictionary.cambridge.org/search/direct/?datasetsearch=english&q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "check-grammar-languagetool",
+      "title": "Check Grammar (LanguageTool)",
+      "mode": "run",
+      "url": "https://languagetool.org/?text={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "search-goodreads",
+      "title": "Search Goodreads",
+      "mode": "run",
+      "url": "https://www.goodreads.com/search?q={query}",
+      "arguments": [
+        {
+          "name": "query",
+          "placeholder": "Search…",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

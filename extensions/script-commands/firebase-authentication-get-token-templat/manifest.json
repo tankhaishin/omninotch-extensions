@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "script-commands.firebase-authentication-get-token-templat",
+  "name": "Get Authorization Token",
+  "description": "Get token from Firebase Authentication service",
+  "category": "Dashboard",
+  "author": "João Melo",
+  "authorURL": "https://github.com/joaopcm",
+  "format": "raycast-script",
+  "script": "firebase-authentication-get-token.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/firebase/firebase-authentication-get-token.template.sh",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "jq",
+    "Your API key or account (edit the script)"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Get Authorization Token",
+      "subtitle": "Firebase Authentication",
+      "mode": "run"
+    }
+  ]
+}

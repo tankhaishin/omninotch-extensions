@@ -1,0 +1,37 @@
+{
+  "v": 2,
+  "id": "script-commands.countdowns-create-countdown-template",
+  "name": "Create Countdown",
+  "description": "Create countdowns via Raycast.",
+  "category": "Dashboard",
+  "author": "Valentin Chrétien",
+  "authorURL": "https://github.com/valentinchrt",
+  "format": "raycast-script",
+  "script": "create-countdown.template.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/dashboard/countdowns/create-countdown.template.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create Countdown",
+      "subtitle": "",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Event Name",
+          "required": true,
+          "percentEncoded": true
+        },
+        {
+          "name": "arg2",
+          "placeholder": "Date (yyyy-mm-dd)",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.xcode-recent-project",
+  "name": "Recent Project",
+  "description": "Open recent Xcode project",
+  "category": "Developer",
+  "author": "Sergey Korobyin",
+  "authorURL": "https://github.com/huangsemao",
+  "format": "raycast-script",
+  "script": "xcode-recent-project.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/developer-utils/xcode/xcode-recent-project.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Recent Project",
+      "subtitle": "Developer Utilities",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Project name",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

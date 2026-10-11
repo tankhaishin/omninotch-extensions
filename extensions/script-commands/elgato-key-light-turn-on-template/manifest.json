@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.elgato-key-light-turn-on-template",
+  "name": "Turn On",
+  "description": "Turn on Elgato Key Light.",
+  "category": "Home",
+  "author": "Thomas Paul Mann",
+  "authorURL": "https://github.com/thomaspaulmann",
+  "format": "raycast-script",
+  "script": "elgato-key-light-turn-on.template.rb",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/home/elgato/elgato-key-light-turn-on.template.rb",
+  "license": "MIT",
+  "network": true,
+  "needs": [
+    "Ruby"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Turn On",
+      "subtitle": "Elgato Key Light",
+      "mode": "run"
+    }
+  ]
+}

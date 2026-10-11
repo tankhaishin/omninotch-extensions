@@ -1,0 +1,23 @@
+{
+  "v": 2,
+  "id": "script-commands.create-new-file",
+  "name": "Create New File",
+  "description": "Create files in the front window or desktop of the visit",
+  "category": "System",
+  "author": "LokHsu",
+  "authorURL": "https://github.com/lokhsu",
+  "format": "raycast-script",
+  "script": "create-new-file.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/create-new-file.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Create New File",
+      "subtitle": "",
+      "mode": "run"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.message-copycode",
+  "name": "Copy Code",
+  "description": "Copy verification code from a message.",
+  "category": "Apps",
+  "author": "Fatpandac",
+  "authorURL": "https://github.com/Fatpandac",
+  "format": "raycast-script",
+  "script": "copycode.sh",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/apps/Message/copycode.sh",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Message app"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Copy Code",
+      "subtitle": "Messages",
+      "mode": "run"
+    }
+  ]
+}

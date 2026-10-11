@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "script-commands.slack-jump-to",
+  "name": "Jump to...",
+  "description": "Slack",
+  "category": "Communication",
+  "author": "Jakub Lanski",
+  "authorURL": "https://github.com/jaklan",
+  "format": "raycast-script",
+  "script": "slack-jump-to.applescript",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/communication/slack/slack-jump-to.applescript",
+  "license": "MIT",
+  "network": false,
+  "needs": [],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Jump to...",
+      "subtitle": "Slack",
+      "mode": "run",
+      "arguments": [
+        {
+          "name": "arg1",
+          "placeholder": "Channel / DM / File / Misc",
+          "required": true,
+          "percentEncoded": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "v": 2,
+  "id": "script-commands.audio-toggle-airpods-template",
+  "name": "Toggle AirPods",
+  "description": "Toggle AirPods bluetooth device",
+  "category": "System",
+  "author": "Nichlas W. Andersen",
+  "authorURL": "https://github.com/itsnwa",
+  "format": "raycast-script",
+  "script": "toggle-airpods.template.swift",
+  "source": "https://github.com/raycast/script-commands/blob/cf612c22a8ddea40f6d717f513bbb5619a73ad33/commands/system/audio/toggle-airpods.template.swift",
+  "license": "MIT",
+  "network": false,
+  "needs": [
+    "Xcode Command Line Tools"
+  ],
+  "commands": [
+    {
+      "id": "main",
+      "title": "Toggle AirPods",
+      "subtitle": "Audio",
+      "mode": "run"
+    }
+  ]
+}
