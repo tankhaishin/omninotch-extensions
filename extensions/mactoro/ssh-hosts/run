@@ -1,0 +1,25 @@
+#!/usr/bin/osascript -l JavaScript
+// SSH Hosts: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const raw = sh(`cat ${q(home + "/.ssh/config")} 2>/dev/null`) || ""
+  const hosts = []; let cur = null
+  for (const line of raw.split("\n")) {
+    const m = line.trim().match(/^(\w+)\s+(.+)$/); if (!m) continue
+    const k = m[1].toLowerCase(), v = m[2].trim()
+    if (k === "host") { cur = null; v.split(/\s+/).filter((h) => !/[*?!]/.test(h)).forEach((h) => { cur = { name: h }; hosts.push(cur) }) }
+    else if (cur && (k === "hostname" || k === "user" || k === "port")) cur[k] = v
+  }
+  const items = hosts.map((h) => ({ id: h.name, title: h.name, subtitle: [h.user ? h.user + "@" : "", h.hostname || "", h.port ? ":" + h.port : ""].join(""), icon: "sf:server.rack",
+    actions: [{ title: "Connect", url: "ssh://" + h.name }, { title: "Copy ssh Command", copy: "ssh " + h.name }] }))
+  return out({ view: "list", title: "SSH hosts", filter: "local", sections: [{ items }], empty: { title: "No hosts in ~/.ssh/config" } })
+}

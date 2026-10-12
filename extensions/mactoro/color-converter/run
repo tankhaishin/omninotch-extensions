@@ -1,0 +1,36 @@
+#!/usr/bin/osascript -l JavaScript
+// Colour Converter: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function parse(s) {
+  s = s.trim().toLowerCase()
+  let m = s.match(/^#?([0-9a-f]{3}|[0-9a-f]{6})$/)
+  if (m) { const h = m[1].length === 3 ? m[1].split("").map((c) => c + c).join("") : m[1]; return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)) }
+  m = s.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)/); if (m) return m.slice(1, 4).map(Number)
+  m = s.match(/^hsla?\(\s*([\d.]+)[,\s]+([\d.]+)%?[,\s]+([\d.]+)%?/)
+  if (m) { const [h, sat, l] = [+m[1] / 360, +m[2] / 100, +m[3] / 100]
+    const f = (n) => { const k = (n + h * 12) % 12, a = sat * Math.min(l, 1 - l); return Math.round(255 * (l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1)))) }
+    return [f(0), f(8), f(4)] }
+  return null
+}
+function run() {
+  const rgb = parse(env("OMNINOTCH_ARG_COLOR"))
+  if (!rgb || rgb.some((v) => v > 255)) return out({ view: "detail", title: "Can't read that colour", body: "Try #7AA8FF, rgb(122, 168, 255) or hsl(219, 100%, 74%)." })
+  const [r, g, b] = rgb, hex = "#" + rgb.map((v) => v.toString(16).padStart(2, "0")).join("").toUpperCase()
+  const [rn, gn, bn] = rgb.map((v) => v / 255), max = Math.max(rn, gn, bn), min = Math.min(rn, gn, bn), l = (max + min) / 2, d = max - min
+  const s = d === 0 ? 0 : d / (1 - Math.abs(2 * l - 1))
+  let h = d === 0 ? 0 : max === rn ? ((gn - bn) / d) % 6 : max === gn ? (bn - rn) / d + 2 : (rn - gn) / d + 4
+  h = Math.round(h * 60 + 360) % 360
+  const rows = [["Hex", hex], ["RGB", `rgb(${r}, ${g}, ${b})`], ["HSL", `hsl(${h}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`],
+    ["SwiftUI", `Color(red: ${rn.toFixed(3)}, green: ${gn.toFixed(3)}, blue: ${bn.toFixed(3)})`], ["NSColor", `NSColor(srgbRed: ${rn.toFixed(3)}, green: ${gn.toFixed(3)}, blue: ${bn.toFixed(3)}, alpha: 1)`]]
+  return out({ view: "detail", title: hex, body: rows.map(([k, v]) => `**${k}**  \`${v}\``).join("\n\n"), metadata: rows.map(([k, v]) => ({ label: k, value: v })),
+    actions: rows.map(([k, v], i) => ({ title: `Copy ${k}`, copy: v, shortcut: i === 0 ? "cmd+shift+c" : undefined })) })
+}

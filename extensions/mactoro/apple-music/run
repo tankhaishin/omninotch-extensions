@@ -1,0 +1,38 @@
+#!/usr/bin/osascript -l JavaScript
+// Apple Music: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+const APP = "Music", APP_PATH = "/System/Applications/Music.app"
+
+function fmt(sec) { sec = Math.round(sec || 0); return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0") }
+function run() {
+  const app = Application(APP), cmd = env("OMNINOTCH_COMMAND"), act = env("OMNINOTCH_ACTION")
+  if (!app.running()) return out({ view: "detail", title: APP, body: `${APP} isn't open.`, actions: [{ title: `Open ${APP}`, open: APP_PATH }] })
+  const did = { "play-pause": () => app.playpause(), next: () => app.nextTrack(), previous: () => app.previousTrack() }
+  const key = act || cmd
+  if (did[key]) { did[key](); if (!act) return out({ toast: key === "play-pause" ? (app.playerState() === "playing" ? "Playing" : "Paused") : key === "next" ? "Next track" : "Previous track", close: true }) }
+  if (cmd === "playlists" && APP === "Music") {
+    if (act === "play") { app.userPlaylists.byName(env("OMNINOTCH_ITEM")).play(); return out({ toast: "Playing " + env("OMNINOTCH_ITEM"), close: true }) }
+    const items = app.userPlaylists.name().map((n) => ({ id: n, title: n, icon: "sf:music.note.list", actions: [{ title: "Play", run: "play" }] }))
+    return out({ view: "list", title: "Playlists", filter: "local", sections: [{ items }], empty: { title: "No playlists" } })
+  }
+  let t = null
+  try { t = app.currentTrack; t.name() } catch (e) { t = null }
+  if (!t) return out({ view: "detail", title: "Nothing playing", body: `Start something in ${APP}.`, actions: [{ title: "Play", run: "play-pause" }] })
+  const playing = app.playerState() === "playing"
+  const link = APP === "Spotify" ? t.spotifyUrl() : ""
+  const actions = [{ title: playing ? "Pause" : "Play", run: "play-pause" }, { title: "Next Track", run: "next", shortcut: "cmd+right" },
+    { title: "Previous Track", run: "previous", shortcut: "cmd+left" }, { title: "Copy Song and Artist", copy: `${t.name()} by ${t.artist()}` }]
+  if (link) actions.push({ title: "Copy Spotify Link", copy: "https://open.spotify.com/track/" + link.split(":").pop() })
+  return out({ view: "detail", title: t.name(), body: `**${t.name()}**\n\n${t.artist()} · ${t.album()}`,
+    metadata: [{ label: "State", value: playing ? "Playing" : "Paused" }, { label: "Position", value: `${fmt(app.playerPosition())} of ${fmt(APP === "Spotify" ? t.duration() / 1000 : t.duration())}` }],
+    actions })
+}

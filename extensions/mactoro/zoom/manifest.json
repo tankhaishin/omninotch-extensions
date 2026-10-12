@@ -1,0 +1,29 @@
+{
+  "v": 2,
+  "id": "com.mactoro.zoom",
+  "name": "Zoom",
+  "description": "Join a Zoom meeting by its ID and passcode.",
+  "about": "Type a meeting ID (and passcode, if there is one) and Zoom opens straight into the meeting.",
+  "category": "Communication",
+  "icon": "app:us.zoom.xos",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "needs": [
+    "Zoom app"
+  ],
+  "commands": [
+    {
+      "id": "join",
+      "title": "Join Zoom Meeting",
+      "subtitle": "Zoom",
+      "mode": "view",
+      "icon": "sf:video",
+      "keywords": [
+        "meeting",
+        "call",
+        "video"
+      ]
+    }
+  ]
+}

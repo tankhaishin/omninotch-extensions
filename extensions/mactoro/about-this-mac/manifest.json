@@ -1,0 +1,29 @@
+{
+  "v": 2,
+  "id": "com.mactoro.about-this-mac",
+  "name": "About This Mac",
+  "description": "Model, chip, memory, macOS, battery health and serial.",
+  "about": "The facts about your Mac in one place, ready to copy: model, chip, memory, macOS version, serial number, uptime and battery health.",
+  "category": "System",
+  "icon": "sf:laptopcomputer",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "info",
+      "title": "About This Mac",
+      "subtitle": "Model, chip, battery",
+      "mode": "view",
+      "icon": "sf:laptopcomputer",
+      "keywords": [
+        "mac",
+        "model",
+        "serial",
+        "battery",
+        "chip",
+        "version"
+      ]
+    }
+  ]
+}

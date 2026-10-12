@@ -1,0 +1,38 @@
+{
+  "v": 2,
+  "id": "com.mactoro.quit-apps",
+  "name": "Quit Apps",
+  "description": "Quit, hide or force quit any open app, or all of them.",
+  "about": "Your open apps with their own icons. Quit one, hide it, force quit it, or quit everything except Finder and OmniNotch.",
+  "category": "System",
+  "icon": "sf:xmark.app",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "apps",
+      "title": "Quit Apps",
+      "subtitle": "Open apps",
+      "mode": "view",
+      "icon": "sf:xmark.app",
+      "keywords": [
+        "quit",
+        "close",
+        "app",
+        "hide"
+      ]
+    },
+    {
+      "id": "quit-all",
+      "title": "Quit All Apps",
+      "subtitle": "Except Finder and OmniNotch",
+      "mode": "view",
+      "icon": "sf:xmark.circle",
+      "keywords": [
+        "quit",
+        "all"
+      ]
+    }
+  ]
+}

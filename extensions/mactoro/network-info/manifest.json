@@ -1,0 +1,28 @@
+{
+  "v": 2,
+  "id": "com.mactoro.network-info",
+  "name": "Network Info",
+  "description": "Your IP addresses, router, DNS and VPN, ready to copy.",
+  "about": "Local and public IP address, router, DNS servers and whether a VPN is connected. The public IP comes from api.ipify.org.",
+  "category": "System",
+  "icon": "sf:network",
+  "author": "Mactoro",
+  "run": "run",
+  "network": true,
+  "commands": [
+    {
+      "id": "info",
+      "title": "Network Info",
+      "subtitle": "IP, router, DNS",
+      "mode": "view",
+      "icon": "sf:network",
+      "keywords": [
+        "ip",
+        "address",
+        "wifi",
+        "dns",
+        "vpn"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "v": 2,
+  "id": "com.mactoro.github",
+  "name": "GitHub",
+  "description": "Your pull requests, review requests, issues and repos.",
+  "about": "Your open pull requests, the ones waiting on your review, issues assigned to you, and your repositories. Uses GitHub's own gh command and your gh login; nothing is stored by OmniNotch.",
+  "category": "Developer",
+  "icon": "sf:arrow.triangle.pull",
+  "author": "Mactoro",
+  "run": "run",
+  "network": true,
+  "needs": [
+    "gh (brew install gh, then gh auth login)"
+  ],
+  "commands": [
+    {
+      "id": "my-prs",
+      "title": "My Pull Requests",
+      "subtitle": "GitHub",
+      "mode": "view",
+      "icon": "sf:arrow.triangle.pull",
+      "keywords": [
+        "pr",
+        "pull request",
+        "github"
+      ]
+    },
+    {
+      "id": "reviews",
+      "title": "Review Requests",
+      "subtitle": "GitHub",
+      "mode": "view",
+      "icon": "sf:eye",
+      "keywords": [
+        "review",
+        "pr",
+        "github"
+      ]
+    },
+    {
+      "id": "issues",
+      "title": "My Issues",
+      "subtitle": "GitHub",
+      "mode": "view",
+      "icon": "sf:smallcircle.filled.circle",
+      "keywords": [
+        "issue",
+        "bug",
+        "github"
+      ]
+    },
+    {
+      "id": "repos",
+      "title": "My Repositories",
+      "subtitle": "GitHub",
+      "mode": "view",
+      "icon": "sf:folder",
+      "keywords": [
+        "repo",
+        "repository",
+        "github"
+      ]
+    }
+  ]
+}

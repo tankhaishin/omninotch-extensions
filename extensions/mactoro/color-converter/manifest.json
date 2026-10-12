@@ -1,0 +1,35 @@
+{
+  "v": 2,
+  "id": "com.mactoro.color-converter",
+  "name": "Colour Converter",
+  "description": "Convert a colour between hex, RGB, HSL and code.",
+  "about": "Type a colour as hex (#7AA8FF), rgb(122, 168, 255) or hsl(219, 100%, 74%) and get every format, including SwiftUI and CSS, ready to copy.",
+  "category": "Developer",
+  "icon": "sf:paintpalette",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "convert",
+      "title": "Convert Colour",
+      "subtitle": "Hex, RGB, HSL",
+      "mode": "view",
+      "icon": "sf:paintpalette",
+      "keywords": [
+        "color",
+        "colour",
+        "hex",
+        "rgb",
+        "hsl"
+      ],
+      "arguments": [
+        {
+          "name": "color",
+          "placeholder": "#7AA8FF",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

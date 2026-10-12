@@ -1,0 +1,24 @@
+#!/usr/bin/osascript -l JavaScript
+// Zoom: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  if (env("OMNINOTCH_ACTION") === "join") {
+    const f = JSON.parse(env("OMNINOTCH_FORM") || "{}"), id = String(f.id || "").replace(/\D/g, "")
+    if (!id) return out({ toast: "That meeting ID has no digits" })
+    sh(`open ${q("zoommtg://zoom.us/join?action=join&confno=" + id + (f.passcode ? "&pwd=" + encodeURIComponent(f.passcode) : ""))}`)
+    return out({ close: true })
+  }
+  return out({ view: "form", title: "Join a Zoom meeting", fields: [
+      { id: "id", type: "text", title: "Meeting ID", required: true, placeholder: "123 456 7890" },
+      { id: "passcode", type: "text", title: "Passcode" }],
+    submit: { title: "Join", run: "join" } })
+}

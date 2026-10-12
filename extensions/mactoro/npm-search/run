@@ -1,0 +1,23 @@
+#!/usr/bin/osascript -l JavaScript
+// npm Search: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const query = env("OMNINOTCH_QUERY").trim()
+  if (query.length < 2) return out({ view: "list", title: "npm", placeholder: "Search packages…", filter: "script", sections: [], empty: { title: "Type a package name" } })
+  let d = {}; try { d = JSON.parse(sh(`curl -s -m 5 ${q("https://registry.npmjs.org/-/v1/search?size=25&text=" + encodeURIComponent(query))}`) || "{}") } catch (e) {}
+  const items = (d.objects || []).map(({ package: p }) => {
+    const actions = [{ title: "Open on npm", url: `https://www.npmjs.com/package/${p.name}` }, { title: "Copy Install Command", copy: `npm install ${p.name}`, shortcut: "cmd+shift+c" }]
+    if (p.links && p.links.repository) actions.push({ title: "Open Repository", url: p.links.repository })
+    return { id: p.name, title: p.name, subtitle: p.description || "", accessory: p.version, icon: "sf:shippingbox", actions }
+  })
+  return out({ view: "list", title: "npm", placeholder: "Search packages…", filter: "script", sections: [{ items }], empty: { title: `Nothing on npm for "${query}"` } })
+}

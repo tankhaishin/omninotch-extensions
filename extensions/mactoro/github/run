@@ -1,0 +1,38 @@
+#!/usr/bin/osascript -l JavaScript
+// GitHub: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function missing(tool, how) {
+  return out({ view: "detail", title: `${tool} isn't installed`, body: `This extension uses **${tool}**. ${how}`,
+    actions: [{ title: "Copy Install Command", copy: how.match(/`([^`]+)`/) ? how.match(/`([^`]+)`/)[1] : how }] })
+}
+
+function ago(iso) { const s = (Date.now() - Date.parse(iso)) / 1000; return s < 3600 ? Math.round(s / 60) + "m" : s < 86400 ? Math.round(s / 3600) + "h" : Math.round(s / 86400) + "d" }
+function run() {
+  if (!(sh("command -v gh") || "").trim()) return missing("gh", "Install it with `brew install gh`, then run gh auth login.")
+  const cmd = env("OMNINOTCH_COMMAND")
+  const searches = { "my-prs": "prs --author=@me", reviews: "prs --review-requested=@me", issues: "issues --assignee=@me" }
+  let rows = []
+  if (searches[cmd]) {
+    const raw = sh(`gh search ${searches[cmd]} --state=open --sort=updated --limit 60 --json title,url,repository,updatedAt,number 2>&1`)
+    try { rows = JSON.parse(raw) } catch (e) { return out({ view: "detail", title: "GitHub", body: "gh couldn't search: " + (raw || "").slice(0, 300) + "\n\nIf you haven't yet, run gh auth login." }) }
+    const items = rows.map((r) => ({ id: r.url, title: r.title, subtitle: `${r.repository.nameWithOwner} #${r.number}`, accessory: ago(r.updatedAt),
+      icon: cmd === "issues" ? "sf:smallcircle.filled.circle" : "sf:arrow.triangle.pull",
+      actions: [{ title: "Open in Browser", url: r.url }, { title: "Copy Link", copy: r.url, shortcut: "cmd+shift+c" }, { title: "Copy Number", copy: "#" + r.number }] }))
+    const label = { "my-prs": "Your open pull requests", reviews: "Waiting for your review", issues: "Assigned to you" }[cmd]
+    return out({ view: "list", title: label, filter: "local", sections: [{ items }], empty: { title: "Nothing here", subtitle: "All clear" } })
+  }
+  const raw = sh("gh repo list --limit 100 --json nameWithOwner,url,description,updatedAt,isPrivate 2>&1")
+  try { rows = JSON.parse(raw) } catch (e) { return out({ view: "detail", title: "GitHub", body: "gh couldn't list your repositories: " + (raw || "").slice(0, 300) }) }
+  const items = rows.map((r) => ({ id: r.url, title: r.nameWithOwner, subtitle: r.description || "", accessory: (r.isPrivate ? "Private · " : "") + ago(r.updatedAt),
+    icon: "sf:folder", actions: [{ title: "Open in Browser", url: r.url }, { title: "Copy Clone Command", copy: `gh repo clone ${r.nameWithOwner}` }, { title: "Copy Link", copy: r.url }] }))
+  return out({ view: "list", title: "Your repositories", filter: "local", sections: [{ items }], empty: { title: "No repositories" } })
+}

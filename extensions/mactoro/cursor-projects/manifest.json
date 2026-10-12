@@ -1,0 +1,30 @@
+{
+  "v": 2,
+  "id": "com.mactoro.cursor-projects",
+  "name": "Cursor Projects",
+  "description": "Reopen your recent Cursor folders and workspaces.",
+  "about": "The folders and workspaces you opened recently in Cursor, read from Cursor's own history on this Mac.",
+  "category": "Developer",
+  "icon": "app:com.todesktop.230313mzl4w4u92",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "needs": [
+    "Cursor app"
+  ],
+  "commands": [
+    {
+      "id": "recent",
+      "title": "Open Recent Cursor Project",
+      "subtitle": "Cursor",
+      "mode": "view",
+      "icon": "sf:folder",
+      "keywords": [
+        "project",
+        "editor",
+        "code",
+        "recent"
+      ]
+    }
+  ]
+}

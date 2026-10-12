@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "com.mactoro.ssh-hosts",
+  "name": "SSH Hosts",
+  "description": "Connect to any host in your SSH config.",
+  "about": "The hosts in ~/.ssh/config. Connect opens a Terminal session; or copy the ssh command.",
+  "category": "Developer",
+  "icon": "sf:server.rack",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "hosts",
+      "title": "SSH Hosts",
+      "subtitle": "SSH",
+      "mode": "view",
+      "icon": "sf:server.rack",
+      "keywords": [
+        "ssh",
+        "server",
+        "connect",
+        "remote"
+      ]
+    }
+  ]
+}

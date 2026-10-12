@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "com.mactoro.simulators",
+  "name": "iOS Simulators",
+  "description": "Boot, shut down and open your Xcode simulators.",
+  "about": "Every simulator Xcode has: boot one and open it, shut it down, or copy its ID.",
+  "category": "Developer",
+  "icon": "app:com.apple.iphonesimulator",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "needs": [
+    "Xcode app"
+  ],
+  "commands": [
+    {
+      "id": "devices",
+      "title": "Simulators",
+      "subtitle": "Xcode",
+      "mode": "view",
+      "icon": "sf:iphone",
+      "keywords": [
+        "simulator",
+        "ios",
+        "iphone",
+        "ipad",
+        "xcode"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "com.mactoro.edge-tabs",
+  "name": "Edge Tabs",
+  "description": "Search your open Edge tabs; switch, copy or close.",
+  "about": "Every tab open in Microsoft Edge, searchable by title and address. Switch to it, copy its link, or close it. Controls Microsoft Edge on this Mac (macOS asks you once).",
+  "category": "Browsing",
+  "icon": "app:com.microsoft.edgemac",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Microsoft Edge"
+  ],
+  "needs": [
+    "Microsoft Edge app"
+  ],
+  "commands": [
+    {
+      "id": "tabs",
+      "title": "Search Edge Tabs",
+      "subtitle": "Edge",
+      "mode": "view",
+      "icon": "sf:square.on.square",
+      "keywords": [
+        "tab",
+        "browser",
+        "website"
+      ]
+    }
+  ]
+}

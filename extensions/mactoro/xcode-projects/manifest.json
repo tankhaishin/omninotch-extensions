@@ -1,0 +1,30 @@
+{
+  "v": 2,
+  "id": "com.mactoro.xcode-projects",
+  "name": "Xcode Projects",
+  "description": "Your Xcode projects, workspaces and Swift packages.",
+  "about": "Every Xcode project, workspace and Swift package in your home folder that Spotlight knows about, most recently used first.",
+  "category": "Developer",
+  "icon": "app:com.apple.dt.Xcode",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "needs": [
+    "Xcode app"
+  ],
+  "commands": [
+    {
+      "id": "recent",
+      "title": "Open Xcode Project",
+      "subtitle": "Xcode",
+      "mode": "view",
+      "icon": "sf:hammer",
+      "keywords": [
+        "xcode",
+        "swift",
+        "ios",
+        "project"
+      ]
+    }
+  ]
+}

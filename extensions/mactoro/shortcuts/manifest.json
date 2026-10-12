@@ -1,0 +1,26 @@
+{
+  "v": 2,
+  "id": "com.mactoro.shortcuts",
+  "name": "Shortcuts",
+  "description": "Run any of your Shortcuts from the notch.",
+  "about": "Every shortcut in Apple's Shortcuts app, searchable and one keystroke from running. Anything you can build in Shortcuts becomes an OmniNotch command.",
+  "category": "Productivity",
+  "icon": "sf:square.2.layers.3d",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "run",
+      "title": "Run Shortcut",
+      "subtitle": "Shortcuts",
+      "mode": "view",
+      "icon": "sf:square.2.layers.3d",
+      "keywords": [
+        "shortcut",
+        "automation",
+        "workflow"
+      ]
+    }
+  ]
+}

@@ -1,14 +1,38 @@
 {
-  "v": 1,
+  "v": 2,
   "id": "com.mactoro.docker",
   "name": "Docker",
-  "description": "Containers that crashed or turned unhealthy.",
-  "about": "Containers that crashed or turned unhealthy, from Docker Desktop, OrbStack or Colima.",
+  "description": "Your containers: start, stop, restart and read their logs.",
+  "about": "Every Docker container (Docker Desktop, OrbStack or Colima) with its state. Start, stop or restart it, read its last log lines, or copy its ID. It can also show a Live status in the notch: containers that crashed or turned unhealthy.",
   "category": "Developer",
+  "icon": "sf:shippingbox",
   "author": "Mactoro",
   "run": "run",
-  "every": "60s",
   "network": false,
+  "needs": [
+    "Docker Desktop, OrbStack or Colima"
+  ],
+  "commands": [
+    {
+      "id": "containers",
+      "title": "Docker Containers",
+      "subtitle": "Docker",
+      "mode": "view",
+      "icon": "sf:shippingbox",
+      "keywords": [
+        "docker",
+        "container",
+        "compose"
+      ]
+    },
+    {
+      "id": "live",
+      "title": "Docker in the notch",
+      "mode": "live",
+      "icon": "sf:shippingbox"
+    }
+  ],
+  "every": "60s",
   "on": false,
   "example": {
     "title": "postgres",

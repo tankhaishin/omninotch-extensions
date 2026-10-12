@@ -1,0 +1,28 @@
+{
+  "v": 2,
+  "id": "com.mactoro.maps",
+  "name": "Directions",
+  "description": "Directions to anywhere in Apple Maps: drive, walk or transit.",
+  "about": "Type where you're going (and optionally where from) and how you're travelling; Apple Maps opens with the route.",
+  "category": "Navigation",
+  "icon": "app:com.apple.Maps",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "directions",
+      "title": "Get Directions",
+      "subtitle": "Maps",
+      "mode": "view",
+      "icon": "sf:arrow.triangle.turn.up.right.diamond",
+      "keywords": [
+        "route",
+        "map",
+        "navigate",
+        "drive",
+        "walk"
+      ]
+    }
+  ]
+}

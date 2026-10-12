@@ -1,0 +1,42 @@
+#!/usr/bin/osascript -l JavaScript
+// Port Manager: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function ports() {
+  const r = []; let pid = "", cmd = ""
+  for (const l of (sh("lsof -nP -iTCP -sTCP:LISTEN -F pcn") || "").split("\n")) {
+    if (l[0] === "p") pid = l.slice(1)
+    else if (l[0] === "c") cmd = l.slice(1)
+    else if (l[0] === "n") {
+      const i = l.lastIndexOf(":"), port = l.slice(i + 1), host = l.slice(1, i)
+      if (!r.some((o) => o.port === port && o.pid === pid)) r.push({ pid, cmd, port, host })
+    }
+  }
+  return r.sort((a, b) => +a.port - +b.port)
+}
+
+function run() {
+  if (env("OMNINOTCH_ACTION") === "kill") {
+    const pid = env("OMNINOTCH_ITEM").split(":")[0]
+    if (sh(`kill -15 ${parseInt(pid, 10)}`) === null) return out({ toast: "Couldn't stop it: it belongs to macOS or another user" })
+  }
+  const items = ports().map((p) => {
+    const a = $.NSRunningApplication.runningApplicationWithProcessIdentifier(+p.pid)
+    const bid = !a.isNil() && !a.bundleIdentifier.isNil() ? a.bundleIdentifier.js : null
+    const url = `http://localhost:${p.port}`
+    return { id: `${p.pid}:${p.port}`, title: `:${p.port}`, subtitle: `${p.cmd} · PID ${p.pid}${p.host === "*" ? "" : " · " + p.host}`,
+      icon: bid ? "app:" + bid : "sf:server.rack", keywords: [p.cmd, p.pid],
+      actions: [{ title: "Open in Browser", url }, { title: "Copy URL", copy: url },
+                { title: "Stop Process", run: "kill", confirm: true, style: "destructive" }, { title: "Copy Process ID", copy: p.pid }] }
+  })
+  return out({ view: "list", title: "Listening ports", placeholder: "Filter by port or app…", filter: "local",
+    sections: [{ title: `${items.length} ports`, items }], empty: { title: "Nothing is listening", subtitle: "Start a dev server and it shows up here" } })
+}

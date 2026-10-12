@@ -1,23 +1,51 @@
 {
-  "v": 1,
+  "v": 2,
   "id": "com.mactoro.reminders",
   "name": "Reminders",
-  "description": "Your next Apple Reminder that's due.",
-  "about": "Your next Apple Reminder that's due or overdue, with a Done button.",
-  "category": "Work",
+  "description": "Today's and overdue reminders; add one, tick one off.",
+  "about": "What's due today and overdue across your Reminders lists, plus everything not done. Tick one off, or add a new one with a list and a due date. Controls Reminders on this Mac (macOS asks you once). It can also show a Live status in the notch: your next Apple Reminder that's due.",
+  "category": "Productivity",
+  "icon": "app:com.apple.reminders",
   "author": "Mactoro",
   "run": "run",
-  "every": "2m",
   "network": false,
-  "on": false,
-  "settings": [
+  "automation": [
+    "Reminders"
+  ],
+  "commands": [
     {
-      "key": "hours",
-      "title": "Due within (hours)",
-      "type": "text",
-      "default": "1"
+      "id": "today",
+      "title": "Today's Reminders",
+      "subtitle": "Reminders",
+      "mode": "view",
+      "icon": "sf:checklist",
+      "keywords": [
+        "todo",
+        "task",
+        "due"
+      ]
+    },
+    {
+      "id": "new",
+      "title": "New Reminder",
+      "subtitle": "Reminders",
+      "mode": "view",
+      "icon": "sf:plus.circle",
+      "keywords": [
+        "todo",
+        "task",
+        "remind"
+      ]
+    },
+    {
+      "id": "live",
+      "title": "Reminders in the notch",
+      "mode": "live",
+      "icon": "app:com.apple.reminders"
     }
   ],
+  "every": "2m",
+  "on": false,
   "actions": {
     "done": "Done"
   },
@@ -26,5 +54,13 @@
     "subtitle": "Due in 20 min",
     "icon": "sf:checklist",
     "tint": "rising"
-  }
+  },
+  "settings": [
+    {
+      "key": "hours",
+      "title": "Due within (hours)",
+      "type": "text",
+      "default": "1"
+    }
+  ]
 }

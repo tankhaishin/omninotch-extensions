@@ -1,0 +1,30 @@
+{
+  "v": 2,
+  "id": "com.mactoro.vscode-projects",
+  "name": "VS Code Projects",
+  "description": "Reopen your recent VS Code folders and workspaces.",
+  "about": "The folders and workspaces you opened recently in Visual Studio Code, read from VS Code's own history on this Mac.",
+  "category": "Developer",
+  "icon": "app:com.microsoft.VSCode",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "needs": [
+    "Visual Studio Code app"
+  ],
+  "commands": [
+    {
+      "id": "recent",
+      "title": "Open Recent VS Code Project",
+      "subtitle": "VS Code",
+      "mode": "view",
+      "icon": "sf:folder",
+      "keywords": [
+        "project",
+        "editor",
+        "code",
+        "recent"
+      ]
+    }
+  ]
+}

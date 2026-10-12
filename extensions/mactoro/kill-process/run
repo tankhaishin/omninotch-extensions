@@ -1,0 +1,46 @@
+#!/usr/bin/osascript -l JavaScript
+// Kill Process: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function procs() {
+  const me = $.NSProcessInfo.processInfo.processIdentifier
+  return (sh("ps -Aeo pid=,pcpu=,rss=,comm=") || "").split("\n")
+    .map((l) => l.trim().match(/^(\d+)\s+([\d.]+)\s+(\d+)\s+(.*)$/)).filter(Boolean)
+    .map(([, pid, cpu, rss, path]) => ({ pid: +pid, cpu: +cpu, mb: +rss / 1024, path }))
+    .filter((p) => p.pid > 1 && p.pid !== me)
+}
+function appOf(pid) { const a = $.NSRunningApplication.runningApplicationWithProcessIdentifier(pid); return a.isNil() ? null : a }
+
+function run() {
+  const cmd = env("OMNINOTCH_COMMAND"), act = env("OMNINOTCH_ACTION")
+  if (act === "quit" || act === "force") {
+    const pid = parseInt(env("OMNINOTCH_ITEM"), 10), a = appOf(pid)
+    const ok = a && act === "quit" ? a.terminate : sh(`kill ${act === "force" ? -9 : -15} ${pid}`) !== null
+    if (!ok) return out({ toast: "Couldn't quit it: it belongs to macOS or another user" })
+  }
+  const byMem = cmd === "by-memory"
+  const items = procs().sort((a, b) => byMem ? b.mb - a.mb : b.cpu - a.cpu).slice(0, 150).map((p) => {
+    const a = appOf(p.pid), m = p.path.match(/([^/]+)\.app\//)
+    const name = a && !a.localizedName.isNil() ? a.localizedName.js : m ? m[1] : p.path.split("/").pop()
+    let bid = a && !a.bundleIdentifier.isNil() ? a.bundleIdentifier.js : null
+    if (!bid && m) {                                   // a helper inside an app: show the app it belongs to
+      const b = $.NSBundle.bundleWithPath(p.path.slice(0, p.path.indexOf(".app/") + 4))
+      if (!b.isNil() && !b.bundleIdentifier.isNil()) bid = b.bundleIdentifier.js
+    }
+    const mem = p.mb >= 1024 ? (p.mb / 1024).toFixed(1) + " GB" : Math.round(p.mb) + " MB"
+    return { id: String(p.pid), title: name, subtitle: tilde(p.path), icon: bid ? "app:" + bid : "sf:gearshape",
+      accessory: byMem ? mem : p.cpu.toFixed(1) + "%", keywords: [String(p.pid)],
+      actions: [{ title: "Quit", run: "quit" }, { title: "Force Quit", run: "force", confirm: true, style: "destructive" },
+                { title: "Copy Process ID", copy: String(p.pid), shortcut: "cmd+shift+c" }] }
+  })
+  return out({ view: "list", title: byMem ? "Processes by memory" : "Processes by CPU", placeholder: "Filter processes…",
+    filter: "local", sections: [{ title: `${items.length} processes`, items }], empty: { title: "No processes" } })
+}

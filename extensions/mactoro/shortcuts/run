@@ -1,0 +1,25 @@
+#!/usr/bin/osascript -l JavaScript
+// Shortcuts: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  if (act === "run") {
+    const res = sh(`shortcuts run ${q(item)} 2>&1 | head -c 2000`)
+    return res && res.trim() ? out({ view: "detail", title: item, body: res.trim() }) : out({ toast: `Ran ${item}`, close: true })
+  }
+  const names = (sh("shortcuts list") || "").split("\n").map((s) => s.trim()).filter(Boolean).sort((a, b) => a.localeCompare(b))
+  const items = names.map((n) => ({ id: n, title: n, icon: "sf:square.2.layers.3d",
+    actions: [{ title: "Run", run: "run" }, { title: "Open in Shortcuts", url: "shortcuts://open-shortcut?name=" + encodeURIComponent(n) },
+              { title: "Copy Name", copy: n }] }))
+  return out({ view: "list", title: "Shortcuts", placeholder: "Find a shortcut…", filter: "local", sections: [{ items }],
+    empty: { title: "No shortcuts yet", subtitle: "Make one in the Shortcuts app" } })
+}

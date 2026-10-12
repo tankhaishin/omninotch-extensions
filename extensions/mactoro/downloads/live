@@ -1,0 +1,17 @@
+#!/bin/zsh
+# Downloads: the newest finished file in ~/Downloads (skips files still downloading or still being written).
+js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
+seen="$OMNINOTCH_DATA/seen"; last="$OMNINOTCH_DATA/last"; now=$(date +%s)
+case $OMNINOTCH_ACTION in
+  show) [[ -f $last ]] && open -R "$(<$last)"; print -r -- '[]'; exit 0 ;;
+  open) [[ -f $last ]] && open "$(<$last)"; print -r -- '[]'; exit 0 ;;
+esac
+[[ -f $seen ]] || { touch $seen; print -r -- '[]'; exit 0 }      # first run: only what's new from now on (seen's date)
+newest=$(find ~/Downloads -maxdepth 1 -type f ! -name '.*' ! -name '*.crdownload' ! -name '*.download' ! -name '*.part' \
+  -newer $seen -print 2>/dev/null | while read -r f; do t=$(stat -f %m "$f"); (( t <= now - 3 )) && print -r -- "$t	$f"; done | sort -rn | head -1)
+if [[ -n $newest ]]; then
+  file=${newest#*	}; print -r -- $file > $last; touch -r "$file" $seen
+  print -r -- "[{\"v\":1,\"id\":\"dl\",\"title\":\"Downloaded\",\"subtitle\":$(js "${file:t}"),\"icon\":\"sf:arrow.down.circle\",\"tint\":\"live\",\"priority\":\"high\",\"expires\":\"3m\",\"actions\":[{\"title\":\"Show\",\"run\":\"show\"},{\"title\":\"Open\",\"run\":\"open\"}]}]"
+elif [[ -f $last && $(( now - $(stat -f %m "$(<$last)" 2>/dev/null || print 0) )) -lt 180 ]]; then
+  print -r -- "[{\"v\":1,\"id\":\"dl\",\"title\":\"Downloaded\",\"subtitle\":$(js "${$(<$last):t}"),\"icon\":\"sf:arrow.down.circle\",\"tint\":\"live\",\"expires\":\"3m\",\"actions\":[{\"title\":\"Show\",\"run\":\"show\"},{\"title\":\"Open\",\"run\":\"open\"}]}]"
+else print -r -- '[]'; fi

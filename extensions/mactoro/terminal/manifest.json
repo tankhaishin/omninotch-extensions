@@ -1,0 +1,47 @@
+{
+  "v": 2,
+  "id": "com.mactoro.terminal",
+  "name": "Terminal",
+  "description": "A new Terminal window, or run a command in one.",
+  "about": "Open a new Terminal window in your home folder, or type a command and run it in a new Terminal window. Running a command controls Terminal (macOS asks you once).",
+  "category": "Developer",
+  "icon": "app:com.apple.Terminal",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Terminal"
+  ],
+  "commands": [
+    {
+      "id": "new-window",
+      "title": "New Terminal Window",
+      "subtitle": "Terminal",
+      "mode": "run",
+      "icon": "sf:terminal",
+      "keywords": [
+        "shell",
+        "console"
+      ]
+    },
+    {
+      "id": "run-command",
+      "title": "Run in Terminal",
+      "subtitle": "Terminal",
+      "mode": "run",
+      "icon": "sf:chevron.right.square",
+      "keywords": [
+        "shell",
+        "command",
+        "run"
+      ],
+      "arguments": [
+        {
+          "name": "command",
+          "placeholder": "Command",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

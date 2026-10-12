@@ -46,7 +46,7 @@ def build(out):
                 "category": m.get("category"), "example": m.get("example"), "icon": m.get("icon"),
                 "network": bool(m.get("network")), "every": m.get("every", "60s"),
                 "settings": [s["title"] for s in m.get("settings", [])],
-                "commands": commands, "needs": m.get("needs", []),
+                "commands": commands, "needs": m.get("needs", []) + [f"Permission to control {a} (macOS asks once)" for a in m.get("automation", [])],
                 "by": m.get("author") or author, "byURL": m.get("authorURL", ""), "license": m.get("license", "MIT"),
                 "bundled": author == "mactoro" and m.get("v", 1) == 1, "featured": f"{author}/{name}" in featured,
                 "updated": m.get("updated") or updated(folder), "sha256": hashlib.sha256(data).hexdigest(), "size": len(data),

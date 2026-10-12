@@ -1,0 +1,28 @@
+{
+  "v": 2,
+  "id": "com.mactoro.bluetooth-devices",
+  "name": "Bluetooth Devices",
+  "description": "Your Bluetooth devices and their battery levels.",
+  "about": "Connected and paired devices with battery levels (AirPods left, right and case too). Connecting and disconnecting needs the free blueutil tool (brew install blueutil).",
+  "category": "System",
+  "icon": "sf:dot.radiowaves.left.and.right",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "devices",
+      "title": "Bluetooth Devices",
+      "subtitle": "Battery levels",
+      "mode": "view",
+      "icon": "sf:headphones",
+      "keywords": [
+        "bluetooth",
+        "airpods",
+        "battery",
+        "mouse",
+        "keyboard"
+      ]
+    }
+  ]
+}

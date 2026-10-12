@@ -1,0 +1,35 @@
+{
+  "v": 2,
+  "id": "com.mactoro.git-repos",
+  "name": "Git Repos",
+  "description": "Your local repositories: open in your editor, Terminal or GitHub.",
+  "about": "Finds the git repositories in your project folders, with each one's branch and whether it has unsaved or unpushed work. Open it in VS Code, Cursor, Terminal or Finder, or on GitHub.",
+  "category": "Developer",
+  "icon": "sf:arrow.triangle.branch",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "settings": [
+    {
+      "key": "folders",
+      "title": "Project folders",
+      "type": "text",
+      "default": "~/Developer, ~/Projects, ~/code, ~/src, ~/GitHub, ~/Documents/GitHub"
+    }
+  ],
+  "commands": [
+    {
+      "id": "repos",
+      "title": "Search Git Repos",
+      "subtitle": "Git",
+      "mode": "view",
+      "icon": "sf:arrow.triangle.branch",
+      "keywords": [
+        "git",
+        "repo",
+        "project",
+        "code"
+      ]
+    }
+  ]
+}

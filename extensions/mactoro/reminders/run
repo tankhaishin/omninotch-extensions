@@ -1,28 +1,45 @@
-#!/bin/zsh
-# Reminders: asks the Reminders app (macOS asks you once to allow it). Shows the earliest incomplete one that's due.
-js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
-hours=${OMNINOTCH_SETTING_HOURS:-1}
-r=$(/usr/bin/osascript -l JavaScript - "$hours" "$OMNINOTCH_ACTION" "$OMNINOTCH_DATA" <<'JS' 2>&1
-function run(argv) {
-  const app = Application("Reminders"), limit = new Date(Date.now() + Number(argv[0]) * 3600e3)
-  const fs = $.NSString, path = argv[2] + "/id"
-  if (argv[1] === "done") {
-    const id = fs.stringWithContentsOfFileEncodingError(path, $.NSUTF8StringEncoding, null)
-    if (id && !id.isNil()) { const m = app.reminders.whose({ id: id.js }); if (m.length) m[0].completed = true }
+#!/usr/bin/osascript -l JavaScript
+// Reminders: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  if (!env("OMNINOTCH_COMMAND")) {                     // a Live run: the notch status comes from ./live
+    const here = $.NSFileManager.defaultManager.currentDirectoryPath.js
+    return sh(`cd ${q(here)} && ./live`) || "[]"
   }
-  const due = app.reminders.whose({ completed: false, dueDate: { _lessThan: limit } })
-  const n = due.length; if (!n) return "[]"
-  let best = null, bestDate = null
-  const names = due.name(), dates = due.dueDate(), ids = due.id()
-  for (let i = 0; i < n; i++) if (!bestDate || dates[i] < bestDate) { best = i; bestDate = dates[i] }
-  $(ids[best]).writeToFileAtomicallyEncodingError(path, true, $.NSUTF8StringEncoding, null)
-  const mins = Math.round((bestDate - Date.now()) / 60000)
-  const when = mins < 0 ? "Overdue" : mins < 60 ? `Due in ${mins} min` : `Due at ${bestDate.toTimeString().slice(0, 5)}`
-  const more = n > 1 ? ` · ${n - 1} more` : ""
-  return JSON.stringify([{ v: 1, id: "rem", title: names[best], subtitle: when + more, value: n > 1 ? String(n) : undefined,
-    icon: mins < 0 ? "sf:checklist.unchecked" : "sf:checklist", tint: "rising", state: mins <= 0 ? "needsYou" : "active",
-    actions: [{ title: "Done", run: "done" }] }])
+  const R = Application("Reminders"), cmd = env("OMNINOTCH_COMMAND"), act = env("OMNINOTCH_ACTION")
+  if (act === "done") { R.reminders.byId(env("OMNINOTCH_ITEM")).completed = true }
+  if (act === "add") {
+    const f = JSON.parse(env("OMNINOTCH_FORM") || "{}"), props = { name: f.title }
+    if (f.due) props.dueDate = new Date(f.due)
+    if (f.notes) props.body = f.notes
+    const list = f.list ? R.lists.byName(f.list) : R.defaultList()
+    list.reminders.push(R.Reminder(props))
+    return out({ toast: "Reminder added", close: true })
+  }
+  if (cmd === "new") return out({ view: "form", title: "New reminder", fields: [
+      { id: "title", type: "text", title: "Reminder", required: true },
+      { id: "list", type: "dropdown", title: "List", options: R.lists.name() },
+      { id: "due", type: "date", title: "Due" }, { id: "notes", type: "textarea", title: "Notes" }],
+    submit: { title: "Add Reminder", run: "add" } })
+  const end = new Date(); end.setHours(23, 59, 59)
+  const open = R.reminders.whose({ completed: false })
+  const names = open.name(), ids = open.id(), dues = open.dueDate(), lists = open.container.name ? open.container.name() : names.map(() => "")
+  const rows = names.map((n, i) => ({ n, id: ids[i], due: dues[i], list: lists[i] }))
+  const item = (r) => ({ id: r.id, title: r.n, subtitle: r.list, icon: r.due && r.due < new Date() ? "sf:exclamationmark.circle" : "sf:circle",
+    accessory: r.due ? r.due.toLocaleString([], { weekday: "short", hour: "2-digit", minute: "2-digit" }) : "",
+    actions: [{ title: "Mark Done", run: "done" }, { title: "Copy", copy: r.n }] })
+  const due = rows.filter((r) => r.due && r.due <= end).sort((a, b) => a.due - b.due).map(item)
+  const later = rows.filter((r) => !r.due || r.due > end).slice(0, 150).map(item)
+  return out({ view: "list", title: "Reminders", placeholder: "Filter reminders…", filter: "local",
+    sections: [{ title: "Today and overdue", items: due }, { title: "Not done", items: later }].filter((s) => s.items.length),
+    empty: { title: "All done", subtitle: "Nothing left to do" } })
 }
-JS
-) || { print -u2 -- "${r:0:200}"; exit 1 }
-print -r -- $r

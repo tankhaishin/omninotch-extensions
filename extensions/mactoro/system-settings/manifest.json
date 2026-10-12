@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "com.mactoro.system-settings",
+  "name": "System Settings",
+  "description": "Jump straight to any settings pane, privacy ones too.",
+  "about": "Every pane of System Settings, plus the privacy lists people hunt for (Accessibility, Full Disk Access, Screen Recording, Camera, Microphone). Type a few letters and open it.",
+  "category": "System",
+  "icon": "sf:gearshape",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "panes",
+      "title": "Open System Settings Pane",
+      "subtitle": "System Settings",
+      "mode": "view",
+      "icon": "sf:gearshape",
+      "keywords": [
+        "settings",
+        "preferences",
+        "privacy",
+        "pane"
+      ]
+    }
+  ]
+}

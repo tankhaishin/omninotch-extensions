@@ -1,6 +1,31 @@
-#!/bin/zsh
-# Mail: only while Mail is running (so it never opens Mail). macOS asks you once to allow OmniNotch to read it.
-pgrep -xq Mail || { print -r -- '[]'; exit 0 }
-n=$(/usr/bin/osascript -e 'tell application "Mail" to get unread count of inbox' 2>/dev/null) || { print -u2 "Couldn't read Mail (allow OmniNotch in Privacy & Security → Automation)."; exit 1 }
-(( n == 0 )) && { print -r -- '[]'; exit 0 }
-print -r -- '[{"v":1,"id":"mail","title":"Unread mail","subtitle":"'"$n"' in your inbox","value":"'"$n"'","icon":"sf:envelope.badge","priority":"low","expires":"5m"}]'
+#!/usr/bin/osascript -l JavaScript
+// Mail: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  if (!env("OMNINOTCH_COMMAND")) {                     // a Live run: the notch status comes from ./live
+    const here = $.NSFileManager.defaultManager.currentDirectoryPath.js
+    return sh(`cd ${q(here)} && ./live`) || "[]"
+  }
+  const Mail = Application("Mail"), act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  if (!Mail.running()) return out({ view: "detail", title: "Mail", body: "Mail isn't open.", actions: [{ title: "Open Mail", open: "/System/Applications/Mail.app" }] })
+  const unread = Mail.inbox.messages.whose({ readStatus: false })
+  if (act === "open" || act === "read") {
+    const m = unread.whose({ messageId: item })[0]
+    if (act === "read") m.readStatus = true
+    else { m.open(); Mail.activate(); return out({ close: true }) }
+  }
+  const subj = unread.subject(), from = unread.sender(), dates = unread.dateReceived(), ids = unread.messageId()
+  const items = subj.map((s, i) => ({ id: ids[i], title: s || "(no subject)", subtitle: from[i], accessory: dates[i].toLocaleDateString(), icon: "sf:envelope",
+    actions: [{ title: "Open in Mail", run: "open" }, { title: "Mark as Read", run: "read" }, { title: "Copy Sender", copy: from[i] }] })).slice(0, 150)
+  return out({ view: "list", title: "Unread", placeholder: "Filter mail…", filter: "local", sections: [{ title: `${subj.length} unread`, items }],
+    empty: { title: "Inbox zero", subtitle: "No unread mail" } })
+}

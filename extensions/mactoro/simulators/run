@@ -1,0 +1,29 @@
+#!/usr/bin/osascript -l JavaScript
+// iOS Simulators: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function missing(tool, how) {
+  return out({ view: "detail", title: `${tool} isn't installed`, body: `This extension uses **${tool}**. ${how}`,
+    actions: [{ title: "Copy Install Command", copy: how.match(/`([^`]+)`/) ? how.match(/`([^`]+)`/)[1] : how }] })
+}
+
+function run() {
+  if (sh("xcrun --find simctl 2>/dev/null") === null) return missing("Xcode", "Install Xcode from the App Store, then open it once.")
+  const act = env("OMNINOTCH_ACTION"), id = env("OMNINOTCH_ITEM")
+  if (act === "boot") { sh(`xcrun simctl boot ${q(id)}; open -a Simulator`); return out({ toast: "Booting", close: true }) }
+  if (act === "shutdown") sh(`xcrun simctl shutdown ${q(id)}`)
+  let d = {}; try { d = JSON.parse(sh("xcrun simctl list devices available -j") || "{}") } catch (e) {}
+  const sections = Object.entries(d.devices || {}).map(([rt, list]) => ({ title: rt.split(".").pop().replace(/-/g, " ").replace(/^(\w+) (\d+) (\d+)/, "$1 $2.$3"),
+    items: list.map((s) => ({ id: s.udid, title: s.name, accessory: s.state, icon: /iPad/.test(s.name) ? "sf:ipad" : /Watch/.test(s.name) ? "sf:applewatch" : /TV/.test(s.name) ? "sf:appletv" : "sf:iphone",
+      actions: [s.state === "Booted" ? { title: "Shut Down", run: "shutdown" } : { title: "Boot and Open", run: "boot" }, { title: "Copy ID", copy: s.udid }] })) }))
+    .filter((s) => s.items.length).reverse()
+  return out({ view: "list", title: "Simulators", filter: "local", sections, empty: { title: "No simulators" } })
+}

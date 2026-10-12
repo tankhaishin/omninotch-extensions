@@ -1,0 +1,31 @@
+{
+  "v": 2,
+  "id": "com.mactoro.contacts",
+  "name": "Contacts",
+  "description": "Find someone, then call, FaceTime, message or email them.",
+  "about": "Search your contacts by name and reach them in one step: call, FaceTime, iMessage, email, or copy a number. Reads Contacts on this Mac (macOS asks you once).",
+  "category": "Communication",
+  "icon": "app:com.apple.AddressBook",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Contacts"
+  ],
+  "commands": [
+    {
+      "id": "search",
+      "title": "Search Contacts",
+      "subtitle": "Contacts",
+      "mode": "view",
+      "icon": "sf:person.crop.circle",
+      "keywords": [
+        "contact",
+        "call",
+        "phone",
+        "email",
+        "people"
+      ]
+    }
+  ]
+}

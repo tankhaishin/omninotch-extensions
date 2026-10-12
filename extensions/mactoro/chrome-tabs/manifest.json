@@ -1,0 +1,32 @@
+{
+  "v": 2,
+  "id": "com.mactoro.chrome-tabs",
+  "name": "Chrome Tabs",
+  "description": "Search your open Chrome tabs; switch, copy or close.",
+  "about": "Every tab open in Google Chrome, searchable by title and address. Switch to it, copy its link, or close it. Controls Google Chrome on this Mac (macOS asks you once).",
+  "category": "Browsing",
+  "icon": "app:com.google.Chrome",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Google Chrome"
+  ],
+  "needs": [
+    "Google Chrome app"
+  ],
+  "commands": [
+    {
+      "id": "tabs",
+      "title": "Search Chrome Tabs",
+      "subtitle": "Chrome",
+      "mode": "view",
+      "icon": "sf:square.on.square",
+      "keywords": [
+        "tab",
+        "browser",
+        "website"
+      ]
+    }
+  ]
+}

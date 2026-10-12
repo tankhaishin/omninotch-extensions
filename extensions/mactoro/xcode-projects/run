@@ -1,0 +1,20 @@
+#!/usr/bin/osascript -l JavaScript
+// Xcode Projects: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const raw = sh(`mdfind -onlyin ${q(home)} 'kMDItemFSName == "*.xcodeproj" || kMDItemFSName == "*.xcworkspace" || kMDItemFSName == "Package.swift"' 2>/dev/null | head -400`) || ""
+  const items = raw.split("\n").filter((p) => p && !/\/(Pods|DerivedData|\.build|Carthage|node_modules|\.swiftpm|SourcePackages)\//.test(p) && !p.includes(".xcodeproj/"))
+    .slice(0, 150).map((p) => { const name = p.endsWith("Package.swift") ? p.split("/").slice(-2, -1)[0] : p.split("/").pop()
+      return { id: p, title: name, subtitle: tilde(p), icon: p.endsWith("Package.swift") ? "sf:shippingbox" : p.endsWith(".xcworkspace") ? "sf:square.stack.3d.up" : "sf:hammer",
+        actions: [{ title: "Open in Xcode", open: p }, { title: "Show in Finder", reveal: p }, { title: "Copy Path", copy: p }] } })
+  return out({ view: "list", title: "Xcode projects", filter: "local", sections: [{ items }], empty: { title: "No Xcode projects found" } })
+}

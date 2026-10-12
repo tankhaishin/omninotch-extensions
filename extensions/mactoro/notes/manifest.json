@@ -1,0 +1,40 @@
+{
+  "v": 2,
+  "id": "com.mactoro.notes",
+  "name": "Notes",
+  "description": "Search your Apple Notes, open one, or make a new one.",
+  "about": "Search note titles across your Notes accounts, open a note, or write a new one from the bar. Controls Notes on this Mac (macOS asks you once).",
+  "category": "Productivity",
+  "icon": "app:com.apple.Notes",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Notes"
+  ],
+  "commands": [
+    {
+      "id": "search",
+      "title": "Search Notes",
+      "subtitle": "Notes",
+      "mode": "view",
+      "icon": "sf:note.text",
+      "keywords": [
+        "note",
+        "notes",
+        "find"
+      ]
+    },
+    {
+      "id": "new",
+      "title": "New Note",
+      "subtitle": "Notes",
+      "mode": "view",
+      "icon": "sf:square.and.pencil",
+      "keywords": [
+        "note",
+        "write"
+      ]
+    }
+  ]
+}

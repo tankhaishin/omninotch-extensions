@@ -1,0 +1,28 @@
+#!/usr/bin/osascript -l JavaScript
+// Contacts: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const C = Application("Contacts"), query = env("OMNINOTCH_QUERY").trim()
+  if (!query) return out({ view: "list", title: "Contacts", placeholder: "Type a name…", filter: "script", sections: [], empty: { title: "Type a name to search" } })
+  const people = C.people.whose({ name: { _contains: query } })
+  const names = people.name().slice(0, 40), items = []
+  names.forEach((n, i) => {
+    const p = people[i]
+    const phones = p.phones.value(), emails = p.emails.value(), clean = (s) => s.replace(/[^\d+]/g, "")
+    const actions = []
+    if (phones[0]) actions.push({ title: "Call", url: "tel:" + clean(phones[0]) }, { title: "FaceTime", url: "facetime:" + clean(phones[0]) },
+                                { title: "Message", url: "imessage:" + clean(phones[0]) }, { title: "Copy Number", copy: phones[0] })
+    if (emails[0]) actions.push({ title: "Email", url: "mailto:" + emails[0] }, { title: "Copy Email", copy: emails[0] })
+    items.push({ id: String(i), title: n, subtitle: [phones[0], emails[0]].filter(Boolean).join(" · "), icon: "sf:person.crop.circle", actions })
+  })
+  return out({ view: "list", title: "Contacts", placeholder: "Type a name…", filter: "script", sections: [{ items }], empty: { title: `No one named "${query}"` } })
+}

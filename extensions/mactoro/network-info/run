@@ -1,0 +1,28 @@
+#!/usr/bin/osascript -l JavaScript
+// Network Info: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const iface = (sh("route -n get default 2>/dev/null | awk '/interface:/{print $2}'") || "en0").trim() || "en0"
+  const local = (sh(`ipconfig getifaddr ${iface}`) || "").trim()
+  const router = (sh("route -n get default 2>/dev/null | awk '/gateway:/{print $2}'") || "").trim()
+  const dns = (sh("scutil --dns | awk '/nameserver\\[[0-9]+\\]/{print $3}' | awk '!s[$0]++' | head -3") || "").trim().split("\n").filter(Boolean)
+  const pub = (sh("curl -s -m 3 https://api.ipify.org") || "").trim()
+  const vpn = (sh("scutil --nc list | grep -c '(Connected)'") || "0").trim() !== "0"
+  const meta = [{ label: "Local IP", value: local || "Not connected" }, { label: "Interface", value: iface },
+    { label: "Router", value: router || "None" }, { label: "Public IP", value: pub || "Unavailable" },
+    { label: "DNS", value: dns.join(", ") || "None" }, { label: "VPN", value: vpn ? "Connected" : "Not connected" }]
+  const actions = []
+  if (local) actions.push({ title: "Copy Local IP", copy: local })
+  if (pub) actions.push({ title: "Copy Public IP", copy: pub, shortcut: "cmd+shift+c" })
+  actions.push({ title: "Open Network Settings", url: "x-apple.systempreferences:com.apple.Network-Settings.extension" })
+  return out({ view: "detail", title: "Network", body: local ? `**${local}** on ${iface}` + (pub ? `, public **${pub}**` : "") : "This Mac isn't connected to a network.", metadata: meta, actions })
+}

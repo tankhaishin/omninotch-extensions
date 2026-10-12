@@ -1,0 +1,33 @@
+#!/usr/bin/osascript -l JavaScript
+// Finder: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const F = Application("Finder"), cmd = env("OMNINOTCH_COMMAND"), act = env("OMNINOTCH_ACTION")
+  const pathOf = (x) => decodeURI(x.url()).replace(/^file:\/\//, "").replace(/\/$/, "")
+  if (cmd === "copy-path") {
+    const sel = F.selection()
+    if (!sel.length) return out({ toast: "Select a file in Finder first" })
+    const paths = sel.map(pathOf).join("\n"); SA.setTheClipboardTo(paths)
+    return out({ toast: sel.length === 1 ? "Path copied" : `${sel.length} paths copied`, close: true })
+  }
+  if (cmd === "terminal-here") {
+    let dir = home
+    try { dir = pathOf(F.insertionLocation()) } catch (e) {}
+    sh(`open -a Terminal ${q(dir)}`)
+    return out({ close: true })
+  }
+  const shown = (sh("defaults read com.apple.finder AppleShowAllFiles 2>/dev/null") || "").trim().toLowerCase()
+  const on = shown === "1" || shown === "true" || shown === "yes"
+  if (act === "toggle") { sh(`defaults write com.apple.finder AppleShowAllFiles -bool ${on ? "false" : "true"} && killall Finder`); return out({ toast: on ? "Hidden files hidden" : "Hidden files shown", close: true }) }
+  return out({ view: "detail", title: "Hidden files", body: `Hidden files are **${on ? "shown" : "hidden"}** in Finder. Changing it restarts Finder (its windows reopen).`,
+    actions: [{ title: on ? "Hide Hidden Files" : "Show Hidden Files", run: "toggle", confirm: true }] })
+}

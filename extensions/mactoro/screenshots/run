@@ -1,0 +1,59 @@
+#!/usr/bin/osascript -l JavaScript
+// Screenshots: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function fileItem(path, extra) {
+  const name = path.split("/").pop()
+  const ext = name.includes(".") ? name.split(".").pop().toLowerCase() : ""
+  const icon = /^(png|jpe?g|gif|heic|webp|tiff?)$/.test(ext) ? "sf:photo" : /^(mov|mp4|m4v)$/.test(ext) ? "sf:film" :
+    /^(pdf)$/.test(ext) ? "sf:doc.richtext" : /^(zip|dmg|pkg|tar|gz)$/.test(ext) ? "sf:doc.zipper" : /^(mp3|m4a|wav|aiff)$/.test(ext) ? "sf:music.note" : "sf:doc"
+  return Object.assign({ id: path, title: name, subtitle: tilde(path.slice(0, path.length - name.length - 1)), icon, keywords: [ext],
+    actions: [{ title: "Open", open: path }, { title: "Show in Finder", reveal: path }, { title: "Copy Path", copy: path, shortcut: "cmd+shift+c" },
+              { title: "Move to Trash", run: "trash", confirm: true, style: "destructive" }] }, extra || {})
+}
+function trash(path) {
+  const ok = $.NSFileManager.defaultManager.trashItemAtURLResultingItemURLError($.NSURL.fileURLWithPath(path), null, null)
+  return ok ? null : out({ toast: "Couldn't move it to the Trash" })
+}
+function ago(sec) {
+  const s = Math.max(0, Date.now() / 1000 - sec)
+  return s < 3600 ? Math.round(s / 60) + " min ago" : s < 86400 ? Math.round(s / 3600) + " h ago" : Math.round(s / 86400) + " d ago"
+}
+function newest(dir, filter, n) {
+  const raw = sh(`cd ${q(dir)} 2>/dev/null && stat -f '%B\t%N' * 2>/dev/null`)
+  if (raw === null) return null
+  return raw.split("\n").filter(Boolean).map((l) => { const i = l.indexOf("\t"); return { t: +l.slice(0, i), name: l.slice(i + 1) } })
+    .filter((f) => !f.name.startsWith(".") && (!filter || filter(f.name))).sort((a, b) => b.t - a.t).slice(0, n)
+    .map((f) => ({ path: dir + "/" + f.name, t: f.t }))
+}
+
+function copyImage(path) {
+  const img = $.NSImage.alloc.initWithContentsOfFile(path)
+  if (img.isNil()) return out({ toast: "Couldn't read that image" })
+  const pb = $.NSPasteboard.generalPasteboard; pb.clearContents; pb.writeObjects($([img]))
+  return out({ toast: "Image copied" })
+}
+function run() {
+  const act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  if (act === "copyimage") return copyImage(item)
+  if (act === "trash") { const r = trash(item); if (r) return r }
+  let dir = (sh("defaults read com.apple.screencapture location 2>/dev/null") || "").trim().replace(/^~/, home)
+  if (!dir) dir = home + "/Desktop"
+  const files = newest(dir, (n) => /^(Screenshot|Screen Shot|Screen Recording|CleanShot)/i.test(n), 80)
+  if (files === null) return out({ view: "detail", title: "Screenshots", body: `OmniNotch can't read ${tilde(dir)} yet. Allow it in System Settings → Privacy & Security → Files & Folders.` })
+  const items = files.map((f) => {
+    const it = fileItem(f.path, { accessory: ago(f.t) })
+    if (/\.(png|jpe?g|heic|tiff?)$/i.test(f.path)) it.actions.splice(1, 0, { title: "Copy Image", run: "copyimage", shortcut: "cmd+shift+i" })
+    return it
+  })
+  return out({ view: "list", title: "Screenshots", placeholder: "Filter screenshots…", filter: "local", sections: [{ title: tilde(dir), items }],
+    empty: { title: "No screenshots yet", subtitle: "Press ⇧⌘4 to take one" } })
+}

@@ -1,0 +1,41 @@
+#!/usr/bin/osascript -l JavaScript
+// Quit Apps: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+const KEEP = ["com.apple.finder", "com.tankhaishin.omninotch"]
+function apps() {
+  const all = $.NSWorkspace.sharedWorkspace.runningApplications, r = []
+  for (let i = 0; i < all.count; i++) {
+    const a = all.objectAtIndex(i)
+    if (Number(a.activationPolicy) !== 0 || a.bundleIdentifier.isNil() || a.isTerminated) continue
+    if (!KEEP.includes(a.bundleIdentifier.js)) r.push(a)
+  }
+  return r
+}
+const byId = (id) => apps().filter((a) => a.bundleIdentifier.js === id)
+
+function run() {
+  const act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM"), gone = []
+  if (act === "quitall") { const n = apps().map((a) => a.terminate).length; return out({ toast: `Quitting ${n} app${n === 1 ? "" : "s"}`, close: true }) }
+  if (act === "quit") byId(item).forEach((a) => { a.terminate; gone.push(item) })
+  if (act === "force") byId(item).forEach((a) => { a.forceTerminate; gone.push(item) })
+  if (act === "hide") byId(item).forEach((a) => a.hide)
+  const list = apps().filter((a) => !gone.includes(a.bundleIdentifier.js))
+  if (env("OMNINOTCH_COMMAND") === "quit-all") {
+    const names = list.map((a) => a.localizedName.js)
+    return out({ view: "detail", title: "Quit all apps?", body: names.length ? `These ${names.length} apps will quit (each asks to save anything unsaved):\n\n` + names.map((n) => "- " + n).join("\n") : "No other apps are open.",
+      actions: names.length ? [{ title: `Quit ${names.length} Apps`, run: "quitall", confirm: true }] : [] })
+  }
+  const items = list.map((a) => ({ id: a.bundleIdentifier.js, title: a.localizedName.js, subtitle: a.isHidden ? "Hidden" : a.isActive ? "In front" : "",
+    icon: "app:" + a.bundleIdentifier.js,
+    actions: [{ title: "Quit", run: "quit" }, { title: "Hide", run: "hide" }, { title: "Force Quit", run: "force", confirm: true, style: "destructive" }] }))
+  return out({ view: "list", title: "Open apps", placeholder: "Filter apps…", filter: "local", sections: [{ items }], empty: { title: "No other apps are open" } })
+}

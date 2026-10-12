@@ -1,0 +1,116 @@
+{
+  "v": 2,
+  "id": "com.mactoro.dev-utils",
+  "name": "Developer Utilities",
+  "description": "UUIDs, Base64, URL encoding, hashes, JSON, timestamps.",
+  "about": "The small conversions you look up ten times a day, done in the bar: a new UUID, Base64 and URL encode and decode, SHA-256 and MD5, pretty JSON from the clipboard, and Unix timestamps to dates.",
+  "category": "Developer",
+  "icon": "sf:wrench.and.screwdriver",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "uuid",
+      "title": "Generate UUID",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "icon": "sf:number",
+      "keywords": [
+        "uuid",
+        "guid",
+        "id"
+      ]
+    },
+    {
+      "id": "base64",
+      "title": "Base64 Encode or Decode",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "icon": "sf:textformat.abc",
+      "keywords": [
+        "base64",
+        "encode",
+        "decode"
+      ],
+      "arguments": [
+        {
+          "name": "text",
+          "placeholder": "Text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "url",
+      "title": "URL Encode or Decode",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "icon": "sf:link",
+      "keywords": [
+        "url",
+        "encode",
+        "percent"
+      ],
+      "arguments": [
+        {
+          "name": "text",
+          "placeholder": "Text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "hash",
+      "title": "Hash Text",
+      "subtitle": "SHA-256, SHA-1, MD5",
+      "mode": "view",
+      "icon": "sf:number.square",
+      "keywords": [
+        "hash",
+        "sha",
+        "md5",
+        "checksum"
+      ],
+      "arguments": [
+        {
+          "name": "text",
+          "placeholder": "Text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "json",
+      "title": "Format JSON from Clipboard",
+      "subtitle": "Developer Utilities",
+      "mode": "view",
+      "icon": "sf:curlybraces",
+      "keywords": [
+        "json",
+        "pretty",
+        "format"
+      ]
+    },
+    {
+      "id": "timestamp",
+      "title": "Convert Timestamp",
+      "subtitle": "Unix time ↔ date",
+      "mode": "view",
+      "icon": "sf:clock",
+      "keywords": [
+        "unix",
+        "epoch",
+        "timestamp",
+        "date"
+      ],
+      "arguments": [
+        {
+          "name": "value",
+          "placeholder": "1760000000 or a date",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

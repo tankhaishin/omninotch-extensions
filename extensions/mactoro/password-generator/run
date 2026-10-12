@@ -1,0 +1,30 @@
+#!/usr/bin/osascript -l JavaScript
+// Password Generator: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function randomInts(n, max) {   // unbiased integers in [0, max) from /dev/urandom
+  const words = (sh(`od -An -N${n * 4} -tu4 /dev/urandom`) || "").trim().split(/\s+/).map(Number)
+  const limit = Math.floor(4294967296 / max) * max
+  return words.map((w) => w < limit ? w % max : null).filter((w) => w !== null)
+}
+function run() {
+  if (env("OMNINOTCH_COMMAND") === "passphrase") {
+    const words = (sh("awk 'length($0) >= 4 && length($0) <= 7 && $0 ~ /^[a-z]+$/' /usr/share/dict/words") || "").split("\n").filter(Boolean)
+    const phrases = [0, 1, 2, 3, 4].map(() => randomInts(8, words.length).slice(0, 5).map((i) => words[i]).join("-"))
+    return out({ view: "detail", title: "Passphrases", body: phrases.map((p) => "`" + p + "`").join("\n\n") + "\n\nFive random words from a list of " + words.length.toLocaleString() + ".",
+      actions: phrases.map((p, i) => ({ title: `Copy ${i + 1}`, copy: p, shortcut: i === 0 ? "cmd+shift+c" : undefined })) })
+  }
+  const sets = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789-_!@#%*+"
+  const make = (len) => randomInts(len * 2, sets.length).slice(0, len).map((i) => sets[i]).join("")
+  const list = [make(20), make(20), make(24), make(32), make(16)]
+  return out({ view: "detail", title: "Passwords", body: list.map((p) => "`" + p + "`").join("\n\n"),
+    actions: list.map((p, i) => ({ title: `Copy ${p.length}-character password${i ? " " + (i + 1) : ""}`, copy: p, shortcut: i === 0 ? "cmd+shift+c" : undefined })) })
+}

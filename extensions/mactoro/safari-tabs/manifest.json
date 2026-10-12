@@ -1,0 +1,30 @@
+{
+  "v": 2,
+  "id": "com.mactoro.safari-tabs",
+  "name": "Safari Tabs",
+  "description": "Search your open Safari tabs; switch, copy or close.",
+  "about": "Every tab open in Safari, searchable by title and address. Switch to it, copy its link, or close it. Controls Safari on this Mac (macOS asks you once).",
+  "category": "Browsing",
+  "icon": "app:com.apple.Safari",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Safari"
+  ],
+  "needs": [],
+  "commands": [
+    {
+      "id": "tabs",
+      "title": "Search Safari Tabs",
+      "subtitle": "Safari",
+      "mode": "view",
+      "icon": "sf:square.on.square",
+      "keywords": [
+        "tab",
+        "browser",
+        "website"
+      ]
+    }
+  ]
+}

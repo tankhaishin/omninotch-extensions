@@ -1,0 +1,6 @@
+#!/bin/zsh
+# Mail: only while Mail is running (so it never opens Mail). macOS asks you once to allow OmniNotch to read it.
+pgrep -xq Mail || { print -r -- '[]'; exit 0 }
+n=$(/usr/bin/osascript -e 'tell application "Mail" to get unread count of inbox' 2>/dev/null) || { print -u2 "Couldn't read Mail (allow OmniNotch in Privacy & Security → Automation)."; exit 1 }
+(( n == 0 )) && { print -r -- '[]'; exit 0 }
+print -r -- '[{"v":1,"id":"mail","title":"Unread mail","subtitle":"'"$n"' in your inbox","value":"'"$n"'","icon":"sf:envelope.badge","priority":"low","expires":"5m"}]'

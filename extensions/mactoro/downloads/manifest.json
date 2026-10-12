@@ -1,14 +1,34 @@
 {
-  "v": 1,
+  "v": 2,
   "id": "com.mactoro.downloads",
   "name": "Downloads",
-  "description": "A pop-up when a download finishes.",
-  "about": "A pop-up when a download finishes, with Show and Open.",
-  "category": "Mac",
+  "description": "Your latest downloads: open, show, copy or trash.",
+  "about": "The newest files in your Downloads folder. OmniNotch needs Downloads folder access for this (it asks once). It can also show a Live status in the notch: a pop-up when a download finishes.",
+  "category": "Productivity",
+  "icon": "sf:arrow.down.circle",
   "author": "Mactoro",
   "run": "run",
-  "every": "15s",
   "network": false,
+  "commands": [
+    {
+      "id": "latest",
+      "title": "Latest Downloads",
+      "subtitle": "Downloads",
+      "mode": "view",
+      "icon": "sf:arrow.down.circle",
+      "keywords": [
+        "download",
+        "file"
+      ]
+    },
+    {
+      "id": "live",
+      "title": "Downloads in the notch",
+      "mode": "live",
+      "icon": "sf:arrow.down.circle"
+    }
+  ],
+  "every": "15s",
   "on": false,
   "actions": {
     "show": "Show",

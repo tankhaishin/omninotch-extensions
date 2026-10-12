@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "com.mactoro.npm-search",
+  "name": "npm Search",
+  "description": "Search npm packages; open, or copy the install command.",
+  "about": "Search the npm registry as you type: each package with its description and latest version. Open it on npmjs.com or its repository, or copy npm install.",
+  "category": "Developer",
+  "icon": "sf:shippingbox.circle",
+  "author": "Mactoro",
+  "run": "run",
+  "network": true,
+  "commands": [
+    {
+      "id": "search",
+      "title": "Search npm Packages",
+      "subtitle": "npm",
+      "mode": "view",
+      "icon": "sf:shippingbox.circle",
+      "keywords": [
+        "npm",
+        "node",
+        "package",
+        "javascript"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "v": 2,
+  "id": "com.mactoro.spotify",
+  "name": "Spotify",
+  "description": "Control Spotify: now playing, play, pause, skip.",
+  "about": "What's playing in Spotify, with play, pause and skip, and copy the song. Controls Spotify on this Mac (macOS asks you once to allow it).",
+  "category": "Media",
+  "icon": "app:com.spotify.client",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Spotify"
+  ],
+  "needs": [
+    "Spotify app"
+  ],
+  "commands": [
+    {
+      "id": "now-playing",
+      "title": "Now Playing in Spotify",
+      "subtitle": "Spotify",
+      "mode": "view",
+      "icon": "sf:music.note",
+      "keywords": [
+        "song",
+        "track",
+        "playing"
+      ]
+    },
+    {
+      "id": "play-pause",
+      "title": "Play or Pause Spotify",
+      "subtitle": "Spotify",
+      "mode": "run",
+      "icon": "sf:playpause"
+    },
+    {
+      "id": "next",
+      "title": "Next Track in Spotify",
+      "subtitle": "Spotify",
+      "mode": "run",
+      "icon": "sf:forward.end"
+    },
+    {
+      "id": "previous",
+      "title": "Previous Track in Spotify",
+      "subtitle": "Spotify",
+      "mode": "run",
+      "icon": "sf:backward.end"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "com.mactoro.port-manager",
+  "name": "Port Manager",
+  "description": "Every port your Mac is listening on, with Open and Kill.",
+  "about": "The local servers and apps listening on a TCP port: open them in your browser, copy the address, or stop the process.",
+  "category": "Developer",
+  "icon": "sf:point.3.connected.trianglepath.dotted",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "ports",
+      "title": "Listening Ports",
+      "subtitle": "Port Manager",
+      "mode": "view",
+      "icon": "sf:network",
+      "keywords": [
+        "port",
+        "localhost",
+        "server",
+        "lsof"
+      ]
+    }
+  ]
+}

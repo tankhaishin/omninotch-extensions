@@ -1,0 +1,27 @@
+#!/usr/bin/osascript -l JavaScript
+// Windsurf Projects: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+const APP = "Windsurf", DIR = "Windsurf"
+
+function run() {
+  if (env("OMNINOTCH_ACTION") === "open") { sh(`open -a ${q(APP)} ${q(env("OMNINOTCH_ITEM"))}`); return out({ close: true }) }
+  const db = home + `/Library/Application Support/${DIR}/User/globalStorage/state.vscdb`
+  const raw = sh(`sqlite3 -readonly ${q(db)} "select value from ItemTable where key='history.recentlyOpenedPathsList'" 2>/dev/null`)
+  if (raw === null) return out({ view: "detail", title: APP, body: `${APP} hasn't recorded any recent projects on this Mac yet.` })
+  let entries = []
+  try { entries = JSON.parse(raw).entries || [] } catch (e) {}
+  const items = entries.map((e) => e.folderUri || e.fileUri || (e.workspace && e.workspace.configPath)).filter((u) => u && u.startsWith("file://"))
+    .map((u) => decodeURIComponent(u.replace("file://", ""))).slice(0, 80).map((p) => ({ id: p, title: p.split("/").pop(), subtitle: tilde(p),
+      icon: p.endsWith(".code-workspace") ? "sf:square.stack.3d.up" : "sf:folder",
+      actions: [{ title: `Open in ${APP}`, run: "open" }, { title: "Show in Finder", reveal: p }, { title: "Copy Path", copy: p }] }))
+  return out({ view: "list", title: `Recent in ${APP}`, filter: "local", sections: [{ items }], empty: { title: "No recent projects" } })
+}

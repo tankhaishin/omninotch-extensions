@@ -1,0 +1,50 @@
+#!/usr/bin/osascript -l JavaScript
+// Chrome Tabs: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+const APP = "Google Chrome", KIND = "chrome"
+
+function tabs(app) {
+  const r = []
+  app.windows().forEach((w, wi) => {
+    let list = []
+    try { list = w.tabs() } catch (e) { return }
+    list.forEach((t, ti) => {
+      let title = "", url = ""
+      try { title = KIND === "safari" ? t.name() : t.title(); url = t.url() || "" } catch (e) {}
+      r.push({ wi, ti, title: title || url, url })
+    })
+  })
+  return r
+}
+function run() {
+  const app = Application(APP), act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  if (!app.running()) return out({ view: "detail", title: APP, body: `${APP} isn't open.` })
+  if (act === "switch" || act === "close") {
+    const [wi, ti] = item.split(":").map(Number), w = app.windows()[wi], t = w.tabs()[ti]
+    if (act === "close") t.close()
+    else {
+      if (KIND === "safari") w.currentTab = t
+      else if (KIND === "arc") t.select()
+      else w.activeTabIndex = ti + 1
+      w.index = 1; app.activate()
+      return out({ close: true })
+    }
+  }
+  const items = tabs(app).map((t) => {
+    let host = ""; try { host = t.url.split("/")[2] || "" } catch (e) {}
+    return { id: `${t.wi}:${t.ti}`, title: t.title, subtitle: host, icon: "sf:globe", keywords: [t.url],
+      actions: [{ title: "Switch to Tab", run: "switch" }, { title: "Copy URL", copy: t.url, shortcut: "cmd+shift+c" },
+                { title: "Copy Title and URL", copy: `${t.title}\n${t.url}` }, { title: "Close Tab", run: "close", shortcut: "cmd+w" }] }
+  })
+  return out({ view: "list", title: `${APP} tabs`, placeholder: "Search open tabs…", filter: "local", sections: [{ title: `${items.length} tabs`, items }],
+    empty: { title: "No open tabs" } })
+}

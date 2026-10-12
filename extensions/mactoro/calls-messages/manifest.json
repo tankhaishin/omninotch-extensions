@@ -1,0 +1,75 @@
+{
+  "v": 2,
+  "id": "com.mactoro.calls-messages",
+  "name": "FaceTime & Messages",
+  "description": "FaceTime, call or message any number or email.",
+  "about": "Type a phone number or email and start a FaceTime video or audio call, or open a Messages conversation with them.",
+  "category": "Communication",
+  "icon": "app:com.apple.FaceTime",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "facetime",
+      "title": "FaceTime",
+      "subtitle": "FaceTime",
+      "mode": "run",
+      "icon": "sf:video",
+      "url": "facetime:{who}",
+      "keywords": [
+        "video",
+        "call"
+      ],
+      "arguments": [
+        {
+          "name": "who",
+          "placeholder": "Number or email",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "facetime-audio",
+      "title": "FaceTime Audio",
+      "subtitle": "FaceTime",
+      "mode": "run",
+      "icon": "sf:phone",
+      "url": "facetime-audio:{who}",
+      "keywords": [
+        "call",
+        "audio"
+      ],
+      "arguments": [
+        {
+          "name": "who",
+          "placeholder": "Number or email",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    },
+    {
+      "id": "message",
+      "title": "Send a Message",
+      "subtitle": "Messages",
+      "mode": "run",
+      "icon": "sf:message",
+      "url": "imessage:{who}",
+      "keywords": [
+        "imessage",
+        "text",
+        "sms"
+      ],
+      "arguments": [
+        {
+          "name": "who",
+          "placeholder": "Number or email",
+          "required": true,
+          "percentEncoded": true
+        }
+      ]
+    }
+  ]
+}

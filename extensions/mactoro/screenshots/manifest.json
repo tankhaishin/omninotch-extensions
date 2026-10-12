@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "com.mactoro.screenshots",
+  "name": "Screenshots",
+  "description": "Your recent screenshots: open, copy the image, show or trash.",
+  "about": "Screenshots and screen recordings from wherever your Mac saves them (it reads the screenshot location you set).",
+  "category": "Images",
+  "icon": "sf:camera.viewfinder",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "recent",
+      "title": "Recent Screenshots",
+      "subtitle": "Screenshots",
+      "mode": "view",
+      "icon": "sf:camera.viewfinder",
+      "keywords": [
+        "screenshot",
+        "screen",
+        "capture",
+        "image"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "v": 2,
+  "id": "com.mactoro.finder",
+  "name": "Finder",
+  "description": "Copy the selected file's path, or open Terminal where you are.",
+  "about": "Small Finder helpers: copy the path of what you've selected, open Terminal in the folder you're looking at, and show or hide hidden files. Controls Finder (macOS asks you once).",
+  "category": "System",
+  "icon": "app:com.apple.finder",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Finder"
+  ],
+  "commands": [
+    {
+      "id": "copy-path",
+      "title": "Copy Path of Selected File",
+      "subtitle": "Finder",
+      "mode": "run",
+      "icon": "sf:doc.on.clipboard",
+      "keywords": [
+        "path",
+        "copy",
+        "file"
+      ]
+    },
+    {
+      "id": "terminal-here",
+      "title": "Open Terminal Here",
+      "subtitle": "Finder",
+      "mode": "run",
+      "icon": "sf:terminal",
+      "keywords": [
+        "terminal",
+        "folder",
+        "shell"
+      ]
+    },
+    {
+      "id": "hidden-files",
+      "title": "Show or Hide Hidden Files",
+      "subtitle": "Finder",
+      "mode": "view",
+      "icon": "sf:eye",
+      "keywords": [
+        "hidden",
+        "dotfiles"
+      ]
+    }
+  ]
+}

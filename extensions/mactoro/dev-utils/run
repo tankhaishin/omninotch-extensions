@@ -1,0 +1,44 @@
+#!/usr/bin/osascript -l JavaScript
+// Developer Utilities: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+const copyRow = (label, value) => ({ label, value })
+const detail = (title, rows) => out({ view: "detail", title, body: rows.map((r) => `**${r.label}**\n\n\`${r.value}\``).join("\n\n"), metadata: [],
+  actions: rows.map((r, i) => ({ title: `Copy ${r.label}`, copy: r.value, shortcut: i === 0 ? "cmd+shift+c" : undefined })) })
+function run() {
+  const cmd = env("OMNINOTCH_COMMAND"), text = env("OMNINOTCH_ARG_TEXT")
+  if (cmd === "uuid") { const u = $.NSUUID.UUID.UUIDString.js; return detail("New UUID", [copyRow("UUID", u), copyRow("Lowercase", u.toLowerCase())]) }
+  if (cmd === "base64") {
+    const enc = $(text).dataUsingEncoding($.NSUTF8StringEncoding).base64EncodedStringWithOptions(0).js
+    const data = $.NSData.alloc.initWithBase64EncodedStringOptions($(text.trim()), 1)
+    const dec = data.isNil() ? null : $.NSString.alloc.initWithDataEncoding(data, $.NSUTF8StringEncoding)
+    return detail("Base64", [copyRow("Encoded", enc)].concat(dec && !dec.isNil() ? [copyRow("Decoded", dec.js)] : []))
+  }
+  if (cmd === "url") {
+    let dec = null; try { dec = decodeURIComponent(text) } catch (e) {}
+    return detail("URL encoding", [copyRow("Encoded", encodeURIComponent(text))].concat(dec !== null && dec !== text ? [copyRow("Decoded", dec)] : []))
+  }
+  if (cmd === "hash") {
+    const h = (alg) => (sh(`printf %s ${q(text)} | ${alg}`) || "").trim().split(" ")[0]
+    return detail("Hashes", [copyRow("SHA-256", h("shasum -a 256")), copyRow("SHA-1", h("shasum -a 1")), copyRow("MD5", h("md5 -q"))])
+  }
+  if (cmd === "json") {
+    const clip = (sh("pbpaste") || "").trim()
+    try { const pretty = JSON.stringify(JSON.parse(clip), null, 2); return out({ view: "detail", title: "Formatted JSON", body: "```json\n" + pretty.slice(0, 20000) + "\n```",
+      actions: [{ title: "Copy Formatted", copy: pretty, shortcut: "cmd+shift+c" }, { title: "Copy Minified", copy: JSON.stringify(JSON.parse(clip)) }] }) }
+    catch (e) { return out({ view: "detail", title: "Not JSON", body: "The clipboard doesn't hold valid JSON: " + e.message }) }
+  }
+  const v = env("OMNINOTCH_ARG_VALUE").trim()
+  const d = !v ? new Date() : /^\d{9,13}$/.test(v) ? new Date(v.length > 10 ? +v : +v * 1000) : new Date(v)
+  if (isNaN(d)) return out({ view: "detail", title: "Can't read that", body: "Type a Unix timestamp (seconds or milliseconds) or a date like 2026-10-12 14:30." })
+  return detail(v ? "Timestamp" : "Now", [copyRow("Unix seconds", String(Math.floor(d / 1000))), copyRow("Milliseconds", String(+d)),
+    copyRow("ISO 8601", d.toISOString()), copyRow("Local", d.toString())])
+}

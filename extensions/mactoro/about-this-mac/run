@@ -1,0 +1,37 @@
+#!/usr/bin/osascript -l JavaScript
+// About This Mac: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  let hw = {}, pw = {}
+  try { hw = (JSON.parse(sh("system_profiler SPHardwareDataType -json") || "{}").SPHardwareDataType || [])[0] || {} } catch (e) {}
+  try { pw = (JSON.parse(sh("system_profiler SPPowerDataType -json") || "{}").SPPowerDataType || [])[0] || {} } catch (e) {}
+  const os = `${(sh("sw_vers -productName") || "macOS").trim()} ${(sh("sw_vers -productVersion") || "").trim()} (${(sh("sw_vers -buildVersion") || "").trim()})`
+  const boot = +((sh("sysctl -n kern.boottime") || "").match(/sec = (\d+)/) || [0, 0])[1]
+  const days = boot ? Math.floor((Date.now() / 1000 - boot) / 86400) : null
+  const health = pw.sppower_battery_health_info || {}
+  const meta = [
+    { label: "Model", value: hw.machine_name ? `${hw.machine_name} (${hw.machine_model || ""})` : "Unknown" },
+    { label: "Chip", value: hw.chip_type || hw.cpu_type || "Unknown" },
+    { label: "Memory", value: hw.physical_memory || "Unknown" },
+    { label: "macOS", value: os },
+    { label: "Serial number", value: hw.serial_number || "Unknown" },
+    { label: "Up for", value: days === null ? "Unknown" : days === 0 ? "Less than a day" : `${days} day${days === 1 ? "" : "s"}` }]
+  if (health.sppower_battery_cycle_count != null) {
+    meta.push({ label: "Battery cycles", value: String(health.sppower_battery_cycle_count) })
+    meta.push({ label: "Battery condition", value: health.sppower_battery_health || "Unknown" })
+    if (health.sppower_battery_health_maximum_capacity) meta.push({ label: "Maximum capacity", value: health.sppower_battery_health_maximum_capacity })
+  }
+  const actions = [{ title: "Copy Serial Number", copy: hw.serial_number || "" },
+    { title: "Copy All", copy: meta.map((m) => `${m.label}: ${m.value}`).join("\n"), shortcut: "cmd+shift+c" },
+    { title: "Open About in Settings", url: "x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension" }]
+  return out({ view: "detail", title: hw.machine_name || "This Mac", body: `**${hw.machine_name || "Mac"}** with ${hw.chip_type || "an unknown chip"} and ${hw.physical_memory || "unknown"} of memory, running ${os}.`, metadata: meta, actions })
+}

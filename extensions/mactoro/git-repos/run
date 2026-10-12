@@ -1,0 +1,33 @@
+#!/usr/bin/osascript -l JavaScript
+// Git Repos: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  if (act === "terminal") { sh(`open -a Terminal ${q(item)}`); return out({ close: true }) }
+  if (act === "vscode" || act === "cursor") { sh(`open -a ${q(act === "vscode" ? "Visual Studio Code" : "Cursor")} ${q(item)}`); return out({ close: true }) }
+  const dirs = (env("OMNINOTCH_SETTING_FOLDERS") || "~/Developer").split(",").map((s) => s.trim().replace(/^~/, home)).filter(Boolean)
+  const found = (sh(`find ${dirs.map(q).join(" ")} -maxdepth 3 -name .git -type d -prune 2>/dev/null | head -150`) || "").split("\n").filter(Boolean).map((g) => g.slice(0, -5))
+  const items = found.map((r) => {
+    const head = (sh(`git -C ${q(r)} status --porcelain=v1 -b 2>/dev/null | head -40`) || "").split("\n")
+    const branch = (head[0] || "").replace(/^## /, "").split("...")[0]
+    const dirty = head.length > 1 && head[1] !== "", ahead = /ahead (\d+)/.exec(head[0] || "")
+    const remote = (sh(`git -C ${q(r)} remote get-url origin 2>/dev/null`) || "").trim()
+    const web = remote.replace(/^git@github\.com:/, "https://github.com/").replace(/\.git$/, "")
+    const state = [dirty ? "uncommitted changes" : "", ahead ? `${ahead[1]} to push` : ""].filter(Boolean).join(", ")
+    const actions = [{ title: "Open in VS Code", run: "vscode" }, { title: "Open in Cursor", run: "cursor" }, { title: "Open in Terminal", run: "terminal" },
+      { title: "Show in Finder", reveal: r }, { title: "Copy Path", copy: r }]
+    if (web.startsWith("https://")) actions.push({ title: "Open on GitHub", url: web })
+    return { id: r, title: r.split("/").pop(), subtitle: tilde(r), accessory: [branch, state].filter(Boolean).join(" · "), icon: dirty || ahead ? "sf:arrow.triangle.branch" : "sf:folder", actions }
+  })
+  return out({ view: "list", title: "Git repositories", filter: "local", sections: [{ items }],
+    empty: { title: "No repositories found", subtitle: "Set your project folders in this extension's settings" } })
+}

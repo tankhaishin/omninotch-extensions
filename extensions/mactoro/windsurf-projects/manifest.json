@@ -1,0 +1,30 @@
+{
+  "v": 2,
+  "id": "com.mactoro.windsurf-projects",
+  "name": "Windsurf Projects",
+  "description": "Reopen your recent Windsurf folders and workspaces.",
+  "about": "The folders and workspaces you opened recently in Windsurf, read from Windsurf's own history on this Mac.",
+  "category": "Developer",
+  "icon": "app:com.exafunction.windsurf",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "needs": [
+    "Windsurf app"
+  ],
+  "commands": [
+    {
+      "id": "recent",
+      "title": "Open Recent Windsurf Project",
+      "subtitle": "Windsurf",
+      "mode": "view",
+      "icon": "sf:folder",
+      "keywords": [
+        "project",
+        "editor",
+        "code",
+        "recent"
+      ]
+    }
+  ]
+}

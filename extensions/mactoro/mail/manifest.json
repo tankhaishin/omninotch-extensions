@@ -1,14 +1,38 @@
 {
-  "v": 1,
+  "v": 2,
   "id": "com.mactoro.mail",
   "name": "Mail",
-  "description": "Unread mail while Mail is open.",
-  "about": "Unread mail in your inbox, while the Mail app is open.",
-  "category": "Work",
+  "description": "Your unread mail: open it or mark it read.",
+  "about": "Unread messages in your Mail inbox, newest first. Open one in Mail or mark it read. Controls Mail on this Mac (macOS asks you once). It can also show a Live status in the notch: unread mail while Mail is open.",
+  "category": "Communication",
+  "icon": "app:com.apple.mail",
   "author": "Mactoro",
   "run": "run",
-  "every": "2m",
   "network": false,
+  "automation": [
+    "Mail"
+  ],
+  "commands": [
+    {
+      "id": "unread",
+      "title": "Unread Mail",
+      "subtitle": "Mail",
+      "mode": "view",
+      "icon": "sf:envelope.badge",
+      "keywords": [
+        "email",
+        "inbox",
+        "unread"
+      ]
+    },
+    {
+      "id": "live",
+      "title": "Mail in the notch",
+      "mode": "live",
+      "icon": "app:com.apple.mail"
+    }
+  ],
+  "every": "2m",
   "on": false,
   "example": {
     "title": "Unread mail",

@@ -1,0 +1,39 @@
+{
+  "v": 2,
+  "id": "com.mactoro.kill-process",
+  "name": "Kill Process",
+  "description": "Quit any app or process, sorted by CPU or memory.",
+  "about": "Every running process with its CPU or memory use. Quit politely, force quit what's stuck, or copy its process ID.",
+  "category": "System",
+  "icon": "sf:xmark.square",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "by-cpu",
+      "title": "Kill Process",
+      "subtitle": "By CPU",
+      "mode": "view",
+      "icon": "sf:cpu",
+      "keywords": [
+        "process",
+        "quit",
+        "force",
+        "cpu"
+      ]
+    },
+    {
+      "id": "by-memory",
+      "title": "Kill Process by Memory",
+      "subtitle": "By memory",
+      "mode": "view",
+      "icon": "sf:memorychip",
+      "keywords": [
+        "process",
+        "ram",
+        "memory"
+      ]
+    }
+  ]
+}

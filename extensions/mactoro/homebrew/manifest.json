@@ -1,21 +1,70 @@
 {
-  "v": 1,
+  "v": 2,
   "id": "com.mactoro.homebrew",
   "name": "Homebrew",
-  "description": "Homebrew updates, with one-click upgrade.",
-  "about": "Homebrew updates waiting, and an Upgrade button that runs them in the background.",
+  "description": "Outdated packages, search and install, and what's installed.",
+  "about": "See what's out of date and upgrade it, search Homebrew and install, or browse what you have. Installs and upgrades run in the background and report back. It can also show a Live status in the notch: homebrew updates, with one-click upgrade.",
   "category": "Developer",
+  "icon": "sf:mug",
   "author": "Mactoro",
   "run": "run",
-  "every": "6h",
   "network": true,
+  "needs": [
+    "Homebrew"
+  ],
+  "commands": [
+    {
+      "id": "outdated",
+      "title": "Outdated Homebrew Packages",
+      "subtitle": "Homebrew",
+      "mode": "view",
+      "icon": "sf:arrow.up.circle",
+      "keywords": [
+        "brew",
+        "update",
+        "upgrade"
+      ]
+    },
+    {
+      "id": "search",
+      "title": "Search Homebrew",
+      "subtitle": "Homebrew",
+      "mode": "view",
+      "icon": "sf:magnifyingglass",
+      "keywords": [
+        "brew",
+        "install",
+        "cask",
+        "formula"
+      ]
+    },
+    {
+      "id": "installed",
+      "title": "Installed Homebrew Packages",
+      "subtitle": "Homebrew",
+      "mode": "view",
+      "icon": "sf:shippingbox",
+      "keywords": [
+        "brew",
+        "list",
+        "uninstall"
+      ]
+    },
+    {
+      "id": "live",
+      "title": "Homebrew in the notch",
+      "mode": "live",
+      "icon": "sf:mug"
+    }
+  ],
+  "every": "6h",
   "on": false,
   "actions": {
     "upgrade": "Upgrade"
   },
   "example": {
     "title": "7 updates",
-    "subtitle": "node, git, ffmpeg, python \u2026",
+    "subtitle": "node, git, ffmpeg, python …",
     "value": "7",
     "icon": "sf:mug"
   }

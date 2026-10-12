@@ -1,0 +1,20 @@
+#!/usr/bin/osascript -l JavaScript
+// Terminal: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  if (env("OMNINOTCH_COMMAND") === "run-command") {
+    const T = Application("Terminal"); T.doScript(env("OMNINOTCH_ARG_COMMAND")); T.activate()
+    return out({ close: true })
+  }
+  sh(`open -na Terminal ${q(home)}`)
+  return out({ close: true })
+}

@@ -1,23 +1,59 @@
-#!/bin/zsh
-# Homebrew: `brew outdated` (no network). Upgrade runs `brew upgrade --formula` in the background and reports back.
-js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
-command -v brew >/dev/null || { print -u2 "Homebrew isn't installed."; exit 1 }
-pid_f="$OMNINOTCH_DATA/pid"; st_f="$OMNINOTCH_DATA/status"
-if [[ $OMNINOTCH_ACTION == upgrade ]] && ! { [[ -f $pid_f ]] && kill -0 $(<$pid_f) 2>/dev/null }; then
-  rm -f $st_f
-  zsh -c "HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade --formula >'$OMNINOTCH_DATA/log' 2>&1; print \$? > '$st_f'" </dev/null >/dev/null 2>&1 &!
-  print $! > $pid_f
-fi
-if [[ -f $pid_f ]] && kill -0 $(<$pid_f) 2>/dev/null; then
-  print -r -- '{"activities":[{"v":1,"id":"brew","title":"Upgrading Homebrew","subtitle":"Running brew upgrade","progress":"indeterminate","icon":"sf:mug","tint":"live"}],"next":"15s"}'
-  exit 0
-fi
-if [[ -f $pid_f && -f $st_f ]]; then
-  rm -f $pid_f
-  if [[ $(<$st_f) == 0 ]]; then print -r -- '[{"v":1,"id":"brew","title":"Homebrew upgraded","icon":"sf:mug","state":"done"}]'
-  else print -r -- '[{"v":1,"id":"brew","title":"Homebrew upgrade failed","subtitle":"See brew upgrade in Terminal","icon":"sf:mug","state":"failed","expires":"1h"}]'; fi
-  exit 0
-fi
-names=(${(f)"$(HOMEBREW_NO_AUTO_UPDATE=1 brew outdated --formula --quiet 2>/dev/null)"})
-(( ${#names} == 0 )) && { print -r -- '[]'; exit 0 }
-print -r -- "[{\"v\":1,\"id\":\"brew\",\"title\":\"${#names} Homebrew updates\",\"subtitle\":$(js "${(j:, :)names[1,4]}${names[5]:+ …}"),\"value\":\"${#names}\",\"icon\":\"sf:mug\",\"priority\":\"low\",\"actions\":[{\"title\":\"Upgrade\",\"run\":\"upgrade\"}]}]"
+#!/usr/bin/osascript -l JavaScript
+// Homebrew: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function missing(tool, how) {
+  return out({ view: "detail", title: `${tool} isn't installed`, body: `This extension uses **${tool}**. ${how}`,
+    actions: [{ title: "Copy Install Command", copy: how.match(/`([^`]+)`/) ? how.match(/`([^`]+)`/)[1] : how }] })
+}
+
+function bg(args, label) {
+  sh(`(HOMEBREW_NO_AUTO_UPDATE=1 brew ${args} >${q(env("OMNINOTCH_DATA") + "/last.log")} 2>&1; /usr/bin/osascript -e 'display notification "${label} finished" with title "Homebrew"') >/dev/null 2>&1 &`)
+}
+function run() {
+  if (!env("OMNINOTCH_COMMAND")) {                     // a Live run: the notch status comes from ./live
+    const here = $.NSFileManager.defaultManager.currentDirectoryPath.js
+    return sh(`cd ${q(here)} && ./live`) || "[]"
+  }
+  if (!(sh("command -v brew") || "").trim()) return missing("Homebrew", "Install it from brew.sh: `/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"`")
+  const cmd = env("OMNINOTCH_COMMAND"), act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  if (act === "upgrade") { bg(`upgrade ${q(item)}`, `Upgrade of ${item}`); return out({ toast: `Upgrading ${item} in the background` }) }
+  if (act === "upgrade-all") { bg("upgrade", "Upgrade"); return out({ toast: "Upgrading everything in the background", close: true }) }
+  if (act === "install") { bg(`install ${q(item)}`, `Install of ${item}`); return out({ toast: `Installing ${item} in the background` }) }
+  if (act === "uninstall") { const r = sh(`brew uninstall ${q(item)} 2>&1`); return out({ toast: r === null ? `Couldn't uninstall ${item}` : `Uninstalled ${item}` }) }
+  const page = (n, cask) => `https://formulae.brew.sh/${cask ? "cask" : "formula"}/${n}`
+  if (cmd === "outdated") {
+    let d = { formulae: [], casks: [] }
+    try { d = JSON.parse(sh("HOMEBREW_NO_AUTO_UPDATE=1 brew outdated --json=v2") || "{}") } catch (e) {}
+    const rows = [...(d.formulae || []).map((f) => [f, false]), ...(d.casks || []).map((c) => [c, true])]
+    const items = rows.map(([p, cask]) => ({ id: p.name, title: p.name, subtitle: cask ? "App" : "Formula",
+      accessory: `${[].concat(p.installed_versions || [])[0] || "?"} → ${p.current_version}`, icon: cask ? "sf:app.badge" : "sf:shippingbox",
+      actions: [{ title: "Upgrade", run: "upgrade" }, { title: "Upgrade All", run: "upgrade-all", confirm: true }, { title: "Open Page", url: page(p.name, cask) }] }))
+    return out({ view: "list", title: "Outdated", filter: "local", sections: [{ title: `${items.length} to upgrade`, items }], empty: { title: "Everything is up to date" } })
+  }
+  if (cmd === "search") {
+    const query = env("OMNINOTCH_QUERY").trim()
+    if (query.length < 2) return out({ view: "list", title: "Search Homebrew", placeholder: "Type a package name…", filter: "script", sections: [], empty: { title: "Type at least two letters" } })
+    const f = (sh(`HOMEBREW_NO_AUTO_UPDATE=1 brew search --formula ${q(query)} 2>/dev/null`) || "").split("\n").filter(Boolean).slice(0, 40)
+    const c = (sh(`HOMEBREW_NO_AUTO_UPDATE=1 brew search --cask ${q(query)} 2>/dev/null`) || "").split("\n").filter(Boolean).slice(0, 40)
+    const mk = (n, cask) => ({ id: cask ? `--cask ${n}` : n, title: n, subtitle: cask ? "App" : "Formula", icon: cask ? "sf:app.badge" : "sf:shippingbox",
+      actions: [{ title: "Install", run: "install" }, { title: "Open Page", url: page(n, cask) }, { title: "Copy Install Command", copy: `brew install ${cask ? "--cask " : ""}${n}` }] })
+    return out({ view: "list", title: "Search Homebrew", placeholder: "Type a package name…", filter: "script",
+      sections: [{ title: "Formulae", items: f.map((n) => mk(n, false)) }, { title: "Apps", items: c.map((n) => mk(n, true)) }].filter((s) => s.items.length),
+      empty: { title: `Nothing called "${query}"` } })
+  }
+  const lines = (sh("brew list --versions") || "").split("\n").filter(Boolean)
+  const casks = (sh("brew list --cask --versions") || "").split("\n").filter(Boolean)
+  const mk = (l, cask) => { const [n, ...v] = l.split(" "); return { id: n, title: n, subtitle: cask ? "App" : "Formula", accessory: v.join(" "), icon: cask ? "sf:app.badge" : "sf:shippingbox",
+    actions: [{ title: "Open Page", url: page(n, cask) }, { title: "Uninstall", run: "uninstall", confirm: true, style: "destructive" }, { title: "Copy Name", copy: n }] } }
+  return out({ view: "list", title: "Installed", filter: "local", sections: [{ title: "Formulae", items: lines.filter((l) => !casks.includes(l)).map((l) => mk(l, false)) },
+    { title: "Apps", items: casks.map((l) => mk(l, true)) }].filter((s) => s.items.length), empty: { title: "Nothing installed with Homebrew" } })
+}

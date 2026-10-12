@@ -1,18 +1,37 @@
-#!/bin/zsh
-# Docker: quiet while everything's fine. A container that exited with an error in the last 10 minutes, or is unhealthy.
-js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
-export PATH="$PATH:$HOME/.orbstack/bin:/Applications/Docker.app/Contents/Resources/bin"
-command -v docker >/dev/null || { print -u2 "Docker isn't installed."; exit 1 }
-ps_out=$(docker ps -a --format '{{.Names}}	{{.Status}}' 2>/dev/null) || { print -r -- '[]'; exit 0 }   # not running: nothing to say
-out=()
-while IFS=$'\t' read name st; do
-  [[ -z $name ]] && continue
-  id=${${name:l}//[^a-z0-9._-]/-}
-  if [[ $st == *"(unhealthy)"* ]]; then
-    out+=("{\"v\":1,\"id\":\"c-$id\",\"title\":$(js "$name"),\"subtitle\":\"Unhealthy\",\"icon\":\"sf:shippingbox\",\"state\":\"failed\",\"expires\":\"3m\"}")
-  elif [[ $st == Exited\ \([1-9]* && $st == *(second|minute)s#\ ago* && ! $st == *([1-9][0-9]|[1-9][0-9][0-9])\ minutes\ ago* ]]; then
-    code=${${st#Exited \(}%%\)*}
-    out+=("{\"v\":1,\"id\":\"c-$id\",\"title\":$(js "$name"),\"subtitle\":\"Stopped with exit code $code\",\"icon\":\"sf:shippingbox\",\"state\":\"failed\",\"expires\":\"10m\"}")
-  fi
-done <<< "$ps_out"
-print -r -- "[${(j:,:)out[1,5]}]"
+#!/usr/bin/osascript -l JavaScript
+// Docker: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function missing(tool, how) {
+  return out({ view: "detail", title: `${tool} isn't installed`, body: `This extension uses **${tool}**. ${how}`,
+    actions: [{ title: "Copy Install Command", copy: how.match(/`([^`]+)`/) ? how.match(/`([^`]+)`/)[1] : how }] })
+}
+
+function run() {
+  if (!env("OMNINOTCH_COMMAND")) {                     // a Live run: the notch status comes from ./live
+    const here = $.NSFileManager.defaultManager.currentDirectoryPath.js
+    return sh(`cd ${q(here)} && ./live`) || "[]"
+  }
+  const docker = (sh("PATH=$PATH:$HOME/.orbstack/bin:/Applications/Docker.app/Contents/Resources/bin; command -v docker") || "").trim()
+  if (!docker) return missing("Docker", "Install Docker Desktop, OrbStack or Colima (`brew install --cask orbstack`).")
+  const act = env("OMNINOTCH_ACTION"), id = env("OMNINOTCH_ITEM")
+  if (act === "logs") return out({ view: "detail", title: "Logs", body: "```\n" + (sh(`${docker} logs --tail 80 ${q(id)} 2>&1`) || "No logs").slice(-6000) + "\n```" })
+  if (["start", "stop", "restart"].includes(act)) { if (sh(`${docker} ${act} ${q(id)}`) === null) return out({ toast: `Couldn't ${act} it` }) }
+  const raw = sh(`${docker} ps -a --format '{{json .}}' 2>&1`)
+  if (raw === null || /Cannot connect|error during connect/i.test(raw)) return out({ view: "detail", title: "Docker isn't running", body: "Start Docker Desktop, OrbStack or Colima, then try again." })
+  const rows = raw.split("\n").filter((l) => l.startsWith("{")).map((l) => JSON.parse(l))
+  const item = (c) => { const up = c.State === "running"
+    return { id: c.ID, title: c.Names, subtitle: c.Image, accessory: c.Status, icon: up ? "sf:play.circle" : "sf:stop.circle",
+      actions: [up ? { title: "Stop", run: "stop" } : { title: "Start", run: "start" }, { title: "Restart", run: "restart" }, { title: "Show Logs", run: "logs" },
+                { title: "Copy ID", copy: c.ID }] } }
+  return out({ view: "list", title: "Containers", filter: "local", sections: [{ title: "Running", items: rows.filter((c) => c.State === "running").map(item) },
+    { title: "Stopped", items: rows.filter((c) => c.State !== "running").map(item) }].filter((s) => s.items.length), empty: { title: "No containers" } })
+}

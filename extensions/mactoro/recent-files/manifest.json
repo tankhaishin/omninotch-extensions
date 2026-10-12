@@ -1,0 +1,27 @@
+{
+  "v": 2,
+  "id": "com.mactoro.recent-files",
+  "name": "Recent Files",
+  "description": "Files you opened in the last week, from Spotlight.",
+  "about": "The documents you've used recently anywhere in your home folder, newest first, straight from Spotlight's index: open, show in Finder, copy the path.",
+  "category": "Productivity",
+  "icon": "sf:clock.arrow.circlepath",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "recent",
+      "title": "Recent Files",
+      "subtitle": "Last 7 days",
+      "mode": "view",
+      "icon": "sf:clock",
+      "keywords": [
+        "recent",
+        "file",
+        "document",
+        "opened"
+      ]
+    }
+  ]
+}

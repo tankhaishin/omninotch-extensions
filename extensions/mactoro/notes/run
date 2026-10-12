@@ -1,0 +1,32 @@
+#!/usr/bin/osascript -l JavaScript
+// Notes: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const Notes = Application("Notes"), cmd = env("OMNINOTCH_COMMAND"), act = env("OMNINOTCH_ACTION")
+  if (act === "open") { const n = Notes.notes.byId(env("OMNINOTCH_ITEM")); Notes.show(n); Notes.activate(); return out({ close: true }) }
+  if (act === "create") {
+    const f = JSON.parse(env("OMNINOTCH_FORM") || "{}"), esc = (s) => String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    Notes.make({ new: "note", withProperties: { body: `<h1>${esc(f.title)}</h1><div>${esc(f.body).replace(/\n/g, "<br>")}</div>` } })
+    return out({ toast: "Note created", close: true })
+  }
+  if (cmd === "new") return out({ view: "form", title: "New note", fields: [
+      { id: "title", type: "text", title: "Title", required: true }, { id: "body", type: "textarea", title: "Note" }],
+    submit: { title: "Create Note", run: "create" } })
+  const query = env("OMNINOTCH_QUERY").trim()
+  const found = query ? Notes.notes.whose({ name: { _contains: query } }) : Notes.notes
+  const names = found.name(), ids = found.id(), dates = found.modificationDate()
+  const rows = names.map((n, i) => ({ n, id: ids[i], d: dates[i] })).sort((a, b) => b.d - a.d).slice(0, 80)
+  const items = rows.map((r) => ({ id: r.id, title: r.n || "Untitled", accessory: r.d.toLocaleDateString(), icon: "sf:note.text",
+    actions: [{ title: "Open in Notes", run: "open" }, { title: "Copy Title", copy: r.n }] }))
+  return out({ view: "list", title: "Notes", placeholder: "Search notes…", filter: "script", sections: [{ items }],
+    empty: { title: query ? `No notes match "${query}"` : "No notes yet" } })
+}

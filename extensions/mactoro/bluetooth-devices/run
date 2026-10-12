@@ -1,0 +1,34 @@
+#!/usr/bin/osascript -l JavaScript
+// Bluetooth Devices: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function run() {
+  const act = env("OMNINOTCH_ACTION"), item = env("OMNINOTCH_ITEM")
+  const blueutil = (sh("command -v blueutil") || "").trim()
+  if ((act === "connect" || act === "disconnect") && blueutil) sh(`blueutil --${act} ${q(item)}`)
+  let data = {}
+  try { data = JSON.parse(sh("system_profiler SPBluetoothDataType -json") || "{}") } catch (e) {}
+  const bt = (data.SPBluetoothDataType || [])[0] || {}
+  const section = (list, connected) => (list || []).flatMap((o) => Object.entries(o)).map(([name, d]) => {
+    const levels = [["", d.device_batteryLevelMain], ["L ", d.device_batteryLevelLeft], ["R ", d.device_batteryLevelRight], ["Case ", d.device_batteryLevelCase]]
+      .filter(([, v]) => v).map(([k, v]) => k + v)
+    const addr = d.device_address || name
+    const actions = [{ title: "Open Bluetooth Settings", url: "x-apple.systempreferences:com.apple.BluetoothSettings" }, { title: "Copy Address", copy: addr }]
+    if (blueutil) actions.unshift(connected ? { title: "Disconnect", run: "disconnect" } : { title: "Connect", run: "connect" })
+    return { id: addr, title: name, subtitle: [d.device_minorType, connected ? "Connected" : "Not connected"].filter(Boolean).join(" · "),
+      icon: /airpod|headphone|beats/i.test(name + (d.device_minorType || "")) ? "sf:airpodspro" : /mouse/i.test(d.device_minorType || "") ? "sf:computermouse" : /keyboard/i.test(d.device_minorType || "") ? "sf:keyboard" : "sf:dot.radiowaves.left.and.right",
+      accessory: levels.join(" "), actions }
+  })
+  const on = section(bt.device_connected, true), off = section(bt.device_not_connected, false)
+  return out({ view: "list", title: "Bluetooth", placeholder: "Filter devices…", filter: "local",
+    sections: [{ title: "Connected", items: on }, { title: "Not connected", items: off }].filter((s) => s.items.length),
+    empty: { title: "No Bluetooth devices", subtitle: "Pair one in System Settings" } })
+}

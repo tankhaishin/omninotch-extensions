@@ -97,13 +97,102 @@ def check_v2(folder, m, problems, warnings, icons):
         problems.append("v2: commands without a url need a run script")
 
 
+OPTS = {"command": None, "args": {}, "automation": False}
+ACTION_KINDS = ("url", "open", "reveal", "copy", "paste", "run", "push")
+FIELD_TYPES = ("text", "textarea", "dropdown", "checkbox", "date", "number")
+
+
+def check_actions(where, actions, problems):
+    for a in actions or []:
+        if not a.get("title"): problems.append(f"{where}: an action needs a title")
+        kinds = [k for k in ACTION_KINDS if k in a]
+        if len(kinds) != 1: problems.append(f"{where}: action {a.get('title')!r} needs exactly one of {ACTION_KINDS}")
+        if "url" in a and not re.match(r"^[a-z][a-z0-9+.-]*:", str(a["url"])): problems.append(f"{where}: url needs a scheme")
+        if "push" in a: validate_screen(a["push"], f"{where} → push", problems)
+
+
+def validate_screen(s, where, problems):
+    """COMMANDS.md v2: a screen (list, detail, form) or a result (toast, view, pop, close)."""
+    if not isinstance(s, dict): problems.append(f"{where}: output must be one JSON object"); return
+    if "view" in s and isinstance(s["view"], dict): return validate_screen(s["view"], where, problems)
+    kind = s.get("view")
+    if kind is None:
+        if not any(k in s for k in ("toast", "pop", "close")): problems.append(f"{where}: expected a screen (view) or a result (toast, pop, close)")
+        return
+    if kind == "list":
+        rows = 0
+        for sec in s.get("sections") or [{"items": s.get("items", [])}]:
+            for it in sec.get("items", []):
+                rows += 1
+                if not it.get("title"): problems.append(f"{where}: every row needs a title")
+                if "id" not in it: problems.append(f"{where}: row {it.get('title')!r} needs an id")
+                check_actions(f"{where}: row {it.get('title')!r}", it.get("actions"), problems)
+        if rows > 500: problems.append(f"{where}: at most 500 rows ({rows})")
+        if s.get("filter") not in (None, "local", "script"): problems.append(f"{where}: filter is local or script")
+        if rows == 0 and not s.get("empty"): problems.append(f"{where}: an empty list needs an empty state")
+    elif kind == "detail":
+        if not isinstance(s.get("body", ""), str): problems.append(f"{where}: body must be text")
+        for md in s.get("metadata", []):
+            if "label" not in md or "value" not in md: problems.append(f"{where}: metadata needs label and value")
+        check_actions(f"{where}: detail", s.get("actions"), problems)
+    elif kind == "form":
+        for f in s.get("fields", []):
+            if not f.get("id") or f.get("type") not in FIELD_TYPES: problems.append(f"{where}: field {f.get('id')!r} needs an id and a type in {FIELD_TYPES}")
+            if f.get("type") == "dropdown" and not f.get("options"): problems.append(f"{where}: dropdown {f.get('id')!r} needs options")
+        sub = s.get("submit") or {}
+        if not sub.get("title") or not sub.get("run"): problems.append(f"{where}: a form needs submit {{title, run}}")
+    else:
+        problems.append(f"{where}: view must be list, detail or form")
+
+
+def run_commands(folder, m, problems, warnings, overrides):
+    """Runs each command the way the command bar will and checks the screen it prints. Extensions that control other
+    apps (manifest "automation") are compiled, not run, unless --allow-automation: running them asks macOS for
+    permission on this Mac."""
+    exe = os.path.join(folder, m["run"])
+    if not os.access(exe, os.X_OK): problems.append("run isn't executable (chmod +x run)"); return None
+    first = open(exe, errors="replace").readline()
+    if "JavaScript" in first or "osascript" in first:
+        out = tempfile.mktemp(suffix=".scpt")
+        lang = ["-l", "JavaScript"] if "JavaScript" in first else []
+        r = subprocess.run(["osacompile", *lang, "-o", out, exe], capture_output=True, text=True)
+        if r.returncode: problems.append(f"doesn't compile: {r.stderr.strip()[:200]}"); return None
+    if m.get("automation") and not OPTS["automation"]:
+        warnings.append(f"controls {', '.join(m['automation'])}: compiled, not run (--allow-automation to run)")
+        return None
+    shown = []
+    for c in m.get("commands", []):
+        if "url" in c or (OPTS["command"] and c["id"] != OPTS["command"]): continue
+        if c.get("mode") == "live": continue
+        data = tempfile.mkdtemp(prefix="omn-check-")
+        env = {"PATH": "/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin", "HOME": os.environ["HOME"],
+               "LANG": "en_US.UTF-8", "OMNINOTCH_VERSION": "2", "OMNINOTCH_DATA": data, "OMNINOTCH_COMMAND": c["id"],
+               "OMNINOTCH_QUERY": OPTS["args"].get("QUERY", "")}
+        for s in m.get("settings", []):
+            env["OMNINOTCH_SETTING_" + s["key"].upper()] = overrides.get(s["key"].upper(), s.get("default", ""))
+        for a in c.get("arguments", []):
+            env["OMNINOTCH_ARG_" + a["name"].upper()] = OPTS["args"].get(a["name"].upper(), a.get("placeholder", "test"))
+        t0 = time.time()
+        try: r = subprocess.run([exe], cwd=folder, env=env, capture_output=True, timeout=10)
+        except subprocess.TimeoutExpired: problems.append(f"{c['id']}: took longer than 10 s"); continue
+        if time.time() - t0 > 3: warnings.append(f"{c['id']}: took {time.time() - t0:.1f} s")
+        if r.returncode: problems.append(f"{c['id']}: exit {r.returncode}: {r.stderr.decode()[:200].strip()}"); continue
+        if not r.stdout.strip(): shown.append({"title": f"{c['id']} (quiet success)"}); continue
+        try: s = json.loads(r.stdout)
+        except Exception: problems.append(f"{c['id']}: output isn't JSON: {r.stdout[:120]!r}"); continue
+        validate_screen(s, c["id"], problems)
+        rows = sum(len(sec.get("items", [])) for sec in s.get("sections", [])) if s.get("view") == "list" else None
+        shown.append({"title": f"{c['id']}: {s.get('view') or 'result'}" + (f" ({rows} rows)" if rows is not None else "")})
+    return shown
+
+
 def check(folder, action=None, overrides=None):
     problems, warnings, icons = [], [], set()
     try:
         m = json.load(open(os.path.join(folder, "manifest.json")))
     except Exception as e:
         return [f"manifest.json: {e}"], [], set(), None
-    v2 = m.get("v") == 2
+    v2, shown_cmds = m.get("v") == 2, None
     for k in ("v", "id", "name") + (() if v2 else ("run",)):
         if k not in m: problems.append(f"manifest: {k} is required")
     if m.get("v") not in (1, 2): problems.append("manifest: v must be 1 or 2")
@@ -122,6 +211,8 @@ def check(folder, action=None, overrides=None):
     if v2:
         check_v2(folder, m, problems, warnings, icons)
         if "run" not in m: return problems, warnings, icons, None      # commands only: nothing to run here
+        shown_cmds = run_commands(folder, m, problems, warnings, overrides or {})
+        if not m.get("every"): return problems, warnings, icons, shown_cmds     # commands only, no Live part
     exe = os.path.join(folder, m.get("run", "run"))
     if not os.access(exe, os.X_OK): return problems + ["run isn't executable (chmod +x run)"], warnings, icons, None
     data = tempfile.mkdtemp(prefix="omn-check-")
@@ -148,6 +239,7 @@ def check(folder, action=None, overrides=None):
     if isinstance(out, dict) and "next" in out and not DURATION.match(str(out["next"])): problems.append("next should be like 15s")
     if len(acts) > 5: warnings.append("only 5 activities show")
     for a in acts: check_activity(a, m.get("actions", {}) or {}, problems, warnings, icons)
+    if m.get("v") == 2 and shown_cmds: acts = acts + shown_cmds                 # Live and commands, both checked
     return problems, warnings, icons, acts
 
 
@@ -157,6 +249,9 @@ def main():
         a = args.pop(0)
         if a == "--action": action = args.pop(0)
         elif a == "--set": k, v = args.pop(0).split("=", 1); overrides[k.upper()] = v
+        elif a == "--command": OPTS["command"] = args.pop(0)
+        elif a == "--arg": k, v = args.pop(0).split("=", 1); OPTS["args"][k.upper()] = v
+        elif a == "--allow-automation": OPTS["automation"] = True
         else: folders.append(a)
     results, all_icons = [], set()
     for f in folders:

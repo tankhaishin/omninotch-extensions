@@ -1,0 +1,41 @@
+{
+  "v": 2,
+  "id": "com.mactoro.emoji-symbols",
+  "name": "Emoji & Symbols",
+  "description": "Find any emoji or symbol by name; copy or paste it.",
+  "about": "Search 1,734 emoji and 439 symbols (arrows, maths, currency, keyboard keys like ⌘ ⌥ ⇧) by their Unicode name. Copy one, or paste it straight into the app you were in.",
+  "category": "Productivity",
+  "icon": "sf:face.smiling",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "emoji",
+      "title": "Search Emoji",
+      "subtitle": "Emoji & Symbols",
+      "mode": "view",
+      "icon": "sf:face.smiling",
+      "keywords": [
+        "emoji",
+        "smiley",
+        "icon"
+      ]
+    },
+    {
+      "id": "symbols",
+      "title": "Search Symbols",
+      "subtitle": "Emoji & Symbols",
+      "mode": "view",
+      "icon": "sf:command",
+      "keywords": [
+        "symbol",
+        "arrow",
+        "math",
+        "currency",
+        "keyboard",
+        "unicode"
+      ]
+    }
+  ]
+}

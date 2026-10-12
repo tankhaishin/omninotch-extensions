@@ -1,0 +1,61 @@
+{
+  "v": 2,
+  "id": "com.mactoro.apple-music",
+  "name": "Apple Music",
+  "description": "Control Music: now playing, play, pause, skip. Play playlists.",
+  "about": "What's playing in Music, with play, pause and skip, and copy the song. Controls Music on this Mac (macOS asks you once to allow it).",
+  "category": "Media",
+  "icon": "app:com.apple.Music",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "automation": [
+    "Music"
+  ],
+  "needs": [],
+  "commands": [
+    {
+      "id": "now-playing",
+      "title": "Now Playing in Music",
+      "subtitle": "Music",
+      "mode": "view",
+      "icon": "sf:music.note",
+      "keywords": [
+        "song",
+        "track",
+        "playing"
+      ]
+    },
+    {
+      "id": "play-pause",
+      "title": "Play or Pause Music",
+      "subtitle": "Music",
+      "mode": "run",
+      "icon": "sf:playpause"
+    },
+    {
+      "id": "next",
+      "title": "Next Track in Music",
+      "subtitle": "Music",
+      "mode": "run",
+      "icon": "sf:forward.end"
+    },
+    {
+      "id": "previous",
+      "title": "Previous Track in Music",
+      "subtitle": "Music",
+      "mode": "run",
+      "icon": "sf:backward.end"
+    },
+    {
+      "id": "playlists",
+      "title": "Play a Playlist",
+      "subtitle": "Music",
+      "mode": "view",
+      "icon": "sf:music.note.list",
+      "keywords": [
+        "playlist"
+      ]
+    }
+  ]
+}

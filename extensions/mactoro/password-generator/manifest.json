@@ -1,0 +1,38 @@
+{
+  "v": 2,
+  "id": "com.mactoro.password-generator",
+  "name": "Password Generator",
+  "description": "Strong passwords and passphrases, made on your Mac.",
+  "about": "Random passwords and easy-to-type passphrases, generated on this Mac from the system's secure random source. Nothing is saved or sent anywhere.",
+  "category": "Productivity",
+  "icon": "sf:key",
+  "author": "Mactoro",
+  "run": "run",
+  "network": false,
+  "commands": [
+    {
+      "id": "password",
+      "title": "Generate Password",
+      "subtitle": "Password Generator",
+      "mode": "view",
+      "icon": "sf:key",
+      "keywords": [
+        "password",
+        "random",
+        "secure"
+      ]
+    },
+    {
+      "id": "passphrase",
+      "title": "Generate Passphrase",
+      "subtitle": "Password Generator",
+      "mode": "view",
+      "icon": "sf:text.word.spacing",
+      "keywords": [
+        "passphrase",
+        "password",
+        "words"
+      ]
+    }
+  ]
+}

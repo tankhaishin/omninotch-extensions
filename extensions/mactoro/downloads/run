@@ -1,17 +1,49 @@
-#!/bin/zsh
-# Downloads: the newest finished file in ~/Downloads (skips files still downloading or still being written).
-js() { local s=$1; s=${s//\\/\\\\}; s=${s//\"/\\\"}; s=${s//$'\n'/ }; print -rn -- "\"$s\""; }   # a JSON string
-seen="$OMNINOTCH_DATA/seen"; last="$OMNINOTCH_DATA/last"; now=$(date +%s)
-case $OMNINOTCH_ACTION in
-  show) [[ -f $last ]] && open -R "$(<$last)"; print -r -- '[]'; exit 0 ;;
-  open) [[ -f $last ]] && open "$(<$last)"; print -r -- '[]'; exit 0 ;;
-esac
-[[ -f $seen ]] || { touch $seen; print -r -- '[]'; exit 0 }      # first run: only what's new from now on (seen's date)
-newest=$(find ~/Downloads -maxdepth 1 -type f ! -name '.*' ! -name '*.crdownload' ! -name '*.download' ! -name '*.part' \
-  -newer $seen -print 2>/dev/null | while read -r f; do t=$(stat -f %m "$f"); (( t <= now - 3 )) && print -r -- "$t	$f"; done | sort -rn | head -1)
-if [[ -n $newest ]]; then
-  file=${newest#*	}; print -r -- $file > $last; touch -r "$file" $seen
-  print -r -- "[{\"v\":1,\"id\":\"dl\",\"title\":\"Downloaded\",\"subtitle\":$(js "${file:t}"),\"icon\":\"sf:arrow.down.circle\",\"tint\":\"live\",\"priority\":\"high\",\"expires\":\"3m\",\"actions\":[{\"title\":\"Show\",\"run\":\"show\"},{\"title\":\"Open\",\"run\":\"open\"}]}]"
-elif [[ -f $last && $(( now - $(stat -f %m "$(<$last)" 2>/dev/null || print 0) )) -lt 180 ]]; then
-  print -r -- "[{\"v\":1,\"id\":\"dl\",\"title\":\"Downloaded\",\"subtitle\":$(js "${$(<$last):t}"),\"icon\":\"sf:arrow.down.circle\",\"tint\":\"live\",\"expires\":\"3m\",\"actions\":[{\"title\":\"Show\",\"run\":\"show\"},{\"title\":\"Open\",\"run\":\"open\"}]}]"
-else print -r -- '[]'; fi
+#!/usr/bin/osascript -l JavaScript
+// Downloads: an OmniNotch extension (FORMATS.md v2). The command bar runs this with OMNINOTCH_COMMAND set and draws the
+// screen it prints. Plain JavaScript for Automation: nothing to install.
+ObjC.import("Foundation"); ObjC.import("AppKit")
+const ENV = $.NSProcessInfo.processInfo.environment
+const env = (k) => { const v = ENV.objectForKey(k); return v.isNil() ? "" : v.js }
+const SA = Application.currentApplication(); SA.includeStandardAdditions = true
+const sh = (cmd) => { try { return SA.doShellScript("export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH; " + cmd).replace(/\r/g, "\n") } catch (e) { return null } }
+const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'"
+const out = (o) => JSON.stringify(o)
+const home = env("HOME")
+const tilde = (p) => p.startsWith(home) ? "~" + p.slice(home.length) : p
+function fileItem(path, extra) {
+  const name = path.split("/").pop()
+  const ext = name.includes(".") ? name.split(".").pop().toLowerCase() : ""
+  const icon = /^(png|jpe?g|gif|heic|webp|tiff?)$/.test(ext) ? "sf:photo" : /^(mov|mp4|m4v)$/.test(ext) ? "sf:film" :
+    /^(pdf)$/.test(ext) ? "sf:doc.richtext" : /^(zip|dmg|pkg|tar|gz)$/.test(ext) ? "sf:doc.zipper" : /^(mp3|m4a|wav|aiff)$/.test(ext) ? "sf:music.note" : "sf:doc"
+  return Object.assign({ id: path, title: name, subtitle: tilde(path.slice(0, path.length - name.length - 1)), icon, keywords: [ext],
+    actions: [{ title: "Open", open: path }, { title: "Show in Finder", reveal: path }, { title: "Copy Path", copy: path, shortcut: "cmd+shift+c" },
+              { title: "Move to Trash", run: "trash", confirm: true, style: "destructive" }] }, extra || {})
+}
+function trash(path) {
+  const ok = $.NSFileManager.defaultManager.trashItemAtURLResultingItemURLError($.NSURL.fileURLWithPath(path), null, null)
+  return ok ? null : out({ toast: "Couldn't move it to the Trash" })
+}
+function ago(sec) {
+  const s = Math.max(0, Date.now() / 1000 - sec)
+  return s < 3600 ? Math.round(s / 60) + " min ago" : s < 86400 ? Math.round(s / 3600) + " h ago" : Math.round(s / 86400) + " d ago"
+}
+function newest(dir, filter, n) {
+  const raw = sh(`cd ${q(dir)} 2>/dev/null && stat -f '%B\t%N' * 2>/dev/null`)
+  if (raw === null) return null
+  return raw.split("\n").filter(Boolean).map((l) => { const i = l.indexOf("\t"); return { t: +l.slice(0, i), name: l.slice(i + 1) } })
+    .filter((f) => !f.name.startsWith(".") && (!filter || filter(f.name))).sort((a, b) => b.t - a.t).slice(0, n)
+    .map((f) => ({ path: dir + "/" + f.name, t: f.t }))
+}
+
+function run() {
+  if (!env("OMNINOTCH_COMMAND")) {                     // a Live run: the notch status comes from ./live
+    const here = $.NSFileManager.defaultManager.currentDirectoryPath.js
+    return sh(`cd ${q(here)} && ./live`) || "[]"
+  }
+  if (env("OMNINOTCH_ACTION") === "trash") { const r = trash(env("OMNINOTCH_ITEM")); if (r) return r }
+  const files = newest(home + "/Downloads", (n) => !/\.(crdownload|download|part)$/.test(n), 120)
+  if (files === null) return out({ view: "detail", title: "Downloads", body: "OmniNotch can't see your Downloads folder yet. Allow it in OmniNotch's Settings → Downloads.",
+    actions: [{ title: "Open Privacy Settings", url: "x-apple.systempreferences:com.apple.preference.security?Privacy_FilesAndFolders" }] })
+  return out({ view: "list", title: "Downloads", placeholder: "Filter downloads…", filter: "local",
+    sections: [{ items: files.map((f) => fileItem(f.path, { accessory: ago(f.t) })) }], empty: { title: "Your Downloads folder is empty" } })
+}
