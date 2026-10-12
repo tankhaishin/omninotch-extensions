@@ -36,7 +36,8 @@ function run() {
       if (!b.isNil() && !b.bundleIdentifier.isNil()) bid = b.bundleIdentifier.js
     }
     const mem = p.mb >= 1024 ? (p.mb / 1024).toFixed(1) + " GB" : Math.round(p.mb) + " MB"
-    return { id: String(p.pid), title: name, subtitle: tilde(p.path), icon: bid ? "app:" + bid : "sf:gearshape",
+    const where = bid ? (m && !p.path.endsWith(".app/Contents/MacOS/" + p.path.split("/").pop()) ? "Helper" : "") : tilde(p.path)
+    return { id: String(p.pid), title: name, subtitle: where, icon: bid ? "app:" + bid : "sf:gearshape",
       accessory: byMem ? mem : p.cpu.toFixed(1) + "%", keywords: [String(p.pid)],
       actions: [{ title: "Quit", run: "quit" }, { title: "Force Quit", run: "force", confirm: true, style: "destructive" },
                 { title: "Copy Process ID", copy: String(p.pid), shortcut: "cmd+shift+c" }] }
