@@ -18,12 +18,14 @@ def updated(path):
 
 def build(out):
     featured = json.load(open(os.path.join(ROOT, "featured.json")))
+    unlisted = set(json.load(open(os.path.join(ROOT, "unlisted.json"))))   # kept in the repo, left out of the store
     items = []
     base = os.path.join(ROOT, "extensions")
     for author in sorted(os.listdir(base)):
         for name in sorted(os.listdir(os.path.join(base, author))):
             folder = os.path.join(base, author, name)
             if not os.path.isdir(folder): continue
+            if f"{author}/{name}" in unlisted: continue
             m = json.load(open(os.path.join(folder, "manifest.json")))
             buf = io.BytesIO()
             with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
